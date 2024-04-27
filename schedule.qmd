@@ -1,0 +1,32 @@
+---
+title: "Course Schedule"
+format: html
+listing:
+  - id: schedule
+    contents:
+      - weeks/week_*.qmd
+    type: table
+    fields: [title, description, subtitle]
+    field-display-names:
+      title: "Week"
+      description: "Dates"
+      subtitle: "Topic"
+    date-format: "MMMM DD, YYYY"
+    sort: [filename]
+    sort-ui: false
+    filter-ui: false
+editor: visual
+---
+
+## Class Schedule
+
+::: {#schedule}
+:::
+
+## Homework
+
+Homework will be due by 12pm Eastern time on the Monday following a lecture.
+
+## Capstone Project
+
+Course participants will have several weeks to complete their capstone project. The teaching team will host office hours to provide targeted support to course participants as they work on their capstone projects.

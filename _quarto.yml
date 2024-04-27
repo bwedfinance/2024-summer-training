@@ -1,0 +1,32 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "School Finance Equity Training, Summer 2023"
+  sidebar:
+    background: primary
+    logo: "images/primary_one-color_reverse.png"
+    pinned: true
+    style: docked
+    contents:
+      - href: index.qmd
+        text: Home
+      - href: syllabus.qmd
+        text: Syllabus
+      - href: schedule.qmd
+        text: Schedule
+     
+format:
+  html:
+    theme: 
+      - cosmo
+      - theme/site_format.scss
+    toc: true
+  revealjs:
+    logo: images/primary_full-color.png
+    theme: theme/slides.scss
+
+    
+    
+    

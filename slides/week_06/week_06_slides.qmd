@@ -1,0 +1,778 @@
+---
+title: "Mapping in R"
+date: "July 18, 2023"
+format:
+  revealjs:
+    chalkboard: true
+execute:
+  freeze: auto
+  echo: false
+---
+
+```{r}
+library(countdown)
+```
+
+# Homework Review
+
+## Streamlining code in our cleaning scripts
+
+-   Initial state data cleaning is looking pretty good!
+-   There are a few code style practices for us to adopt moving forward:
+
+```{r}
+#| echo: true
+#| eval: false
+
+# when reading/writing data, the full file path is not needed
+finance_raw <- read_csv("~/Desktop/BW R Course/capstone/data/state_data.csv")
+
+# only include the portion of the filepath that is within your 
+# project folder, in this case, our project is in the `capstone` folder
+finance_raw <- read_csv("data/state_data.csv")
+
+# these are helpful commands to run in the console to check your dfs
+# but they don't need to be included in your scripts. if you want to keep 
+# them in, please comment them out when theyre not in use!
+
+# View(finance_raw)
+# names(finance_raw)
+
+```
+
+## Viewing homework feedback on GitHub
+
+![](images/gh_comment_1.png){fig-align="center"}
+
+## Viewing homework feedback on GitHub
+
+![](images/gh_comment_2.png){fig-align="center"}
+
+## Viewing homework feedback on GitHub
+
+![](images/gh_comment_3.png){fig-align="center"}
+
+## Additional workflow tips for using git
+
+::: columns
+::: {.column width="50%"}
+-   Be sure to commit and push the data files you're cleaning and joining!
+
+-   After Krista or I submit feedback, be sure to click the "Pull" button in your RStudio project to update your code to reflect the changes we've made.
+
+-   Break your commit and push cycles into small but meaningful chunks
+:::
+
+::: {.column width="50%"}
+![](images/git_pull.png)
+:::
+:::
+
+## Working with `pivot_wider()`
+
+```{r}
+#| echo: true
+#| eval: false
+
+# load -----
+library(tidyverse)
+library(readxl)
+
+options(scipen = 999)
+
+mn_grad_fy22_raw <- read_excel("data/2022 Graduation Indicators.xlsx", 
+                                                              sheet = "District", skip = 4)
+
+# clean ----------
+
+# create df of all grad data with cols for each demographic group  
+mn_all_grad_data_fy22 <- mn_grad_fy22_raw |>
+  # tidy up column names
+  rename_with(tolower) |>
+  rename(county = "county name",
+         district_number = "district number",
+         district = "district name",
+         group_category = "group category",
+         student_group =  "student group",
+         ending_status = "ending status",
+         four_year_count = "four year count",
+         total_cohort_count = "total four year cohort count") |>
+  # calculate pct of cohort
+  mutate(cohort_pct = four_year_count / total_cohort_count) |>
+  select(district_number, district, student_group, ending_status, cohort_pct) |>
+  pivot_wider(names_from = student_group,
+              values_from = cohort_pct)
+
+# create df that only includes graduate rate
+mn_grad_fy22_2 <- mn_all_grad_data_fy22 |> 
+  filter(ending_status == "Graduate")
+
+```
+
+
+<!-- # What should the future of school finance equity look like? -->
+
+<!-- ## The variability in policies and context within and among states makes it impossible to set many hard-and-fast rules. Below are a couple of recommendations. -->
+
+<!-- -   A **student-based state school funding formula** is the best starting point for transparency and equity. -->
+
+<!-- -   Formulas should have **weights that allocate additional funding** for students with disabilities, English language learners, and low-income students, as well as other mechanisms to allocate funding toward school districts serving students with additional educational needs. -->
+
+<!-- ## Using local property tax revenue as the primary method for funding local schools sets inequity into the core of school funding, and ties school funding to the real estate market. -->
+
+<!-- This is not the only way to fund schools. If a state uses local tax revenue as part of its education finance system, there must be strong equity-driven policies in place to balance revenue scales for lower-wealth districts, such as county level revenue pooling for states with smaller districts, and caps, supplementation, or redistributive policies on local tax revenue to counteract inequities created by local funding and to prevent runaway local spending in high-wealth districts. -->
+
+<!-- ## Questions for Advocates {.smaller} -->
+
+<!-- -   Understand your state education finance system -->
+
+<!-- -   What data can you use to show how state funding lines up with student needs, especially for low-income students, students with disabilities, and English language learners? -->
+
+<!-- -   What kind of school funding formula does your state use? -->
+
+<!-- -   If your state does not currently have a student-based formula, how (if at all) does the existing formula consider students' different learning needs? -->
+
+<!-- -   If your state includes weights in its funding formula, how are those weights structured and determined? -->
+
+<!-- -   If a student is eligible to receive multiple weights, does your state's funding formula provide for that? - How much does total funding per student vary among school districts? What differences among districts influence funding the most? -->
+
+<!-- -   How do districts in your state allocate funding to individual schools? -->
+
+<!-- -   Does your state have a process to conduct resource or needs assessments? Can this process be used at the district level? - How have lawsuits shaped the school finance landscape in your state? -->
+
+<!-- -   Is there current school finance litigation in your state? If so, what are the primary arguments, what is the anticipated timeline for a ruling, and what has been the reaction of policymakers to the suit? -->
+
+# Introduction to `sf`
+
+## Overview of the `sf` package
+
+-   There are many R packages that handle spatial data but `sf` is the most modern and easy-to-use.
+
+-   In the `sf` package, spatial data is represented as a *simple feature*, which is a set of standards on how to store spatial objects.
+
+-   Spatial data is represented as a data frame with:
+
+    -   A geography column that lists all the coordinates that make up the shape
+
+    -   "Slots" that hold spatial information
+
+::: callout
+You can learn more about simple features and the sf package [here.](https://r-spatial.github.io/sf/articles/sf1.html)
+:::
+
+## Reading and writing functions in `sf`
+
+-   `sf` uses the Geospatial Data Abstraction Library (GDAL)
+-   Use `st_read` to import all spatial data
+
+`dataframe <- st_read("filepath.filetype")`
+
+-   Use `st_write` to export all spatial data
+
+`st_write(dataframe, "filepath.filetype")`
+
+-   The filetype indicates the type of file you want to write to your computer - called the driver.
+    -   This will most likely be either a shapefile (.shp) or geojson (.geojson)
+
+## Converting lat-long location into simple features
+
+There are a range of shapefiles available that we can use for mapping, but there are cases when we might have other location data, like latitude-longitude pairs, that could be useful to map. The `sf` package has a helpful function that allows us to convert data in latidude and longitude columns into the simple features format.
+
+Convert a dataframe from lat/long to a simple feature using `st_as_sf()`
+
+-   **dataframe**
+-   **coords**: The columns that define x (latitude) and y (longitude)
+-   **crs**: The coordinate system that translate x and y to a location on Earth, provided by using the `st_crs()` function. The most commonly used is `"EPSG:4326"`.
+
+```{r}
+#| echo: true
+#| eval: false
+
+example <- st_as_sf(dataframe = df, 
+                    coords = c("lat", "long"), 
+                    crs = st_crs("EPSG:4326"))
+```
+
+## In-class exercise: Create a simple features object
+
+**Step 1**: At the top of your script, load in the `sf` package and and your clean data into your environment
+
+```{r}
+#| echo: true
+#| eval: true
+#| 
+# load -------
+
+library(tidyverse) 
+library(sf)
+
+options(scipen = 999)
+
+# Load in the Minnesota schools data 
+
+mn_schools <- read_csv(here::here("slides/week_06/data/mn_schools_clean.csv"))
+
+glimpse(mn_schools)
+
+```
+
+## In-class exercise: Create a simple features object
+
+**Step 2**: Turn the Minnesota schools csv file into an `sf` object using the `st_as_sf()` function.
+
+```{r}
+#| echo: true
+#| eval: true
+
+# clean -------
+
+# Convert to sf object for mapping
+mn_schools_shp <- st_as_sf(mn_schools,
+                           coords = c("long", "lat"),
+                           crs = st_crs("EPSG:4326"))
+
+glimpse(mn_schools_shp)
+```
+
+Note: The `sf` dataframe looks like a regular dataframe, except the `lat` and `long` columns have been merged into one column, now called `geometry`
+
+## In-class exercise: Create a simple features object
+
+**Step 3**: Check the projection of your objects using the `st_crs()` function.
+
+```{r}
+#| echo: true
+#| eval: true
+
+# check ----------
+
+# Check the projection of your objects using the st_crs() function 
+
+# QUESTION: Why does this dataframe not have a coordinate system? 
+st_crs(mn_schools)
+
+st_crs(mn_schools_shp)
+
+```
+
+## In-class exsercise: Mapping with `geom_sf()`
+
+```{r}
+#| echo: true
+#| eval: true
+
+# plot ---------------
+
+# simple plot of sf data
+ggplot(mn_schools_shp) +
+  geom_sf() +
+  theme_void()
+
+```
+
+## In-class exsercise: Mapping with `geom_sf()`
+
+-   The `tigris` package provides access to a range of shapefiles from the U.S. Census Bureau
+-   Using the `states()` function, we can download state outlines and then filter for the state we want to use.
+-   Setting the `cb` parameter of the `states()` function to `TRUE` will provide the most generally recognized shape file.
+
+```{r}
+#| echo: true
+#| eval: true
+#| output: false
+
+# get state outline from tigris ----------
+library(tigris)
+
+mn_outline <- states(cb = TRUE) |> 
+  filter(NAME == "Minnesota")
+
+```
+
+## In-class exsercise: Mapping with `geom_sf()`
+
+```{r}
+#| echo: true
+#| eval: true
+#| output-location: slide
+
+library(scales)
+library(viridis)
+
+# plotting multiple geom_sf layers ---------
+ggplot() +
+  geom_sf(data = mn_outline, color = "black") +
+  geom_sf(data = mn_schools_shp, 
+          # we can use aes() to map data just like with geom_point()
+          aes(size = total_enroll,
+              color = bipoc_pct),
+          alpha = .5) +
+  scale_color_viridis(labels = percent_format()) +
+  scale_size_area(max_size = 5,
+                  labels = comma_format()) +
+  labs(color = "Percent BIPOC", 
+       size = "Enrollment",
+       title = "Minnesota School Size, Location, and Demographics") +
+  theme_void()
+```
+
+# Making maps with `edbuildmapr`
+
+## Review: Overview of the `edbuildr` package
+
+-   The goal of `edbuildr` is to import EdBuild's master dataset that includes school district finance, student demographics, and community economic indicators for every school district in the United States.
+-   The master dataset is available for any school year from 2013 to 2019 or longitudinally for all years 2013-2019.
+    -   School year is identified by the end year. For example, the 2018-19 school year is 2019.
+-   The master dataset is build from the:
+    -   U.S. Census Bureau
+    -   Annual Survey of School System Finances (F33), and
+    -   join data from the National Center for Education Statistics, Common Core of Data (CCD), Small Area Income and Poverty Estimates (SAIPE), and Education Demographic and Geographic Estimates (EDGE).
+
+## `edbuildmapr` makes it easier to perform spatial analysis of education data
+
+-   R can use objects called "shapefiles" to create maps
+-   The `edbuildmapr` package makes it easy to produce high-quality maps as you analyze school finance data.
+-   To get started, you will need to install two packages:
+    -   `edbuildmapr`: Simplifies the use of school district shapefiles.
+
+    -   `sf`: Standardizes how to encode spatial vector data.
+
+## LIVE CODING EXAMPLE: Making a state map with `edbuildmapr`
+
+**Step 1**: Load in packages and data from `edbuildmapr` and `edbuild`
+
+```{r}
+#| echo: true
+#| eval: true
+#| output: true
+
+# load -------
+
+options(scipen = 999)
+
+library(edbuildr)
+library(edbuildmapr)
+library(viridis)
+library(scales)
+
+# load in the school district mapping data
+sd_map_raw <- sd_shapepull(data_year = "2019", with_data = TRUE)
+
+# load in raw district finance data
+dist_data_raw <- masterpull(data_type = "geo")
+
+
+```
+
+## LIVE CODING EXAMPLE: Making a state map with `edbuildmapr`
+
+**Step 2**: Filter for your state, create a new variable, and join the data
+
+```{r}
+#| echo: true
+#| eval: true
+
+# filter mapping data for your state
+state_shp_raw <- sd_map_raw |> 
+  # tidy up colnames
+  rename_with(tolower) |> 
+  filter(state == "Kentucky") |>
+  rename(ncesid = geoid) |> 
+  rename_with(tolower) |> 
+  select(ncesid, geometry)
+
+# filter state finance data for your state
+state_data <- dist_data_raw |> 
+  rename_with(tolower) |> 
+  filter(state == "Kentucky")
+
+# join data
+state_shp <- state_shp_raw |> 
+  left_join(state_data, by = "ncesid") |> 
+  mutate(pct_sr = srpp / slrpp)
+
+```
+
+## LIVE CODING EXAMPLE: Making a state map with `edbuildmapr`
+
+**Step 3**: Plot a basic map
+
+```{r}
+#| echo: true
+#| eval: true
+#| output-location: slide
+
+# plot a basic map
+ggplot()  + 
+  geom_sf(data = state_shp, aes(fill = pct_sr)) +
+  theme_void()
+
+```
+
+## LIVE CODING EXAMPLE: Making a state map with `edbuildmapr` {.smaller}
+
+The map looks okay, but there is a lot we can improve!
+
+**Step 4**: Make several aesthetic changes
+
+-   Change the color of the lines to white within `geom_sf()`
+-   Reverse the direction of the color scale within `scale_fill_viridis()`
+-   Add a title, subtitle, and source caption within `labs()`
+
+```{r}
+#| echo: true
+#| eval: true
+#| output-location: slide
+
+# load -------
+
+# Make several aesthetic changes
+ggplot() + 
+  geom_sf(data = state_shp, 
+          aes(fill = pct_sr),
+          color = "#ffffff") +
+  theme_void() +
+  scale_fill_viridis(name = "Percent K-12 Budget\nfrom State Revenue (%)",
+                     labels = percent_format(accuracy = 1), 
+                     direction = -1) +
+  labs(
+    title = "School Districts' Reliance on State Revenue",
+    subtitle = "Percent of District K-12 Revenue From State, 2018-19",
+    caption = "Source: EdBuild")
+
+```
+
+## LIVE CODING EXAMPLE: Making a state map with `edbuildmapr`
+
+**Step 5**: Make your own color palette and create bins to more clearly break up your data!
+
+```{r}
+#| echo: true
+#| eval: true
+#| output-location: slide
+
+# load -------
+
+# create custom color palette
+bw_state_revenue <- c("#BEC6CE", "#FFC762", "#007786", "#212B46", "#6D1E4A")
+
+# plot another nicely-formatted map
+ggplot()  + 
+  geom_sf(data = state_shp,
+          aes(fill = pct_sr),
+          color = "#ffffff") +
+  theme_void() +
+  scale_fill_stepsn(breaks=c(0, .3, .5, .7, 1), # Breaks up the data
+                    colors = bw_state_revenue, 
+                    name="State K-12 Revenue (%)",
+                    labels=percent_format(accuracy = 1L)) + 
+  labs(
+    title = "School Districts' Reliance on State Revenue",
+    subtitle = "Percent of District K-12 Revenue From State (2019)",
+    caption = "Source: EdBuildr Data, 2019")
+
+```
+
+You can export your map like any other plot via `ggsave()`
+
+## State Group Activity: Making maps with `edbuildr` data
+
+-   Clone the `hw06-` repo, which should be available via GitHub.
+-   Open this example script: `scripts/edbuildmapr_example.R`.
+-   In small groups or your state teams, pull in data from `edbuildr` and `edbuildmapr` for your state and create a map!
+-   Play around with the colors, fills, and variables.
+-   Be prepared for at least one person in your group to share their map!
+
+Alex and Krista will be circulating to answer questions. Feel free to also come back into the main room if you have questions!
+
+# Break
+
+```{r}
+
+countdown(minutes = 10, font_size = "1.5em")
+
+```
+
+# Introduction to the `leaflet` package
+
+## `leaflet` is an interactive mapping package
+
+-   The `leaflet()` function creates a blank, interact map canvas in your RStudio viewer pane
+-   Based on `leaflet.js`, which is a javascript library.
+    -   Most common javascript library for making maps
+-   You can add elements to the map canvas using the generic `addControl()` function:
+    -   `addProviderTiles()`: Add a basemap
+
+    -   `addCircleMarker()` and `addMarker()`: Adds a point layer
+
+    -   `addPolylines()`: Adds a line layer
+
+    -   `addPolygons()`: Adds a polygon layer
+
+<!-- ## Map location with `leaflet` -->
+
+<!-- Once a layer is added, the map will automatically zoom to the boundaries of the data that you've included in your layer. This is also referred to as the extent of the layer. -->
+
+<!-- -   To change the boundaries of the data you've included in your layer -->
+
+<!-- `fitBounds(lng1, lat1, lng2, lat2)` -->
+
+<!-- ::: callout -->
+
+<!-- lng1, lat1 is the Southeast corner of the map. lng2, lat2 is the Northwest corner of the map. -->
+
+<!-- ::: -->
+
+<!-- -   To center the map on a point and define the zoom level -->
+
+<!-- `setView(lng = , lat = , zoom = )` -->
+
+## In-class exercise: Mapping with `leaflet`
+
+**Step 1**: Load packages and then download and clean data
+
+```{r}
+#| echo: true
+#| eval: false
+
+# load -------------
+
+library(tidyverse)
+library(edbuildr)
+library(edbuildmapr)
+library(viridis)
+library(scales)
+library(sf)
+library(leaflet)
+
+# load in the school district mapping data
+sd_map_raw <- sd_shapepull(data_year = "2019", with_data = TRUE)
+
+dist_data_raw <- masterpull(data_type = "geo")
+
+# clean ----------------
+
+# filter mapping data for your state
+state_shp_raw <- sd_map_raw |> 
+  # tidy up colnames
+  rename_with(tolower) |> 
+  filter(state == "Kentucky") |>
+  rename(ncesid = geoid) |> 
+  rename_with(tolower) |> 
+  select(ncesid, geometry)
+
+# filter finance data for your state
+state_data <- dist_data_raw |> 
+  rename_with(tolower) |> 
+  filter(state == "Kentucky")
+
+# join data
+state_shp <- state_shp_raw |> 
+  left_join(state_data, by = "ncesid") |> 
+  mutate(pct_sr = srpp / slrpp) |> 
+  st_transform(st_crs("EPSG:4326"))
+
+```
+
+## In-class exercise: Mapping with `leaflet`
+
+**Step 2**: Create leaflet map with a base layer
+
+```{r}
+#| echo: true
+#| eval: false
+# load -------
+library(leaflet)
+
+# Create a leaflet map with a base layer 
+
+leaflet() |>
+  addProviderTiles(provider = "CartoDB.Positron") 
+
+```
+
+There are many base layer options available for `leaflet`; [check them out here](https://leaflet-extras.github.io/leaflet-providers/preview/).
+
+## In-class exercise: Mapping with `leaflet`
+
+**Step 3**: Add a layer of district shapes as polygons
+
+```{r}
+#| echo: true
+#| eval: false
+
+# add district shapes
+leaflet() |>
+  addProviderTiles(provider = "CartoDB.Positron") |>
+  addPolygons(data = state_shp)
+
+```
+
+## In-class exercise: Mapping with `leaflet`
+
+**Step 4**: Define the color and border thickness of polygons
+
+```{r}
+#| echo: true
+#| eval: false
+
+# define the color and thickness of borders 
+leaflet() |>
+  addProviderTiles(provider = "CartoDB.Positron") |>
+  addPolygons(data = state_shp,
+                   color = "#ababab",
+                   weight = .5)
+
+```
+
+## Adding a popup to your `leaflet` map
+
+The **popup** parameter defines the text that displays when you click on an object in your **leaflet** map.
+
+-   Combine reactive data elements with text using the **paste0()** function
+
+`popup = paste0("School: ",  ga_schools_shp$school, "<br> Enrollment: ", ga_schools_shp$total_enroll)`
+
+::: callout
+Note: A few considerations when adding the popup parameter:
+
+-   Make sure that you put the text within quotes
+-   Use **dataframe\$** to call the variables you want to use
+-   \<br\> is the line break html tag, which starts a new line
+:::
+
+## In-class exercise: Mapping with `leaflet`
+
+**Step 5**: Add a popup layer
+
+```{r}
+#| echo: true
+#| eval: false
+
+# add a popup layer
+leaflet() |>
+  addProviderTiles(provider = "CartoDB.Positron") |>
+  addPolygons(data = state_shp,
+              color = "#ababab",
+              weight = .5,
+              popup = paste0("District: ",
+                             str_to_title(state_shp$name), 
+                             "<br> Enrollment: ", 
+                             comma(state_shp$enroll),
+                             "<br> Percent state revenue: ",
+                             percent(state_shp$pct_sr, accuracy = .1)))
+
+```
+
+## There are many other parameters you can style in your `leaflet` map
+
+-   `stroke`: Outline of the circles or polygons
+-   `color`: Outline color
+-   `weight`: Thickness of the outline
+-   `opacity`: Transparency out the outline from 0 (transparent) to 1 (opaque)
+-   `fill`: Inside of the circle or polygon
+-   `fillcolor`: Inside color
+
+::: callout
+You can define colors with the hex code or by referencing one of the color names included in base R.
+:::
+
+## In-class exercise: Mapping with `leaflet` {.smaller}
+
+**Step 6**: Create a more advanced map with dynamic fill and a legend
+
+```{r}
+#| echo: true
+#| eval: false
+
+# advanced leaflet example ------------------
+
+bw_primary <- c("#6D1E4A", # 1 plum
+                "#007786", # 2 teal
+                "#0D525A", # 3 dark green
+                "#212B46", # 4 navy
+                "#5A6675", # 5 grey
+                "#F0DEC1") # 6 cream
+
+bw_secondary <- c("#FFC762", # 1 yellow
+                  "#FFB653", # 2 orange
+                  "#BEC6CE", # 3 light grey
+                  "#2E1A4A", # 4 deep purple
+                  "#7EA2D1", # 5 soft blue
+                  "#CAD3FB", # 6 lavender
+                  "#9CD4EA", # 7 sky
+                  "#FFA497") # 8 peach
+
+# define breaks for fill variable
+state_rev_breaks <- c(0, .4, .6, .7, .8, 1)
+
+# define custom color palette
+bw_scale <- c(bw_primary[6],
+              bw_secondary[1],
+              bw_primary[2],
+              bw_primary[3],
+              bw_primary[4])
+
+# create color palette object
+state_rev_palette <- colorBin(palette = bw_scale,
+                              domain = state_shp$pct_sr,
+                              bins = state_rev_breaks,
+                              na.color = bw_primary[5]) 
+
+# create advanced leaflet map
+leaflet() |>
+  addProviderTiles(provider = "CartoDB.Positron") |>
+  addPolygons(data = state_shp,
+              color = "#ababab",
+              weight = .5,
+              popup = paste0("District: ",
+                             str_to_title(state_shp$name), 
+                             "<br> Enrollment: ", 
+                             comma(state_shp$enroll),
+                             "<br> Percent state revenue: ",
+                             percent(state_shp$pct_sr, accuracy = .1)),
+              fillColor = ~ state_rev_palette(pct_sr),
+              fillOpacity = .8) |> 
+  addLegend("topright", 
+            opacity = .8,
+            pal = state_rev_palette,
+            values = state_shp$pct_sr,
+            labFormat = labelFormat(
+              suffix = "%", between = " - ",
+              transform = function(x) 100 * x
+            ),
+            title = "Percent state revenue")
+
+```
+
+::: callout
+Notice there is a "\~" after the "=" in the "fillColor" parameter
+:::
+
+## Exporting a `leaflet` map
+
+::: columns
+::: {.column width="50%"}
+-   Any map you generate with `leaflet` can be exported as a standalone HTML document.
+
+-   Without too much effort, you can publish this map yourself on GitHub (we can help you do this), embed it as an iframe on an existing webpage, or publish it as a standalone webpage. Those last two options may require support from your organization's web developer.
+:::
+
+::: {.column width="50%"}
+![](images/leaflet-export.png){fig-align="center"}
+:::
+:::
+
+# Homework
+
+**Reading**
+
+-  [***Balancing Act: How States Can Address Local Wealth Inequity in Education Finance***](https://bellwether.org/publications/balancing-act/)
+
+**Coding Task**
+
+Use the `hw06_map_template.R` file in the `/scripts` folder to complete the following tasks:
+
+-   Create at least three production-quality maps of district-level finance data for your state.
+-   Ensure that at least one of your maps includes state per-pupil funding as the `fill` variable.
+-   Be sure to use the `ggsave()` commands to save your final maps in the `/figures` folder.

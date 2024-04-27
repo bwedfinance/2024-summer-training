@@ -1,0 +1,61 @@
+---
+title: "Syllabus"
+format: html
+---
+
+## Course Learning Objectives
+
+By the end of the course, you will...
+
+-   Learn key policy elements of a state school finance system and best practices for equity.
+
+-   Learn best practices for importing and cleaning data and processing it into datasets.
+
+-   Develop techniques for answering common research questions.
+
+-   Visualize analysis of education finance data and export the results as static or interactive tables, plots, and maps.
+
+-   Learn principles of how to leverage [NCES](https://nces.ed.gov/ccd/) and [U.S. Census](https://walker-data.com/tidycensus/) data to assess and compare equity in education revenue and model the impact of changes in revenue.
+
+-   Complete a capstone project that shows the potential impact of changes to the school funding formula in participants' states.
+
+## Reading List
+
+| Title                                                                                                                                                  | Authors                                  | Source                                          |
+|-----------------------------------------|----------------|----------------|
+| [R for Data Science](http://r4ds.had.co.nz/)                                                                                                           | Wickham, Grolemund, Çetinkaya-Rundel     | [GitHub](https://github.com/hadley/r4ds/), 2023 |
+| [Splitting the Bill: Understanding Education Finance Equity](https://bellwether.org/publications/splitting-the-bill/)                                  | Spurrier, Dammu, O'Keefe, O'Neal Schiess | Bellwether, 2022                                |
+| [Balancing Act: How States Can Address Local Wealth Inequity in Education Finance](https://bellwether.org/publications/balancing-act/)                 | Dammu, O'Keefe, O'Neal Schiess           | Bellwether, 2022                                |
+| [Making Change: A State Advocacy Playbook for Equitable Education Finance](https://bellwether.org/publications/making-change/)                         | Dammu, O'Keefe                           | Bellwether, 2023                                |
+| [Priced Out of Public Education: District Lines, Housing Access, and Inequitable Educational Options](https://bellwether.org/publications/priced-out/) | Spurrier, Hodges, O'Neal Schiess         | Bellwether, 2021                                |
+
+## Communication
+
+All lecture notes, assignment instructions, an up-to-date schedule, and other course materials may be found on the course website.
+
+Announcements will be emailed periodically. Please check your email regularly to ensure you have the latest announcements for the course.
+
+## Activities & Assessment
+
+### Lectures
+
+During lectures, you will learn and apply key principles of school finance policy and data analysis.
+
+### Homework
+
+Homework assignments will present an opportunity to apply what you've learned during lecture to your state's school finance context.
+
+### Capstone Project
+
+The purpose of the capstone project is to apply what you've learned throughout the course to model school finance policy reforms in your state.
+
+## Course policies
+
+### Late work & extensions
+
+The due dates for assignments are there to help you keep up with the course material and to ensure the teaching team can provide feedback within a timely manner. We understand that things come up periodically that could make it difficult to submit an assignment by the deadline. If this happens, please communicate with the instructor team in a timely manner to ensure you stay on-track in the course.
+
+## Important dates
+
+-   **June 6:** Classes begin
+-   **August 29**: Capstone project due

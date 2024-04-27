@@ -1,0 +1,738 @@
+---
+title: "Introduction to Education Finance Equity & R"
+date: "June 6, 2023"
+format: 
+  revealjs:
+    chalkboard: true
+execute:
+  freeze: auto
+  echo: false
+  message: false
+  warning: false
+---
+
+```{r}
+#| output: false
+
+
+library(tidyverse)
+library(countdown)
+library(tigris)
+library(sf)
+library(scales)
+
+
+bw_primary <- c("#6D1E4A", # 1 plum
+                "#007786", # 2 teal
+                "#0D525A", # 3 dark green
+                "#212B46", # 4 navy
+                "#5A6675", # 5 grey
+                "#F0DEC1") # 6 cream
+
+bw_secondary <- c("#FFC762", # 1 yellow
+                  "#FFB653", # 2 orange
+                  "#BEC6CE", # 3 light grey
+                  "#2E1A4A", # 4 deep purple
+                  "#7EA2D1", # 5 soft blue
+                  "#CAD3FB", # 6 lavender
+                  "#9CD4EA", # 7 sky
+                  "#FFA497") # 8 peach
+
+
+
+us_states_raw <- states(resolution = "20m", cb = TRUE) 
+
+us_states <- us_states_raw |> 
+  filter(GEOID < 60) |> 
+  shift_geometry() 
+
+summer23 <- tibble(STUSPS = c("PA", "DE", "AL", "MI", "GA","NY",
+                              "MS",
+                              "CO","CA", "IL", "IN",
+                              "OH", "MN","TN", "FL"),
+                   status = c(rep("Cohort 3", 7),
+                             
+                              rep("Cohort 2", 4),
+                              rep("Cohort 1", 4))) |> 
+  mutate(status = factor(status))
+
+summer23_states <- us_states |> 
+  left_join(summer23, by = "STUSPS")
+
+```
+
+# Introductions
+
+## Agenda
+
+-   Introductions (15 min)
+
+-   Course Overview (5 min)
+
+-   Introduction to Education Funding Policy (30 min)
+
+-   Introduction to R and RStudio (25 min)
+
+-   Break (10 min)
+
+-   RStudio Setup and Workflow Tips (10 min)
+
+-   Introduction to Git and GitHub (20 min)
+
+-   Homework assignment (5 min)
+
+## Meet your instructors {.smaller}
+
+::: columns
+::: {.column width="50%" style="text-align: center"}
+![](img/spurrier.jpg){.instructor-img fig-align="center"}
+
+**Alex Spurrier**, Associate Partner
+
+<br>
+
+![](img/schiess.jpg){.instructor-img fig-align="center"}
+
+**Jennifer Schiess**, Senior Partner & Policy and Evaluation Practice Leader
+:::
+
+::: {.column width="50%" style="text-align: center"}
+![](img/kaput.jpg){.instructor-img fig-align="center"}
+
+**Krista Kaput**, Senior Analyst
+
+<br>
+
+![](img/okeefe.jpg){.instructor-img fig-align="center"}
+
+**Bonnie O'Keefe**, Senior Associate Partner
+:::
+:::
+
+## Your cohort is part of a growing network of education finance advocates
+
+```{r}
+
+ggplot(summer23_states, aes(fill = status)) +
+  geom_sf(color = "white") +
+  scale_fill_manual(values = c(
+                               bw_primary[3], 
+                               bw_primary[2], 
+                               bw_secondary[2]),
+                    na.value = bw_secondary[3]) +
+  labs(fill = "Training\nCohort") +
+  theme_void() +
+  theme(text = element_text(family = "Avenir"))
+```
+
+## Getting to know Cohort 3
+
+::: columns
+::: {.column width="50%"}
+![](https://media.giphy.com/media/XDYIuWmMqeEKmqEfEp/giphy.gif){fig-align="center" width="450"}
+
+```{r}
+countdown(minutes = 10, font_size = "1.5em")
+```
+:::
+
+::: {.column width="50%"}
+Please share your:
+
+-   Name
+-   State
+-   Organization
+-   Role
+-   Any prior experience with R?
+-   Why did you take this course?
+:::
+:::
+
+# Course Overview
+
+## Goals for this course
+
+::: callout
+Our primary goal is to prepare advocates to leverage data analysis and policy knowledge to advocate effectively for school finance reforms that can improve the educational success of historically underserved students.
+:::
+
+We will achieve this by helping you:
+
+-   Learn R for data analysis and visualization
+
+-   Develop an understanding of K-12 school funding policies nationally and deep understanding of your state's system, specifically
+
+-   Use R to support in-depth education finance analysis that is:
+
+    -   Organized
+
+    -   Well-documented
+
+    -   Reproducible
+
+-   Produce high-quality, effective data visualizations to make your analysis a more powerful, easy-to-understand tool for advocacy
+
+## Course website and class structure
+
+::: columns
+::: {.column width="50%"}
+[**Course website**](https://bwedfinance.github.io/training_summer2023/)
+
+-   Schedule
+-   Slides
+-   Homework
+-   Lecture recordings
+:::
+
+::: {.column width="50%"}
+**Class structure**
+
+-   Review homework (15 min)
+-   Lecture (60 min)
+-   Break (10 min)
+-   In-class exercise (30 min)
+-   Homework (5 min)
+:::
+:::
+
+## Course calendar {.smaller}
+
+| Week | Class Date | Detail                                         |
+|:----:|------------|------------------------------------------------|
+|  01  | June 6     | Introduction to education finance equity and R |
+|  02  | June 13    | Basic data analysis and visualization in R     |
+|  03  | June 20    | Deep-dive on education finance policy          |
+|  04  | June 27    | Data cleaning and processing in R              |
+|  05  | July 4     | NO CLASS THIS WEEK                             |
+|  06  | July 11    | Reproducible data analysis in R                |
+|  07  | July 18    | Mapping in R, part 1                           |
+|  08  | July 25    | Mapping in R, part 2                           |
+|  09  | August 1   | Building interactive visualizations            |
+|  10  | August 8   | Modeling state funding policy proposals in R   |
+|  11  | August 15  | OFFICE HOURS --- CAPSTONE WORK WEEK            |
+|  12  | August 22  | OFFICE HOURS --- CAPSTONE WORK WEEK            |
+|  13  | August 29  | Capstone presentations                         |
+
+# Introduction to Education Finance Policy
+
+## Key goals of funding reform: adequacy and equity
+
+School funding systems are typically assessed on two fronts: **adequacy** and **equity**.
+
+-   Adequacy: Is there **enough funding**?
+
+-   Equity: Is the funding **distribution aligned with student needs**?
+
+## Why does education finance equity matter?
+
+::: callout
+The longstanding and persistent reality is that vast funding inequities in our state public education systems render the education available to millions of American public school students profoundly unequal."
+
+-- U.S. Commission on Civil Rights, 2018
+:::
+
+School finance equity is a critical component of educational equity overall. In an equitable school finance system, schools would receive funds they need to provide a high-quality education for all students. School funding should be based on the needs of students, not the property wealth of individual communities or a checklist of programs.
+
+**Across the country, almost no states have fully achieved this goal.**
+
+Inequity in school finance holds back countless other efforts to improve educational outcomes. Achieving both adequacy (enough funding) and equity (funding distributed to where it is most needed) will not solve every educational problem, but it will enable more schools to provide their students with an excellent education.
+
+## Follow the money: where does it all come from?
+
+```{r}
+
+rev_source_sy20 <- tibble(rev_source = c("Federal", "State", "Local"),
+                          rev_pct = c(7.6,	47.5,	44.9),
+                          rev_label = c("7.6%",	"47.5%",	"44.9%")) |> 
+  mutate(rev_source = factor(rev_source, levels = c("State", "Local", "Federal")))
+
+ggplot(rev_source_sy20,
+       aes(x = "", y = rev_pct, fill = rev_source)) + 
+  geom_col() +
+  geom_text(aes(label = rev_label),
+             color = "white",
+             position = position_stack(vjust = 0.5),
+             show.legend = FALSE) +
+  coord_polar("y", start=0) +
+  labs(fill = "Revenue Source",
+       title = "K-12 School Revenue by Source, 2019-20") +
+  scale_fill_manual(values = c(bw_primary[3], bw_primary[2], bw_primary[1])) + 
+  theme_void()+
+  theme(text = element_text(family = "Avenir", size = 16))
+
+```
+
+::: aside
+Source: [NCES](https://nces.ed.gov/programs/digest/d22/tables/dt22_235.10.asp)
+:::
+
+## Follow the money: where does it all come from?
+
+::: panel-tabset
+### Local revenue
+
+-   Large share of K-12 funding.
+
+-   Relatively stable (property taxes).
+
+-   Inherently inequitable.
+
+### State revenue
+
+-   Large share of K-12 funding, tending to direct more to higher-need districts,
+
+-   More volatile revenue sources compared to property taxes (income, sales, etc. taxes).
+
+-   Intended to address inequities in local revenue, but rarely achieves that goal.
+
+### Federal revenue
+
+-   Relatively small share of K-12 funding.
+
+-   Majority of federal dollars are allocated through to serve low-income students (Title I) and students with special learning needs (IDEA), along with other specific funding streams like school meal programs.
+
+-   In recent decades, there have been waves of stimulus funding directed at K-12 schools in the wake of the Great Recession and the COVID-19 pandemic.
+:::
+
+## State funding formulas *should* try to balance the scales, but they're already starting from behind
+
+State school funding formulae generally try to achieve a few objectives:
+
+-   Distribute state funds
+-   Balance the scales for lower-wealth and/or higher-need districts that cannot easily generate sufficient local revenue to educate their students
+-   Set guardrails on local funding to reduce inequities generated by wealthier districts (sometimes)
+
+## Equity should be the primary goal for states' funding formulae, but it's a massive challenge that varies from state to state
+
+These factors drive the complexity of building a well-functioning state funding formula:
+
+-   Number of districts
+-   Range of economic disparities between school districts
+-   Student population size and learning needs
+-   Geographical features (concentrated poverty, rurality, etc.)
+-   **Political dis-incentives to change**
+
+## There are many ways to measure within-state inequities in funding, but it's a big issue {.smaller}
+
+[EdBuild, 2015](http://viz.edbuild.org/maps/2016/cola/resource-inequality/#_ftn2):
+
+> "On average, high-poverty school districts in each state receive 5%, or \$500 less per student than wealthy ones do. Some states are much, much worse...In only six states do students in high-poverty districts receive at least 10% more funding than those in low-poverty districts."
+
+[The Education Trust, 2018](https://edtrust.org/resource/funding-gaps-2018/):
+
+> "School districts serving the largest populations of Black, Latino, or American Indian students receive roughly \$1,800, or 13 percent, less per student in state and local funding than those serving the fewest students of color."
+
+[Rutgers University and the Albert Shanker Institute, 2021](https://www.schoolfinancedata.org/wp-content/uploads/2021/03/SFID_DCDbrief_Mar2021.pdf):
+
+> "Spending in most states' high-poverty districts is below our estimated required levels, while spending in low-poverty districts is typically above the targets...even in states where, according to our estimates, funding overall seems to be adequate across poverty groups, there are still districts left behind."
+
+## We are focused on inequities at the district level, where state laws shape funding distribution
+
+Relying on local property taxes to fund local schools (as most states do) ties school funding closely to housing and property wealth, fueling disparities in funding by race, ethnicity, and class --- **unless states act to balance the scales.**
+
+::: callout
+**Example**
+
+-   Taxable property wealth in Bridgeport, Connecticut, is equivalent to more than **\$500,000 per pupil**.
+-   Neighboring Fairfield, Connecticut, has nearly **\$2 million in taxable property wealth per pupil**.
+-   For these communities to generate the same amount of per-pupil funding for their local public schools, Bridgeport would need to tax itself at a significantly higher rate than Fairfield. So lower wealth communities often pay taxes at a higher rate to generate less funds than their neighbors.
+-   And districts like Bridgeport with lower property wealth and higher-needs students rely on states to fill the gap. Which doesn't always happen.
+:::
+
+**Proposals to address that challenge** -- changing structuring funding formulas to align with student needs rather than political clout -- **face huge barriers**.
+
+## How can we assess state funding policies?
+
+School finance reform is often prompted by court action (or the potential for court action). School finance litigation has historically focused on one or both of two standards:
+
+-   Adequacy: Is there enough funding in the system to enable schools to meet the state's educational mandate?
+-   Equity: Are resources distributed fairly across communities?
+
+Our working framework for assessing state finance policies considers four principles:
+
+::: panel-tabset
+### Adequacy
+
+Is enough funding generated to support high-quality educational opportunities for all students?
+
+### Equity
+
+Is funding distributed to account for differences in student and community need?
+
+### Transparency
+
+Can the public easily access funding data and formula documentation?
+
+### Responsiblity
+
+Are state policymakers empowered to adjust state funding formulas to account for changing student and community needs?
+:::
+
+## There are different ways for states to distribute educational dollars -- some are better-aligned to student needs than others {.smaller}
+
+::: callout
+Our perspective, in this course and in general, is that student-based, weighted funding formulas are the best structure to meet our 4 principles.
+
+But that structure alone will not ensure equity and adequacy.
+:::
+
+| Category           | Definition                                                                                                                                                                                                                                                                                                                                                   |
+|--------------------------|----------------------------------------------|
+| **Student-based**  | School districts receive funding based on the number of students enrolled or in attendance. In many cases, districts may additionally receive funding weights or supplement based on anticipated student learning needs, with extra funds tied to characteristics of enrolled students, such as low income, disability, and/or status as an English learner. |
+| **Program-based**  | This system allocates dollars to school districts based on the cost of educational programs within those districts.                                                                                                                                                                                                                                          |
+| **Resource-based** | School districts receive funding based on the anticipated cost of resources and inputs, such as staff salaries and instructional materials.                                                                                                                                                                                                                  |
+
+## School finance reform efforts can be helped -- or hindered -- by several conditions in your state
+
+| **Condition**         | **Questions to consider in your state**                                                                                         |
+|---------------|---------------------------------------------------------|
+| **Coalitions**        | Are there aligned and influential advocates and/or coalitions?                                                    |
+| **Champions**         | Is there political appetite for funding reform in the state?                                                      |
+| **Research capacity** | Is there sufficient evidence and technical capacity in the state to make the case for and advance funding reform? |
+| **State finances**    | Is the fiscal situation in the state conductive to K-12 funding reform?                                           |
+| **Lawsuits**          | Could funding reform be aided by current or past litigation?                                                      |
+
+:::aside
+Source: [Making Change](https://bellwether.org/wp-content/uploads/2023/02/MakingChange_Bellwether_January2023.pdf)
+:::
+
+## Advocates need to be at the table with good data to help more states adopt better funding formulas
+
+Too many states have outdated, inequitable, and/or inadequate school funding formulas, created over the course of decades of political compromise, intentionally complex and opaque, understood by a select few with disincentives to change.
+
+To change this status quo, advocates need better technical capacity:
+
+> "The ability to use rigorous data and research to help define the problem and identify potential remedies can help build a compelling, evidence-based case for why policymakers should act."
+>
+> -- Dammu & O'Keefe, [Making Change](https://bellwether.org/wp-content/uploads/2023/02/MakingChange_Bellwether_January2023.pdf)
+
+::: callout
+**The ultimate change we hope to achieve through this course:**
+
+More states across the country with adequate, equitable, transparent funding formulas that set the conditions for higher levels of student success.
+:::
+
+# Introduction to R and RStudio
+
+## What are R and RStudio and how do they work together?
+
+**R** is a statistical programming language. **RStudio** is a graphical user interface (GUI) that allows R users to better organize and execute R code.
+
+![](https://d33wubrfki0l68.cloudfront.net/0b4d0569b2ddf6147da90b110fbb2a17653c8b08/f06f3/images/shutterstock/r_vs_rstudio_1.png)
+
+::: aside
+Source: [Modern Drive](https://moderndive.com/1-getting-started.html)
+:::
+
+## Compared to other data analysis tools, R and RStudio are more powerful and precise -- it's a blessing and a curse
+
+![](img/excel_bike_r_porsche.png){fig-align="center"}
+
+## Working in R with RStudio allows for highly reproducible data analysis and straightforward quality checking {.smaller}
+
+**One of the best features of R is that it is *very* surly**.
+
+-   It will not do anything to your data unless you explicitly tell it to do so
+-   Contrast this with Excel, which often tries to be helpful with auto-formatting
+
+**Data analysis in R is easy to reproduce**
+
+-   R code "reads" data from your hard drive into a working environment for cleaning and analysis
+-   Anyone with the same raw data files and R scripts can run the code and produce the same results
+-   It will NOT edit underlying data files unless you explicitly write code to do so R's surly nature is very helpful in this respect
+
+**Conducting quality checks in R scripts is much easier than in Excel workbooks**
+
+-   Every step of data cleaning and analysis is clearly articulated, in order.
+-   Working with R scripts minimizes the potential for ["fat finger" errors](https://www.theguardian.com/business/2022/jun/03/flash-crash-set-off-by-fat-fingered-citigroup-trader-could-cost-50m).
+
+## RStudio's interface is divided into quadrants that allow users to edit and run code, view plots, and read help docs
+
+![](img/rstudio_setup.png){fig-align="center"}
+
+## At its core, R allows you to work with variables and functions
+
+In the R environment, data is stored in variables that can be manipulated using functions.
+
+The most basic functions in R are called *operators*:
+
+-   The most important operator is the assignment arrow: `<-`
+-   Used to store value in a new or existing variable `x <- 3`
+-   Basic operators include: `+, - , /, *, %, ^`
+-   R comes pre-installed with functions that perform commonly-used operations: `sum()`, `mean()`, `median()`, `percentile()`
+
+## Variables in R mostly include a few different types
+
+Variables can have different types:
+
+-   Integer `3`
+-   Float (decimal) `3.14`
+-   Character `“pi”`
+-   Factor (categorical, ordered variable) `“Low”, “Medium”, “High”`
+
+## Variables can be stored as single values or as *vectors* of multiple values
+
+```{r}
+#| echo: true
+library(tidyverse)
+
+x <- 3 # <1>
+
+y <- c(2, 4, 5) # <2>
+z <- c("a", "b", "c") # <2>
+
+df <- tibble(letters = z, nums = y) # <3>
+
+df #<4>
+
+```
+
+1.  Variables can be stored on their own.
+2.  Or as a *vector* of multiple variables of the same type.
+3.  Vectors can be joined together to create *dataframes* (tables) using a range of functions.
+4.  If you just run variable name in your code, R will print out its contents.
+
+## CODING EXAMPLE -- Basic R use {.scrollable}
+
+```{r}
+#| echo: true
+
+# basic r use ------------
+
+# creating variables using the assignment operator "<-"
+var1 <- 12
+var2 <- 34
+
+# you can do operations on variables
+var1 + var2
+
+# we need to store them as a new variable
+var1_var2_sum <- var1 + var2
+
+# you can group variables together in a vector using the 
+# concatenate function "c()" to create vectors
+var_values <- c(var1, var2)
+var_names <- c("Tom Brady", "Nolan Ryan")
+
+# you can run functions across the values in a vector
+mean(var_values)
+
+# individual positions in vectors can be referenced
+var_names[1]
+
+# vectors of equal length can be grouped into tables, called dataframes
+athlete_df <- data.frame(name = var_names, jersey = var_values)
+
+# column names are referenced using "$"
+athlete_df$name
+
+# you can run functions on dataframe columns
+mean(athlete_df$jersey)
+
+# but you need to be sure you're using the right datatype
+mean(athlete_df$name)
+
+```
+
+## Packages are collections of R functions -- they allow users to easily extend what they can do in R {.smaller}
+
+::: columns
+::: {.column width="50%"}
+-   Packages are an important part of expanding what users can do in R, minimizing barriers to high-quality data analysis and visualization.
+
+-   The most popular packages are available directly through RStudio via the CRAN network.
+
+    -   CRAN packages are reviewed by the R community for quality
+
+    -   Can be installed via the RStudio GUI or through the R console via the install.packages() function
+
+-   The most popular packages in the R community are part of what is called the "tidyverse"
+
+    -   `ggplot2`, `tidyr`, `dplyr`, `stringr`, `forcats`, `tibble`, `readr`, `purrr`
+
+    -   Tidyverse packages are built to work together
+:::
+
+::: {.column width="50%"}
+![](img/tidy_packages.png){fig-align="center"}
+:::
+:::
+
+# Break --- 10 minutes
+
+```{r}
+countdown(minutes = 10, font_size = "1.5em")
+```
+
+# RStudio Setup and Workflow Tips
+
+## Adjusting your RStudio defaults
+
+::: columns
+::: {.column width="50%"}
+-   When working in RStudio, you want to be sure you control and understand everything in your working environment
+-   By default, R will save the variables and history of what you're working on as you quit and bring in back when you restart
+-   This creates bad data management habits -- you want to start each coding session fresh, building up your variables by running your code
+-   Don't rely on remembering what past you was trying to do!
+:::
+
+::: {.column width="50%"}
+![](img/working_env_default.png){fig-align="center"}
+:::
+:::
+
+## RStudio lets you arrange your interface in different ways; we should share a common approach
+
+![](img/rstudio_panes.png){fig-align="center"}
+
+## You'll spend a lot of time working in RStudio -- you should make it look like something that you'll enjoy seeing
+
+![](img/rstudio_themes.png){fig-align="center"}
+
+## Use Tab to auto-complete a variable or function as you are typing it, or the up/down arrows to cycle through options
+
+![](img/autocomplete.png){fig-align="center"}
+
+## Use CMD/CTRL + ENTER to run a line of code from your script in the console
+
+![](img/cmd_enter.png){fig-align="center"}
+
+## If your cursor is in the console, you can use the up/down arrows to cycle through previously executed code
+
+![](img/prev_command.png){fig-align="center"}
+
+## Use CMD/CTRL + SHIFT + 0 to restart RStudio often
+
+::: columns
+::: {.column width="50%"}
+This key command will clear your workspace ---- it's an important step to do often to ensure that you're only relying on code you're writing in scripts and not code you're executing on the fly in the console
+:::
+
+::: {.column width="50%"}
+[Hadley Wickham said it best](https://r4ds.had.co.nz/workflow-projects.html):
+
+"This will cause you some short-term pain, because now when you restart RStudio it will not remember the results of the code that you ran last time. But this short-term pain will save you long-term agony because it forces you to capture all important interactions in your code. There's nothing worse than discovering three months after the fact that you've only stored the results of an important calculation in your workspace, not the calculation itself in your code."
+:::
+:::
+
+## There are lots of other helpful shortcuts in RStudio
+
+-   [RStudio keyboard shortcuts](https://support.posit.co/hc/en-us/articles/200711853-Keyboard-Shortcuts-in-the-RStudio-IDE)
+
+-   [RStudio IDE cheatsheet](https://posit.co/wp-content/uploads/2022/10/rstudio-ide-1.pdf)
+
+# Introduction to Git and GitHub
+
+## What is git?
+
+Git is *version control software* -- it allows you to save (commit) changes to files and track those changes over time.
+
+![](https://cdn.myportfolio.com/45214904-6a61-4e23-98d6-b140f8654a40/78587c8b-fa99-4c94-bce2-026cf4e588b5_rw_1920.png?h=a9bcd5a907323d4cb9806a7c75fad319){fig-align="center" width="800"}
+
+::: aside
+Source: [Artwork by \@allison_horst](https://twitter.com/allison_horst)
+:::
+
+## What is GitHub?
+
+GitHub is to Git what RStudio is to R, but for file management.
+
+![](https://cdn.myportfolio.com/45214904-6a61-4e23-98d6-b140f8654a40/7a5f458a-3d63-4e46-8a09-c417e52587ea_rw_1920.png?h=bee94bf23b391e8c9cbe190dd78b631d){fig-align="center" width="889"}
+
+::: aside
+Source: [Artwork by \@allison_horst](https://twitter.com/allison_horst)
+:::
+
+## GitHub helps you collaborate with others, including past and future versions of yourself
+
+![](https://cdn.myportfolio.com/45214904-6a61-4e23-98d6-b140f8654a40/33f12eb3-e65b-46df-9a2e-e4b24a4b59cd_rw_1920.png?h=d7b1f2c0b41d04a766ad6d7bc6bd8c80){fig-align="center" width="889"}
+
+::: aside
+Source: [Artwork by \@allison_horst](https://twitter.com/allison_horst)
+:::
+
+## We will use GitHub to distribute, collect, and collaborate on homework and capstone projects
+
+![](https://cdn.myportfolio.com/45214904-6a61-4e23-98d6-b140f8654a40/51566506-f87b-465b-934b-c0707b8636e0_rw_1920.jpeg?h=d712ca4f9e8577bdebe03757c66ec804){fig-align="center" width="889"}
+
+::: aside
+Source: [Artwork by \@allison_horst](https://twitter.com/allison_horst)
+:::
+
+## You'll be recieving an email with an invitation to join the GitHub organization for this training
+
+![](img/git_process/00-gh-email-invite.png){fig-align="center"}
+
+## Once you click the green button, you'll be directed to GitHub to join the organization
+
+![](img/git_process/01-gh-org-invite.png){fig-align="center"}
+
+## Bookmark the organization page -- your homework assignments will show up here as repositories
+
+![](img/git_process/02-gh-hw-repo.png){fig-align="center"}
+
+## To start an assignment, navigate to the the repo and copy the HTTPS link that appears when you click the "Code" button
+
+![](img/git_process/03-gh-repo-url.png){fig-align="center"}
+
+## Next, you'll open RStudio and create a new project, selecting the "Version Control" and "Git" options
+
+![](img/git_process/04-new-proj.png){fig-align="center"}
+
+## Next, you'll open RStudio and create a new project, selecting the "Version Control" and "Git" options
+
+![](img/git_process/05-git-proj.png){fig-align="center"}
+
+## Be sure to select a folder where you want to have your homework files saved before you click "Open"
+
+![](img/git_process/06-select-path.png){fig-align="center"}
+
+## You're now ready to start working on your homework! Start by opening the README.md file
+
+![](img/git_process/07-assign-repo.png){fig-align="center"}
+
+## The README.md file is a text file that will include instructions for your assignment -- using the "Visual" option will make it easier to read
+
+![](img/git_process/08-open-readme.png){fig-align="center"}
+
+## The README.md file is a text file that will include instructions for your assignment -- using the "Visual" option will make it easier to read
+
+![](img/git_process/09-visual-readme.png){fig-align="center"}
+
+## Once you've completed your assignment, you'll want to "stage" the changes you've made
+
+![](img/git_process/10-gh-stage.png){fig-align="center"}
+
+## Once you've completed your assignment, you'll want to "stage" your changes and then start the "commit" process
+
+![](img/git_process/11-gh-commit.png){fig-align="center"}
+
+## We'll use GitHub's "Issues" feature to share feedback on your work
+
+After you receive an email notification that an issue was opened, you can click a link to view it on GitHub. On the issue page, you can respond if you have questions or click "Close issue" if no follow-up is needed.
+
+![](img/git_process/15-hw-feedback.png){fig-align="center"}
+
+# Homework
+
+## This week's assignment {.smaller}
+
+Each homework assignment will usually include two basic elements:
+
+-   Reading: One or two briefs on school finance policy to read
+
+-   Coding task: An R programming task for you to complete
+
+Assignments should be completed by noon Eastern time on the Monday before the next class session will be held. **For week 01, this means your assignment is due by 12:00pm (Eastern) on Monday, June 12.**
+
+**Reading**
+
+-   [ ] [*What Is School Finance Equity and Why Does It Matter?*](https://bellwether.org/wp-content/uploads/2021/10/Bellwether_SplittingBill_01-WhatIsSchlFinan_Final.pdf)
+
+-   [ ] [*How Are Public Schools Funded?*](https://bellwether.org/wp-content/uploads/2021/10/Bellwether_SplittingBill_02-HowPublSchlFund_Final.pdf)
+
+**Coding Task**
+
+-   [ ] Successfully copy the assignment repo to your computer
+-   [ ] Run and observe the example script from today's class
+-   [ ] Create four new variables using the `median()` function

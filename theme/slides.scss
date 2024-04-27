@@ -1,0 +1,63 @@
+/*-- scss:defaults --*/
+
+// fonts
+$font-family-sans-serif: Avenir, sans-serif !default;
+$font-size: 18px !default;
+
+// colors
+$body-bg: #fff !default;
+$body-color: #000 !default;
+$link-color: #6D1E4A !default;
+$selection-bg: rgba(0, 0, 0, 0.99);
+$sidebar-bg: #6D1E4A  !default;
+$sidebar-fg: #fff !default;
+
+
+// headings
+$presentation-heading-font: Garamond !default;
+$presentation-heading-color: #6D1E4A !default;
+//$presentation-heading-color: #ffffff !default;
+$presentation-title-margin-top: -70px;
+$presentation-font-size-root: 30px;
+
+
+// Add the line to all the headings
+h2 {
+  position: relative; // Ensure the line is positioned relative to the heading
+  &:after {
+    content: ""; // Create an empty pseudo-element for the line
+    position: absolute; // Position the line absolutely relative to the heading
+    bottom: 0; // Align the line to the bottom of the heading
+    left: 0; // Align the line to the left of the heading
+    width: 100%; // Make the line span the full width of the heading
+    height: 4px; // Set the height of the line
+    background-color: #6D1E4A ; // Set the color of the line
+  }
+}
+
+
+.reveal .instructor-img{
+    border-radius: 50%;
+    filter: saturate(0);
+    height: 200px;
+    margin-bottom: 5px;
+    width: 200px;
+}
+
+/* 
+.reveal .columns {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90%;
+}
+*/
+
+.callout.callout-style-simple {
+  background: #007786;
+  color: #ffffff;
+}
+
+.reveal .footer {
+  text-align: left;
+}

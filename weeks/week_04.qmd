@@ -1,0 +1,41 @@
+---
+title: "Week 04"
+subtitle: "Data cleaning and processing in R"
+description: "June 27"
+author: ""
+date: ""
+listing:
+  - id: slides
+    contents:
+      - ../slides/week_04/*.qmd
+    type: table
+    fields: [title, date]
+    field-display-names:
+      title: "Topic"
+      date: "Date"
+    sort: [filename]
+    sort-ui: false
+    filter-ui: false
+tbl-colwidths: [10,50,40]
+format: html
+
+---
+
+## Lecture
+
+::: {#slides}
+:::
+
+
+## Lecture recording
+
+The Zoom recording from our class is [available on Vimeo here](https://vimeo.com/840201390/). Please refer to the post-class email for the password that will allow you to access the recording. 
+
+## Coding Assignment
+
+Homework now available [on our class GitHub page](https://github.com/orgs/bw-training-summer23/repositories) as a repo that starts with `hw04-`.
+
+## Readings
+
+- [***How Can School Finance Systems Support Students with Additional Learning Needs?***](https://bellwether.org/wp-content/uploads/2021/10/Bellwether_SplittingBill_05-HowCanSchoolFinStudentswLearnNeeds_Final.pdf)
+
