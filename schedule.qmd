@@ -25,7 +25,7 @@ editor: visual
 
 ## Homework
 
-Homework will be due by 12pm Eastern time on the Monday following a lecture.
+Homework will be due by 12pm Eastern time on the Monday following a class.
 
 ## Capstone Project
 

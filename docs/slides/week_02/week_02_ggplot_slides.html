@@ -1,0 +1,1475 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.550">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2023-06-13">
+
+<title>School Finance Equity Training, Summer 2024 - Basic Data Analysis and Visualization in R</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar docked slimcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Basic Data Analysis and Visualization in R</li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+      <a href="../../index.html" class="sidebar-logo-link">
+      <img src="../../images/primary_one-color_reverse.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      </a>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Home</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../syllabus.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Syllabus</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../schedule.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Schedule</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../setup.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Class Setup</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../resources.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">R Resources</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#agenda" id="toc-agenda" class="nav-link active" data-scroll-target="#agenda">Agenda</a></li>
+  <li><a href="#homework-review" id="toc-homework-review" class="nav-link" data-scroll-target="#homework-review">Homework Review</a>
+  <ul class="collapse">
+  <li><a href="#solving-a-common-problem-with-the-homework" id="toc-solving-a-common-problem-with-the-homework" class="nav-link" data-scroll-target="#solving-a-common-problem-with-the-homework">Solving a common problem with the homework</a></li>
+  </ul></li>
+  <li><a href="#how-do-local-taxes-affect-school-finance-equity" id="toc-how-do-local-taxes-affect-school-finance-equity" class="nav-link" data-scroll-target="#how-do-local-taxes-affect-school-finance-equity">How do local taxes affect school finance equity?</a>
+  <ul class="collapse">
+  <li><a href="#how-property-taxes-fund-schools" id="toc-how-property-taxes-fund-schools" class="nav-link" data-scroll-target="#how-property-taxes-fund-schools">How Property Taxes Fund Schools</a></li>
+  <li><a href="#defining-key-property-tax-terms" id="toc-defining-key-property-tax-terms" class="nav-link" data-scroll-target="#defining-key-property-tax-terms">Defining key property tax terms</a></li>
+  <li><a href="#making-local-school-funding-more-equitable" id="toc-making-local-school-funding-more-equitable" class="nav-link" data-scroll-target="#making-local-school-funding-more-equitable">Making Local School Funding More Equitable</a></li>
+  <li><a href="#does-your-state-set-a-local-tax-floor-or-ceiling" id="toc-does-your-state-set-a-local-tax-floor-or-ceiling" class="nav-link" data-scroll-target="#does-your-state-set-a-local-tax-floor-or-ceiling">Does your state set a local tax floor or ceiling?</a></li>
+  <li><a href="#questions-for-advocates" id="toc-questions-for-advocates" class="nav-link" data-scroll-target="#questions-for-advocates">Questions for advocates</a></li>
+  </ul></li>
+  <li><a href="#introduction-to-the-tidyverse" id="toc-introduction-to-the-tidyverse" class="nav-link" data-scroll-target="#introduction-to-the-tidyverse">Introduction to the <code>tidyverse</code></a>
+  <ul class="collapse">
+  <li><a href="#r-is-a-functional-programming-language---most-of-what-you-will-do-in-r-is-work-with-functions" id="toc-r-is-a-functional-programming-language---most-of-what-you-will-do-in-r-is-work-with-functions" class="nav-link" data-scroll-target="#r-is-a-functional-programming-language---most-of-what-you-will-do-in-r-is-work-with-functions">R is a functional programming language - most of what you will do in R is work with functions</a></li>
+  <li><a href="#the-tidyverse-is-a-powerful-collection-of-r-packages-that-work-well-together" id="toc-the-tidyverse-is-a-powerful-collection-of-r-packages-that-work-well-together" class="nav-link" data-scroll-target="#the-tidyverse-is-a-powerful-collection-of-r-packages-that-work-well-together">The tidyverse is a powerful collection of R packages that work well together</a></li>
+  <li><a href="#to-read-edbuilds-finance-data-into-our-working-environment-we-will-use-the-masterpull-function" id="toc-to-read-edbuilds-finance-data-into-our-working-environment-we-will-use-the-masterpull-function" class="nav-link" data-scroll-target="#to-read-edbuilds-finance-data-into-our-working-environment-we-will-use-the-masterpull-function">To read EdBuild’s finance data into our working environment we will use the masterpull() function</a></li>
+  <li><a href="#the-dplyr-package-provides-many-functions-to-manipulate-your-data-frames-columns-and-rows" id="toc-the-dplyr-package-provides-many-functions-to-manipulate-your-data-frames-columns-and-rows" class="nav-link" data-scroll-target="#the-dplyr-package-provides-many-functions-to-manipulate-your-data-frames-columns-and-rows">The dplyr() package provides many functions to manipulate your data frames’ columns and rows</a></li>
+  <li><a href="#a-special-operator-called-a-pipe-will-allow-you-to-chain-several-functions-together" id="toc-a-special-operator-called-a-pipe-will-allow-you-to-chain-several-functions-together" class="nav-link" data-scroll-target="#a-special-operator-called-a-pipe-will-allow-you-to-chain-several-functions-together">A special operator called a “pipe” will allow you to chain several functions together</a></li>
+  </ul></li>
+  <li><a href="#iterative-exploratory-analysis" id="toc-iterative-exploratory-analysis" class="nav-link" data-scroll-target="#iterative-exploratory-analysis">Iterative exploratory analysis</a>
+  <ul class="collapse">
+  <li><a href="#live-coding-example-exploring_the_tidyverse.r" id="toc-live-coding-example-exploring_the_tidyverse.r" class="nav-link" data-scroll-target="#live-coding-example-exploring_the_tidyverse.r">LIVE CODING EXAMPLE: exploring_the_tidyverse.R</a></li>
+  </ul></li>
+  <li><a href="#visual-exploratory-analysis" id="toc-visual-exploratory-analysis" class="nav-link" data-scroll-target="#visual-exploratory-analysis">Visual exploratory analysis</a>
+  <ul class="collapse">
+  <li><a href="#summarizing-columns-can-be-helpful-but-it-can-hide-nuance-in-your-data-that-can-be-better-seen-via-plotting" id="toc-summarizing-columns-can-be-helpful-but-it-can-hide-nuance-in-your-data-that-can-be-better-seen-via-plotting" class="nav-link" data-scroll-target="#summarizing-columns-can-be-helpful-but-it-can-hide-nuance-in-your-data-that-can-be-better-seen-via-plotting">Summarizing columns can be helpful, but it can hide nuance in your data that can be better seen via plotting</a></li>
+  </ul></li>
+  <li><a href="#iterating-your-way-to-beauty-with-ggplot2-using-minnesota-data" id="toc-iterating-your-way-to-beauty-with-ggplot2-using-minnesota-data" class="nav-link" data-scroll-target="#iterating-your-way-to-beauty-with-ggplot2-using-minnesota-data">Iterating your way to beauty with ggplot2 using Minnesota data</a>
+  <ul class="collapse">
+  <li><a href="#step-1-create-a-basic-plot" id="toc-step-1-create-a-basic-plot" class="nav-link" data-scroll-target="#step-1-create-a-basic-plot">Step 1: Create a basic plot</a></li>
+  <li><a href="#step-2-address-missing-values" id="toc-step-2-address-missing-values" class="nav-link" data-scroll-target="#step-2-address-missing-values">Step 2: Address missing values</a></li>
+  <li><a href="#step-3-clean-up-formatting-of-chart-elements-15" id="toc-step-3-clean-up-formatting-of-chart-elements-15" class="nav-link" data-scroll-target="#step-3-clean-up-formatting-of-chart-elements-15">Step 3: Clean up formatting of chart elements (1/5)</a></li>
+  <li><a href="#step-3-clean-up-formatting-of-chart-elements-25" id="toc-step-3-clean-up-formatting-of-chart-elements-25" class="nav-link" data-scroll-target="#step-3-clean-up-formatting-of-chart-elements-25">Step 3: Clean up formatting of chart elements (2/5)</a></li>
+  <li><a href="#step-3-clean-up-formatting-of-chart-elements-35" id="toc-step-3-clean-up-formatting-of-chart-elements-35" class="nav-link" data-scroll-target="#step-3-clean-up-formatting-of-chart-elements-35">Step 3: Clean up formatting of chart elements (3/5)</a></li>
+  <li><a href="#step-3-clean-up-formatting-of-chart-elements-45" id="toc-step-3-clean-up-formatting-of-chart-elements-45" class="nav-link" data-scroll-target="#step-3-clean-up-formatting-of-chart-elements-45">Step 3: Clean up formatting of chart elements (4/5)</a></li>
+  <li><a href="#step-3-clean-up-formatting-of-chart-elements-55" id="toc-step-3-clean-up-formatting-of-chart-elements-55" class="nav-link" data-scroll-target="#step-3-clean-up-formatting-of-chart-elements-55">Step 3: Clean up formatting of chart elements (5/5)</a></li>
+  </ul></li>
+  <li><a href="#break" id="toc-break" class="nav-link" data-scroll-target="#break">Break</a>
+  <ul class="collapse">
+  <li><a href="#step-4-add-a-new-layer-of-data" id="toc-step-4-add-a-new-layer-of-data" class="nav-link" data-scroll-target="#step-4-add-a-new-layer-of-data">Step 4: Add a new layer of data</a></li>
+  <li><a href="#step-5-tidy-up-formatting-12" id="toc-step-5-tidy-up-formatting-12" class="nav-link" data-scroll-target="#step-5-tidy-up-formatting-12">Step 5: Tidy up formatting (1/2)</a></li>
+  <li><a href="#step-5-tidy-up-formatting-22" id="toc-step-5-tidy-up-formatting-22" class="nav-link" data-scroll-target="#step-5-tidy-up-formatting-22">Step 5: Tidy up formatting (2/2)</a></li>
+  <li><a href="#step-6-repeat-steps-4-5-as-needed-15" id="toc-step-6-repeat-steps-4-5-as-needed-15" class="nav-link" data-scroll-target="#step-6-repeat-steps-4-5-as-needed-15">Step 6: Repeat steps 4-5 as needed (1/5)</a></li>
+  <li><a href="#step-6-repeat-steps-4-5-as-needed-25" id="toc-step-6-repeat-steps-4-5-as-needed-25" class="nav-link" data-scroll-target="#step-6-repeat-steps-4-5-as-needed-25">Step 6: Repeat steps 4-5 as needed (2/5)</a></li>
+  <li><a href="#step-6-repeat-steps-4-5-as-needed-35" id="toc-step-6-repeat-steps-4-5-as-needed-35" class="nav-link" data-scroll-target="#step-6-repeat-steps-4-5-as-needed-35">Step 6: Repeat steps 4-5 as needed (3/5)</a></li>
+  <li><a href="#step-6-repeat-steps-4-5-as-needed-45" id="toc-step-6-repeat-steps-4-5-as-needed-45" class="nav-link" data-scroll-target="#step-6-repeat-steps-4-5-as-needed-45">Step 6: Repeat steps 4-5 as needed (4/5)</a></li>
+  <li><a href="#step-6-repeat-steps-4-5-as-needed-55" id="toc-step-6-repeat-steps-4-5-as-needed-55" class="nav-link" data-scroll-target="#step-6-repeat-steps-4-5-as-needed-55">Step 6: Repeat steps 4-5 as needed (5/5)</a></li>
+  <li><a href="#step-7-replace-a-layer-of-data" id="toc-step-7-replace-a-layer-of-data" class="nav-link" data-scroll-target="#step-7-replace-a-layer-of-data">Step 7: Replace a layer of data</a></li>
+  </ul></li>
+  <li><a href="#using-histograms-to-compare-state-and-local-revenue" id="toc-using-histograms-to-compare-state-and-local-revenue" class="nav-link" data-scroll-target="#using-histograms-to-compare-state-and-local-revenue">Using histograms to compare state and local revenue</a>
+  <ul class="collapse">
+  <li><a href="#use-edbuildr-data-to-create-state-summaries" id="toc-use-edbuildr-data-to-create-state-summaries" class="nav-link" data-scroll-target="#use-edbuildr-data-to-create-state-summaries">Use Edbuildr data to create state summaries</a></li>
+  <li><a href="#create-histograms-13" id="toc-create-histograms-13" class="nav-link" data-scroll-target="#create-histograms-13">Create histograms (1/3)</a></li>
+  <li><a href="#create-histograms-23" id="toc-create-histograms-23" class="nav-link" data-scroll-target="#create-histograms-23">Create histograms (2/3)</a></li>
+  <li><a href="#create-histograms-33" id="toc-create-histograms-33" class="nav-link" data-scroll-target="#create-histograms-33">Create histograms (3/3)</a></li>
+  </ul></li>
+  <li><a href="#homework" id="toc-homework" class="nav-link" data-scroll-target="#homework">Homework</a>
+  <ul class="collapse">
+  <li><a href="#this-weeks-assignment" id="toc-this-weeks-assignment" class="nav-link" data-scroll-target="#this-weeks-assignment">This week’s assignment</a></li>
+  </ul></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="week_02_ggplot_slides.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content page-columns page-full" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Basic Data Analysis and Visualization in R</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">June 13, 2023</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="agenda" class="level2">
+<h2 class="anchored" data-anchor-id="agenda">Agenda</h2>
+<ul>
+<li><p>Homework review (15 min)</p></li>
+<li><p>Exploring local revenue through <code>edbuildr</code> and the <code>tidyverse</code> (60 min)</p></li>
+<li><p>Break (10 min)</p></li>
+<li><p>Visualizing local revenue data with <code>ggplot2</code> (30 min)</p></li>
+<li><p>Homework assignment (5 min)</p></li>
+</ul>
+</section>
+<section id="homework-review" class="level1">
+<h1>Homework Review</h1>
+<section id="solving-a-common-problem-with-the-homework" class="level2">
+<h2 class="anchored" data-anchor-id="solving-a-common-problem-with-the-homework">Solving a common problem with the homework</h2>
+<p>Great job, overall! One universal comment is that we want to avoid hard coding values.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Several people took an extra step and hard coded in the value</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">median</span>(sd_data<span class="sc">$</span>MHI, <span class="at">na.rm =</span> T)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>mhi_median <span class="ot">&lt;-</span> <span class="dv">57199</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># You can streamline the code like this: </span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>mhi_median <span class="ot">&lt;-</span> <span class="fu">median</span>(sd_data<span class="sc">$</span>MHI, <span class="at">na.rm =</span> T)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co"># We avoid hard coding variables because if you update the data set and the 'MHI' </span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co"># variable updates, then 'mhi_median' will automatically update. </span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co"># find the median value of median property value (MPV) and store the result in a variable called `mpv_median`</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>mpv_median <span class="ot">&lt;-</span> <span class="fu">median</span>(sd_data<span class="sc">$</span>MPV, <span class="at">na.rm =</span> T)</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="co"># find the median value of state revenue per pupil (SRPP) and store the result in a variable called `srpp_median`</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>srpp_median <span class="ot">&lt;-</span> <span class="fu">median</span>(sd_data<span class="sc">$</span>SRPP, <span class="at">na.rm =</span> T)</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="co"># find the median value of local revenue per pupil (LRPP) and store the result in a variable called `lrpp_median`</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>lrpp_median <span class="ot">&lt;-</span> <span class="fu">median</span>(sd_data<span class="sc">$</span>LRPP, <span class="at">na.rm =</span> T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="how-do-local-taxes-affect-school-finance-equity" class="level1 page-columns page-full">
+<h1>How do local taxes affect school finance equity?</h1>
+<section id="how-property-taxes-fund-schools" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="how-property-taxes-fund-schools">How Property Taxes Fund Schools</h2>
+<p>A large share of funding for public schools (44.9%) is generated by taxes at the local level. Property taxes are the most common source of local tax revenue for public schools in large part because they provide a stable revenue stream compared to taxes on sales or income. These taxes can be set by counties, towns, or school boards, depending on state policy.</p>
+<p>Property taxes are typically collected based on two variables:</p>
+<ul>
+<li>Assessed value of property</li>
+<li>Property tax rate, sometimes called the “mill” rate.</li>
+</ul>
+<div class="callout callout-style-simple callout-none no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><strong>How do property taxes produce education finance inequities?</strong></p>
+<p>School districts generate revenue from the local property tax associated with property located within districts’ geographic boundaries. When school districts have significantly different levels of property wealth producing those tax revenues compared to one another, a massive barrier to equitable educational finance results.</p>
+</div>
+</div>
+</div>
+
+<div class="no-row-height column-margin column-container"><div class="margin-aside">
+<p>Source: <a href="https://nces.ed.gov/programs/digest/d22/tables/dt22_235.10.asp">NCES</a></p>
+</div></div></section>
+<section id="defining-key-property-tax-terms" class="level2">
+<h2 class="anchored" data-anchor-id="defining-key-property-tax-terms">Defining key property tax terms</h2>
+<p><strong>What does “assessed value of property” mean?</strong></p>
+<p>The assessed value of a property is the dollar value used by a local government to determine how much a particular property is worth. The assessed value of a property may not always match the market value. Some local governments use an assessment rate to translate the market value of a property into taxable value.</p>
+<p><strong>What is the “property tax rate” or “mill rate?</strong></p>
+<p>The mill rate is the number of dollars per $1,000 in assessed value that property owners will owe each year. The mill rate multiplied by assessed value equals local property tax bills.</p>
+<p>In some instances, state policy directly shapes or limits property taxes. Some states include caps on how much mill rates can grow each year; other states limit the growth in the assessed values of properties over time.</p>
+</section>
+<section id="making-local-school-funding-more-equitable" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="making-local-school-funding-more-equitable">Making Local School Funding More Equitable</h2>
+<p>The way school district boundaries are drawn and the way school funding formulas account for differences in tax capacity among districts can reflect, amplify, or mitigate property wealth inequality. State policymakers can also implement policies that directly address local funding inequity by constraining runaway local taxation by wealthier districts, compensating for local revenue differences with state funds, and/or redistributing some of those funds. Some examples include:</p>
+<ul>
+<li><strong>Capping local revenue</strong>: State policymakers can set a limit on the amount of per-pupil revenue local communities can generate for their public schools.</li>
+<li><strong>Supplementing local tax revenues in lower-wealth districts</strong>: States can provide additional funding to lower-wealth districts who choose to set a higher tax rate to ensure they get the same revenue for their tax effort that wealthier districts get.</li>
+<li><strong>Implementing redistributive mechanisms for exceeding local revenue caps</strong>: If communities wish to generate more revenue for their local school system above the cap, policymakers can set a rule that for every additional dollar generated above the cap, another dollar must be allocated to a state fund for schools in lower-wealth communities.</li>
+<li><strong>Enacting a statewide property tax</strong>: Moving from many locally collected taxes to a single, statewide property tax is the most direct way to address property wealth inequities among school districts. Vermont is the only state to implement a state-level property tax system for financing education.</li>
+</ul>
+</section>
+<section id="does-your-state-set-a-local-tax-floor-or-ceiling" class="level2">
+<h2 class="anchored" data-anchor-id="does-your-state-set-a-local-tax-floor-or-ceiling">Does your state set a local tax floor or ceiling?</h2>
+<table class="table">
+<colgroup>
+<col style="width: 18%">
+<col style="width: 81%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>State</strong></th>
+<th style="text-align: left;"><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Alabama</td>
+<td style="text-align: left;">Alabama sets a floor for local property tax rates, as well as a ceiling, above which voter approval is required.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Delaware</td>
+<td style="text-align: left;">None.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Georgia</td>
+<td style="text-align: left;">Georgia sets a floor for local property tax rates, as well as a level above which voter approval is required.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Michigan</td>
+<td style="text-align: left;">Michigan sets a ceiling for local property tax rates.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Mississippi</td>
+<td style="text-align: left;">Mississippi sets a floor and a ceiling for local property tax rates.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">New York</td>
+<td style="text-align: left;">None.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Pennsylvania</td>
+<td style="text-align: left;">None.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="questions-for-advocates" class="level2">
+<h2 class="anchored" data-anchor-id="questions-for-advocates">Questions for advocates</h2>
+<ul>
+<li>How do property wealth per pupil and mill rates vary by school district in your state?</li>
+<li>Do school districts in your state have non-property tax local revenue sources?</li>
+<li>Does state policy work to compensate for differences in local revenue capacity among districts? If so, how?</li>
+<li>What policies might help improve the equity of local funding in your state?</li>
+</ul>
+</section>
+</section>
+<section id="introduction-to-the-tidyverse" class="level1">
+<h1>Introduction to the <code>tidyverse</code></h1>
+<section id="r-is-a-functional-programming-language---most-of-what-you-will-do-in-r-is-work-with-functions" class="level2">
+<h2 class="anchored" data-anchor-id="r-is-a-functional-programming-language---most-of-what-you-will-do-in-r-is-work-with-functions">R is a functional programming language - most of what you will do in R is work with functions</h2>
+<p>A function:</p>
+<ul>
+<li>Takes a specified input</li>
+<li>Performs an operation</li>
+<li>Returns an output</li>
+</ul>
+<p>Functions are helpful tools to reduce repetition in typing and improves your code’s consistency, reliability and readability.</p>
+</section>
+<section id="the-tidyverse-is-a-powerful-collection-of-r-packages-that-work-well-together" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="the-tidyverse-is-a-powerful-collection-of-r-packages-that-work-well-together">The tidyverse is a powerful collection of R packages that work well together</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="columns">
+<ul>
+<li><p>The most popular packages in the R community are past of what is called the “tidyverse,” which includes packages like <code>ggplot2</code>, <code>tidyr</code>, <code>stringr</code>, <code>tibble</code>, and <code>purrr</code>.</p></li>
+<li><p><code>Tidyverse</code> packages are built to work together. Every <code>tidyverse</code> package contains functions that can manipulate or visualize data that lives in data frames.</p></li>
+<li><p>Most functions in the <code>tidyverse</code> require a data frame (R’s version of a table) as the first argument in each function. The functions can be “chained” together with other functions.</p></li>
+<li><p>We will explore the <code>tidyverse</code> by looking at EdBuild’s FY2019 education data compiled from the F33 survey, SAIPE, EDGE, and CCD. The <code>edbuildr</code> package provides access to clean district data on funding, student demographics, and wealth.</p></li>
+</ul>
+</div>
+</div><div class="column" style="width:50%;">
+<p><img src="https://education.rstudio.com/blog/2020/07/teaching-the-tidyverse-in-2020-part-1-getting-started/img/tidyverse-packages.png" class="img-fluid"></p>
+</div>
+</div>
+</section>
+<section id="to-read-edbuilds-finance-data-into-our-working-environment-we-will-use-the-masterpull-function" class="level2">
+<h2 class="anchored" data-anchor-id="to-read-edbuilds-finance-data-into-our-working-environment-we-will-use-the-masterpull-function">To read EdBuild’s finance data into our working environment we will use the masterpull() function</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(edbuildr)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>edbuild_fin_fy19 <span class="ot">&lt;-</span> <span class="fu">masterpull</span>(<span class="at">data_year =</span> <span class="dv">2019</span>, <span class="at">data_type =</span> <span class="st">"fin"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>This code will load the <code>edbuildr</code> package and then download a clean dataframe from EdBuild’s server and store it as a variable called <code>edbuild_fin_fy19</code>.</p>
+<p>There are three options for the <code>data_type</code> argument:</p>
+<ul>
+<li>“geo”: only includes districts with geographic boundaries (no charter/special school districts) that meet EdBuild’s criteria for fiscal analysis</li>
+<li>“fin”: includes all districts that meet EdBuild’s criteria for fiscal analysis</li>
+<li>“full”: includes all districts – TO BE USED WITH CAUTION</li>
+</ul>
+</section>
+<section id="the-dplyr-package-provides-many-functions-to-manipulate-your-data-frames-columns-and-rows" class="level2">
+<h2 class="anchored" data-anchor-id="the-dplyr-package-provides-many-functions-to-manipulate-your-data-frames-columns-and-rows">The dplyr() package provides many functions to manipulate your data frames’ columns and rows</h2>
+<p>The functions you’ll most frequently use from the dplyr packages are:</p>
+<ul>
+<li><code>select()</code>: names columns to keep from a data frame</li>
+<li><code>rename()</code>: name columns to keep from a data frame</li>
+<li><code>filter()</code>: remove rows that do not meet the condition in the logical statement from the output</li>
+<li><code>mutate()</code>: create a new column that will be added to the end of your data frame.</li>
+</ul>
+</section>
+<section id="a-special-operator-called-a-pipe-will-allow-you-to-chain-several-functions-together" class="level2">
+<h2 class="anchored" data-anchor-id="a-special-operator-called-a-pipe-will-allow-you-to-chain-several-functions-together">A special operator called a “pipe” will allow you to chain several functions together</h2>
+<ul>
+<li><p>In R, the pipe operator is a vertical bar and a greater-than sign: <code>|&gt;</code></p></li>
+<li><p>Instead of “nesting” the results of one function inside of another, the pipe allows you to execute the same command in a more human-readable order.</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># example of "nesting" the result of one function inside another function</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>df1 <span class="ot">&lt;-</span> <span class="fu">select</span>(<span class="fu">filter</span>(raw_df, enroll <span class="sc">&gt;</span> <span class="dv">10000</span>), dist_id, dist_name, enroll, rev_pp)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># example of using the "pipe" to produce the same result as above</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co"># read the pipe as "and then" to understand what's being done to your data</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>df2 <span class="ot">&lt;-</span> raw_df <span class="sc">|&gt;</span> <span class="co"># start with raw_df AND THEN</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(enroll <span class="sc">&gt;</span> <span class="dv">10000</span>) <span class="sc">|&gt;</span> <span class="co"># filter for enrollment &gt; 10,000 AND THEN</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(dist_id, dist_name, enroll, rev_pp) <span class="co"># select only these columns</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="iterative-exploratory-analysis" class="level1">
+<h1>Iterative exploratory analysis</h1>
+<section id="live-coding-example-exploring_the_tidyverse.r" class="level2">
+<h2 class="anchored" data-anchor-id="live-coding-example-exploring_the_tidyverse.r">LIVE CODING EXAMPLE: exploring_the_tidyverse.R</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># load ----------</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">scipen =</span> <span class="dv">999</span>)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.4     ✔ readr     2.1.5
+✔ forcats   1.0.0     ✔ stringr   1.5.1
+✔ ggplot2   3.5.0     ✔ tibble    3.2.1
+✔ lubridate 1.9.3     ✔ tidyr     1.3.1
+✔ purrr     1.0.2     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(edbuildr)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Krista likes to denote which spreadsheet is raw for transparency </span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>dist_fy19_raw <span class="ot">&lt;-</span> <span class="fu">masterpull</span>(<span class="at">data_type =</span> <span class="st">"geo"</span>)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="co"># filter Minnesota data and clean -----</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="co"># filter, rename, and mutate data for Minnesota </span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>mn_ed_data <span class="ot">&lt;-</span> dist_fy19_raw <span class="sc">|&gt;</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(State <span class="sc">==</span> <span class="st">"Minnesota"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">district =</span> NAME,</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>         <span class="at">county =</span> County,</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>         <span class="at">enroll =</span> ENROLL, </span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>         <span class="at">total_local_rev =</span> LR,</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>         <span class="at">total_state_rev =</span> SR,</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>         <span class="at">total_state_local_rev =</span> SLR, </span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>         <span class="at">urbanicity =</span> dUrbanicity,</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>         <span class="at">operational_schools =</span> dOperational_schools, </span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>         <span class="at">district_type =</span> dType, </span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>         <span class="at">white_enroll =</span> dWhite, </span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>         <span class="at">sped_enroll =</span> dIEP, </span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>         <span class="at">ell_enroll =</span> dLEP, </span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>         <span class="at">econ_dis_enroll =</span> StPov,</span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>         <span class="at">bipoc_pct =</span> pctNonwhite, </span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>         <span class="at">pov_pct =</span> StPovRate,</span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>         <span class="at">median_house_income =</span> MHI, </span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>         <span class="at">median_prop_value =</span> MPV) <span class="sc">|&gt;</span></span>
+<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">bipoc_enroll =</span> enroll <span class="sc">-</span> white_enroll,</span>
+<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a>         <span class="at">ell_pct =</span> ell_enroll<span class="sc">/</span>enroll, </span>
+<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a>         <span class="at">sped_pct =</span> sped_enroll<span class="sc">/</span>enroll, </span>
+<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a>         <span class="at">local_rev_pp =</span> total_local_rev<span class="sc">/</span>enroll,</span>
+<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a>         <span class="at">state_rev_pp =</span> total_state_rev<span class="sc">/</span>enroll,</span>
+<span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a>         <span class="at">local_state_rev_pp =</span> total_state_local_rev<span class="sc">/</span>enroll) <span class="sc">|&gt;</span></span>
+<span id="cb6-34"><a href="#cb6-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(district, county, enroll, local_rev_pp, state_rev_pp, local_state_rev_pp, </span>
+<span id="cb6-35"><a href="#cb6-35" aria-hidden="true" tabindex="-1"></a>         total_local_rev, total_state_rev, total_state_local_rev, urbanicity, </span>
+<span id="cb6-36"><a href="#cb6-36" aria-hidden="true" tabindex="-1"></a>         operational_schools, district_type, pov_pct, bipoc_pct, ell_pct, sped_pct)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="visual-exploratory-analysis" class="level1">
+<h1>Visual exploratory analysis</h1>
+<section id="summarizing-columns-can-be-helpful-but-it-can-hide-nuance-in-your-data-that-can-be-better-seen-via-plotting" class="level2">
+<h2 class="anchored" data-anchor-id="summarizing-columns-can-be-helpful-but-it-can-hide-nuance-in-your-data-that-can-be-better-seen-via-plotting">Summarizing columns can be helpful, but it can hide nuance in your data that can be better seen via plotting</h2>
+<p>The <code>ggplot2</code> package is the most widely-used data visualization approach in the R ecosystem.</p>
+<ul>
+<li>Plots in <code>ggplot2</code> are created by starting with your data, then building up layers</li>
+<li>Once your specify your data, you can add layers of “geoms” to create your plot</li>
+<li>Today we will use <code>geom_histogram()</code> and <code>geom_point()</code></li>
+</ul>
+</section>
+</section>
+<section id="iterating-your-way-to-beauty-with-ggplot2-using-minnesota-data" class="level1">
+<h1>Iterating your way to beauty with ggplot2 using Minnesota data</h1>
+<section id="step-1-create-a-basic-plot" class="level2">
+<h2 class="anchored" data-anchor-id="step-1-create-a-basic-plot">Step 1: Create a basic plot</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># first minnesota plot </span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mn_ed_data, <span class="fu">aes</span>(<span class="at">x =</span> pov_pct, <span class="at">y =</span> local_rev_pp)) <span class="sc">+</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 8 rows containing missing values or values outside the scale range
+(`geom_point()`).</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="week_02_ggplot_slides_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="step-2-address-missing-values" class="level2">
+<h2 class="anchored" data-anchor-id="step-2-address-missing-values">Step 2: Address missing values</h2>
+<p>We need to figure out what’s going on with our missing values before we go any further!</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># investigate missing values </span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>mn_na_dist <span class="ot">&lt;-</span> mn_ed_data <span class="sc">|&gt;</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">is.na</span>(local_rev_pp) <span class="sc">|</span> <span class="fu">is.na</span>(pov_pct)) <span class="sc">|&gt;</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(district_type) </span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="fu">view</span>(mn_na_dist)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The missing data makes sense. All eight of the rows don’t have any available data.</p>
+</section>
+<section id="step-3-clean-up-formatting-of-chart-elements-15" class="level2">
+<h2 class="anchored" data-anchor-id="step-3-clean-up-formatting-of-chart-elements-15">Step 3: Clean up formatting of chart elements (1/5)</h2>
+<p>Now that we understand our missing data, we can create an updated dataframe and re-plot our newly cleaned data.</p>
+<div class="cell" data-output-location="slide">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create tidy df</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>mn_ed_clean <span class="ot">&lt;-</span> mn_ed_data <span class="sc">|&gt;</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(local_rev_pp), </span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>         <span class="sc">!</span><span class="fu">is.na</span>(pov_pct))</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="fu">view</span>(mn_ed_clean)</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Drop the 2 districts that have no enrollment</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>mn_ed_clean <span class="ot">&lt;-</span> mn_ed_clean <span class="sc">|&gt;</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(enroll <span class="sc">&gt;</span> <span class="dv">0</span>)</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a><span class="co"># first minnesota plot w/ clean data</span></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mn_ed_clean, <span class="fu">aes</span>(<span class="at">x =</span> pov_pct, <span class="at">y =</span> local_rev_pp)) <span class="sc">+</span></span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="week_02_ggplot_slides_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="step-3-clean-up-formatting-of-chart-elements-25" class="level2">
+<h2 class="anchored" data-anchor-id="step-3-clean-up-formatting-of-chart-elements-25">Step 3: Clean up formatting of chart elements (2/5)</h2>
+<p>We see some overlap in the points. Reducing the opacity of the points can be accomplished by setting the <code>alpha</code> parameter in geom_point() to a value less than 1. Setting it to .5 will make data points 50% translucent.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># reduce opacity of points</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mn_ed_clean, <span class="fu">aes</span>(<span class="at">x =</span> pov_pct, <span class="at">y =</span> local_rev_pp)) <span class="sc">+</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> .<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="week_02_ggplot_slides_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="step-3-clean-up-formatting-of-chart-elements-35" class="level2">
+<h2 class="anchored" data-anchor-id="step-3-clean-up-formatting-of-chart-elements-35">Step 3: Clean up formatting of chart elements (3/5)</h2>
+<p>Let’s take care of some formatting issues.</p>
+<p>Our axes don’t look great - the decimals ought to be percentages and the vertical axis represents dollars. Here, the <code>scales</code> package provides some help.</p>
+<div class="cell" data-output-location="slide">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># format axes </span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(scales)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'scales'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:purrr':
+
+    discard</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:readr':
+
+    col_factor</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># format the x and y axes</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mn_ed_clean, <span class="fu">aes</span>(<span class="at">x =</span> pov_pct, <span class="at">y =</span> local_rev_pp)) <span class="sc">+</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> .<span class="dv">5</span>) <span class="sc">+</span> </span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="co"># make sure you have the `scales` package loaded!</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">labels =</span> <span class="fu">label_percent</span>()) <span class="sc">+</span></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> <span class="fu">label_dollar</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="week_02_ggplot_slides_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="step-3-clean-up-formatting-of-chart-elements-45" class="level2">
+<h2 class="anchored" data-anchor-id="step-3-clean-up-formatting-of-chart-elements-45">Step 3: Clean up formatting of chart elements (4/5)</h2>
+<p>Next, we should add some labels to our axes that make sense, along with a title for our plot and a caption that details our data sources.</p>
+<div class="cell" data-output-location="slide">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add data labels </span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mn_ed_clean, <span class="fu">aes</span>(<span class="at">x =</span> pov_pct, <span class="at">y =</span> local_rev_pp)) <span class="sc">+</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> .<span class="dv">5</span>) <span class="sc">+</span> </span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="co"># make sure you have the `scales` package loaded!</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">labels =</span> <span class="fu">label_percent</span>()) <span class="sc">+</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> <span class="fu">label_dollar</span>()) <span class="sc">+</span> </span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Student Poverty Rate"</span>, <span class="at">y =</span> <span class="st">"Local Per-Pupil Revenue"</span>,</span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">"Local Per-Pupil Revenue by Student Povert Rate in Minnesota School Districts"</span>,</span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption =</span> <span class="st">"Source: Edbuild Data, 2019"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="week_02_ggplot_slides_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="step-3-clean-up-formatting-of-chart-elements-55" class="level2">
+<h2 class="anchored" data-anchor-id="step-3-clean-up-formatting-of-chart-elements-55">Step 3: Clean up formatting of chart elements (5/5)</h2>
+<p>Themes can be used to change the appearance of elements in your plot. There are many stock options, but I prefer <code>theme_bw()</code> for its clean appearance and helpful and unobtrusive grid lines.</p>
+<div class="cell" data-output-location="slide">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># change theme</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mn_ed_clean, <span class="fu">aes</span>(<span class="at">x =</span> pov_pct, <span class="at">y =</span> local_rev_pp)) <span class="sc">+</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> .<span class="dv">5</span>) <span class="sc">+</span> </span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">labels =</span> <span class="fu">label_percent</span>()) <span class="sc">+</span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> <span class="fu">label_dollar</span>()) <span class="sc">+</span> </span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Student Poverty Rate"</span>, <span class="at">y =</span> <span class="st">"Local Per-Pupil Revenue"</span>,</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">"Local Per-Pupil Revenue by Student Povert Rate in Minnesota School Districts"</span>,</span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption =</span> <span class="st">"Source: Edbuild Data, 2019"</span>) <span class="sc">+</span></span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="week_02_ggplot_slides_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="break" class="level1">
+<h1>Break</h1>
+<section id="step-4-add-a-new-layer-of-data" class="level2">
+<h2 class="anchored" data-anchor-id="step-4-add-a-new-layer-of-data">Step 4: Add a new layer of data</h2>
+<p>Now that we have a decent-looking graph, let’s add in a new data element to vary point size by enrollment.</p>
+<div class="cell" data-output-location="slide">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add size element </span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mn_ed_clean, <span class="fu">aes</span>(<span class="at">x =</span> pov_pct, <span class="at">y =</span> local_rev_pp, <span class="at">size =</span> enroll)) <span class="sc">+</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> .<span class="dv">5</span>) <span class="sc">+</span> </span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">labels =</span> <span class="fu">label_percent</span>()) <span class="sc">+</span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> <span class="fu">label_dollar</span>()) <span class="sc">+</span></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Student Poverty Rate"</span>, <span class="at">y =</span> <span class="st">"Local Per-Pupil Revenue"</span>,</span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">"Local Per-Pupil Revenue by Student Povert Rate in Minnesota School Districts"</span>,</span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption =</span> <span class="st">"Source: Edbuild Data, 2019"</span>) <span class="sc">+</span></span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="week_02_ggplot_slides_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="step-5-tidy-up-formatting-12" class="level2">
+<h2 class="anchored" data-anchor-id="step-5-tidy-up-formatting-12">Step 5: Tidy up formatting (1/2)</h2>
+<p>Adding a new variable for size creates a legend. We need to tidy the legend’s labels and the title.</p>
+<div class="cell" data-output-location="slide">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># clean up the legend</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mn_ed_clean, <span class="fu">aes</span>(<span class="at">x =</span> pov_pct, <span class="at">y =</span> local_rev_pp, <span class="at">size =</span> enroll)) <span class="sc">+</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> .<span class="dv">5</span>) <span class="sc">+</span> </span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">labels =</span> <span class="fu">label_percent</span>()) <span class="sc">+</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> <span class="fu">label_dollar</span>()) <span class="sc">+</span> </span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># change legend label formatting</span></span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_size</span>(<span class="at">labels =</span> comma) <span class="sc">+</span></span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Student Poverty Rate"</span>, <span class="at">y =</span> <span class="st">"Local Per-Pupil Revenue"</span>,</span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">"Local Per-Pupil Revenue by Student Povert Rate in Minnesota School Districts"</span>,</span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption =</span> <span class="st">"Source: Edbuild Data, 2019"</span>,</span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a>       <span class="co"># add nice label for size element</span></span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">size =</span> <span class="st">"Enrollment"</span>) <span class="sc">+</span></span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="week_02_ggplot_slides_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="step-5-tidy-up-formatting-22" class="level2">
+<h2 class="anchored" data-anchor-id="step-5-tidy-up-formatting-22">Step 5: Tidy up formatting (2/2)</h2>
+<p>We can also adjust some paramenters to allow for more visual contrast in size. By default, <code>ggplot2</code> will adjust points’ radii based on the size variable. Using area is a more visually honest way to represent the data, so let’s make that change.</p>
+<div class="cell" data-output-location="slide">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create more contrast in size</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mn_ed_clean, <span class="fu">aes</span>(<span class="at">x =</span> pov_pct, <span class="at">y =</span> local_rev_pp, <span class="at">size =</span> enroll)) <span class="sc">+</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> .<span class="dv">5</span>) <span class="sc">+</span> </span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">labels =</span> <span class="fu">label_percent</span>()) <span class="sc">+</span></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> <span class="fu">label_dollar</span>()) <span class="sc">+</span> </span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># change size scaling to vary by area, not radius + change max size</span></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_size_area</span>(<span class="at">labels =</span> <span class="fu">label_comma</span>(), <span class="at">max_size =</span> <span class="dv">10</span>) <span class="sc">+</span> </span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Student Poverty Rate"</span>, <span class="at">y =</span> <span class="st">"Local Per-Pupil Revenue"</span>,</span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">"Local Per-Pupil Revenue by Student Povert Rate in Minnesota School Districts"</span>,</span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption =</span> <span class="st">"Source: Edbuild Data, 2019"</span>,</span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>       <span class="co"># add nice label for size element</span></span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a>       <span class="at">size =</span> <span class="st">"Enrollment"</span>) <span class="sc">+</span></span>
+<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="week_02_ggplot_slides_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="step-6-repeat-steps-4-5-as-needed-15" class="level2">
+<h2 class="anchored" data-anchor-id="step-6-repeat-steps-4-5-as-needed-15">Step 6: Repeat steps 4-5 as needed (1/5)</h2>
+<p>Adding color can be helpful. Let’s add color based on urbanicity.</p>
+<div class="cell" data-output-location="slide">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add in color based on urbanicity</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mn_ed_clean, <span class="fu">aes</span>(<span class="at">x =</span> pov_pct, <span class="at">y =</span> local_rev_pp, <span class="at">size =</span> enroll,</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>                        <span class="at">color =</span> urbanicity)) <span class="sc">+</span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> .<span class="dv">5</span>) <span class="sc">+</span> </span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">labels =</span> <span class="fu">percent_format</span>(<span class="at">accuracy =</span> <span class="dv">1</span>)) <span class="sc">+</span></span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_size_area</span>(<span class="at">labels =</span> comma, <span class="at">max_size =</span> <span class="dv">10</span>) <span class="sc">+</span> </span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Student Poverty Rate"</span>, <span class="at">y =</span> <span class="st">"Local Per-Pupil Revenue"</span>,</span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">"Local  Per-Pupil Revenue by Student Povert Rate in Minnesota School Districts"</span>,</span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption =</span> <span class="st">"Source: Edbuild Data, 2019"</span>,</span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a>       <span class="at">size =</span> <span class="st">"Enrollment"</span>) <span class="sc">+</span></span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="week_02_ggplot_slides_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="step-6-repeat-steps-4-5-as-needed-25" class="level2">
+<h2 class="anchored" data-anchor-id="step-6-repeat-steps-4-5-as-needed-25">Step 6: Repeat steps 4-5 as needed (2/5)</h2>
+<p>That doesn’t look great. Let’s use some more functions from the <code>tidyverse</code> to clean up the data a little more to reduce 11 urbanicity levels to four, then tidy up the legend label.</p>
+<div class="cell" data-output-location="slide">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># clean up the unicorn vomit</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>mn_ed_clean <span class="ot">&lt;-</span> mn_ed_clean <span class="sc">|&gt;</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">urbanicity =</span> <span class="fu">fct_collapse</span>(<span class="fu">as.factor</span>(urbanicity),</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>                                   <span class="at">City =</span> <span class="fu">c</span>(<span class="st">"11-City: Large"</span>, </span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>                                            <span class="st">"12-City: Mid-size"</span>,</span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>                                            <span class="st">"13-City: Small"</span>),</span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>                                   <span class="at">Suburb =</span> <span class="fu">c</span>(<span class="st">"21-Suburb: Large"</span>,</span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>                                              <span class="st">"22-Suburb: Mid-size"</span>,</span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>                                             <span class="st">"23-Suburb: Small"</span>),</span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>                                   <span class="at">Town =</span> <span class="fu">c</span>(<span class="st">"31-Town: Fringe"</span>,</span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a>                                            <span class="st">"32-Town: Distant"</span>,</span>
+<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a>                                            <span class="st">"33-Town: Remote"</span>),</span>
+<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a>                                   <span class="at">Rural =</span> <span class="fu">c</span>(<span class="st">"41-Rural: Fringe"</span>,</span>
+<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a>                                             <span class="st">"42-Rural: Distant"</span>,</span>
+<span id="cb23-15"><a href="#cb23-15" aria-hidden="true" tabindex="-1"></a>                                             <span class="st">"43-Rural: Remote"</span>)))</span>
+<span id="cb23-16"><a href="#cb23-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-17"><a href="#cb23-17" aria-hidden="true" tabindex="-1"></a><span class="co"># better colors and tidy legend label</span></span>
+<span id="cb23-18"><a href="#cb23-18" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mn_ed_clean, <span class="fu">aes</span>(<span class="at">x =</span> pov_pct, <span class="at">y =</span> local_rev_pp, <span class="at">size =</span> enroll,</span>
+<span id="cb23-19"><a href="#cb23-19" aria-hidden="true" tabindex="-1"></a>                        <span class="at">color =</span> urbanicity)) <span class="sc">+</span></span>
+<span id="cb23-20"><a href="#cb23-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> .<span class="dv">5</span>) <span class="sc">+</span> </span>
+<span id="cb23-21"><a href="#cb23-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">labels =</span> <span class="fu">label_percent</span>()) <span class="sc">+</span></span>
+<span id="cb23-22"><a href="#cb23-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> <span class="fu">label_dollar</span>()) <span class="sc">+</span></span>
+<span id="cb23-23"><a href="#cb23-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_size_area</span>(<span class="at">labels =</span> <span class="fu">label_comma</span>(), <span class="at">max_size =</span> <span class="dv">10</span>) <span class="sc">+</span>  </span>
+<span id="cb23-24"><a href="#cb23-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Student Poverty Rate"</span>, <span class="at">y =</span> <span class="st">"Local Per-Pupil Revenue"</span>,</span>
+<span id="cb23-25"><a href="#cb23-25" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">"Local  Per-Pupil Revenue by Student Povert Rate in Minnesota School Districts"</span>,</span>
+<span id="cb23-26"><a href="#cb23-26" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption =</span> <span class="st">"Source: Edbuild Data, 2019"</span>,</span>
+<span id="cb23-27"><a href="#cb23-27" aria-hidden="true" tabindex="-1"></a>       <span class="at">size =</span> <span class="st">"Enrollment"</span>) <span class="sc">+</span></span>
+<span id="cb23-28"><a href="#cb23-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="week_02_ggplot_slides_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="step-6-repeat-steps-4-5-as-needed-35" class="level2">
+<h2 class="anchored" data-anchor-id="step-6-repeat-steps-4-5-as-needed-35">Step 6: Repeat steps 4-5 as needed (3/5)</h2>
+<p>We can and should adjust the colors used. R recognizes some pretty funky color names, which can be found in this helpful cheat sheet.</p>
+<div class="cell" data-output-location="slide">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># adjust colors manually</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mn_ed_clean, <span class="fu">aes</span>(<span class="at">x =</span> pov_pct, <span class="at">y =</span> local_rev_pp, <span class="at">size =</span> enroll,</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>                        <span class="at">color =</span> urbanicity)) <span class="sc">+</span></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> .<span class="dv">5</span>) <span class="sc">+</span> </span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>    <span class="co"># create manual color palette</span></span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># color names pulled from a pdf y'all should bookmark</span></span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf</span></span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"tomato3"</span>, <span class="st">"steelblue2"</span>,</span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>                                <span class="st">"seagreen3"</span>, <span class="st">"orchid1"</span>)) <span class="sc">+</span></span>
+<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">labels =</span> <span class="fu">label_percent</span>()) <span class="sc">+</span></span>
+<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> <span class="fu">label_dollar</span>()) <span class="sc">+</span></span>
+<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_size_area</span>(<span class="at">labels =</span> <span class="fu">label_comma</span>(), <span class="at">max_size =</span> <span class="dv">10</span>) <span class="sc">+</span> </span>
+<span id="cb24-13"><a href="#cb24-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Student Poverty Rate"</span>, <span class="at">y =</span> <span class="st">"Local Per-Pupil Revenue"</span>,</span>
+<span id="cb24-14"><a href="#cb24-14" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">"Local  Per-Pupil Revenue by Student Povert Rate in Minnesota School Districts"</span>,</span>
+<span id="cb24-15"><a href="#cb24-15" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption =</span> <span class="st">"Source: Edbuild Data, 2019"</span>,</span>
+<span id="cb24-16"><a href="#cb24-16" aria-hidden="true" tabindex="-1"></a>       <span class="at">size =</span> <span class="st">"Enrollment"</span>) <span class="sc">+</span></span>
+<span id="cb24-17"><a href="#cb24-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="week_02_ggplot_slides_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="step-6-repeat-steps-4-5-as-needed-45" class="level2">
+<h2 class="anchored" data-anchor-id="step-6-repeat-steps-4-5-as-needed-45">Step 6: Repeat steps 4-5 as needed (4/5)</h2>
+<p>We should strive to make our analyses as accessible as possible. The <code>viridis</code> package includes some color palettes that are friendly for folks with color blindness, which affects 5-10 percent of the US population.</p>
+<div class="cell" data-output-location="slide">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># use colors better for visual impairments</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(viridis)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: viridisLite</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'viridis'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:scales':
+
+    viridis_pal</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># adjust colors manually</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mn_ed_clean, <span class="fu">aes</span>(<span class="at">x =</span> pov_pct, <span class="at">y =</span> local_rev_pp, <span class="at">size =</span> enroll,</span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>                        <span class="at">color =</span> urbanicity)) <span class="sc">+</span></span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> .<span class="dv">5</span>) <span class="sc">+</span> </span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># use a colorblind-friendly palette</span></span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_viridis_d</span>() <span class="sc">+</span></span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">labels =</span> <span class="fu">label_percent</span>()) <span class="sc">+</span></span>
+<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> <span class="fu">label_dollar</span>()) <span class="sc">+</span></span>
+<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_size_area</span>(<span class="at">labels =</span> <span class="fu">label_comma</span>(), <span class="at">max_size =</span> <span class="dv">10</span>) <span class="sc">+</span> </span>
+<span id="cb29-11"><a href="#cb29-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Student Poverty Rate"</span>, <span class="at">y =</span> <span class="st">"Local Per-Pupil Revenue"</span>,</span>
+<span id="cb29-12"><a href="#cb29-12" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">"Local  Per-Pupil Revenue by Student Povert Rate in Minnesota School Districts"</span>,</span>
+<span id="cb29-13"><a href="#cb29-13" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption =</span> <span class="st">"Source: Edbuild Data, 2019"</span>,</span>
+<span id="cb29-14"><a href="#cb29-14" aria-hidden="true" tabindex="-1"></a>       <span class="at">size =</span> <span class="st">"Enrollment"</span>) <span class="sc">+</span></span>
+<span id="cb29-15"><a href="#cb29-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="week_02_ggplot_slides_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="step-6-repeat-steps-4-5-as-needed-55" class="level2">
+<h2 class="anchored" data-anchor-id="step-6-repeat-steps-4-5-as-needed-55">Step 6: Repeat steps 4-5 as needed (5/5)</h2>
+<p>Let’s adjust the range of colors used to exclude that hard-to-see yellow.</p>
+<div class="cell" data-output-location="slide">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># that yellow is hard to see - let's adjust the range</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mn_ed_clean, <span class="fu">aes</span>(<span class="at">x =</span> pov_pct, <span class="at">y =</span> local_rev_pp, <span class="at">size =</span> enroll,</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>                        <span class="at">color =</span> urbanicity)) <span class="sc">+</span></span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> .<span class="dv">5</span>) <span class="sc">+</span> </span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># adjust color range</span></span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_viridis_d</span>(<span class="at">end =</span> .<span class="dv">8</span>) <span class="sc">+</span></span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">labels =</span> <span class="fu">label_percent</span>()) <span class="sc">+</span></span>
+<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> <span class="fu">label_dollar</span>()) <span class="sc">+</span></span>
+<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_size_area</span>(<span class="at">labels =</span> <span class="fu">label_comma</span>(), <span class="at">max_size =</span> <span class="dv">10</span>) <span class="sc">+</span> </span>
+<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Student Poverty Rate"</span>, <span class="at">y =</span> <span class="st">"Local Per-Pupil Revenue"</span>,</span>
+<span id="cb30-11"><a href="#cb30-11" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">"Local  Per-Pupil Revenue by Student Povert Rate in Minnesota School Districts"</span>,</span>
+<span id="cb30-12"><a href="#cb30-12" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption =</span> <span class="st">"Source: Edbuild Data, 2019"</span>,</span>
+<span id="cb30-13"><a href="#cb30-13" aria-hidden="true" tabindex="-1"></a>       <span class="at">size =</span> <span class="st">"Enrollment"</span>) <span class="sc">+</span></span>
+<span id="cb30-14"><a href="#cb30-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="week_02_ggplot_slides_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="step-7-replace-a-layer-of-data" class="level2">
+<h2 class="anchored" data-anchor-id="step-7-replace-a-layer-of-data">Step 7: Replace a layer of data</h2>
+<p>Sometimes color isn’t the answer - let’s try facets instead.</p>
+<div class="cell" data-output-location="slide">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># use facets instead of color</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mn_ed_clean, <span class="fu">aes</span>(<span class="at">x =</span> pov_pct, <span class="at">y =</span> local_rev_pp, <span class="at">size =</span> enroll)) <span class="sc">+</span></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> .<span class="dv">5</span>) <span class="sc">+</span> </span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># add facet by urbanicity</span></span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>urbanicity) <span class="sc">+</span></span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">labels =</span> <span class="fu">label_percent</span>()) <span class="sc">+</span></span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> <span class="fu">label_dollar</span>()) <span class="sc">+</span></span>
+<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_size_area</span>(<span class="at">labels =</span> <span class="fu">label_comma</span>(), <span class="at">max_size =</span> <span class="dv">10</span>) <span class="sc">+</span> </span>
+<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Student Poverty Rate"</span>, <span class="at">y =</span> <span class="st">"Local Per-Pupil Revenue"</span>,</span>
+<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">"Local  Per-Pupil Revenue by Student Povert Rate in Minnesota School Districts"</span>,</span>
+<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption =</span> <span class="st">"Source: Edbuild Data, 2019"</span>,</span>
+<span id="cb31-12"><a href="#cb31-12" aria-hidden="true" tabindex="-1"></a>       <span class="at">size =</span> <span class="st">"Enrollment"</span>) <span class="sc">+</span></span>
+<span id="cb31-13"><a href="#cb31-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="week_02_ggplot_slides_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="using-histograms-to-compare-state-and-local-revenue" class="level1">
+<h1>Using histograms to compare state and local revenue</h1>
+<section id="use-edbuildr-data-to-create-state-summaries" class="level2">
+<h2 class="anchored" data-anchor-id="use-edbuildr-data-to-create-state-summaries">Use Edbuildr data to create state summaries</h2>
+<p>Summarize the state level data and calculate the median for enrollment, number of schools, median household income, median property value, and more.</p>
+<div class="cell" data-output-location="slide">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># summarise ------------</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="co"># create a state summary dataframe</span></span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>state_summary <span class="ot">&lt;-</span> dist_fy19_raw <span class="sc">|&gt;</span> </span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(State) <span class="sc">|&gt;</span> </span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">enroll_med =</span> <span class="fu">median</span>(ENROLL, <span class="at">na.rm =</span> T),</span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a>            <span class="at">n_schools_med =</span> <span class="fu">median</span>(dOperational_schools, <span class="at">na.rm =</span> T),</span>
+<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a>            <span class="at">nonwhite_pct_med =</span> <span class="fu">median</span>(pctNonwhite, <span class="at">na.rm =</span> T),</span>
+<span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a>            <span class="at">st_pov_rate_med =</span> <span class="fu">median</span>(StPovRate, <span class="at">na.rm =</span> T),</span>
+<span id="cb32-10"><a href="#cb32-10" aria-hidden="true" tabindex="-1"></a>            <span class="at">sd_area_med =</span> <span class="fu">median</span>(sd_area, <span class="at">na.rm =</span> T),</span>
+<span id="cb32-11"><a href="#cb32-11" aria-hidden="true" tabindex="-1"></a>            <span class="at">student_per_sq_mile_med =</span> <span class="fu">median</span>(student_per_sq_mile, <span class="at">na.rm =</span> T),</span>
+<span id="cb32-12"><a href="#cb32-12" aria-hidden="true" tabindex="-1"></a>            <span class="at">mhi_med =</span> <span class="fu">median</span>(MHI, <span class="at">na.rm =</span> T),</span>
+<span id="cb32-13"><a href="#cb32-13" aria-hidden="true" tabindex="-1"></a>            <span class="at">mpv_med =</span> <span class="fu">median</span>(MPV, <span class="at">na.rm =</span> T),</span>
+<span id="cb32-14"><a href="#cb32-14" aria-hidden="true" tabindex="-1"></a>            <span class="at">state_loc_rev_pp_med =</span> <span class="fu">median</span>(SLRPP, <span class="at">na.rm =</span> T))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="create-histograms-13" class="level2">
+<h2 class="anchored" data-anchor-id="create-histograms-13">Create histograms (1/3)</h2>
+<p>Use a histogram to visualize the distribution of median property values across states.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># histogram of median property value</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> state_summary) <span class="sc">+</span></span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> mpv_med), <span class="at">binwidth =</span> <span class="dv">40000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="week_02_ggplot_slides_files/figure-html/unnamed-chunk-22-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="create-histograms-23" class="level2">
+<h2 class="anchored" data-anchor-id="create-histograms-23">Create histograms (2/3)</h2>
+<p>Use a histogram to visualize the distribution of median household income across states.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># histogram of median household income</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> state_summary) <span class="sc">+</span></span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> mhi_med), <span class="at">binwidth =</span> <span class="dv">3000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="week_02_ggplot_slides_files/figure-html/unnamed-chunk-23-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="create-histograms-33" class="level2">
+<h2 class="anchored" data-anchor-id="create-histograms-33">Create histograms (3/3)</h2>
+<p>Use a histogram to visualize the distribution of state and local per-pupil funding across states.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># histogram of state + local pp rev</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> state_summary) <span class="sc">+</span></span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> state_loc_rev_pp_med), <span class="at">binwidth =</span> <span class="dv">2000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="week_02_ggplot_slides_files/figure-html/unnamed-chunk-24-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="homework" class="level1">
+<h1>Homework</h1>
+<section id="this-weeks-assignment" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="this-weeks-assignment">This week’s assignment</h2>
+<p><strong>Reading assignment</strong></p>
+<ul class="task-list">
+<li><label><input type="checkbox"><a href="https://bellwether.org/wp-content/uploads/2021/10/Bellwether_SplittingBill_06-LocalTaxesAndFinanceEquity_Final.pdf"><strong><em>How Do Local Taxes Affect School Finance Equity?</em></strong></a></label></li>
+</ul>
+<p><strong>Coding task</strong></p>
+<p>Use <code>edbuildr</code> data and <code>tidyverse</code> functions to:</p>
+<ul class="task-list">
+<li><p><label><input type="checkbox">Create a dataframe that includes <code>edbuilder</code> data from your state</label></p></li>
+<li><p><label><input type="checkbox">Plot histograms shows the distributions of property wealth, income, and per-pupil revenue across school districts</label></p></li>
+<li><p><label><input type="checkbox">Develop two scatterplots that illustrate important relationships in your state’s school finance landscape by working within these options:</label></p>
+<ul>
+<li><p>X-axis variable options: median household income (<code>MHI</code>), median property value (<code>MPV</code>), and student poverty rate (<code>StPovRate</code>) as your x-axis variables</p></li>
+<li><p>Y-axis variable options: state per-pupil revenue (<code>SRPP</code>), local per-pupil revenue (<code>LRPP</code>), and combined state and local per-pupil revenue (<code>SLRPP</code>)</p></li>
+<li><p>Size variable: Enrollment (<code>ENROLL</code>)</p></li>
+<li><p>Color variables: Urbanicity (<code>dUrbanicity</code>), median household income (<code>MHI</code>), median property value (<code>MPV</code>), and student poverty rate (<code>StPovRate</code>)</p></li>
+<li><p>Use the formatting techniques covered in class to create nice axis and legend labels and add titles and captions to your plots.</p></li>
+</ul></li>
+</ul>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

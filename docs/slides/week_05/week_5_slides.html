@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.550">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2023-07-11">
+
+<title>School Finance Equity Training, Summer 2024 - Reproducible data analysis in R</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar docked">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Reproducible data analysis in R</li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+      <a href="../../index.html" class="sidebar-logo-link">
+      <img src="../../images/primary_one-color_reverse.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      </a>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Home</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../syllabus.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Syllabus</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../schedule.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Schedule</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../setup.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Class Setup</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../resources.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">R Resources</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#homework-review" id="toc-homework-review" class="nav-link active" data-scroll-target="#homework-review">Homework review</a></li>
+  <li><a href="#setting-up-your-data-processing-project" id="toc-setting-up-your-data-processing-project" class="nav-link" data-scroll-target="#setting-up-your-data-processing-project">Setting up your data processing project</a>
+  <ul class="collapse">
+  <li><a href="#you-can-and-should-start-your-projects-by-creating-a-new-repo-on-your-github-account" id="toc-you-can-and-should-start-your-projects-by-creating-a-new-repo-on-your-github-account" class="nav-link" data-scroll-target="#you-can-and-should-start-your-projects-by-creating-a-new-repo-on-your-github-account">You can (and should) start your projects by creating a new repo on your GitHub account</a></li>
+  <li><a href="#before-you-start-coding-set-yourself-up-for-a-successful-reproducible-analysis-project" id="toc-before-you-start-coding-set-yourself-up-for-a-successful-reproducible-analysis-project" class="nav-link" data-scroll-target="#before-you-start-coding-set-yourself-up-for-a-successful-reproducible-analysis-project">Before you start coding, set yourself up for a successful, reproducible analysis project</a></li>
+  <li><a href="#remember-after-youve-created-a-project-use-a-consistent-folder-structure-to-keep-your-analysis-organized" id="toc-remember-after-youve-created-a-project-use-a-consistent-folder-structure-to-keep-your-analysis-organized" class="nav-link" data-scroll-target="#remember-after-youve-created-a-project-use-a-consistent-folder-structure-to-keep-your-analysis-organized">Remember: After you’ve created a project, use a consistent folder structure to keep your analysis organized</a></li>
+  <li><a href="#another-layer-of-organization-separate-your-raw-and-processed-data" id="toc-another-layer-of-organization-separate-your-raw-and-processed-data" class="nav-link" data-scroll-target="#another-layer-of-organization-separate-your-raw-and-processed-data">Another layer of organization: Separate your raw and processed data!</a></li>
+  </ul></li>
+  <li><a href="#sourcing-scripts" id="toc-sourcing-scripts" class="nav-link" data-scroll-target="#sourcing-scripts">Sourcing Scripts</a>
+  <ul class="collapse">
+  <li><a href="#you-can-use-the-source-function-in-r-to-reuse-functions-that-you-create-in-another-r-script." id="toc-you-can-use-the-source-function-in-r-to-reuse-functions-that-you-create-in-another-r-script." class="nav-link" data-scroll-target="#you-can-use-the-source-function-in-r-to-reuse-functions-that-you-create-in-another-r-script.">You can use the source function in R to reuse functions that you create in another R script.</a></li>
+  <li><a href="#live-coding-example-u.s.-census-annual-survey-of-school-system-finances" id="toc-live-coding-example-u.s.-census-annual-survey-of-school-system-finances" class="nav-link" data-scroll-target="#live-coding-example-u.s.-census-annual-survey-of-school-system-finances">Live coding example: U.S. Census Annual Survey of School System Finances</a></li>
+  </ul></li>
+  <li><a href="#what-is-r-markdown" id="toc-what-is-r-markdown" class="nav-link" data-scroll-target="#what-is-r-markdown">What is R Markdown?</a>
+  <ul class="collapse">
+  <li><a href="#r-markdown-is-a-special-file-type-that-allows-you-to-combine-code-with-plain-text-to-create-reports" id="toc-r-markdown-is-a-special-file-type-that-allows-you-to-combine-code-with-plain-text-to-create-reports" class="nav-link" data-scroll-target="#r-markdown-is-a-special-file-type-that-allows-you-to-combine-code-with-plain-text-to-create-reports">R Markdown is a special file type that allows you to combine code with plain text to create reports</a></li>
+  <li><a href="#r-markdown-combines-chunks-of-r-code-with-blocks-of-markdown-formatted-text" id="toc-r-markdown-combines-chunks-of-r-code-with-blocks-of-markdown-formatted-text" class="nav-link" data-scroll-target="#r-markdown-combines-chunks-of-r-code-with-blocks-of-markdown-formatted-text">R Markdown combines “chunks” of R code with blocks of Markdown-formatted text</a></li>
+  <li><a href="#live-coding-example-kentucky-edbuild-data-analysis" id="toc-live-coding-example-kentucky-edbuild-data-analysis" class="nav-link" data-scroll-target="#live-coding-example-kentucky-edbuild-data-analysis">LIVE CODING EXAMPLE: Kentucky EdBuild Data Analysis</a></li>
+  </ul></li>
+  <li><a href="#what-is-quarto" id="toc-what-is-quarto" class="nav-link" data-scroll-target="#what-is-quarto">What is Quarto?</a>
+  <ul class="collapse">
+  <li><a href="#quarto-is-a-multi-language-next-generation-version-of-r-markdown-from-rstudio" id="toc-quarto-is-a-multi-language-next-generation-version-of-r-markdown-from-rstudio" class="nav-link" data-scroll-target="#quarto-is-a-multi-language-next-generation-version-of-r-markdown-from-rstudio">Quarto is a multi-language, next generation version of R Markdown from RStudio</a></li>
+  <li><a href="#how-to-use-quarto-rendering" id="toc-how-to-use-quarto-rendering" class="nav-link" data-scroll-target="#how-to-use-quarto-rendering">How to use Quarto: Rendering</a></li>
+  <li><a href="#how-to-use-quarto-authoring" id="toc-how-to-use-quarto-authoring" class="nav-link" data-scroll-target="#how-to-use-quarto-authoring">How to use Quarto: Authoring</a></li>
+  <li><a href="#live-coding-example-kentucky-edbuild-data-analysis-1" id="toc-live-coding-example-kentucky-edbuild-data-analysis-1" class="nav-link" data-scroll-target="#live-coding-example-kentucky-edbuild-data-analysis-1">LIVE CODING EXAMPLE: Kentucky EdBuild Data Analysis</a></li>
+  </ul></li>
+  <li><a href="#homework" id="toc-homework" class="nav-link" data-scroll-target="#homework">Homework</a>
+  <ul class="collapse">
+  <li><a href="#this-weeks-homework-assignment" id="toc-this-weeks-homework-assignment" class="nav-link" data-scroll-target="#this-weeks-homework-assignment">This week’s homework assignment</a></li>
+  </ul></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="week_5_slides.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Reproducible data analysis in R</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">July 11, 2023</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="homework-review" class="level1">
+<h1>Homework review</h1>
+</section>
+<section id="setting-up-your-data-processing-project" class="level1">
+<h1>Setting up your data processing project</h1>
+<section id="you-can-and-should-start-your-projects-by-creating-a-new-repo-on-your-github-account" class="level2">
+<h2 class="anchored" data-anchor-id="you-can-and-should-start-your-projects-by-creating-a-new-repo-on-your-github-account">You can (and should) start your projects by creating a new repo on your GitHub account</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="week_5_images/git_new.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+</section>
+<section id="before-you-start-coding-set-yourself-up-for-a-successful-reproducible-analysis-project" class="level2">
+<h2 class="anchored" data-anchor-id="before-you-start-coding-set-yourself-up-for-a-successful-reproducible-analysis-project">Before you start coding, set yourself up for a successful, reproducible analysis project</h2>
+<ul>
+<li>Every new data analysis project should live in its own RStudio project</li>
+<li>Most of your projects should be started on Github, then cloned locally (just like we do with homework)
+<ul>
+<li><strong>Be sure to set your project repos to “Private” before creating them on Github!</strong></li>
+<li>Also, using a <code>README.md</code> file can help you stay organized and keep track of data sources and/or outliers.</li>
+</ul></li>
+<li>RStudio projects can be also created locally by navigating to <code>File -&gt; New Project...</code>, but it’s more difficult to connect it to Github if you start that way.</li>
+</ul>
+</section>
+<section id="remember-after-youve-created-a-project-use-a-consistent-folder-structure-to-keep-your-analysis-organized" class="level2">
+<h2 class="anchored" data-anchor-id="remember-after-youve-created-a-project-use-a-consistent-folder-structure-to-keep-your-analysis-organized">Remember: After you’ve created a project, use a consistent folder structure to keep your analysis organized</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li><p>Building a consistent file structure in your projects will help you (and others!) easily navigate your code.</p></li>
+<li><p>Minimally, you will want to have a separate folder for:</p>
+<ul>
+<li><p><code>data</code></p></li>
+<li><p><code>scripts</code></p></li>
+<li><p><code>figures</code></p></li>
+</ul></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://i.stack.imgur.com/AlNMJ.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="350"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="another-layer-of-organization-separate-your-raw-and-processed-data" class="level2">
+<h2 class="anchored" data-anchor-id="another-layer-of-organization-separate-your-raw-and-processed-data">Another layer of organization: Separate your raw and processed data!</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li>Use sub-folders within your <code>/data</code> folder to keep your raw data files separated from any processed data files you produce during your analysis.</li>
+<li>This creates additional procedural barrier to accidentally over-writing your raw data.</li>
+<li>Use the <code>/processed</code> data folder for exporting clean data or results of your analysis, like summary tables.</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="week_5_images/Screenshot 2023-06-27 at 4.50.22 PM.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="475"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="sourcing-scripts" class="level1">
+<h1>Sourcing Scripts</h1>
+<section id="you-can-use-the-source-function-in-r-to-reuse-functions-that-you-create-in-another-r-script." class="level2">
+<h2 class="anchored" data-anchor-id="you-can-use-the-source-function-in-r-to-reuse-functions-that-you-create-in-another-r-script.">You can use the source function in R to reuse functions that you create in another R script.</h2>
+<ul>
+<li>The <strong>source</strong> function uses this basic syntax: <code>source("path/to/some/file.R")</code> to run scripts you’ve written behind-the-scenes, giving you access to the objects created by that script.</li>
+<li>Breaking up your data cleaning and analysis work across multiple scripts can be very helpful during complex projects.</li>
+<li>This approach makes it easier to isolate errors and update code.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># load -----</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">scipen =</span> <span class="dv">999</span>)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Calling in scripts from the "updated_app_data" folder then the code in </span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># scripts 1-13 will run! </span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"updated_app_data/13_updated_2020_app_data.R"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="live-coding-example-u.s.-census-annual-survey-of-school-system-finances" class="level2">
+<h2 class="anchored" data-anchor-id="live-coding-example-u.s.-census-annual-survey-of-school-system-finances">Live coding example: U.S. Census Annual Survey of School System Finances</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 2_f33_2008_2013_clean</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 2022-10-05 last updated by Krista Kaput</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># load -----</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">scipen =</span> <span class="dv">999</span>)</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co"># source script cleaning f33 data from 2002-2007</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"f33_finance_enrollment_scripts/1_f33_2002_2007_clean.R"</span>)</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="co"># load raw f33 from 2008 </span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>f33_2008_raw <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"raw_data/f33_finance_raw/elsec08_sttables.xls"</span>, </span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>              <span class="at">sheet =</span> <span class="st">"1"</span>, <span class="at">skip =</span> <span class="dv">9</span>, <span class="at">n_max =</span> <span class="dv">53</span>)</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="co"># load raw f33 from 2009</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>f33_2009_raw <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"raw_data/f33_finance_raw/elsec09_sttables.xls"</span>, </span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>                           <span class="at">sheet =</span> <span class="st">"1"</span>, <span class="at">skip =</span> <span class="dv">9</span>, <span class="at">n_max =</span> <span class="dv">53</span>)</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="co"># load raw f33 from 2010 </span></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>f33_2010_raw <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"raw_data/f33_finance_raw/elsec10_sttables.xls"</span>, </span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>                           <span class="at">sheet =</span> <span class="st">"1"</span>, <span class="at">skip =</span> <span class="dv">9</span>, <span class="at">n_max =</span> <span class="dv">53</span>)</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a><span class="co"># load raw f33 from 2011</span></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>f33_2011_raw <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"raw_data/f33_finance_raw/elsec11_sttables.xls"</span>, </span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>                           <span class="at">sheet =</span> <span class="st">"1"</span>, <span class="at">skip =</span> <span class="dv">9</span>, <span class="at">n_max =</span> <span class="dv">53</span>)</span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a><span class="co"># load raw f33 from 2012 </span></span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>f33_2012_raw <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"raw_data/f33_finance_raw/elsec12_sttables.xls"</span>, </span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>                          <span class="at">sheet =</span> <span class="st">"1"</span>, <span class="at">skip =</span> <span class="dv">7</span>, <span class="at">n_max =</span> <span class="dv">53</span>)</span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a><span class="co"># load raw f33 from 2013 </span></span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>f33_2013_raw <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"raw_data/f33_finance_raw/elsec13_sttables.xls"</span>, </span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>                           <span class="at">sheet =</span> <span class="st">"1"</span>, <span class="at">skip =</span> <span class="dv">7</span>, <span class="at">n_max =</span> <span class="dv">53</span>)</span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a><span class="co"># clean all 2008 f33 data ---------</span></span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>f33_2008_all <span class="ot">&lt;-</span> f33_2008_raw <span class="sc">|&gt;</span></span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">state =</span> <span class="st">"...1"</span>,</span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>         <span class="at">total_revenue =</span> <span class="st">"Total Revenue"</span>,</span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a>         <span class="at">federal_revenue =</span> <span class="st">"Federal Revenue"</span>,</span>
+<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a>         <span class="at">state_revenue =</span> <span class="st">"State Revenue"</span>,</span>
+<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a>         <span class="at">local_revenue =</span> <span class="st">"Local Revenue"</span>,</span>
+<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a>         <span class="at">total_expenditures =</span> <span class="st">"Total Expenditure"</span>,</span>
+<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a>         <span class="at">current_expenditures =</span> <span class="st">"Current Spending"</span>,</span>
+<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a>         <span class="at">capital_expenses =</span> <span class="st">"Capital Outlay"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">year =</span> <span class="dv">2008</span>) <span class="sc">|&gt;</span></span>
+<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(year, state, total_revenue, federal_revenue, state_revenue, local_revenue,</span>
+<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a>         total_expenditures, current_expenditures, capital_expenses)</span>
+<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a><span class="co"># filter for 2008 national f33 data</span></span>
+<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a>f33_2008_us <span class="ot">&lt;-</span> f33_2008_all <span class="sc">|&gt;</span></span>
+<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(total_revenue <span class="sc">==</span> <span class="st">"582125621"</span>)</span>
+<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a><span class="co"># filter for 2008 state f33 data</span></span>
+<span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a>f33_2008_states <span class="ot">&lt;-</span> f33_2008_all <span class="sc">|&gt;</span></span>
+<span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(total_revenue <span class="sc">!=</span> <span class="st">"582125621"</span>)</span>
+<span id="cb2-60"><a href="#cb2-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-62"><a href="#cb2-62" aria-hidden="true" tabindex="-1"></a><span class="co"># clean all 2009 f33 data ---------</span></span>
+<span id="cb2-63"><a href="#cb2-63" aria-hidden="true" tabindex="-1"></a>f33_2009_all <span class="ot">&lt;-</span> f33_2009_raw <span class="sc">|&gt;</span></span>
+<span id="cb2-64"><a href="#cb2-64" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">state =</span> <span class="st">"...1"</span>,</span>
+<span id="cb2-65"><a href="#cb2-65" aria-hidden="true" tabindex="-1"></a>         <span class="at">total_revenue =</span> <span class="st">"Total Revenue"</span>,</span>
+<span id="cb2-66"><a href="#cb2-66" aria-hidden="true" tabindex="-1"></a>         <span class="at">federal_revenue =</span> <span class="st">"Federal Revenue"</span>,</span>
+<span id="cb2-67"><a href="#cb2-67" aria-hidden="true" tabindex="-1"></a>         <span class="at">state_revenue =</span> <span class="st">"State Revenue"</span>,</span>
+<span id="cb2-68"><a href="#cb2-68" aria-hidden="true" tabindex="-1"></a>         <span class="at">local_revenue =</span> <span class="st">"Local Revenue"</span>,</span>
+<span id="cb2-69"><a href="#cb2-69" aria-hidden="true" tabindex="-1"></a>         <span class="at">total_expenditures =</span> <span class="st">"Total Expenditure"</span>,</span>
+<span id="cb2-70"><a href="#cb2-70" aria-hidden="true" tabindex="-1"></a>         <span class="at">current_expenditures =</span> <span class="st">"Current Spending"</span>,</span>
+<span id="cb2-71"><a href="#cb2-71" aria-hidden="true" tabindex="-1"></a>         <span class="at">capital_expenses =</span> <span class="st">"Capital Outlay"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb2-72"><a href="#cb2-72" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">year =</span> <span class="dv">2009</span>) <span class="sc">|&gt;</span></span>
+<span id="cb2-73"><a href="#cb2-73" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(year, state, total_revenue, federal_revenue, state_revenue, local_revenue,</span>
+<span id="cb2-74"><a href="#cb2-74" aria-hidden="true" tabindex="-1"></a>         total_expenditures, current_expenditures, capital_expenses)</span>
+<span id="cb2-75"><a href="#cb2-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-76"><a href="#cb2-76" aria-hidden="true" tabindex="-1"></a><span class="co"># filter for 2009 national f33 data</span></span>
+<span id="cb2-77"><a href="#cb2-77" aria-hidden="true" tabindex="-1"></a>f33_2009_us <span class="ot">&lt;-</span> f33_2009_all <span class="sc">|&gt;</span></span>
+<span id="cb2-78"><a href="#cb2-78" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(total_revenue <span class="sc">==</span> <span class="st">"590947579"</span>)</span>
+<span id="cb2-79"><a href="#cb2-79" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-80"><a href="#cb2-80" aria-hidden="true" tabindex="-1"></a><span class="co"># filter for 2009 state f33 data</span></span>
+<span id="cb2-81"><a href="#cb2-81" aria-hidden="true" tabindex="-1"></a>f33_2009_states <span class="ot">&lt;-</span> f33_2009_all <span class="sc">|&gt;</span></span>
+<span id="cb2-82"><a href="#cb2-82" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(total_revenue <span class="sc">!=</span> <span class="st">"590947579"</span>)</span>
+<span id="cb2-83"><a href="#cb2-83" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-84"><a href="#cb2-84" aria-hidden="true" tabindex="-1"></a><span class="co"># clean all 2010 f33 data ------------</span></span>
+<span id="cb2-85"><a href="#cb2-85" aria-hidden="true" tabindex="-1"></a>f33_2010_all <span class="ot">&lt;-</span> f33_2010_raw <span class="sc">|&gt;</span></span>
+<span id="cb2-86"><a href="#cb2-86" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">state =</span> <span class="st">"...1"</span>,</span>
+<span id="cb2-87"><a href="#cb2-87" aria-hidden="true" tabindex="-1"></a>         <span class="at">total_revenue =</span> <span class="st">"Total Revenue"</span>,</span>
+<span id="cb2-88"><a href="#cb2-88" aria-hidden="true" tabindex="-1"></a>         <span class="at">federal_revenue =</span> <span class="st">"Federal Revenue"</span>,</span>
+<span id="cb2-89"><a href="#cb2-89" aria-hidden="true" tabindex="-1"></a>         <span class="at">state_revenue =</span> <span class="st">"State Revenue"</span>,</span>
+<span id="cb2-90"><a href="#cb2-90" aria-hidden="true" tabindex="-1"></a>         <span class="at">local_revenue =</span> <span class="st">"Local Revenue"</span>,</span>
+<span id="cb2-91"><a href="#cb2-91" aria-hidden="true" tabindex="-1"></a>         <span class="at">total_expenditures =</span> <span class="st">"Total Expenditure"</span>,</span>
+<span id="cb2-92"><a href="#cb2-92" aria-hidden="true" tabindex="-1"></a>         <span class="at">current_expenditures =</span> <span class="st">"Current Spending"</span>,</span>
+<span id="cb2-93"><a href="#cb2-93" aria-hidden="true" tabindex="-1"></a>         <span class="at">capital_expenses =</span> <span class="st">"Capital Outlay"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb2-94"><a href="#cb2-94" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">year =</span> <span class="dv">2010</span>) <span class="sc">|&gt;</span></span>
+<span id="cb2-95"><a href="#cb2-95" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(year, state, total_revenue, federal_revenue, state_revenue, local_revenue,</span>
+<span id="cb2-96"><a href="#cb2-96" aria-hidden="true" tabindex="-1"></a>         total_expenditures, current_expenditures, capital_expenses)</span>
+<span id="cb2-97"><a href="#cb2-97" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-98"><a href="#cb2-98" aria-hidden="true" tabindex="-1"></a><span class="co"># filter for 2010 national f33 data</span></span>
+<span id="cb2-99"><a href="#cb2-99" aria-hidden="true" tabindex="-1"></a>f33_2010_us <span class="ot">&lt;-</span> f33_2010_all <span class="sc">|&gt;</span></span>
+<span id="cb2-100"><a href="#cb2-100" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(total_revenue <span class="sc">==</span> <span class="st">"592895329"</span>)</span>
+<span id="cb2-101"><a href="#cb2-101" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-102"><a href="#cb2-102" aria-hidden="true" tabindex="-1"></a><span class="co"># filter for 2010 state f33 data</span></span>
+<span id="cb2-103"><a href="#cb2-103" aria-hidden="true" tabindex="-1"></a>f33_2010_states <span class="ot">&lt;-</span> f33_2010_all <span class="sc">|&gt;</span></span>
+<span id="cb2-104"><a href="#cb2-104" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(total_revenue <span class="sc">!=</span> <span class="st">"592895329"</span>)</span>
+<span id="cb2-105"><a href="#cb2-105" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-106"><a href="#cb2-106" aria-hidden="true" tabindex="-1"></a><span class="co"># clean all 2011 f33 data ------------</span></span>
+<span id="cb2-107"><a href="#cb2-107" aria-hidden="true" tabindex="-1"></a>f33_2011_all <span class="ot">&lt;-</span> f33_2011_raw <span class="sc">|&gt;</span></span>
+<span id="cb2-108"><a href="#cb2-108" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">state =</span> <span class="st">"...1"</span>,</span>
+<span id="cb2-109"><a href="#cb2-109" aria-hidden="true" tabindex="-1"></a>         <span class="at">total_revenue =</span> <span class="st">"Total Revenue"</span>,</span>
+<span id="cb2-110"><a href="#cb2-110" aria-hidden="true" tabindex="-1"></a>         <span class="at">federal_revenue =</span> <span class="st">"Federal Revenue"</span>,</span>
+<span id="cb2-111"><a href="#cb2-111" aria-hidden="true" tabindex="-1"></a>         <span class="at">state_revenue =</span> <span class="st">"State Revenue"</span>,</span>
+<span id="cb2-112"><a href="#cb2-112" aria-hidden="true" tabindex="-1"></a>         <span class="at">local_revenue =</span> <span class="st">"Local Revenue"</span>,</span>
+<span id="cb2-113"><a href="#cb2-113" aria-hidden="true" tabindex="-1"></a>         <span class="at">total_expenditures =</span> <span class="st">"Total Expenditures"</span>,</span>
+<span id="cb2-114"><a href="#cb2-114" aria-hidden="true" tabindex="-1"></a>         <span class="at">current_expenditures =</span> <span class="st">"Current Spending"</span>,</span>
+<span id="cb2-115"><a href="#cb2-115" aria-hidden="true" tabindex="-1"></a>         <span class="at">capital_expenses =</span> <span class="st">"Capital Outlay"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb2-116"><a href="#cb2-116" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">year =</span> <span class="dv">2011</span>) <span class="sc">|&gt;</span></span>
+<span id="cb2-117"><a href="#cb2-117" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(year, state, total_revenue, federal_revenue, state_revenue, local_revenue,</span>
+<span id="cb2-118"><a href="#cb2-118" aria-hidden="true" tabindex="-1"></a>         total_expenditures, current_expenditures, capital_expenses)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="what-is-r-markdown" class="level1">
+<h1>What is R Markdown?</h1>
+<section id="r-markdown-is-a-special-file-type-that-allows-you-to-combine-code-with-plain-text-to-create-reports" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="r-markdown-is-a-special-file-type-that-allows-you-to-combine-code-with-plain-text-to-create-reports">R Markdown is a special file type that allows you to combine code with plain text to create reports</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ol type="1">
+<li><p><strong>YAML Header:</strong> Controls certain output settings that apply to the entire document.</p></li>
+<li><p><strong>Code Chunk</strong>: Includes code to run, and code-related options.</p></li>
+<li><p><strong>Body Text:</strong> For communicating results and findings to the targeted audience.</p></li>
+<li><p><strong>Code to Generate a Table:</strong> Outputs a table with minimal formatting like you would see in the console.</p></li>
+<li><p><strong>Section Header</strong>: Specified with <code>##</code>.</p></li>
+<li><p><strong>Code to Generate a Plot</strong>: Outputs a plot. Here, the code used to generate the plot will not be included because the parameter <code>echo=FALSE</code> is specified.</p></li>
+</ol>
+</div><div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="week_5_images/Screenshot 2023-06-27 at 5.19.26 PM.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="550"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="r-markdown-combines-chunks-of-r-code-with-blocks-of-markdown-formatted-text" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="r-markdown-combines-chunks-of-r-code-with-blocks-of-markdown-formatted-text">R Markdown combines “chunks” of R code with blocks of Markdown-formatted text</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>R code chunks in R Markdown are contained within a pair of triple backticks that include a curly brace that indicates the section contains r code:</p>
+<p>```{r}</p>
+<p>&lt;code goes here&gt;</p>
+<p>```</p>
+<ul>
+<li><p>Markdown is a *really* easy way to format text. For more, visit <a href="https://www.markdownguide.org/cheat-sheet/">Markdown Guide</a>).</p></li>
+<li><p>For more on using R Markdown documents, check out <a href="https://rmarkdown.rstudio.com/">RStudio’s resources here</a>.</p></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="week_5_images/Screenshot 2023-06-27 at 5.25.44 PM.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="live-coding-example-kentucky-edbuild-data-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="live-coding-example-kentucky-edbuild-data-analysis">LIVE CODING EXAMPLE: Kentucky EdBuild Data Analysis</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="week_5_images/Screenshot 2023-06-27 at 5.31.13 PM.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+</section>
+</section>
+<section id="what-is-quarto" class="level1">
+<h1>What is Quarto?</h1>
+<section id="quarto-is-a-multi-language-next-generation-version-of-r-markdown-from-rstudio" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="quarto-is-a-multi-language-next-generation-version-of-r-markdown-from-rstudio">Quarto is a multi-language, next generation version of R Markdown from RStudio</h2>
+<ul>
+<li>Like R Markdown, Quarto is free and open source</li>
+<li>Quarto also uses Knitr to execute R code, so it can render most existing Rmd files without modification</li>
+<li>Use a single source document to target multiple formats (HTML, PDF, Word, etc.)</li>
+<li>It’s language-agnostic. It can render documents that contain code written in R, Python, Julia, or Observable.</li>
+<li>Check out the gallery of <a href="https://quarto.org/docs/gallery/">Quarto examples</a></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="week_5_images/Screenshot 2023-06-27 at 5.42.57 PM.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+</section>
+<section id="how-to-use-quarto-rendering" class="level2">
+<h2 class="anchored" data-anchor-id="how-to-use-quarto-rendering">How to use Quarto: Rendering</h2>
+<ul>
+<li><p>Use the <strong>Render</strong> button to render the file and preview the output with a single click or keyboard shortcut (⇧⌘K)</p></li>
+<li><p>You can also automatically render whenever you save. To do that you check the Render on Save option on the editor toolbar. The preview will update whenever you re-render the document. Side-by-side preview works for both HTML and PDF outputs.</p></li>
+<li><p>When rendering, Quarto generates a new file that contains selected text, code, and results from the .qmd file. The new file can be an <a href="https://quarto.org/docs/output-formats/all-formats.html">HTML</a>, <a href="https://quarto.org/docs/output-formats/pdf-basics.html">PDF</a>, <a href="https://quarto.org/docs/output-formats/ms-word.html">MS Word</a> document, <a href="https://quarto.org/docs/presentations/">presentation</a>, <a href="https://quarto.org/docs/websites/">website</a>, <a href="https://quarto.org/docs/books/">book</a>, <a href="https://quarto.org/docs/interactive/">interactive document</a>, or <a href="https://quarto.org/docs/output-formats/all-formats.html">other format</a>.</p></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="week_5_images/Screenshot 2023-06-27 at 5.58.35 PM.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+</section>
+<section id="how-to-use-quarto-authoring" class="level2">
+<h2 class="anchored" data-anchor-id="how-to-use-quarto-authoring">How to use Quarto: Authoring</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="week_5_images/Screenshot 2023-06-27 at 6.02.08 PM.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+</section>
+<section id="live-coding-example-kentucky-edbuild-data-analysis-1" class="level2">
+<h2 class="anchored" data-anchor-id="live-coding-example-kentucky-edbuild-data-analysis-1">LIVE CODING EXAMPLE: Kentucky EdBuild Data Analysis</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="week_5_images/Screenshot 2023-07-05 at 4.34.56 PM.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="625"></p>
+</figure>
+</div>
+</section>
+</section>
+<section id="homework" class="level1">
+<h1>Homework</h1>
+<section id="this-weeks-homework-assignment" class="level2">
+<h2 class="anchored" data-anchor-id="this-weeks-homework-assignment">This week’s homework assignment</h2>
+<p><strong>Reading assignment</strong></p>
+<ul>
+<li><a href="https://bellwether.org/wp-content/uploads/2021/10/Bellwether_SplittingBill_09-FutureEquity_Final.pdf"><strong><em>What Should the Future of School Finance Equity Look Like?</em></strong></a></li>
+</ul>
+<p><strong>Coding task</strong></p>
+<ul>
+<li>Continue working on your <code>week04</code> assignment!</li>
+<li>If you’ve completed a join of your first two datasets, add in the rest of the data you’ll need to model your state’s current funding formula</li>
+<li>Two blocks of office hours will be available this week on Thursday and Friday to help with any data joining and/or cleaning challenges</li>
+</ul>
+<p><strong>Finance contact</strong></p>
+<ul>
+<li>Please share the contact information for your organization’s finance/operations lead by Friday, July 14. We will be contacting them next week regarding the grant funding we have available.</li>
+</ul>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

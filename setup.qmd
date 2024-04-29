@@ -1,0 +1,95 @@
+---
+title: "Setup"
+format: html
+execute:
+  eval: false
+---
+
+## Step 1: Download and install R
+
+The **R** language is open-source software available at through the **C**omprehensive **R A**rchive **N**etwork,  [**CRAN**](https://cloud.r-project.org). Select the version of R that is compatiable with your operating system.
+
+Once you've downloaded the installer, go ahead and run it to install R on your computer.
+
+
+## Step 2: Install RStudio
+
+**RStudio** is an open-source *integrated development environment* (IDE) designed to improve your R programming experience. It is available to [download through Posit](https://posit.co/download/rstudio-desktop/), a public benefit corporation (PBC) that [develops open-source software](https://posit.co/products/open-source).
+
+Again, once you've downloaded the installer, go ahead and run it to install RStudio on your computer.
+
+## Step 3: Install required packages
+
+**Packages** help make R easier to use by providing useful functions and data. During this training, we will use the following packages:
+
+- `tidyverse`: This [package](https://www.tidyverse.org/) is actually a collection of packages that provide essential tools for data cleaning ([dplyr](https://dplyr.tidyverse.org/)) and visualization ([ggplot2](https://ggplot2.tidyverse.org/)).
+ Census Bureau that has been [cleaned using EdBuild's methodology for handling such data](http://data.edbuild.org/).
+- `remotes`: This package allows you to download packages hosted on GitHub, such as `edbuildr`.
+- `readxl`: This package allows you to read in excel documents to do data cleaning and analysis. 
+- `edbuildr`: This [package](http://viz.edbuild.org/workshops/edbuildr/) was developed by [EdBuild](https://edbuild.org/) to provide more accessible school finance data. It allows you to download data from the National Center for Educaiton Statistics (NCES) and the U.S. Census Bureau that has been [cleaned using EdBuild's methodology for handling such data](http://data.edbuild.org/).
+
+To install these packages, open RStudio and copy the code below. In the "Console" pane, paste the code and run it by hitting return:
+
+```{r}
+#| eval: false
+
+install.packages(c("tidyverse", "readxl", "remotes"))
+
+remotes::install_github("edbuild/edbuildr")
+```
+
+If you are having trouble installing `ebuildr` try the following code: 
+
+```{r}
+#| eval: false
+install.packages("devtools") 
+devtools::install_github('EdBuild/edbuildr')
+
+```
+
+## Step 4: Install Git
+
+**Git** is an Open Source Distributed Version Control System, meaning it helps with tracking content, version control, and sharing information. Instructions for downloading Git can be found below: 
+
+- **Windows**: Instructions for downloading and confirming Git is working can be found [here](https://kinsta.com/knowledgebase/install-git/#how-to-install-git-on-windows). 
+- **Mac**: Instructions for downloading Git can be found [here](https://kinsta.com/knowledgebase/install-git/#how-to-install-git-on-macos). Personally, I used the ["MacPorts"](https://git-scm.com/download/mac) option. Once you have downloaded Git, in the "Terminal" pane, paste the code in the order it specifies and run it by hitting return: 
+
+```{r}
+#| eval: false
+
+# INSTRUCTIONS FOR MAC 
+
+# First copy and paste this code into the terminal 
+xcode-select --install #Press enter 
+
+# Then copy and paste this code in the terminal to confirm that you have downloaded Git
+git version #Press enter 
+
+```
+
+## Step 5: Setting up RStudio for Cloning GitHub respositories 
+
+Once you have confirmed Git is working on your machine, copy and paste the following code in the "Console" pane and run it by hitting return. See the [class 2 slides](https://bellwetherorg.github.io/quant_plc_rclass/slides/class_2/class_2.html) for more information. 
+
+```{r}
+#| eval: false
+
+# First install these package in the console pane and press enter
+
+install.packages(c("usethis", "gitcreds", "gh")) #Press enter 
+
+# Once you have installed the packages, then copy and paste this code into the console pane 
+# and pres enter 
+
+gitcreds::gitcreds_set() # Press enter
+
+# When prompted, provide your token and press enter
+
+# Once you have provided your token, copy and paste the this code into the console pane 
+# and press enter. You should see your credentials listed, confirming you set up your 
+# token authentication correctly. 
+
+gh::gh_whoami() # Press enter
+
+
+```

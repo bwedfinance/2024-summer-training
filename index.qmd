@@ -1,12 +1,12 @@
 ---
-title: "School Finance Equity Training, Summer 2023"
+title: "School Finance Equity Training, Summer 2024"
 editor: visual
 format: html
 ---
 
 ## About this training
 
-This intensive virtual training over the summer of 2023 will build data analysis and modeling skills in R, demystify education funding policy, and accelerate advocacy on behalf of underserved students. Participants will be equipped with the content knowledge and technical skills to analyze K-12 education finance data, understand their state's funding formula, and begin to create interactive tools to model and visualize proposed policy changes.
+This intensive virtual training over the summer of 2024 will build data analysis and modeling skills in R, demystify education funding policy, and accelerate advocacy on behalf of underserved students. Participants will be equipped with the content knowledge and technical skills to analyze K-12 education finance data, understand their state's funding formula, and begin to create interactive tools to model and visualize proposed policy changes.
 
 The training will prepare advocates to understand and advocate effectively for school finance reforms that can improve the educational success of historically underserved students --- especially students of color, multilingual learners, students with disabilities, and/or economically disadvantaged students --- and on ensuring that they attend equitably and sufficiently funded schools to provide them with an excellent education.
 
@@ -30,9 +30,9 @@ Participants will:
 
 ## Instructors
 
--   [Alex Spurrier](https://bellwether.org/experts/alex-spurrier/)
-
 -   [Krista Kaput](https://bellwether.org/experts/krista-kaput/)
+
+-   [Alex Spurrier](https://bellwether.org/experts/alex-spurrier/)
 
 -   [Jennifer O'Neal Schiess](https://bellwether.org/leaders/jennifer-oneal-schiess/)
 

@@ -1,0 +1,1524 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.550">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2023-07-18">
+
+<title>School Finance Equity Training, Summer 2024 - Mapping in R</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<link href="../../site_libs/countdown-0.4.0/countdown.css" rel="stylesheet">
+<script src="../../site_libs/countdown-0.4.0/countdown.js"></script>
+
+
+</head>
+
+<body class="nav-sidebar docked">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Mapping in R</li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+      <a href="../../index.html" class="sidebar-logo-link">
+      <img src="../../images/primary_one-color_reverse.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      </a>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Home</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../syllabus.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Syllabus</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../schedule.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Schedule</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../setup.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Class Setup</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../resources.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">R Resources</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#homework-review" id="toc-homework-review" class="nav-link active" data-scroll-target="#homework-review">Homework Review</a>
+  <ul class="collapse">
+  <li><a href="#streamlining-code-in-our-cleaning-scripts" id="toc-streamlining-code-in-our-cleaning-scripts" class="nav-link" data-scroll-target="#streamlining-code-in-our-cleaning-scripts">Streamlining code in our cleaning scripts</a></li>
+  <li><a href="#viewing-homework-feedback-on-github" id="toc-viewing-homework-feedback-on-github" class="nav-link" data-scroll-target="#viewing-homework-feedback-on-github">Viewing homework feedback on GitHub</a></li>
+  <li><a href="#viewing-homework-feedback-on-github-1" id="toc-viewing-homework-feedback-on-github-1" class="nav-link" data-scroll-target="#viewing-homework-feedback-on-github-1">Viewing homework feedback on GitHub</a></li>
+  <li><a href="#viewing-homework-feedback-on-github-2" id="toc-viewing-homework-feedback-on-github-2" class="nav-link" data-scroll-target="#viewing-homework-feedback-on-github-2">Viewing homework feedback on GitHub</a></li>
+  <li><a href="#additional-workflow-tips-for-using-git" id="toc-additional-workflow-tips-for-using-git" class="nav-link" data-scroll-target="#additional-workflow-tips-for-using-git">Additional workflow tips for using git</a></li>
+  <li><a href="#working-with-pivot_wider" id="toc-working-with-pivot_wider" class="nav-link" data-scroll-target="#working-with-pivot_wider">Working with <code>pivot_wider()</code></a></li>
+  </ul></li>
+  <li><a href="#introduction-to-sf" id="toc-introduction-to-sf" class="nav-link" data-scroll-target="#introduction-to-sf">Introduction to <code>sf</code></a>
+  <ul class="collapse">
+  <li><a href="#overview-of-the-sf-package" id="toc-overview-of-the-sf-package" class="nav-link" data-scroll-target="#overview-of-the-sf-package">Overview of the <code>sf</code> package</a></li>
+  <li><a href="#reading-and-writing-functions-in-sf" id="toc-reading-and-writing-functions-in-sf" class="nav-link" data-scroll-target="#reading-and-writing-functions-in-sf">Reading and writing functions in <code>sf</code></a></li>
+  <li><a href="#converting-lat-long-location-into-simple-features" id="toc-converting-lat-long-location-into-simple-features" class="nav-link" data-scroll-target="#converting-lat-long-location-into-simple-features">Converting lat-long location into simple features</a></li>
+  <li><a href="#in-class-exercise-create-a-simple-features-object" id="toc-in-class-exercise-create-a-simple-features-object" class="nav-link" data-scroll-target="#in-class-exercise-create-a-simple-features-object">In-class exercise: Create a simple features object</a></li>
+  <li><a href="#in-class-exercise-create-a-simple-features-object-1" id="toc-in-class-exercise-create-a-simple-features-object-1" class="nav-link" data-scroll-target="#in-class-exercise-create-a-simple-features-object-1">In-class exercise: Create a simple features object</a></li>
+  <li><a href="#in-class-exercise-create-a-simple-features-object-2" id="toc-in-class-exercise-create-a-simple-features-object-2" class="nav-link" data-scroll-target="#in-class-exercise-create-a-simple-features-object-2">In-class exercise: Create a simple features object</a></li>
+  <li><a href="#in-class-exsercise-mapping-with-geom_sf" id="toc-in-class-exsercise-mapping-with-geom_sf" class="nav-link" data-scroll-target="#in-class-exsercise-mapping-with-geom_sf">In-class exsercise: Mapping with <code>geom_sf()</code></a></li>
+  <li><a href="#in-class-exsercise-mapping-with-geom_sf-1" id="toc-in-class-exsercise-mapping-with-geom_sf-1" class="nav-link" data-scroll-target="#in-class-exsercise-mapping-with-geom_sf-1">In-class exsercise: Mapping with <code>geom_sf()</code></a></li>
+  <li><a href="#in-class-exsercise-mapping-with-geom_sf-2" id="toc-in-class-exsercise-mapping-with-geom_sf-2" class="nav-link" data-scroll-target="#in-class-exsercise-mapping-with-geom_sf-2">In-class exsercise: Mapping with <code>geom_sf()</code></a></li>
+  </ul></li>
+  <li><a href="#making-maps-with-edbuildmapr" id="toc-making-maps-with-edbuildmapr" class="nav-link" data-scroll-target="#making-maps-with-edbuildmapr">Making maps with <code>edbuildmapr</code></a>
+  <ul class="collapse">
+  <li><a href="#review-overview-of-the-edbuildr-package" id="toc-review-overview-of-the-edbuildr-package" class="nav-link" data-scroll-target="#review-overview-of-the-edbuildr-package">Review: Overview of the <code>edbuildr</code> package</a></li>
+  <li><a href="#edbuildmapr-makes-it-easier-to-perform-spatial-analysis-of-education-data" id="toc-edbuildmapr-makes-it-easier-to-perform-spatial-analysis-of-education-data" class="nav-link" data-scroll-target="#edbuildmapr-makes-it-easier-to-perform-spatial-analysis-of-education-data"><code>edbuildmapr</code> makes it easier to perform spatial analysis of education data</a></li>
+  <li><a href="#live-coding-example-making-a-state-map-with-edbuildmapr" id="toc-live-coding-example-making-a-state-map-with-edbuildmapr" class="nav-link" data-scroll-target="#live-coding-example-making-a-state-map-with-edbuildmapr">LIVE CODING EXAMPLE: Making a state map with <code>edbuildmapr</code></a></li>
+  <li><a href="#live-coding-example-making-a-state-map-with-edbuildmapr-1" id="toc-live-coding-example-making-a-state-map-with-edbuildmapr-1" class="nav-link" data-scroll-target="#live-coding-example-making-a-state-map-with-edbuildmapr-1">LIVE CODING EXAMPLE: Making a state map with <code>edbuildmapr</code></a></li>
+  <li><a href="#live-coding-example-making-a-state-map-with-edbuildmapr-2" id="toc-live-coding-example-making-a-state-map-with-edbuildmapr-2" class="nav-link" data-scroll-target="#live-coding-example-making-a-state-map-with-edbuildmapr-2">LIVE CODING EXAMPLE: Making a state map with <code>edbuildmapr</code></a></li>
+  <li><a href="#live-coding-example-making-a-state-map-with-edbuildmapr-3" id="toc-live-coding-example-making-a-state-map-with-edbuildmapr-3" class="nav-link" data-scroll-target="#live-coding-example-making-a-state-map-with-edbuildmapr-3">LIVE CODING EXAMPLE: Making a state map with <code>edbuildmapr</code></a></li>
+  <li><a href="#live-coding-example-making-a-state-map-with-edbuildmapr-4" id="toc-live-coding-example-making-a-state-map-with-edbuildmapr-4" class="nav-link" data-scroll-target="#live-coding-example-making-a-state-map-with-edbuildmapr-4">LIVE CODING EXAMPLE: Making a state map with <code>edbuildmapr</code></a></li>
+  <li><a href="#state-group-activity-making-maps-with-edbuildr-data" id="toc-state-group-activity-making-maps-with-edbuildr-data" class="nav-link" data-scroll-target="#state-group-activity-making-maps-with-edbuildr-data">State Group Activity: Making maps with <code>edbuildr</code> data</a></li>
+  </ul></li>
+  <li><a href="#break" id="toc-break" class="nav-link" data-scroll-target="#break">Break</a></li>
+  <li><a href="#introduction-to-the-leaflet-package" id="toc-introduction-to-the-leaflet-package" class="nav-link" data-scroll-target="#introduction-to-the-leaflet-package">Introduction to the <code>leaflet</code> package</a>
+  <ul class="collapse">
+  <li><a href="#leaflet-is-an-interactive-mapping-package" id="toc-leaflet-is-an-interactive-mapping-package" class="nav-link" data-scroll-target="#leaflet-is-an-interactive-mapping-package"><code>leaflet</code> is an interactive mapping package</a></li>
+  <li><a href="#in-class-exercise-mapping-with-leaflet" id="toc-in-class-exercise-mapping-with-leaflet" class="nav-link" data-scroll-target="#in-class-exercise-mapping-with-leaflet">In-class exercise: Mapping with <code>leaflet</code></a></li>
+  <li><a href="#in-class-exercise-mapping-with-leaflet-1" id="toc-in-class-exercise-mapping-with-leaflet-1" class="nav-link" data-scroll-target="#in-class-exercise-mapping-with-leaflet-1">In-class exercise: Mapping with <code>leaflet</code></a></li>
+  <li><a href="#in-class-exercise-mapping-with-leaflet-2" id="toc-in-class-exercise-mapping-with-leaflet-2" class="nav-link" data-scroll-target="#in-class-exercise-mapping-with-leaflet-2">In-class exercise: Mapping with <code>leaflet</code></a></li>
+  <li><a href="#in-class-exercise-mapping-with-leaflet-3" id="toc-in-class-exercise-mapping-with-leaflet-3" class="nav-link" data-scroll-target="#in-class-exercise-mapping-with-leaflet-3">In-class exercise: Mapping with <code>leaflet</code></a></li>
+  <li><a href="#adding-a-popup-to-your-leaflet-map" id="toc-adding-a-popup-to-your-leaflet-map" class="nav-link" data-scroll-target="#adding-a-popup-to-your-leaflet-map">Adding a popup to your <code>leaflet</code> map</a></li>
+  <li><a href="#in-class-exercise-mapping-with-leaflet-4" id="toc-in-class-exercise-mapping-with-leaflet-4" class="nav-link" data-scroll-target="#in-class-exercise-mapping-with-leaflet-4">In-class exercise: Mapping with <code>leaflet</code></a></li>
+  <li><a href="#there-are-many-other-parameters-you-can-style-in-your-leaflet-map" id="toc-there-are-many-other-parameters-you-can-style-in-your-leaflet-map" class="nav-link" data-scroll-target="#there-are-many-other-parameters-you-can-style-in-your-leaflet-map">There are many other parameters you can style in your <code>leaflet</code> map</a></li>
+  <li><a href="#in-class-exercise-mapping-with-leaflet-5" id="toc-in-class-exercise-mapping-with-leaflet-5" class="nav-link" data-scroll-target="#in-class-exercise-mapping-with-leaflet-5">In-class exercise: Mapping with <code>leaflet</code></a></li>
+  <li><a href="#exporting-a-leaflet-map" id="toc-exporting-a-leaflet-map" class="nav-link" data-scroll-target="#exporting-a-leaflet-map">Exporting a <code>leaflet</code> map</a></li>
+  </ul></li>
+  <li><a href="#homework" id="toc-homework" class="nav-link" data-scroll-target="#homework">Homework</a></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="week_06_slides.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Mapping in R</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">July 18, 2023</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="homework-review" class="level1">
+<h1>Homework Review</h1>
+<section id="streamlining-code-in-our-cleaning-scripts" class="level2">
+<h2 class="anchored" data-anchor-id="streamlining-code-in-our-cleaning-scripts">Streamlining code in our cleaning scripts</h2>
+<ul>
+<li>Initial state data cleaning is looking pretty good!</li>
+<li>There are a few code style practices for us to adopt moving forward:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># when reading/writing data, the full file path is not needed</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>finance_raw <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"~/Desktop/BW R Course/capstone/data/state_data.csv"</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># only include the portion of the filepath that is within your </span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># project folder, in this case, our project is in the `capstone` folder</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>finance_raw <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/state_data.csv"</span>)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># these are helpful commands to run in the console to check your dfs</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># but they don't need to be included in your scripts. if you want to keep </span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co"># them in, please comment them out when theyre not in use!</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co"># View(finance_raw)</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co"># names(finance_raw)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="viewing-homework-feedback-on-github" class="level2">
+<h2 class="anchored" data-anchor-id="viewing-homework-feedback-on-github">Viewing homework feedback on GitHub</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/gh_comment_1.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+</section>
+<section id="viewing-homework-feedback-on-github-1" class="level2">
+<h2 class="anchored" data-anchor-id="viewing-homework-feedback-on-github-1">Viewing homework feedback on GitHub</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/gh_comment_2.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+</section>
+<section id="viewing-homework-feedback-on-github-2" class="level2">
+<h2 class="anchored" data-anchor-id="viewing-homework-feedback-on-github-2">Viewing homework feedback on GitHub</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/gh_comment_3.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+</section>
+<section id="additional-workflow-tips-for-using-git" class="level2">
+<h2 class="anchored" data-anchor-id="additional-workflow-tips-for-using-git">Additional workflow tips for using git</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li><p>Be sure to commit and push the data files you’re cleaning and joining!</p></li>
+<li><p>After Krista or I submit feedback, be sure to click the “Pull” button in your RStudio project to update your code to reflect the changes we’ve made.</p></li>
+<li><p>Break your commit and push cycles into small but meaningful chunks</p></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<p><img src="images/git_pull.png" class="img-fluid"></p>
+</div>
+</div>
+</section>
+<section id="working-with-pivot_wider" class="level2">
+<h2 class="anchored" data-anchor-id="working-with-pivot_wider">Working with <code>pivot_wider()</code></h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># load -----</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">scipen =</span> <span class="dv">999</span>)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>mn_grad_fy22_raw <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"data/2022 Graduation Indicators.xlsx"</span>, </span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>                                                              <span class="at">sheet =</span> <span class="st">"District"</span>, <span class="at">skip =</span> <span class="dv">4</span>)</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co"># clean ----------</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="co"># create df of all grad data with cols for each demographic group  </span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>mn_all_grad_data_fy22 <span class="ot">&lt;-</span> mn_grad_fy22_raw <span class="sc">|&gt;</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>  <span class="co"># tidy up column names</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename_with</span>(tolower) <span class="sc">|&gt;</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">county =</span> <span class="st">"county name"</span>,</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>         <span class="at">district_number =</span> <span class="st">"district number"</span>,</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>         <span class="at">district =</span> <span class="st">"district name"</span>,</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>         <span class="at">group_category =</span> <span class="st">"group category"</span>,</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>         <span class="at">student_group =</span>  <span class="st">"student group"</span>,</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>         <span class="at">ending_status =</span> <span class="st">"ending status"</span>,</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>         <span class="at">four_year_count =</span> <span class="st">"four year count"</span>,</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>         <span class="at">total_cohort_count =</span> <span class="st">"total four year cohort count"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>  <span class="co"># calculate pct of cohort</span></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">cohort_pct =</span> four_year_count <span class="sc">/</span> total_cohort_count) <span class="sc">|&gt;</span></span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(district_number, district, student_group, ending_status, cohort_pct) <span class="sc">|&gt;</span></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> student_group,</span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>              <span class="at">values_from =</span> cohort_pct)</span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a><span class="co"># create df that only includes graduate rate</span></span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>mn_grad_fy22_2 <span class="ot">&lt;-</span> mn_all_grad_data_fy22 <span class="sc">|&gt;</span> </span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(ending_status <span class="sc">==</span> <span class="st">"Graduate"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<!-- # What should the future of school finance equity look like? -->
+<!-- ## The variability in policies and context within and among states makes it impossible to set many hard-and-fast rules. Below are a couple of recommendations. -->
+<!-- -   A **student-based state school funding formula** is the best starting point for transparency and equity. -->
+<!-- -   Formulas should have **weights that allocate additional funding** for students with disabilities, English language learners, and low-income students, as well as other mechanisms to allocate funding toward school districts serving students with additional educational needs. -->
+<!-- ## Using local property tax revenue as the primary method for funding local schools sets inequity into the core of school funding, and ties school funding to the real estate market. -->
+<!-- This is not the only way to fund schools. If a state uses local tax revenue as part of its education finance system, there must be strong equity-driven policies in place to balance revenue scales for lower-wealth districts, such as county level revenue pooling for states with smaller districts, and caps, supplementation, or redistributive policies on local tax revenue to counteract inequities created by local funding and to prevent runaway local spending in high-wealth districts. -->
+<!-- ## Questions for Advocates {.smaller} -->
+<!-- -   Understand your state education finance system -->
+<!-- -   What data can you use to show how state funding lines up with student needs, especially for low-income students, students with disabilities, and English language learners? -->
+<!-- -   What kind of school funding formula does your state use? -->
+<!-- -   If your state does not currently have a student-based formula, how (if at all) does the existing formula consider students' different learning needs? -->
+<!-- -   If your state includes weights in its funding formula, how are those weights structured and determined? -->
+<!-- -   If a student is eligible to receive multiple weights, does your state's funding formula provide for that? - How much does total funding per student vary among school districts? What differences among districts influence funding the most? -->
+<!-- -   How do districts in your state allocate funding to individual schools? -->
+<!-- -   Does your state have a process to conduct resource or needs assessments? Can this process be used at the district level? - How have lawsuits shaped the school finance landscape in your state? -->
+<!-- -   Is there current school finance litigation in your state? If so, what are the primary arguments, what is the anticipated timeline for a ruling, and what has been the reaction of policymakers to the suit? -->
+</section>
+</section>
+<section id="introduction-to-sf" class="level1">
+<h1>Introduction to <code>sf</code></h1>
+<section id="overview-of-the-sf-package" class="level2">
+<h2 class="anchored" data-anchor-id="overview-of-the-sf-package">Overview of the <code>sf</code> package</h2>
+<ul>
+<li><p>There are many R packages that handle spatial data but <code>sf</code> is the most modern and easy-to-use.</p></li>
+<li><p>In the <code>sf</code> package, spatial data is represented as a <em>simple feature</em>, which is a set of standards on how to store spatial objects.</p></li>
+<li><p>Spatial data is represented as a data frame with:</p>
+<ul>
+<li><p>A geography column that lists all the coordinates that make up the shape</p></li>
+<li><p>“Slots” that hold spatial information</p></li>
+</ul></li>
+</ul>
+<div class="callout callout-style-simple callout-none no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>You can learn more about simple features and the sf package <a href="https://r-spatial.github.io/sf/articles/sf1.html">here.</a></p>
+</div>
+</div>
+</div>
+</section>
+<section id="reading-and-writing-functions-in-sf" class="level2">
+<h2 class="anchored" data-anchor-id="reading-and-writing-functions-in-sf">Reading and writing functions in <code>sf</code></h2>
+<ul>
+<li><code>sf</code> uses the Geospatial Data Abstraction Library (GDAL)</li>
+<li>Use <code>st_read</code> to import all spatial data</li>
+</ul>
+<p><code>dataframe &lt;- st_read("filepath.filetype")</code></p>
+<ul>
+<li>Use <code>st_write</code> to export all spatial data</li>
+</ul>
+<p><code>st_write(dataframe, "filepath.filetype")</code></p>
+<ul>
+<li>The filetype indicates the type of file you want to write to your computer - called the driver.
+<ul>
+<li>This will most likely be either a shapefile (.shp) or geojson (.geojson)</li>
+</ul></li>
+</ul>
+</section>
+<section id="converting-lat-long-location-into-simple-features" class="level2">
+<h2 class="anchored" data-anchor-id="converting-lat-long-location-into-simple-features">Converting lat-long location into simple features</h2>
+<p>There are a range of shapefiles available that we can use for mapping, but there are cases when we might have other location data, like latitude-longitude pairs, that could be useful to map. The <code>sf</code> package has a helpful function that allows us to convert data in latidude and longitude columns into the simple features format.</p>
+<p>Convert a dataframe from lat/long to a simple feature using <code>st_as_sf()</code></p>
+<ul>
+<li><strong>dataframe</strong></li>
+<li><strong>coords</strong>: The columns that define x (latitude) and y (longitude)</li>
+<li><strong>crs</strong>: The coordinate system that translate x and y to a location on Earth, provided by using the <code>st_crs()</code> function. The most commonly used is <code>"EPSG:4326"</code>.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>example <span class="ot">&lt;-</span> <span class="fu">st_as_sf</span>(<span class="at">dataframe =</span> df, </span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>                    <span class="at">coords =</span> <span class="fu">c</span>(<span class="st">"lat"</span>, <span class="st">"long"</span>), </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>                    <span class="at">crs =</span> <span class="fu">st_crs</span>(<span class="st">"EPSG:4326"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="in-class-exercise-create-a-simple-features-object" class="level2">
+<h2 class="anchored" data-anchor-id="in-class-exercise-create-a-simple-features-object">In-class exercise: Create a simple features object</h2>
+<p><strong>Step 1</strong>: At the top of your script, load in the <code>sf</code> package and and your clean data into your environment</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># load -------</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.4     ✔ readr     2.1.5
+✔ forcats   1.0.0     ✔ stringr   1.5.1
+✔ ggplot2   3.5.0     ✔ tibble    3.2.1
+✔ lubridate 1.9.3     ✔ tidyr     1.3.1
+✔ purrr     1.0.2     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sf)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Linking to GEOS 3.11.0, GDAL 3.5.3, PROJ 9.1.0; sf_use_s2() is TRUE</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">scipen =</span> <span class="dv">999</span>)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Load in the Minnesota schools data </span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>mn_schools <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"slides/week_06/data/mn_schools_clean.csv"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Rows: 1905 Columns: 10
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (3): school, district, title_1_school_status
+dbl (7): ncesid, lat, long, total_enroll, bipoc_enroll, bipoc_pct, white_enroll
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(mn_schools)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 1,905
+Columns: 10
+$ school                &lt;chr&gt; "112 ALC MIDDLE SCHOOL", "6-12TH GRADE BUILDING"…
+$ district              &lt;chr&gt; "EASTERN CARVER COUNTY PUBLIC SCHOOL", "CLINTON-…
+$ ncesid                &lt;dbl&gt; 2708190, 2700150, 2702264, 2700026, 2700026, 273…
+$ title_1_school_status &lt;chr&gt; "2-Title I targeted assistance school", "2-Title…
+$ lat                   &lt;dbl&gt; 44.84160, 45.56920, 45.03684, 44.74140, 44.74140…
+$ long                  &lt;dbl&gt; -93.59690, -96.43320, -92.98547, -93.11454, -93.…
+$ total_enroll          &lt;dbl&gt; 404, 131, 82, 46, 140, 67, 332, 401, 456, 568, 9…
+$ bipoc_enroll          &lt;dbl&gt; 171, 4, 42, 29, 66, 65, 30, 47, 48, 547, 40, 15,…
+$ bipoc_pct             &lt;dbl&gt; 0.42326733, 0.03053435, 0.51219512, 0.63043478, …
+$ white_enroll          &lt;dbl&gt; 233, 127, 40, 17, 74, 2, 302, 354, 408, 21, 50, …</code></pre>
+</div>
+</div>
+</section>
+<section id="in-class-exercise-create-a-simple-features-object-1" class="level2">
+<h2 class="anchored" data-anchor-id="in-class-exercise-create-a-simple-features-object-1">In-class exercise: Create a simple features object</h2>
+<p><strong>Step 2</strong>: Turn the Minnesota schools csv file into an <code>sf</code> object using the <code>st_as_sf()</code> function.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># clean -------</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert to sf object for mapping</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>mn_schools_shp <span class="ot">&lt;-</span> <span class="fu">st_as_sf</span>(mn_schools,</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>                           <span class="at">coords =</span> <span class="fu">c</span>(<span class="st">"long"</span>, <span class="st">"lat"</span>),</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>                           <span class="at">crs =</span> <span class="fu">st_crs</span>(<span class="st">"EPSG:4326"</span>))</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(mn_schools_shp)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 1,905
+Columns: 9
+$ school                &lt;chr&gt; "112 ALC MIDDLE SCHOOL", "6-12TH GRADE BUILDING"…
+$ district              &lt;chr&gt; "EASTERN CARVER COUNTY PUBLIC SCHOOL", "CLINTON-…
+$ ncesid                &lt;dbl&gt; 2708190, 2700150, 2702264, 2700026, 2700026, 273…
+$ title_1_school_status &lt;chr&gt; "2-Title I targeted assistance school", "2-Title…
+$ total_enroll          &lt;dbl&gt; 404, 131, 82, 46, 140, 67, 332, 401, 456, 568, 9…
+$ bipoc_enroll          &lt;dbl&gt; 171, 4, 42, 29, 66, 65, 30, 47, 48, 547, 40, 15,…
+$ bipoc_pct             &lt;dbl&gt; 0.42326733, 0.03053435, 0.51219512, 0.63043478, …
+$ white_enroll          &lt;dbl&gt; 233, 127, 40, 17, 74, 2, 302, 354, 408, 21, 50, …
+$ geometry              &lt;POINT [°]&gt; POINT (-93.5969 44.8416), POINT (-96.4332 …</code></pre>
+</div>
+</div>
+<p>Note: The <code>sf</code> dataframe looks like a regular dataframe, except the <code>lat</code> and <code>long</code> columns have been merged into one column, now called <code>geometry</code></p>
+</section>
+<section id="in-class-exercise-create-a-simple-features-object-2" class="level2">
+<h2 class="anchored" data-anchor-id="in-class-exercise-create-a-simple-features-object-2">In-class exercise: Create a simple features object</h2>
+<p><strong>Step 3</strong>: Check the projection of your objects using the <code>st_crs()</code> function.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># check ----------</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Check the projection of your objects using the st_crs() function </span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="co"># QUESTION: Why does this dataframe not have a coordinate system? </span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="fu">st_crs</span>(mn_schools)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Coordinate Reference System: NA</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">st_crs</span>(mn_schools_shp)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Coordinate Reference System:
+  User input: EPSG:4326 
+  wkt:
+GEOGCRS["WGS 84",
+    ENSEMBLE["World Geodetic System 1984 ensemble",
+        MEMBER["World Geodetic System 1984 (Transit)"],
+        MEMBER["World Geodetic System 1984 (G730)"],
+        MEMBER["World Geodetic System 1984 (G873)"],
+        MEMBER["World Geodetic System 1984 (G1150)"],
+        MEMBER["World Geodetic System 1984 (G1674)"],
+        MEMBER["World Geodetic System 1984 (G1762)"],
+        MEMBER["World Geodetic System 1984 (G2139)"],
+        ELLIPSOID["WGS 84",6378137,298.257223563,
+            LENGTHUNIT["metre",1]],
+        ENSEMBLEACCURACY[2.0]],
+    PRIMEM["Greenwich",0,
+        ANGLEUNIT["degree",0.0174532925199433]],
+    CS[ellipsoidal,2],
+        AXIS["geodetic latitude (Lat)",north,
+            ORDER[1],
+            ANGLEUNIT["degree",0.0174532925199433]],
+        AXIS["geodetic longitude (Lon)",east,
+            ORDER[2],
+            ANGLEUNIT["degree",0.0174532925199433]],
+    USAGE[
+        SCOPE["Horizontal component of 3D system."],
+        AREA["World."],
+        BBOX[-90,-180,90,180]],
+    ID["EPSG",4326]]</code></pre>
+</div>
+</div>
+</section>
+<section id="in-class-exsercise-mapping-with-geom_sf" class="level2">
+<h2 class="anchored" data-anchor-id="in-class-exsercise-mapping-with-geom_sf">In-class exsercise: Mapping with <code>geom_sf()</code></h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># plot ---------------</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="co"># simple plot of sf data</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mn_schools_shp) <span class="sc">+</span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>() <span class="sc">+</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_void</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="week_06_slides_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="in-class-exsercise-mapping-with-geom_sf-1" class="level2">
+<h2 class="anchored" data-anchor-id="in-class-exsercise-mapping-with-geom_sf-1">In-class exsercise: Mapping with <code>geom_sf()</code></h2>
+<ul>
+<li>The <code>tigris</code> package provides access to a range of shapefiles from the U.S. Census Bureau</li>
+<li>Using the <code>states()</code> function, we can download state outlines and then filter for the state we want to use.</li>
+<li>Setting the <code>cb</code> parameter of the <code>states()</code> function to <code>TRUE</code> will provide the most generally recognized shape file.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># get state outline from tigris ----------</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tigris)</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>mn_outline <span class="ot">&lt;-</span> <span class="fu">states</span>(<span class="at">cb =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(NAME <span class="sc">==</span> <span class="st">"Minnesota"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="in-class-exsercise-mapping-with-geom_sf-2" class="level2">
+<h2 class="anchored" data-anchor-id="in-class-exsercise-mapping-with-geom_sf-2">In-class exsercise: Mapping with <code>geom_sf()</code></h2>
+<div class="cell" data-output-location="slide">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(scales)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'scales'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:purrr':
+
+    discard</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:readr':
+
+    col_factor</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(viridis)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: viridisLite</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'viridis'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:scales':
+
+    viridis_pal</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># plotting multiple geom_sf layers ---------</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> mn_outline, <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> mn_schools_shp, </span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>          <span class="co"># we can use aes() to map data just like with geom_point()</span></span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>          <span class="fu">aes</span>(<span class="at">size =</span> total_enroll,</span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a>              <span class="at">color =</span> bipoc_pct),</span>
+<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a>          <span class="at">alpha =</span> .<span class="dv">5</span>) <span class="sc">+</span></span>
+<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_viridis</span>(<span class="at">labels =</span> <span class="fu">percent_format</span>()) <span class="sc">+</span></span>
+<span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_size_area</span>(<span class="at">max_size =</span> <span class="dv">5</span>,</span>
+<span id="cb28-11"><a href="#cb28-11" aria-hidden="true" tabindex="-1"></a>                  <span class="at">labels =</span> <span class="fu">comma_format</span>()) <span class="sc">+</span></span>
+<span id="cb28-12"><a href="#cb28-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">color =</span> <span class="st">"Percent BIPOC"</span>, </span>
+<span id="cb28-13"><a href="#cb28-13" aria-hidden="true" tabindex="-1"></a>       <span class="at">size =</span> <span class="st">"Enrollment"</span>,</span>
+<span id="cb28-14"><a href="#cb28-14" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">"Minnesota School Size, Location, and Demographics"</span>) <span class="sc">+</span></span>
+<span id="cb28-15"><a href="#cb28-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_void</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="week_06_slides_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="making-maps-with-edbuildmapr" class="level1">
+<h1>Making maps with <code>edbuildmapr</code></h1>
+<section id="review-overview-of-the-edbuildr-package" class="level2">
+<h2 class="anchored" data-anchor-id="review-overview-of-the-edbuildr-package">Review: Overview of the <code>edbuildr</code> package</h2>
+<ul>
+<li>The goal of <code>edbuildr</code> is to import EdBuild’s master dataset that includes school district finance, student demographics, and community economic indicators for every school district in the United States.</li>
+<li>The master dataset is available for any school year from 2013 to 2019 or longitudinally for all years 2013-2019.
+<ul>
+<li>School year is identified by the end year. For example, the 2018-19 school year is 2019.</li>
+</ul></li>
+<li>The master dataset is build from the:
+<ul>
+<li>U.S. Census Bureau</li>
+<li>Annual Survey of School System Finances (F33), and</li>
+<li>join data from the National Center for Education Statistics, Common Core of Data (CCD), Small Area Income and Poverty Estimates (SAIPE), and Education Demographic and Geographic Estimates (EDGE).</li>
+</ul></li>
+</ul>
+</section>
+<section id="edbuildmapr-makes-it-easier-to-perform-spatial-analysis-of-education-data" class="level2">
+<h2 class="anchored" data-anchor-id="edbuildmapr-makes-it-easier-to-perform-spatial-analysis-of-education-data"><code>edbuildmapr</code> makes it easier to perform spatial analysis of education data</h2>
+<ul>
+<li>R can use objects called “shapefiles” to create maps</li>
+<li>The <code>edbuildmapr</code> package makes it easy to produce high-quality maps as you analyze school finance data.</li>
+<li>To get started, you will need to install two packages:
+<ul>
+<li><p><code>edbuildmapr</code>: Simplifies the use of school district shapefiles.</p></li>
+<li><p><code>sf</code>: Standardizes how to encode spatial vector data.</p></li>
+</ul></li>
+</ul>
+</section>
+<section id="live-coding-example-making-a-state-map-with-edbuildmapr" class="level2">
+<h2 class="anchored" data-anchor-id="live-coding-example-making-a-state-map-with-edbuildmapr">LIVE CODING EXAMPLE: Making a state map with <code>edbuildmapr</code></h2>
+<p><strong>Step 1</strong>: Load in packages and data from <code>edbuildmapr</code> and <code>edbuild</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># load -------</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">scipen =</span> <span class="dv">999</span>)</span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(edbuildr)</span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(edbuildmapr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'edbuildmapr'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:ggplot2':
+
+    borders</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(viridis)</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(scales)</span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a><span class="co"># load in the school district mapping data</span></span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>sd_map_raw <span class="ot">&lt;-</span> <span class="fu">sd_shapepull</span>(<span class="at">data_year =</span> <span class="st">"2019"</span>, <span class="at">with_data =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Reading layer `shapefile_1819' from data source 
+  `/private/var/folders/25/5vf1tf0164x0sv9_4xgtq9040000gn/T/RtmpiIheh9/file101ca502b1467/shapefile_1819.shp' 
+  using driver `ESRI Shapefile'
+Simple feature collection with 13315 features and 6 fields
+Geometry type: MULTIPOLYGON
+Dimension:     XY
+Bounding box:  xmin: -179.1686 ymin: -14.54858 xmax: 179.7487 ymax: 71.38961
+Geodetic CRS:  NAD83</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>NOTE::This shapefile has been simplified to make analysis quicker. For final vizualizations, please use the unsimplified shapefiles available through NCES.</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># load in raw district finance data</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>dist_data_raw <span class="ot">&lt;-</span> <span class="fu">masterpull</span>(<span class="at">data_type =</span> <span class="st">"geo"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="live-coding-example-making-a-state-map-with-edbuildmapr-1" class="level2">
+<h2 class="anchored" data-anchor-id="live-coding-example-making-a-state-map-with-edbuildmapr-1">LIVE CODING EXAMPLE: Making a state map with <code>edbuildmapr</code></h2>
+<p><strong>Step 2</strong>: Filter for your state, create a new variable, and join the data</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co"># filter mapping data for your state</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>state_shp_raw <span class="ot">&lt;-</span> sd_map_raw <span class="sc">|&gt;</span> </span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># tidy up colnames</span></span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename_with</span>(tolower) <span class="sc">|&gt;</span> </span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(state <span class="sc">==</span> <span class="st">"Kentucky"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">ncesid =</span> geoid) <span class="sc">|&gt;</span> </span>
+<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename_with</span>(tolower) <span class="sc">|&gt;</span> </span>
+<span id="cb36-8"><a href="#cb36-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(ncesid, geometry)</span>
+<span id="cb36-9"><a href="#cb36-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-10"><a href="#cb36-10" aria-hidden="true" tabindex="-1"></a><span class="co"># filter state finance data for your state</span></span>
+<span id="cb36-11"><a href="#cb36-11" aria-hidden="true" tabindex="-1"></a>state_data <span class="ot">&lt;-</span> dist_data_raw <span class="sc">|&gt;</span> </span>
+<span id="cb36-12"><a href="#cb36-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename_with</span>(tolower) <span class="sc">|&gt;</span> </span>
+<span id="cb36-13"><a href="#cb36-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(state <span class="sc">==</span> <span class="st">"Kentucky"</span>)</span>
+<span id="cb36-14"><a href="#cb36-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-15"><a href="#cb36-15" aria-hidden="true" tabindex="-1"></a><span class="co"># join data</span></span>
+<span id="cb36-16"><a href="#cb36-16" aria-hidden="true" tabindex="-1"></a>state_shp <span class="ot">&lt;-</span> state_shp_raw <span class="sc">|&gt;</span> </span>
+<span id="cb36-17"><a href="#cb36-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(state_data, <span class="at">by =</span> <span class="st">"ncesid"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb36-18"><a href="#cb36-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">pct_sr =</span> srpp <span class="sc">/</span> slrpp)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="live-coding-example-making-a-state-map-with-edbuildmapr-2" class="level2">
+<h2 class="anchored" data-anchor-id="live-coding-example-making-a-state-map-with-edbuildmapr-2">LIVE CODING EXAMPLE: Making a state map with <code>edbuildmapr</code></h2>
+<p><strong>Step 3</strong>: Plot a basic map</p>
+<div class="cell" data-output-location="slide">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co"># plot a basic map</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>()  <span class="sc">+</span> </span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> state_shp, <span class="fu">aes</span>(<span class="at">fill =</span> pct_sr)) <span class="sc">+</span></span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_void</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="week_06_slides_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="live-coding-example-making-a-state-map-with-edbuildmapr-3" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="live-coding-example-making-a-state-map-with-edbuildmapr-3">LIVE CODING EXAMPLE: Making a state map with <code>edbuildmapr</code></h2>
+<p>The map looks okay, but there is a lot we can improve!</p>
+<p><strong>Step 4</strong>: Make several aesthetic changes</p>
+<ul>
+<li>Change the color of the lines to white within <code>geom_sf()</code></li>
+<li>Reverse the direction of the color scale within <code>scale_fill_viridis()</code></li>
+<li>Add a title, subtitle, and source caption within <code>labs()</code></li>
+</ul>
+<div class="cell" data-output-location="slide">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co"># load -------</span></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Make several aesthetic changes</span></span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span> </span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> state_shp, </span>
+<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a>          <span class="fu">aes</span>(<span class="at">fill =</span> pct_sr),</span>
+<span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a>          <span class="at">color =</span> <span class="st">"#ffffff"</span>) <span class="sc">+</span></span>
+<span id="cb38-8"><a href="#cb38-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_void</span>() <span class="sc">+</span></span>
+<span id="cb38-9"><a href="#cb38-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_viridis</span>(<span class="at">name =</span> <span class="st">"Percent K-12 Budget</span><span class="sc">\n</span><span class="st">from State Revenue (%)"</span>,</span>
+<span id="cb38-10"><a href="#cb38-10" aria-hidden="true" tabindex="-1"></a>                     <span class="at">labels =</span> <span class="fu">percent_format</span>(<span class="at">accuracy =</span> <span class="dv">1</span>), </span>
+<span id="cb38-11"><a href="#cb38-11" aria-hidden="true" tabindex="-1"></a>                     <span class="at">direction =</span> <span class="sc">-</span><span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb38-12"><a href="#cb38-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb38-13"><a href="#cb38-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"School Districts' Reliance on State Revenue"</span>,</span>
+<span id="cb38-14"><a href="#cb38-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Percent of District K-12 Revenue From State, 2018-19"</span>,</span>
+<span id="cb38-15"><a href="#cb38-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption =</span> <span class="st">"Source: EdBuild"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="week_06_slides_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="live-coding-example-making-a-state-map-with-edbuildmapr-4" class="level2">
+<h2 class="anchored" data-anchor-id="live-coding-example-making-a-state-map-with-edbuildmapr-4">LIVE CODING EXAMPLE: Making a state map with <code>edbuildmapr</code></h2>
+<p><strong>Step 5</strong>: Make your own color palette and create bins to more clearly break up your data!</p>
+<div class="cell" data-output-location="slide">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co"># load -------</span></span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a><span class="co"># create custom color palette</span></span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a>bw_state_revenue <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"#BEC6CE"</span>, <span class="st">"#FFC762"</span>, <span class="st">"#007786"</span>, <span class="st">"#212B46"</span>, <span class="st">"#6D1E4A"</span>)</span>
+<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a><span class="co"># plot another nicely-formatted map</span></span>
+<span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>()  <span class="sc">+</span> </span>
+<span id="cb39-8"><a href="#cb39-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> state_shp,</span>
+<span id="cb39-9"><a href="#cb39-9" aria-hidden="true" tabindex="-1"></a>          <span class="fu">aes</span>(<span class="at">fill =</span> pct_sr),</span>
+<span id="cb39-10"><a href="#cb39-10" aria-hidden="true" tabindex="-1"></a>          <span class="at">color =</span> <span class="st">"#ffffff"</span>) <span class="sc">+</span></span>
+<span id="cb39-11"><a href="#cb39-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_void</span>() <span class="sc">+</span></span>
+<span id="cb39-12"><a href="#cb39-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_stepsn</span>(<span class="at">breaks=</span><span class="fu">c</span>(<span class="dv">0</span>, .<span class="dv">3</span>, .<span class="dv">5</span>, .<span class="dv">7</span>, <span class="dv">1</span>), <span class="co"># Breaks up the data</span></span>
+<span id="cb39-13"><a href="#cb39-13" aria-hidden="true" tabindex="-1"></a>                    <span class="at">colors =</span> bw_state_revenue, </span>
+<span id="cb39-14"><a href="#cb39-14" aria-hidden="true" tabindex="-1"></a>                    <span class="at">name=</span><span class="st">"State K-12 Revenue (%)"</span>,</span>
+<span id="cb39-15"><a href="#cb39-15" aria-hidden="true" tabindex="-1"></a>                    <span class="at">labels=</span><span class="fu">percent_format</span>(<span class="at">accuracy =</span> <span class="dv">1</span>L)) <span class="sc">+</span> </span>
+<span id="cb39-16"><a href="#cb39-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb39-17"><a href="#cb39-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"School Districts' Reliance on State Revenue"</span>,</span>
+<span id="cb39-18"><a href="#cb39-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Percent of District K-12 Revenue From State (2019)"</span>,</span>
+<span id="cb39-19"><a href="#cb39-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption =</span> <span class="st">"Source: EdBuildr Data, 2019"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="week_06_slides_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>You can export your map like any other plot via <code>ggsave()</code></p>
+</section>
+<section id="state-group-activity-making-maps-with-edbuildr-data" class="level2">
+<h2 class="anchored" data-anchor-id="state-group-activity-making-maps-with-edbuildr-data">State Group Activity: Making maps with <code>edbuildr</code> data</h2>
+<ul>
+<li>Clone the <code>hw06-</code> repo, which should be available via GitHub.</li>
+<li>Open this example script: <code>scripts/edbuildmapr_example.R</code>.</li>
+<li>In small groups or your state teams, pull in data from <code>edbuildr</code> and <code>edbuildmapr</code> for your state and create a map!</li>
+<li>Play around with the colors, fills, and variables.</li>
+<li>Be prepared for at least one person in your group to share their map!</li>
+</ul>
+<p>Alex and Krista will be circulating to answer questions. Feel free to also come back into the main room if you have questions!</p>
+</section>
+</section>
+<section id="break" class="level1">
+<h1>Break</h1>
+<div class="cell">
+<div class="cell-output-display">
+<div class="countdown" id="timer_adfd4f3c" data-update-every="1" tabindex="0" style="right:0;bottom:0;font-size:1.5em;">
+<div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
+<code class="countdown-time"><span class="countdown-digits minutes">10</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+</div>
+</div>
+</section>
+<section id="introduction-to-the-leaflet-package" class="level1">
+<h1>Introduction to the <code>leaflet</code> package</h1>
+<section id="leaflet-is-an-interactive-mapping-package" class="level2">
+<h2 class="anchored" data-anchor-id="leaflet-is-an-interactive-mapping-package"><code>leaflet</code> is an interactive mapping package</h2>
+<ul>
+<li>The <code>leaflet()</code> function creates a blank, interact map canvas in your RStudio viewer pane</li>
+<li>Based on <code>leaflet.js</code>, which is a javascript library.
+<ul>
+<li>Most common javascript library for making maps</li>
+</ul></li>
+<li>You can add elements to the map canvas using the generic <code>addControl()</code> function:
+<ul>
+<li><p><code>addProviderTiles()</code>: Add a basemap</p></li>
+<li><p><code>addCircleMarker()</code> and <code>addMarker()</code>: Adds a point layer</p></li>
+<li><p><code>addPolylines()</code>: Adds a line layer</p></li>
+<li><p><code>addPolygons()</code>: Adds a polygon layer</p></li>
+</ul></li>
+</ul>
+<!-- ## Map location with `leaflet` -->
+<!-- Once a layer is added, the map will automatically zoom to the boundaries of the data that you've included in your layer. This is also referred to as the extent of the layer. -->
+<!-- -   To change the boundaries of the data you've included in your layer -->
+<!-- `fitBounds(lng1, lat1, lng2, lat2)` -->
+<!-- ::: callout -->
+<!-- lng1, lat1 is the Southeast corner of the map. lng2, lat2 is the Northwest corner of the map. -->
+<!-- ::: -->
+<!-- -   To center the map on a point and define the zoom level -->
+<!-- `setView(lng = , lat = , zoom = )` -->
+</section>
+<section id="in-class-exercise-mapping-with-leaflet" class="level2">
+<h2 class="anchored" data-anchor-id="in-class-exercise-mapping-with-leaflet">In-class exercise: Mapping with <code>leaflet</code></h2>
+<p><strong>Step 1</strong>: Load packages and then download and clean data</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co"># load -------------</span></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(edbuildr)</span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(edbuildmapr)</span>
+<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(viridis)</span>
+<span id="cb40-7"><a href="#cb40-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(scales)</span>
+<span id="cb40-8"><a href="#cb40-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sf)</span>
+<span id="cb40-9"><a href="#cb40-9" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(leaflet)</span>
+<span id="cb40-10"><a href="#cb40-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-11"><a href="#cb40-11" aria-hidden="true" tabindex="-1"></a><span class="co"># load in the school district mapping data</span></span>
+<span id="cb40-12"><a href="#cb40-12" aria-hidden="true" tabindex="-1"></a>sd_map_raw <span class="ot">&lt;-</span> <span class="fu">sd_shapepull</span>(<span class="at">data_year =</span> <span class="st">"2019"</span>, <span class="at">with_data =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb40-13"><a href="#cb40-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-14"><a href="#cb40-14" aria-hidden="true" tabindex="-1"></a>dist_data_raw <span class="ot">&lt;-</span> <span class="fu">masterpull</span>(<span class="at">data_type =</span> <span class="st">"geo"</span>)</span>
+<span id="cb40-15"><a href="#cb40-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-16"><a href="#cb40-16" aria-hidden="true" tabindex="-1"></a><span class="co"># clean ----------------</span></span>
+<span id="cb40-17"><a href="#cb40-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-18"><a href="#cb40-18" aria-hidden="true" tabindex="-1"></a><span class="co"># filter mapping data for your state</span></span>
+<span id="cb40-19"><a href="#cb40-19" aria-hidden="true" tabindex="-1"></a>state_shp_raw <span class="ot">&lt;-</span> sd_map_raw <span class="sc">|&gt;</span> </span>
+<span id="cb40-20"><a href="#cb40-20" aria-hidden="true" tabindex="-1"></a>  <span class="co"># tidy up colnames</span></span>
+<span id="cb40-21"><a href="#cb40-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename_with</span>(tolower) <span class="sc">|&gt;</span> </span>
+<span id="cb40-22"><a href="#cb40-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(state <span class="sc">==</span> <span class="st">"Kentucky"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb40-23"><a href="#cb40-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">ncesid =</span> geoid) <span class="sc">|&gt;</span> </span>
+<span id="cb40-24"><a href="#cb40-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename_with</span>(tolower) <span class="sc">|&gt;</span> </span>
+<span id="cb40-25"><a href="#cb40-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(ncesid, geometry)</span>
+<span id="cb40-26"><a href="#cb40-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-27"><a href="#cb40-27" aria-hidden="true" tabindex="-1"></a><span class="co"># filter finance data for your state</span></span>
+<span id="cb40-28"><a href="#cb40-28" aria-hidden="true" tabindex="-1"></a>state_data <span class="ot">&lt;-</span> dist_data_raw <span class="sc">|&gt;</span> </span>
+<span id="cb40-29"><a href="#cb40-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename_with</span>(tolower) <span class="sc">|&gt;</span> </span>
+<span id="cb40-30"><a href="#cb40-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(state <span class="sc">==</span> <span class="st">"Kentucky"</span>)</span>
+<span id="cb40-31"><a href="#cb40-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-32"><a href="#cb40-32" aria-hidden="true" tabindex="-1"></a><span class="co"># join data</span></span>
+<span id="cb40-33"><a href="#cb40-33" aria-hidden="true" tabindex="-1"></a>state_shp <span class="ot">&lt;-</span> state_shp_raw <span class="sc">|&gt;</span> </span>
+<span id="cb40-34"><a href="#cb40-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(state_data, <span class="at">by =</span> <span class="st">"ncesid"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb40-35"><a href="#cb40-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">pct_sr =</span> srpp <span class="sc">/</span> slrpp) <span class="sc">|&gt;</span> </span>
+<span id="cb40-36"><a href="#cb40-36" aria-hidden="true" tabindex="-1"></a>  <span class="fu">st_transform</span>(<span class="fu">st_crs</span>(<span class="st">"EPSG:4326"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="in-class-exercise-mapping-with-leaflet-1" class="level2">
+<h2 class="anchored" data-anchor-id="in-class-exercise-mapping-with-leaflet-1">In-class exercise: Mapping with <code>leaflet</code></h2>
+<p><strong>Step 2</strong>: Create leaflet map with a base layer</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co"># load -------</span></span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(leaflet)</span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a leaflet map with a base layer </span></span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a><span class="fu">leaflet</span>() <span class="sc">|&gt;</span></span>
+<span id="cb41-7"><a href="#cb41-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">addProviderTiles</span>(<span class="at">provider =</span> <span class="st">"CartoDB.Positron"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>There are many base layer options available for <code>leaflet</code>; <a href="https://leaflet-extras.github.io/leaflet-providers/preview/">check them out here</a>.</p>
+</section>
+<section id="in-class-exercise-mapping-with-leaflet-2" class="level2">
+<h2 class="anchored" data-anchor-id="in-class-exercise-mapping-with-leaflet-2">In-class exercise: Mapping with <code>leaflet</code></h2>
+<p><strong>Step 3</strong>: Add a layer of district shapes as polygons</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add district shapes</span></span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a><span class="fu">leaflet</span>() <span class="sc">|&gt;</span></span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">addProviderTiles</span>(<span class="at">provider =</span> <span class="st">"CartoDB.Positron"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">addPolygons</span>(<span class="at">data =</span> state_shp)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="in-class-exercise-mapping-with-leaflet-3" class="level2">
+<h2 class="anchored" data-anchor-id="in-class-exercise-mapping-with-leaflet-3">In-class exercise: Mapping with <code>leaflet</code></h2>
+<p><strong>Step 4</strong>: Define the color and border thickness of polygons</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="co"># define the color and thickness of borders </span></span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="fu">leaflet</span>() <span class="sc">|&gt;</span></span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">addProviderTiles</span>(<span class="at">provider =</span> <span class="st">"CartoDB.Positron"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">addPolygons</span>(<span class="at">data =</span> state_shp,</span>
+<span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a>                   <span class="at">color =</span> <span class="st">"#ababab"</span>,</span>
+<span id="cb43-6"><a href="#cb43-6" aria-hidden="true" tabindex="-1"></a>                   <span class="at">weight =</span> .<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="adding-a-popup-to-your-leaflet-map" class="level2">
+<h2 class="anchored" data-anchor-id="adding-a-popup-to-your-leaflet-map">Adding a popup to your <code>leaflet</code> map</h2>
+<p>The <strong>popup</strong> parameter defines the text that displays when you click on an object in your <strong>leaflet</strong> map.</p>
+<ul>
+<li>Combine reactive data elements with text using the <strong>paste0()</strong> function</li>
+</ul>
+<p><code>popup = paste0("School: ",  ga_schools_shp$school, "&lt;br&gt; Enrollment: ", ga_schools_shp$total_enroll)</code></p>
+<div class="callout callout-style-simple callout-none no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Note: A few considerations when adding the popup parameter:</p>
+<ul>
+<li>Make sure that you put the text within quotes</li>
+<li>Use <strong>dataframe$</strong> to call the variables you want to use</li>
+<li>&lt;br&gt; is the line break html tag, which starts a new line</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="in-class-exercise-mapping-with-leaflet-4" class="level2">
+<h2 class="anchored" data-anchor-id="in-class-exercise-mapping-with-leaflet-4">In-class exercise: Mapping with <code>leaflet</code></h2>
+<p><strong>Step 5</strong>: Add a popup layer</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add a popup layer</span></span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a><span class="fu">leaflet</span>() <span class="sc">|&gt;</span></span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">addProviderTiles</span>(<span class="at">provider =</span> <span class="st">"CartoDB.Positron"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">addPolygons</span>(<span class="at">data =</span> state_shp,</span>
+<span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a>              <span class="at">color =</span> <span class="st">"#ababab"</span>,</span>
+<span id="cb44-6"><a href="#cb44-6" aria-hidden="true" tabindex="-1"></a>              <span class="at">weight =</span> .<span class="dv">5</span>,</span>
+<span id="cb44-7"><a href="#cb44-7" aria-hidden="true" tabindex="-1"></a>              <span class="at">popup =</span> <span class="fu">paste0</span>(<span class="st">"District: "</span>,</span>
+<span id="cb44-8"><a href="#cb44-8" aria-hidden="true" tabindex="-1"></a>                             <span class="fu">str_to_title</span>(state_shp<span class="sc">$</span>name), </span>
+<span id="cb44-9"><a href="#cb44-9" aria-hidden="true" tabindex="-1"></a>                             <span class="st">"&lt;br&gt; Enrollment: "</span>, </span>
+<span id="cb44-10"><a href="#cb44-10" aria-hidden="true" tabindex="-1"></a>                             <span class="fu">comma</span>(state_shp<span class="sc">$</span>enroll),</span>
+<span id="cb44-11"><a href="#cb44-11" aria-hidden="true" tabindex="-1"></a>                             <span class="st">"&lt;br&gt; Percent state revenue: "</span>,</span>
+<span id="cb44-12"><a href="#cb44-12" aria-hidden="true" tabindex="-1"></a>                             <span class="fu">percent</span>(state_shp<span class="sc">$</span>pct_sr, <span class="at">accuracy =</span> .<span class="dv">1</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="there-are-many-other-parameters-you-can-style-in-your-leaflet-map" class="level2">
+<h2 class="anchored" data-anchor-id="there-are-many-other-parameters-you-can-style-in-your-leaflet-map">There are many other parameters you can style in your <code>leaflet</code> map</h2>
+<ul>
+<li><code>stroke</code>: Outline of the circles or polygons</li>
+<li><code>color</code>: Outline color</li>
+<li><code>weight</code>: Thickness of the outline</li>
+<li><code>opacity</code>: Transparency out the outline from 0 (transparent) to 1 (opaque)</li>
+<li><code>fill</code>: Inside of the circle or polygon</li>
+<li><code>fillcolor</code>: Inside color</li>
+</ul>
+<div class="callout callout-style-simple callout-none no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>You can define colors with the hex code or by referencing one of the color names included in base R.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="in-class-exercise-mapping-with-leaflet-5" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="in-class-exercise-mapping-with-leaflet-5">In-class exercise: Mapping with <code>leaflet</code></h2>
+<p><strong>Step 6</strong>: Create a more advanced map with dynamic fill and a legend</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="co"># advanced leaflet example ------------------</span></span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>bw_primary <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"#6D1E4A"</span>, <span class="co"># 1 plum</span></span>
+<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a>                <span class="st">"#007786"</span>, <span class="co"># 2 teal</span></span>
+<span id="cb45-5"><a href="#cb45-5" aria-hidden="true" tabindex="-1"></a>                <span class="st">"#0D525A"</span>, <span class="co"># 3 dark green</span></span>
+<span id="cb45-6"><a href="#cb45-6" aria-hidden="true" tabindex="-1"></a>                <span class="st">"#212B46"</span>, <span class="co"># 4 navy</span></span>
+<span id="cb45-7"><a href="#cb45-7" aria-hidden="true" tabindex="-1"></a>                <span class="st">"#5A6675"</span>, <span class="co"># 5 grey</span></span>
+<span id="cb45-8"><a href="#cb45-8" aria-hidden="true" tabindex="-1"></a>                <span class="st">"#F0DEC1"</span>) <span class="co"># 6 cream</span></span>
+<span id="cb45-9"><a href="#cb45-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-10"><a href="#cb45-10" aria-hidden="true" tabindex="-1"></a>bw_secondary <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"#FFC762"</span>, <span class="co"># 1 yellow</span></span>
+<span id="cb45-11"><a href="#cb45-11" aria-hidden="true" tabindex="-1"></a>                  <span class="st">"#FFB653"</span>, <span class="co"># 2 orange</span></span>
+<span id="cb45-12"><a href="#cb45-12" aria-hidden="true" tabindex="-1"></a>                  <span class="st">"#BEC6CE"</span>, <span class="co"># 3 light grey</span></span>
+<span id="cb45-13"><a href="#cb45-13" aria-hidden="true" tabindex="-1"></a>                  <span class="st">"#2E1A4A"</span>, <span class="co"># 4 deep purple</span></span>
+<span id="cb45-14"><a href="#cb45-14" aria-hidden="true" tabindex="-1"></a>                  <span class="st">"#7EA2D1"</span>, <span class="co"># 5 soft blue</span></span>
+<span id="cb45-15"><a href="#cb45-15" aria-hidden="true" tabindex="-1"></a>                  <span class="st">"#CAD3FB"</span>, <span class="co"># 6 lavender</span></span>
+<span id="cb45-16"><a href="#cb45-16" aria-hidden="true" tabindex="-1"></a>                  <span class="st">"#9CD4EA"</span>, <span class="co"># 7 sky</span></span>
+<span id="cb45-17"><a href="#cb45-17" aria-hidden="true" tabindex="-1"></a>                  <span class="st">"#FFA497"</span>) <span class="co"># 8 peach</span></span>
+<span id="cb45-18"><a href="#cb45-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-19"><a href="#cb45-19" aria-hidden="true" tabindex="-1"></a><span class="co"># define breaks for fill variable</span></span>
+<span id="cb45-20"><a href="#cb45-20" aria-hidden="true" tabindex="-1"></a>state_rev_breaks <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span>, .<span class="dv">4</span>, .<span class="dv">6</span>, .<span class="dv">7</span>, .<span class="dv">8</span>, <span class="dv">1</span>)</span>
+<span id="cb45-21"><a href="#cb45-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-22"><a href="#cb45-22" aria-hidden="true" tabindex="-1"></a><span class="co"># define custom color palette</span></span>
+<span id="cb45-23"><a href="#cb45-23" aria-hidden="true" tabindex="-1"></a>bw_scale <span class="ot">&lt;-</span> <span class="fu">c</span>(bw_primary[<span class="dv">6</span>],</span>
+<span id="cb45-24"><a href="#cb45-24" aria-hidden="true" tabindex="-1"></a>              bw_secondary[<span class="dv">1</span>],</span>
+<span id="cb45-25"><a href="#cb45-25" aria-hidden="true" tabindex="-1"></a>              bw_primary[<span class="dv">2</span>],</span>
+<span id="cb45-26"><a href="#cb45-26" aria-hidden="true" tabindex="-1"></a>              bw_primary[<span class="dv">3</span>],</span>
+<span id="cb45-27"><a href="#cb45-27" aria-hidden="true" tabindex="-1"></a>              bw_primary[<span class="dv">4</span>])</span>
+<span id="cb45-28"><a href="#cb45-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-29"><a href="#cb45-29" aria-hidden="true" tabindex="-1"></a><span class="co"># create color palette object</span></span>
+<span id="cb45-30"><a href="#cb45-30" aria-hidden="true" tabindex="-1"></a>state_rev_palette <span class="ot">&lt;-</span> <span class="fu">colorBin</span>(<span class="at">palette =</span> bw_scale,</span>
+<span id="cb45-31"><a href="#cb45-31" aria-hidden="true" tabindex="-1"></a>                              <span class="at">domain =</span> state_shp<span class="sc">$</span>pct_sr,</span>
+<span id="cb45-32"><a href="#cb45-32" aria-hidden="true" tabindex="-1"></a>                              <span class="at">bins =</span> state_rev_breaks,</span>
+<span id="cb45-33"><a href="#cb45-33" aria-hidden="true" tabindex="-1"></a>                              <span class="at">na.color =</span> bw_primary[<span class="dv">5</span>]) </span>
+<span id="cb45-34"><a href="#cb45-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-35"><a href="#cb45-35" aria-hidden="true" tabindex="-1"></a><span class="co"># create advanced leaflet map</span></span>
+<span id="cb45-36"><a href="#cb45-36" aria-hidden="true" tabindex="-1"></a><span class="fu">leaflet</span>() <span class="sc">|&gt;</span></span>
+<span id="cb45-37"><a href="#cb45-37" aria-hidden="true" tabindex="-1"></a>  <span class="fu">addProviderTiles</span>(<span class="at">provider =</span> <span class="st">"CartoDB.Positron"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb45-38"><a href="#cb45-38" aria-hidden="true" tabindex="-1"></a>  <span class="fu">addPolygons</span>(<span class="at">data =</span> state_shp,</span>
+<span id="cb45-39"><a href="#cb45-39" aria-hidden="true" tabindex="-1"></a>              <span class="at">color =</span> <span class="st">"#ababab"</span>,</span>
+<span id="cb45-40"><a href="#cb45-40" aria-hidden="true" tabindex="-1"></a>              <span class="at">weight =</span> .<span class="dv">5</span>,</span>
+<span id="cb45-41"><a href="#cb45-41" aria-hidden="true" tabindex="-1"></a>              <span class="at">popup =</span> <span class="fu">paste0</span>(<span class="st">"District: "</span>,</span>
+<span id="cb45-42"><a href="#cb45-42" aria-hidden="true" tabindex="-1"></a>                             <span class="fu">str_to_title</span>(state_shp<span class="sc">$</span>name), </span>
+<span id="cb45-43"><a href="#cb45-43" aria-hidden="true" tabindex="-1"></a>                             <span class="st">"&lt;br&gt; Enrollment: "</span>, </span>
+<span id="cb45-44"><a href="#cb45-44" aria-hidden="true" tabindex="-1"></a>                             <span class="fu">comma</span>(state_shp<span class="sc">$</span>enroll),</span>
+<span id="cb45-45"><a href="#cb45-45" aria-hidden="true" tabindex="-1"></a>                             <span class="st">"&lt;br&gt; Percent state revenue: "</span>,</span>
+<span id="cb45-46"><a href="#cb45-46" aria-hidden="true" tabindex="-1"></a>                             <span class="fu">percent</span>(state_shp<span class="sc">$</span>pct_sr, <span class="at">accuracy =</span> .<span class="dv">1</span>)),</span>
+<span id="cb45-47"><a href="#cb45-47" aria-hidden="true" tabindex="-1"></a>              <span class="at">fillColor =</span> <span class="sc">~</span> <span class="fu">state_rev_palette</span>(pct_sr),</span>
+<span id="cb45-48"><a href="#cb45-48" aria-hidden="true" tabindex="-1"></a>              <span class="at">fillOpacity =</span> .<span class="dv">8</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb45-49"><a href="#cb45-49" aria-hidden="true" tabindex="-1"></a>  <span class="fu">addLegend</span>(<span class="st">"topright"</span>, </span>
+<span id="cb45-50"><a href="#cb45-50" aria-hidden="true" tabindex="-1"></a>            <span class="at">opacity =</span> .<span class="dv">8</span>,</span>
+<span id="cb45-51"><a href="#cb45-51" aria-hidden="true" tabindex="-1"></a>            <span class="at">pal =</span> state_rev_palette,</span>
+<span id="cb45-52"><a href="#cb45-52" aria-hidden="true" tabindex="-1"></a>            <span class="at">values =</span> state_shp<span class="sc">$</span>pct_sr,</span>
+<span id="cb45-53"><a href="#cb45-53" aria-hidden="true" tabindex="-1"></a>            <span class="at">labFormat =</span> <span class="fu">labelFormat</span>(</span>
+<span id="cb45-54"><a href="#cb45-54" aria-hidden="true" tabindex="-1"></a>              <span class="at">suffix =</span> <span class="st">"%"</span>, <span class="at">between =</span> <span class="st">" - "</span>,</span>
+<span id="cb45-55"><a href="#cb45-55" aria-hidden="true" tabindex="-1"></a>              <span class="at">transform =</span> <span class="cf">function</span>(x) <span class="dv">100</span> <span class="sc">*</span> x</span>
+<span id="cb45-56"><a href="#cb45-56" aria-hidden="true" tabindex="-1"></a>            ),</span>
+<span id="cb45-57"><a href="#cb45-57" aria-hidden="true" tabindex="-1"></a>            <span class="at">title =</span> <span class="st">"Percent state revenue"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="callout callout-style-simple callout-none no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Notice there is a “~” after the “=” in the “fillColor” parameter</p>
+</div>
+</div>
+</div>
+</section>
+<section id="exporting-a-leaflet-map" class="level2">
+<h2 class="anchored" data-anchor-id="exporting-a-leaflet-map">Exporting a <code>leaflet</code> map</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li><p>Any map you generate with <code>leaflet</code> can be exported as a standalone HTML document.</p></li>
+<li><p>Without too much effort, you can publish this map yourself on GitHub (we can help you do this), embed it as an iframe on an existing webpage, or publish it as a standalone webpage. Those last two options may require support from your organization’s web developer.</p></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/leaflet-export.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="homework" class="level1">
+<h1>Homework</h1>
+<p><strong>Reading</strong></p>
+<ul>
+<li><a href="https://bellwether.org/publications/balancing-act/"><strong><em>Balancing Act: How States Can Address Local Wealth Inequity in Education Finance</em></strong></a></li>
+</ul>
+<p><strong>Coding Task</strong></p>
+<p>Use the <code>hw06_map_template.R</code> file in the <code>/scripts</code> folder to complete the following tasks:</p>
+<ul>
+<li>Create at least three production-quality maps of district-level finance data for your state.</li>
+<li>Ensure that at least one of your maps includes state per-pupil funding as the <code>fill</code> variable.</li>
+<li>Be sure to use the <code>ggsave()</code> commands to save your final maps in the <code>/figures</code> folder.</li>
+</ul>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

@@ -19,21 +19,26 @@ By the end of the course, you will...
 
 -   Complete a capstone project that shows the potential impact of changes to the school funding formula in participants' states.
 
-## Reading List
-
-| Title                                                                                                                                                  | Authors                                  | Source                                          |
-|-----------------------------------------|----------------|----------------|
-| [R for Data Science](http://r4ds.had.co.nz/)                                                                                                           | Wickham, Grolemund, Çetinkaya-Rundel     | [GitHub](https://github.com/hadley/r4ds/), 2023 |
-| [Splitting the Bill: Understanding Education Finance Equity](https://bellwether.org/publications/splitting-the-bill/)                                  | Spurrier, Dammu, O'Keefe, O'Neal Schiess | Bellwether, 2022                                |
-| [Balancing Act: How States Can Address Local Wealth Inequity in Education Finance](https://bellwether.org/publications/balancing-act/)                 | Dammu, O'Keefe, O'Neal Schiess           | Bellwether, 2022                                |
-| [Making Change: A State Advocacy Playbook for Equitable Education Finance](https://bellwether.org/publications/making-change/)                         | Dammu, O'Keefe                           | Bellwether, 2023                                |
-| [Priced Out of Public Education: District Lines, Housing Access, and Inequitable Educational Options](https://bellwether.org/publications/priced-out/) | Spurrier, Hodges, O'Neal Schiess         | Bellwether, 2021                                |
-
 ## Communication
 
-All lecture notes, assignment instructions, an up-to-date schedule, and other course materials may be found on the course website.
+All lecture notes, assignment instructions, an up-to-date schedule, and other course materials will be found on the course website.
 
 Announcements will be emailed periodically. Please check your email regularly to ensure you have the latest announcements for the course.
+
+## Class Expectations 
+
+- **Cameras on.** We have found that 
+- TKTK
+
+## Reading List
+
+| Title                                                                                                                                                  | Authors                                                             | Source                                          |
+|-------------------------------------|-----------------|-----------------|
+| [R for Data Science](http://r4ds.had.co.nz/)                                                                                                           | Wickham, Grolemund, Çetinkaya-Rundel                                | [GitHub](https://github.com/hadley/r4ds/), 2023 |
+| [Splitting the Bill: Understanding Education Finance Equity](https://bellwether.org/publications/splitting-the-bill/)                                  | Kaput, Harding, Zamarippa, Spurrier, Dammu, O'Keefe, O'Neal Schiess | Bellwether, 2022                                |
+| [Balancing Act: How States Can Address Local Wealth Inequity in Education Finance](https://bellwether.org/publications/balancing-act/)                 | Dammu, O'Keefe, O'Neal Schiess                                      | Bellwether, 2022                                |
+| [Making Change: A State Advocacy Playbook for Equitable Education Finance](https://bellwether.org/publications/making-change/)                         | Dammu, O'Keefe                                                      | Bellwether, 2023                                |
+| [Priced Out of Public Education: District Lines, Housing Access, and Inequitable Educational Options](https://bellwether.org/publications/priced-out/) | Spurrier, Hodges, O'Neal Schiess                                    | Bellwether, 2021                                |
 
 ## Activities & Assessment
 
@@ -57,5 +62,5 @@ The due dates for assignments are there to help you keep up with the course mate
 
 ## Important dates
 
--   **June 6:** Classes begin
--   **August 29**: Capstone project due
+-   **June 4:** Classes begin
+-   **August 27**: Capstone project due
