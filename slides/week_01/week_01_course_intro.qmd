@@ -1,6 +1,6 @@
 ---
 title: "Introduction to Education Finance Equity & R"
-date: "June 6, 2023"
+date: "June 4, 2024"
 format: 
   revealjs:
     chalkboard: true
@@ -46,18 +46,19 @@ us_states <- us_states_raw |>
   filter(GEOID < 60) |> 
   shift_geometry() 
 
-summer23 <- tibble(STUSPS = c("PA", "DE", "AL", "MI", "GA","NY",
+summer24 <- tibble(STUSPS = c("VA", "AZ", "AK", "DC", "NC", 
+                              "PA", "DE", "AL", "MI", "GA","NY",
                               "MS",
                               "CO","CA", "IL", "IN",
                               "OH", "MN","TN", "FL"),
-                   status = c(rep("Cohort 3", 7),
-                             
+                   status = c(rep("Cohort 4", 5), 
+                              rep("Cohort 3", 7),
                               rep("Cohort 2", 4),
                               rep("Cohort 1", 4))) |> 
   mutate(status = factor(status))
 
-summer23_states <- us_states |> 
-  left_join(summer23, by = "STUSPS")
+summer24_states <- us_states |> 
+  left_join(summer24, by = "STUSPS")
 
 ```
 
@@ -113,7 +114,7 @@ summer23_states <- us_states |>
 
 ```{r}
 
-ggplot(summer23_states, aes(fill = status)) +
+ggplot(summer24_states, aes(fill = status)) +
   geom_sf(color = "white") +
   scale_fill_manual(values = c(
                                bw_primary[3], 
@@ -176,7 +177,7 @@ We will achieve this by helping you:
 
 ::: columns
 ::: {.column width="50%"}
-[**Course website**](https://bwedfinance.github.io/training_summer2023/)
+[**Course website**](https://bwedfinance.github.io/2024-summer-training/)
 
 -   Schedule
 -   Slides
@@ -199,19 +200,19 @@ We will achieve this by helping you:
 
 | Week | Class Date | Detail                                         |
 |:----:|------------|------------------------------------------------|
-|  01  | June 6     | Introduction to education finance equity and R |
-|  02  | June 13    | Basic data analysis and visualization in R     |
-|  03  | June 20    | Deep-dive on education finance policy          |
-|  04  | June 27    | Data cleaning and processing in R              |
-|  05  | July 4     | NO CLASS THIS WEEK                             |
-|  06  | July 11    | Reproducible data analysis in R                |
-|  07  | July 18    | Mapping in R, part 1                           |
-|  08  | July 25    | Mapping in R, part 2                           |
-|  09  | August 1   | Building interactive visualizations            |
-|  10  | August 8   | Modeling state funding policy proposals in R   |
-|  11  | August 15  | OFFICE HOURS --- CAPSTONE WORK WEEK            |
-|  12  | August 22  | OFFICE HOURS --- CAPSTONE WORK WEEK            |
-|  13  | August 29  | Capstone presentations                         |
+|  01  | June 4     | Introduction to education finance equity and R |
+|  02  | June 11    | Basic data analysis and visualization in R     |
+|  03  | June 18    | Deep-dive on education finance policy          |
+|  04  | June 25    | Data cleaning and processing in R              |
+|  05  | July 2     | NO CLASS THIS WEEK                             |
+|  06  | July 9     | Reproducible data analysis in R                |
+|  07  | July 16    | Mapping in R, part 1                           |
+|  08  | July 23    | Mapping in R, part 2                           |
+|  09  | July 30    | Building interactive visualizations            |
+|  10  | August 6   | Modeling state funding policy proposals in R   |
+|  11  | August 13  | OFFICE HOURS --- CAPSTONE WORK WEEK            |
+|  12  | August 20  | OFFICE HOURS --- CAPSTONE WORK WEEK            |
+|  13  | August 27  | Capstone presentations                         |
 
 # Introduction to Education Finance Policy
 
@@ -384,15 +385,15 @@ But that structure alone will not ensure equity and adequacy.
 
 ## School finance reform efforts can be helped -- or hindered -- by several conditions in your state
 
-| **Condition**         | **Questions to consider in your state**                                                                                         |
-|---------------|---------------------------------------------------------|
+| **Condition**         | **Questions to consider in your state**                                                                           |
+|-----------------|-------------------------------------------------------|
 | **Coalitions**        | Are there aligned and influential advocates and/or coalitions?                                                    |
 | **Champions**         | Is there political appetite for funding reform in the state?                                                      |
 | **Research capacity** | Is there sufficient evidence and technical capacity in the state to make the case for and advance funding reform? |
 | **State finances**    | Is the fiscal situation in the state conductive to K-12 funding reform?                                           |
 | **Lawsuits**          | Could funding reform be aided by current or past litigation?                                                      |
 
-:::aside
+::: aside
 Source: [Making Change](https://bellwether.org/wp-content/uploads/2023/02/MakingChange_Bellwether_January2023.pdf)
 :::
 
