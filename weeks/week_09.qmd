@@ -7,7 +7,7 @@ date: ""
 listing:
   - id: slides
     contents:
-      - ../slides/week_07/*.qmd
+      - ../slides/week_09/*.qmd
     type: table
     fields: [title, date]
     field-display-names:
