@@ -1,14 +1,26 @@
 ---
 title: "Introduction to Education Finance Equity & R"
 date: "June 4, 2024"
-format: 
-  revealjs:
-    chalkboard: true
-execute:
-  freeze: auto
-  echo: false
-  message: false
-  warning: false
+css:
+  - |
+    .smaller h1 {
+      font-size: 0.5em; /* Adjust the font size as needed */
+    }
+output:
+  quarto::quarto_presentation:
+    format: revealjs
+    theme: 
+      logo: images/primary_full-color.png
+      theme: theme/slides.scss # Choose a theme for your presentation (e.g., simple, serif, solarized, etc.)
+    incremental: true # Whether to display content incrementally (one step at a time)
+    self_contained: true # Whether to create a standalone HTML file
+    highlight_style: "github" # Syntax highlighting style (e.g., github, monokai, etc.)
+    revealjs:
+      controls: true # Display navigation controls (e.g., arrows, slide number, etc.)
+      progress: true # Display a progress bar
+      slideNumber: true # Display slide numbers
+      center: true # Center the content on each slide
+      chalkboard: true # Enable chalkboard mode for reveal.js
 ---
 
 ```{r}
@@ -46,7 +58,7 @@ us_states <- us_states_raw |>
   filter(GEOID < 60) |> 
   shift_geometry() 
 
-summer24 <- tibble(STUSPS = c("VA", "AZ", "AK", "DC", "NC", 
+summer24 <- tibble(STUSPS = c("VA", "AZ", "AR", "DC", "NC", 
                               "PA", "DE", "AL", "MI", "GA","NY",
                               "MS",
                               "CO","CA", "IL", "IN",
@@ -86,9 +98,9 @@ summer24_states <- us_states |>
 
 ::: columns
 ::: {.column width="50%" style="text-align: center"}
-![](img/spurrier.jpg){.instructor-img fig-align="center"}
+![](img/kaput.jpg){.instructor-img fig-align="center"}
 
-**Alex Spurrier**, Associate Partner
+**Krista Kaput**, Senior Analyst
 
 <br>
 
@@ -98,9 +110,9 @@ summer24_states <- us_states |>
 :::
 
 ::: {.column width="50%" style="text-align: center"}
-![](img/kaput.jpg){.instructor-img fig-align="center"}
+![](img/spurrier.jpg){.instructor-img fig-align="center"}
 
-**Krista Kaput**, Senior Analyst
+**Alex Spurrier**, Associate Partner
 
 <br>
 
@@ -119,6 +131,7 @@ ggplot(summer24_states, aes(fill = status)) +
   scale_fill_manual(values = c(
                                bw_primary[3], 
                                bw_primary[2], 
+                               bw_secondary[5],
                                bw_secondary[2]),
                     na.value = bw_secondary[3]) +
   labs(fill = "Training\nCohort") +
@@ -126,7 +139,7 @@ ggplot(summer24_states, aes(fill = status)) +
   theme(text = element_text(family = "Avenir"))
 ```
 
-## Getting to know Cohort 3
+## Getting to know Cohort 4
 
 ::: columns
 ::: {.column width="50%"}
@@ -198,31 +211,37 @@ We will achieve this by helping you:
 
 ## Course calendar {.smaller}
 
-| Week | Class Date | Detail                                         |
-|:----:|------------|------------------------------------------------|
-|  01  | June 4     | Introduction to education finance equity and R |
-|  02  | June 11    | Basic data analysis and visualization in R     |
-|  03  | June 18    | Deep-dive on education finance policy          |
-|  04  | June 25    | Data cleaning and processing in R              |
-|  05  | July 2     | NO CLASS THIS WEEK                             |
-|  06  | July 9     | Reproducible data analysis in R                |
-|  07  | July 16    | Mapping in R, part 1                           |
-|  08  | July 23    | Mapping in R, part 2                           |
-|  09  | July 30    | Building interactive visualizations            |
-|  10  | August 6   | Modeling state funding policy proposals in R   |
-|  11  | August 13  | OFFICE HOURS --- CAPSTONE WORK WEEK            |
-|  12  | August 20  | OFFICE HOURS --- CAPSTONE WORK WEEK            |
-|  13  | August 27  | Capstone presentations                         |
++-----------+------------+------------------------------------------------------------------+
+| Week      | Class Date | Detail                                                           |
++:=========:+============+==================================================================+
+| 01        | June 4     | Introduction to education finance equity, R, RStudio, and GitHub |
++-----------+------------+------------------------------------------------------------------+
+| 02        | June 11    | Basic data analysis and visualization in R                       |
++-----------+------------+------------------------------------------------------------------+
+| 03        | June 18    | Deep-dive on education finance and weighted student funding      |
++-----------+------------+------------------------------------------------------------------+
+| 04        | June 25    | Data cleaning and processing in R                                |
++-----------+------------+------------------------------------------------------------------+
+| 05        | July 2     | NO CLASS THIS WEEK                                               |
++-----------+------------+------------------------------------------------------------------+
+| 06        | July 9     | Advanced data visualization with ggplot2                         |
++-----------+------------+------------------------------------------------------------------+
+| 07        | July 16    | Reproducible data analysis in R                                  |
++-----------+------------+------------------------------------------------------------------+
+| 08        | July 23    | Analyzing state education funding data with plotly               |
++-----------+------------+------------------------------------------------------------------+
+| 09        | July 30    | Mapping in R                                                     |
++-----------+------------+------------------------------------------------------------------+
+| 10        | August 6   | Modeling state funding policy proposals in R                     |
++-----------+------------+------------------------------------------------------------------+
+| 11        | August 13  | OFFICE HOURS --- CAPSTONE WORK WEEK                              |
++-----------+------------+------------------------------------------------------------------+
+| 12        | August 20  | OFFICE HOURS --- CAPSTONE WORK WEEK                              |
++-----------+------------+------------------------------------------------------------------+
+| 13        | August 27  | Capstone presentations                                           |
++-----------+------------+------------------------------------------------------------------+
 
 # Introduction to Education Finance Policy
-
-## Key goals of funding reform: adequacy and equity
-
-School funding systems are typically assessed on two fronts: **adequacy** and **equity**.
-
--   Adequacy: Is there **enough funding**?
-
--   Equity: Is the funding **distribution aligned with student needs**?
 
 ## Why does education finance equity matter?
 
@@ -238,16 +257,16 @@ School finance equity is a critical component of educational equity overall. In 
 
 Inequity in school finance holds back countless other efforts to improve educational outcomes. Achieving both adequacy (enough funding) and equity (funding distributed to where it is most needed) will not solve every educational problem, but it will enable more schools to provide their students with an excellent education.
 
-## Follow the money: where does it all come from?
+## Follow the money: where does it come from?
 
 ```{r}
 
-rev_source_sy20 <- tibble(rev_source = c("Federal", "State", "Local"),
-                          rev_pct = c(7.6,	47.5,	44.9),
-                          rev_label = c("7.6%",	"47.5%",	"44.9%")) |> 
+rev_source_sy22 <- tibble(rev_source = c("Federal", "State", "Local"),
+                          rev_pct = c(13.6,	43.7,	42.7),
+                          rev_label = c("13.6%",	"43.7%",	"42.7%")) |> 
   mutate(rev_source = factor(rev_source, levels = c("State", "Local", "Federal")))
 
-ggplot(rev_source_sy20,
+ggplot(rev_source_sy22,
        aes(x = "", y = rev_pct, fill = rev_source)) + 
   geom_col() +
   geom_text(aes(label = rev_label),
@@ -256,43 +275,48 @@ ggplot(rev_source_sy20,
              show.legend = FALSE) +
   coord_polar("y", start=0) +
   labs(fill = "Revenue Source",
-       title = "K-12 School Revenue by Source, 2019-20") +
+       title = "K-12 School Revenue by Source, 2021-22", 
+       caption = "Source: NCES") +
   scale_fill_manual(values = c(bw_primary[3], bw_primary[2], bw_primary[1])) + 
   theme_void()+
   theme(text = element_text(family = "Avenir", size = 16))
 
 ```
 
-::: aside
-Source: [NCES](https://nces.ed.gov/programs/digest/d22/tables/dt22_235.10.asp)
-:::
+<!-- ::: aside -->
 
-## Follow the money: where does it all come from?
+<!-- Source: [NCES](https://nces.ed.gov/programs/digest/d22/tables/dt22_235.10.asp) -->
+
+<!-- ::: -->
+
+**Note**: The ESSER I, II, and III funding inflated the federal FY22 percentage. Normally, federal funding accounts for \~8% of overall funding.
+
+## Follow the money: where does it come from?
 
 ::: panel-tabset
 ### Local revenue
 
--   Large share of K-12 funding.
+-   Large share of K-12 funding (\~45%).
 
 -   Relatively stable (property taxes).
 
--   Inherently inequitable.
+-   Inherently inequitable with property wealthy districts able to raise more local funding.
 
 ### State revenue
 
--   Large share of K-12 funding, tending to direct more to higher-need districts,
+-   Large share of K-12 funding (\~47%), tending to direct more to higher-need districts,
 
--   More volatile revenue sources compared to property taxes (income, sales, etc. taxes).
+-   More volatile revenue sources compared to local property taxes (income and sales taxes).
 
 -   Intended to address inequities in local revenue, but rarely achieves that goal.
 
 ### Federal revenue
 
--   Relatively small share of K-12 funding.
+-   Relatively small share of K-12 funding (\~8%).
 
--   Majority of federal dollars are allocated through to serve low-income students (Title I) and students with special learning needs (IDEA), along with other specific funding streams like school meal programs.
+-   Majority of federal dollars are allocated through to serve low-income students (Title I), English Language Learners (Title III), and students with special learning needs (IDEA), along with other specific funding streams like school meal programs.
 
--   In recent decades, there have been waves of stimulus funding directed at K-12 schools in the wake of the Great Recession and the COVID-19 pandemic.
+-   Over the past decade, there have been waves of stimulus funding directed at K-12 schools in the wake of the Great Recession and the COVID-19 pandemic (ESSER).
 :::
 
 ## State funding formulas *should* try to balance the scales, but they're already starting from behind
@@ -331,6 +355,8 @@ These factors drive the complexity of building a well-functioning state funding 
 
 Relying on local property taxes to fund local schools (as most states do) ties school funding closely to housing and property wealth, fueling disparities in funding by race, ethnicity, and class --- **unless states act to balance the scales.**
 
+**Proposals to address that challenge** -- changing structuring funding formulas to align with student needs rather than political clout -- **face huge barriers**
+
 ::: callout
 **Example**
 
@@ -340,34 +366,25 @@ Relying on local property taxes to fund local schools (as most states do) ties s
 -   And districts like Bridgeport with lower property wealth and higher-needs students rely on states to fill the gap. Which doesn't always happen.
 :::
 
-**Proposals to address that challenge** -- changing structuring funding formulas to align with student needs rather than political clout -- **face huge barriers**.
+.
 
-## How can we assess state funding policies?
+## Bellwether's four principles for assessing state finance policies {.smaller}
 
-School finance reform is often prompted by court action (or the potential for court action). School finance litigation has historically focused on one or both of two standards:
-
--   Adequacy: Is there enough funding in the system to enable schools to meet the state's educational mandate?
--   Equity: Are resources distributed fairly across communities?
-
-Our working framework for assessing state finance policies considers four principles:
-
-::: panel-tabset
-### Adequacy
-
-Is enough funding generated to support high-quality educational opportunities for all students?
-
-### Equity
-
-Is funding distributed to account for differences in student and community need?
-
-### Transparency
-
-Can the public easily access funding data and formula documentation?
-
-### Responsiblity
-
-Are state policymakers empowered to adjust state funding formulas to account for changing student and community needs?
-:::
++--------------------+--------------------------------------------------------------------------------------------------------------------------------------------------+
+| **Principle**      | **Questions**                                                                                                                                    |
++====================+==================================================================================================================================================+
+| **Adequacy**       | -   Is there enough funding in the system to enable schools to meet the state's educational mandate?                                             |
+|                    |                                                                                                                                                  |
+|                    | -   Does the policy fulfill and protect the state's constitutional responsibilities to oversee an education system that can serve every child?   |
++--------------------+--------------------------------------------------------------------------------------------------------------------------------------------------+
+| **Equity**         | -   Does the policy allocate greater resources toward groups of students with greater educational needs? \|                                      |
+|                    |                                                                                                                                                  |
+|                    | -   Does it differentiate between wealthy and less-wealthy communities to ensure that limited state dollars are used where they are needed most? |
++--------------------+--------------------------------------------------------------------------------------------------------------------------------------------------+
+| **Responsibility** | -   Does the policy make clear the locus of decision-making for funding and budgeting, and split local and state responsibilities appropriately? |
++--------------------+--------------------------------------------------------------------------------------------------------------------------------------------------+
+| **Transparency**   | -   Are the policies clear on which government entities are responsible for education revenue?                                                   |
++--------------------+--------------------------------------------------------------------------------------------------------------------------------------------------+
 
 ## There are different ways for states to distribute educational dollars -- some are better-aligned to student needs than others {.smaller}
 
@@ -377,21 +394,31 @@ Our perspective, in this course and in general, is that student-based, weighted 
 But that structure alone will not ensure equity and adequacy.
 :::
 
++--------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | Category           | Definition                                                                                                                                                                                                                                                                                                                                                   |
-|--------------------------|----------------------------------------------|
++====================+==============================================================================================================================================================================================================================================================================================================================================================+
 | **Student-based**  | School districts receive funding based on the number of students enrolled or in attendance. In many cases, districts may additionally receive funding weights or supplement based on anticipated student learning needs, with extra funds tied to characteristics of enrolled students, such as low income, disability, and/or status as an English learner. |
++--------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | **Program-based**  | This system allocates dollars to school districts based on the cost of educational programs within those districts.                                                                                                                                                                                                                                          |
++--------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | **Resource-based** | School districts receive funding based on the anticipated cost of resources and inputs, such as staff salaries and instructional materials.                                                                                                                                                                                                                  |
++--------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 ## School finance reform efforts can be helped -- or hindered -- by several conditions in your state
 
++-----------------------+-------------------------------------------------------------------------------------------------------------------+
 | **Condition**         | **Questions to consider in your state**                                                                           |
-|-----------------|-------------------------------------------------------|
++=======================+===================================================================================================================+
 | **Coalitions**        | Are there aligned and influential advocates and/or coalitions?                                                    |
++-----------------------+-------------------------------------------------------------------------------------------------------------------+
 | **Champions**         | Is there political appetite for funding reform in the state?                                                      |
++-----------------------+-------------------------------------------------------------------------------------------------------------------+
 | **Research capacity** | Is there sufficient evidence and technical capacity in the state to make the case for and advance funding reform? |
++-----------------------+-------------------------------------------------------------------------------------------------------------------+
 | **State finances**    | Is the fiscal situation in the state conductive to K-12 funding reform?                                           |
++-----------------------+-------------------------------------------------------------------------------------------------------------------+
 | **Lawsuits**          | Could funding reform be aided by current or past litigation?                                                      |
++-----------------------+-------------------------------------------------------------------------------------------------------------------+
 
 ::: aside
 Source: [Making Change](https://bellwether.org/wp-content/uploads/2023/02/MakingChange_Bellwether_January2023.pdf)
@@ -724,7 +751,7 @@ Each homework assignment will usually include two basic elements:
 
 -   Coding task: An R programming task for you to complete
 
-Assignments should be completed by noon Eastern time on the Monday before the next class session will be held. **For week 01, this means your assignment is due by 12:00pm (Eastern) on Monday, June 12.**
+Assignments should be completed by noon Eastern time on the Monday before the next class session will be held. **For week 01, this means your assignment is due by 12:00pm ET on Monday, June 10.**
 
 **Reading**
 
@@ -737,3 +764,5 @@ Assignments should be completed by noon Eastern time on the Monday before the ne
 -   [ ] Successfully copy the assignment repo to your computer
 -   [ ] Run and observe the example script from today's class
 -   [ ] Create four new variables using the `median()` function
+
+**Next Class is Tuesday, June 11 from 12:00 - 2:00 PM ET.**

@@ -57,7 +57,7 @@ devtools::install_github('EdBuild/edbuildr')
 ```{r}
 #| eval: false
 
-# INSTRUCTIONS FOR MAC 
+# R INSTRUCTIONS FOR MAC 
 
 # First copy and paste this code into the terminal 
 xcode-select --install #Press enter 
@@ -69,7 +69,7 @@ git version #Press enter
 
 ## Step 5: Setting up RStudio for Cloning GitHub respositories 
 
-Once you have confirmed Git is working on your machine, copy and paste the following code in the "Console" pane and run it by hitting return. See the [class 2 slides](https://bellwetherorg.github.io/quant_plc_rclass/slides/class_2/class_2.html) for more information. 
+Once you have confirmed Git is working on your machine, copy and paste the following code in the "Console" pane and run it by hitting return. 
 
 ```{r}
 #| eval: false
