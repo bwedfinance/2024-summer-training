@@ -44,7 +44,7 @@
     "href": "schedule.html",
     "title": "Course Schedule",
     "section": "",
-    "text": "Week\n\n\nDates\n\n\nTopic\n\n\n\n\n\n\nWeek 01\n\n\nJune 4\n\n\nIntroduction to School Finance Equity\n\n\n\n\nWeek 02\n\n\nJune 11\n\n\nBasic data analysis and visualization in R\n\n\n\n\nWeek 03\n\n\nJune 20\n\n\nDeep-dive on education finance and weighted student funding\n\n\n\n\nWeek 04\n\n\nJune 27\n\n\nData cleaning and processing in R\n\n\n\n\nWeek 05\n\n\nJuly 11\n\n\nReproducible data analysis in R\n\n\n\n\nWeek 06\n\n\nJuly 18\n\n\nMapping in R\n\n\n\n\nWeek 07\n\n\nJuly 25\n\n\nModeling state funding policy proposals in R\n\n\n\n\n\nNo matching items",
+    "text": "Week\n\n\nDates\n\n\nTopic\n\n\n\n\n\n\nWeek 01\n\n\nJune 4\n\n\nIntroduction to School Finance Equity\n\n\n\n\nWeek 02\n\n\nJune 11\n\n\nBasic data analysis and visualization in R\n\n\n\n\nWeek 03\n\n\nJune 18\n\n\nDeep-dive on education finance and weighted student funding\n\n\n\n\nWeek 04\n\n\nJune 25\n\n\nData cleaning and processing in R\n\n\n\n\nWeek 05\n\n\nJuly 9\n\n\nAdvanced data cleaning with ggplot2\n\n\n\n\nWeek 06\n\n\nJuly 16\n\n\nReproducible data analysis in R\n\n\n\n\nWeek 07\n\n\nJuly 23\n\n\nAnalyzing state education finance funding data with plotly\n\n\n\n\nWeek 08\n\n\nJuly 30\n\n\nMapping in R\n\n\n\n\n\nNo matching items",
     "crumbs": [
       "Schedule"
     ]
@@ -54,7 +54,7 @@
     "href": "schedule.html#class-schedule",
     "title": "Course Schedule",
     "section": "",
-    "text": "Week\n\n\nDates\n\n\nTopic\n\n\n\n\n\n\nWeek 01\n\n\nJune 4\n\n\nIntroduction to School Finance Equity\n\n\n\n\nWeek 02\n\n\nJune 11\n\n\nBasic data analysis and visualization in R\n\n\n\n\nWeek 03\n\n\nJune 20\n\n\nDeep-dive on education finance and weighted student funding\n\n\n\n\nWeek 04\n\n\nJune 27\n\n\nData cleaning and processing in R\n\n\n\n\nWeek 05\n\n\nJuly 11\n\n\nReproducible data analysis in R\n\n\n\n\nWeek 06\n\n\nJuly 18\n\n\nMapping in R\n\n\n\n\nWeek 07\n\n\nJuly 25\n\n\nModeling state funding policy proposals in R\n\n\n\n\n\nNo matching items",
+    "text": "Week\n\n\nDates\n\n\nTopic\n\n\n\n\n\n\nWeek 01\n\n\nJune 4\n\n\nIntroduction to School Finance Equity\n\n\n\n\nWeek 02\n\n\nJune 11\n\n\nBasic data analysis and visualization in R\n\n\n\n\nWeek 03\n\n\nJune 18\n\n\nDeep-dive on education finance and weighted student funding\n\n\n\n\nWeek 04\n\n\nJune 25\n\n\nData cleaning and processing in R\n\n\n\n\nWeek 05\n\n\nJuly 9\n\n\nAdvanced data cleaning with ggplot2\n\n\n\n\nWeek 06\n\n\nJuly 16\n\n\nReproducible data analysis in R\n\n\n\n\nWeek 07\n\n\nJuly 23\n\n\nAnalyzing state education finance funding data with plotly\n\n\n\n\nWeek 08\n\n\nJuly 30\n\n\nMapping in R\n\n\n\n\n\nNo matching items",
     "crumbs": [
       "Schedule"
     ]
@@ -64,7 +64,7 @@
     "href": "schedule.html#homework",
     "title": "Course Schedule",
     "section": "Homework",
-    "text": "Homework\nHomework will be due by 12pm Eastern time on the Monday following a class.",
+    "text": "Homework\nHomework will be due by 12:00 PM Eastern time on the Monday following a class.",
     "crumbs": [
       "Schedule"
     ]
@@ -142,23 +142,23 @@
   {
     "objectID": "slides/week_01/week_01_course_intro.html",
     "href": "slides/week_01/week_01_course_intro.html",
-    "title": "Introduction to Education Finance Equity & R",
+    "title": "Introduction to Education Finance Equity, R, RStudio, and GitHub",
     "section": "",
-    "text": "Introductions (15 min)\nCourse Overview (5 min)\nIntroduction to Education Funding Policy (30 min)\nIntroduction to R and RStudio (25 min)\nBreak (10 min)\nRStudio Setup and Workflow Tips (10 min)\nIntroduction to Git and GitHub (20 min)\nHomework assignment (5 min)\n\n\n\n\n\n\n\n\n\n\n\nAlex Spurrier, Associate Partner\n\n\n\n\n\n\nJennifer Schiess, Senior Partner & Policy and Evaluation Practice Leader\n\n\n\n\n\n\nKrista Kaput, Senior Analyst\n\n\n\n\n\n\nBonnie O’Keefe, Senior Associate Partner\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n−+\n10:00\n\n\n\n\nPlease share your:\n\nName\nState\nOrganization\nRole\nAny prior experience with R?\nWhy did you take this course?"
+    "text": "Introductions (15 min)\nCourse Overview (5 min)\nIntroduction to Education Funding Policy (30 min)\nIntroduction to R and RStudio (25 min)\nBreak (10 min)\nRStudio Setup and Workflow Tips (10 min)\nIntroduction to Git and GitHub (20 min)\nHomework assignment (5 min)\n\n\n\n\n\n\n\n\n\n\n\nKrista Kaput, Senior Analyst\n\n\n\n\n\n\nJennifer Schiess, Senior Partner & Policy and Evaluation Practice Leader\n\n\n\n\n\n\nAlex Spurrier, Associate Partner\n\n\n\n\n\n\nBonnie O’Keefe, Senior Associate Partner\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n−+\n10:00\n\n\n\n\nPlease share your:\n\nName\nState\nOrganization\nRole\nAny prior experience with R?\nWhy did you take this course?"
   },
   {
     "objectID": "slides/week_01/week_01_course_intro.html#agenda",
     "href": "slides/week_01/week_01_course_intro.html#agenda",
-    "title": "Introduction to Education Finance Equity & R",
-    "section": "Agenda",
-    "text": "Agenda\n\nIntroductions (15 min)\nCourse Overview (5 min)\nIntroduction to Education Funding Policy (30 min)\nIntroduction to R and RStudio (25 min)\nBreak (10 min)\nRStudio Setup and Workflow Tips (10 min)\nIntroduction to Git and GitHub (20 min)\nHomework assignment (5 min)"
+    "title": "Introduction to Education Finance Equity, R, RStudio, and GitHub",
+    "section": "",
+    "text": "Introductions (15 min)\nCourse Overview (5 min)\nIntroduction to Education Funding Policy (30 min)\nIntroduction to R and RStudio (25 min)\nBreak (10 min)\nRStudio Setup and Workflow Tips (10 min)\nIntroduction to Git and GitHub (20 min)\nHomework assignment (5 min)"
   },
   {
     "objectID": "slides/week_01/week_01_course_intro.html#meet-your-instructors",
     "href": "slides/week_01/week_01_course_intro.html#meet-your-instructors",
-    "title": "Introduction to Education Finance Equity & R",
-    "section": "Meet your instructors",
-    "text": "Meet your instructors\n\n\n\n\n\n\n\nKrista Kaput, Senior Analyst\n\n\n\n\n\n\nJennifer Schiess, Senior Partner & Policy and Evaluation Practice Leader\n\n\n\n\n\n\nAlex Spurrier, Associate Partner\n\n\n\n\n\n\nBonnie O’Keefe, Senior Associate Partner"
+    "title": "Introduction to Education Finance Equity, R, RStudio, and GitHub",
+    "section": "",
+    "text": "Krista Kaput, Senior Analyst\n\n\n\n\n\n\nJennifer Schiess, Senior Partner & Policy and Evaluation Practice Leader\n\n\n\n\n\n\nAlex Spurrier, Associate Partner\n\n\n\n\n\n\nBonnie O’Keefe, Senior Associate Partner"
   },
   {
     "objectID": "slides/week_01/week_01_course_intro.html#getting-to-know-cohort-3",
@@ -170,21 +170,21 @@
   {
     "objectID": "slides/week_01/week_01_course_intro.html#goals-for-this-course",
     "href": "slides/week_01/week_01_course_intro.html#goals-for-this-course",
-    "title": "Introduction to Education Finance Equity & R",
+    "title": "Introduction to Education Finance Equity, R, RStudio, and GitHub",
     "section": "Goals for this course",
-    "text": "Goals for this course\n\n\n\nOur primary goal is to prepare advocates to leverage data analysis and policy knowledge to advocate effectively for school finance reforms that can improve the educational success of historically underserved students.\n\n\n\nWe will achieve this by helping you:\n\nLearn R for data analysis and visualization\nDevelop an understanding of K-12 school funding policies nationally and deep understanding of your state’s system, specifically\nUse R to support in-depth education finance analysis that is:\n\nOrganized\nWell-documented\nReproducible\n\nProduce high-quality, effective data visualizations to make your analysis a more powerful, easy-to-understand tool for advocacy"
+    "text": "Goals for this course\n\n\n\n\n\n\nOur primary goal is to prepare advocates to leverage data analysis and policy knowledge to advocate effectively for school finance reforms that can improve the educational success of historically underserved students.\n\n\n\nWe will achieve this by helping you:\n\nLearn R for data analysis and visualization\nDevelop an understanding of K-12 school funding policies nationally and deep understanding of your state’s system, specifically\nUse R to support in-depth education finance analysis that is:\n\nOrganized\nWell-documented\nReproducible\n\nProduce high-quality, effective data visualizations to make your analysis a more powerful, easy-to-understand tool for advocacy"
   },
   {
     "objectID": "slides/week_01/week_01_course_intro.html#course-website-and-class-structure",
     "href": "slides/week_01/week_01_course_intro.html#course-website-and-class-structure",
-    "title": "Introduction to Education Finance Equity & R",
+    "title": "Introduction to Education Finance Equity, R, RStudio, and GitHub",
     "section": "Course website and class structure",
     "text": "Course website and class structure\n\n\nCourse website\n\nSchedule\nSlides\nHomework\nLecture recordings\n\n\nClass structure\n\nReview homework (15 min)\nLecture (60 min)\nBreak (10 min)\nIn-class exercise (30 min)\nHomework (5 min)"
   },
   {
     "objectID": "slides/week_01/week_01_course_intro.html#course-calendar",
     "href": "slides/week_01/week_01_course_intro.html#course-calendar",
-    "title": "Introduction to Education Finance Equity & R",
+    "title": "Introduction to Education Finance Equity, R, RStudio, and GitHub",
     "section": "Course calendar",
     "text": "Course calendar\n\n\n\n\n\n\n\n\nWeek\nClass Date\nDetail\n\n\n\n\n01\nJune 4\nIntroduction to education finance equity, R, RStudio, and GitHub\n\n\n02\nJune 11\nBasic data analysis and visualization in R\n\n\n03\nJune 18\nDeep-dive on education finance and weighted student funding\n\n\n04\nJune 25\nData cleaning and processing in R\n\n\n05\nJuly 2\nNO CLASS THIS WEEK\n\n\n06\nJuly 9\nAdvanced data visualization with ggplot2\n\n\n07\nJuly 16\nReproducible data analysis in R\n\n\n08\nJuly 23\nAnalyzing state education funding data with plotly\n\n\n09\nJuly 30\nMapping in R\n\n\n10\nAugust 6\nModeling state funding policy proposals in R\n\n\n11\nAugust 13\nOFFICE HOURS — CAPSTONE WORK WEEK\n\n\n12\nAugust 20\nOFFICE HOURS — CAPSTONE WORK WEEK\n\n\n13\nAugust 27\nCapstone presentations"
   },
@@ -198,9 +198,9 @@
   {
     "objectID": "slides/week_01/week_01_course_intro.html#why-does-education-finance-equity-matter",
     "href": "slides/week_01/week_01_course_intro.html#why-does-education-finance-equity-matter",
-    "title": "Introduction to Education Finance Equity & R",
+    "title": "Introduction to Education Finance Equity, R, RStudio, and GitHub",
     "section": "Why does education finance equity matter?",
-    "text": "Why does education finance equity matter?\n\n\n\nThe longstanding and persistent reality is that vast funding inequities in our state public education systems render the education available to millions of American public school students profoundly unequal.”\n– U.S. Commission on Civil Rights, 2018\n\n\n\nSchool finance equity is a critical component of educational equity overall. In an equitable school finance system, schools would receive funds they need to provide a high-quality education for all students. School funding should be based on the needs of students, not the property wealth of individual communities or a checklist of programs.\nAcross the country, almost no states have fully achieved this goal.\nInequity in school finance holds back countless other efforts to improve educational outcomes. Achieving both adequacy (enough funding) and equity (funding distributed to where it is most needed) will not solve every educational problem, but it will enable more schools to provide their students with an excellent education."
+    "text": "Why does education finance equity matter?\n\n\n\n\n\n\nThe longstanding and persistent reality is that vast funding inequities in our state public education systems render the education available to millions of American public school students profoundly unequal.”\n– U.S. Commission on Civil Rights, 2018\n\n\n\nSchool finance equity is a critical component of educational equity overall. In an equitable school finance system, schools would receive funds they need to provide a high-quality education for all students. School funding should be based on the needs of students, not the property wealth of individual communities or a checklist of programs.\nAcross the country, almost no states have fully achieved this goal.\nInequity in school finance holds back countless other efforts to improve educational outcomes. Achieving both adequacy (enough funding) and equity (funding distributed to where it is most needed) will not solve every educational problem, but it will enable more schools to provide their students with an excellent education."
   },
   {
     "objectID": "slides/week_01/week_01_course_intro.html#follow-the-money-where-does-it-all-come-from",
@@ -219,30 +219,30 @@
   {
     "objectID": "slides/week_01/week_01_course_intro.html#state-funding-formulas-should-try-to-balance-the-scales-but-theyre-already-starting-from-behind",
     "href": "slides/week_01/week_01_course_intro.html#state-funding-formulas-should-try-to-balance-the-scales-but-theyre-already-starting-from-behind",
-    "title": "Introduction to Education Finance Equity & R",
+    "title": "Introduction to Education Finance Equity, R, RStudio, and GitHub",
     "section": "State funding formulas should try to balance the scales, but they’re already starting from behind",
     "text": "State funding formulas should try to balance the scales, but they’re already starting from behind\nState school funding formulae generally try to achieve a few objectives:\n\nDistribute state funds\nBalance the scales for lower-wealth and/or higher-need districts that cannot easily generate sufficient local revenue to educate their students\nSet guardrails on local funding to reduce inequities generated by wealthier districts (sometimes)"
   },
   {
     "objectID": "slides/week_01/week_01_course_intro.html#equity-should-be-the-primary-goal-for-states-funding-formulae-but-its-a-massive-challenge-that-varies-from-state-to-state",
     "href": "slides/week_01/week_01_course_intro.html#equity-should-be-the-primary-goal-for-states-funding-formulae-but-its-a-massive-challenge-that-varies-from-state-to-state",
-    "title": "Introduction to Education Finance Equity & R",
+    "title": "Introduction to Education Finance Equity, R, RStudio, and GitHub",
     "section": "Equity should be the primary goal for states’ funding formulae, but it’s a massive challenge that varies from state to state",
     "text": "Equity should be the primary goal for states’ funding formulae, but it’s a massive challenge that varies from state to state\nThese factors drive the complexity of building a well-functioning state funding formula:\n\nNumber of districts\nRange of economic disparities between school districts\nStudent population size and learning needs\nGeographical features (concentrated poverty, rurality, etc.)\nPolitical dis-incentives to change"
   },
   {
     "objectID": "slides/week_01/week_01_course_intro.html#there-are-many-ways-to-measure-within-state-inequities-in-funding-but-its-a-big-issue",
     "href": "slides/week_01/week_01_course_intro.html#there-are-many-ways-to-measure-within-state-inequities-in-funding-but-its-a-big-issue",
-    "title": "Introduction to Education Finance Equity & R",
+    "title": "Introduction to Education Finance Equity, R, RStudio, and GitHub",
     "section": "There are many ways to measure within-state inequities in funding, but it’s a big issue",
     "text": "There are many ways to measure within-state inequities in funding, but it’s a big issue\nEdBuild, 2015:\n\n“On average, high-poverty school districts in each state receive 5%, or $500 less per student than wealthy ones do. Some states are much, much worse…In only six states do students in high-poverty districts receive at least 10% more funding than those in low-poverty districts.”\n\nThe Education Trust, 2018:\n\n“School districts serving the largest populations of Black, Latino, or American Indian students receive roughly $1,800, or 13 percent, less per student in state and local funding than those serving the fewest students of color.”\n\nRutgers University and the Albert Shanker Institute, 2021:\n\n“Spending in most states’ high-poverty districts is below our estimated required levels, while spending in low-poverty districts is typically above the targets…even in states where, according to our estimates, funding overall seems to be adequate across poverty groups, there are still districts left behind.”"
   },
   {
     "objectID": "slides/week_01/week_01_course_intro.html#we-are-focused-on-inequities-at-the-district-level-where-state-laws-shape-funding-distribution",
     "href": "slides/week_01/week_01_course_intro.html#we-are-focused-on-inequities-at-the-district-level-where-state-laws-shape-funding-distribution",
-    "title": "Introduction to Education Finance Equity & R",
+    "title": "Introduction to Education Finance Equity, R, RStudio, and GitHub",
     "section": "We are focused on inequities at the district level, where state laws shape funding distribution",
-    "text": "We are focused on inequities at the district level, where state laws shape funding distribution\nRelying on local property taxes to fund local schools (as most states do) ties school funding closely to housing and property wealth, fueling disparities in funding by race, ethnicity, and class — unless states act to balance the scales.\nProposals to address that challenge – changing structuring funding formulas to align with student needs rather than political clout – face huge barriers\n\n\n\nExample\n\nTaxable property wealth in Bridgeport, Connecticut, is equivalent to more than $500,000 per pupil.\nNeighboring Fairfield, Connecticut, has nearly $2 million in taxable property wealth per pupil.\nFor these communities to generate the same amount of per-pupil funding for their local public schools, Bridgeport would need to tax itself at a significantly higher rate than Fairfield. So lower wealth communities often pay taxes at a higher rate to generate less funds than their neighbors.\nAnd districts like Bridgeport with lower property wealth and higher-needs students rely on states to fill the gap. Which doesn’t always happen.\n\n\n\n\n."
+    "text": "We are focused on inequities at the district level, where state laws shape funding distribution\nRelying on local property taxes to fund local schools (as most states do) ties school funding closely to housing and property wealth, fueling disparities in funding by race, ethnicity, and class — unless states act to balance the scales.\nProposals to address that challenge – changing structuring funding formulas to align with student needs rather than political clout – face huge barriers\n\n\n\n\n\n\nExample\n\nTaxable property wealth in Bridgeport, Connecticut, is equivalent to more than $500,000 per pupil.\nNeighboring Fairfield, Connecticut, has nearly $2 million in taxable property wealth per pupil.\nFor these communities to generate the same amount of per-pupil funding for their local public schools, Bridgeport would need to tax itself at a significantly higher rate than Fairfield. So lower wealth communities often pay taxes at a higher rate to generate less funds than their neighbors.\nAnd districts like Bridgeport with lower property wealth and higher-needs students rely on states to fill the gap. Which doesn’t always happen.\n\n\n\n\n."
   },
   {
     "objectID": "slides/week_01/week_01_course_intro.html#how-can-we-assess-state-funding-policies",
@@ -254,266 +254,266 @@
   {
     "objectID": "slides/week_01/week_01_course_intro.html#there-are-different-ways-for-states-to-distribute-educational-dollars-some-are-better-aligned-to-student-needs-than-others",
     "href": "slides/week_01/week_01_course_intro.html#there-are-different-ways-for-states-to-distribute-educational-dollars-some-are-better-aligned-to-student-needs-than-others",
-    "title": "Introduction to Education Finance Equity & R",
+    "title": "Introduction to Education Finance Equity, R, RStudio, and GitHub",
     "section": "There are different ways for states to distribute educational dollars – some are better-aligned to student needs than others",
-    "text": "There are different ways for states to distribute educational dollars – some are better-aligned to student needs than others\n\n\n\nOur perspective, in this course and in general, is that student-based, weighted funding formulas are the best structure to meet our 4 principles.\nBut that structure alone will not ensure equity and adequacy.\n\n\n\n\n\n\n\n\n\n\nCategory\nDefinition\n\n\n\n\nStudent-based\nSchool districts receive funding based on the number of students enrolled or in attendance. In many cases, districts may additionally receive funding weights or supplement based on anticipated student learning needs, with extra funds tied to characteristics of enrolled students, such as low income, disability, and/or status as an English learner.\n\n\nProgram-based\nThis system allocates dollars to school districts based on the cost of educational programs within those districts.\n\n\nResource-based\nSchool districts receive funding based on the anticipated cost of resources and inputs, such as staff salaries and instructional materials."
+    "text": "There are different ways for states to distribute educational dollars – some are better-aligned to student needs than others\n\n\n\n\n\n\nOur perspective, in this course and in general, is that student-based, weighted funding formulas are the best structure to meet our 4 principles.\nBut that structure alone will not ensure equity and adequacy.\n\n\n\n\n\n\n\n\n\n\nCategory\nDefinition\n\n\n\n\nStudent-based\nSchool districts receive funding based on the number of students enrolled or in attendance. In many cases, districts may additionally receive funding weights or supplement based on anticipated student learning needs, with extra funds tied to characteristics of enrolled students, such as low income, disability, and/or status as an English learner.\n\n\nProgram-based\nThis system allocates dollars to school districts based on the cost of educational programs within those districts.\n\n\nResource-based\nSchool districts receive funding based on the anticipated cost of resources and inputs, such as staff salaries and instructional materials."
   },
   {
     "objectID": "slides/week_01/week_01_course_intro.html#school-finance-reform-efforts-can-be-helped-or-hindered-by-several-conditions-in-your-state",
     "href": "slides/week_01/week_01_course_intro.html#school-finance-reform-efforts-can-be-helped-or-hindered-by-several-conditions-in-your-state",
-    "title": "Introduction to Education Finance Equity & R",
+    "title": "Introduction to Education Finance Equity, R, RStudio, and GitHub",
     "section": "School finance reform efforts can be helped – or hindered – by several conditions in your state",
     "text": "School finance reform efforts can be helped – or hindered – by several conditions in your state\n\n\n\n\n\n\n\nCondition\nQuestions to consider in your state\n\n\n\n\nCoalitions\nAre there aligned and influential advocates and/or coalitions?\n\n\nChampions\nIs there political appetite for funding reform in the state?\n\n\nResearch capacity\nIs there sufficient evidence and technical capacity in the state to make the case for and advance funding reform?\n\n\nState finances\nIs the fiscal situation in the state conductive to K-12 funding reform?\n\n\nLawsuits\nCould funding reform be aided by current or past litigation?\n\n\n\n\n\nSource: Making Change"
   },
   {
     "objectID": "slides/week_01/week_01_course_intro.html#advocates-need-to-be-at-the-table-with-good-data-to-help-more-states-adopt-better-funding-formulas",
     "href": "slides/week_01/week_01_course_intro.html#advocates-need-to-be-at-the-table-with-good-data-to-help-more-states-adopt-better-funding-formulas",
-    "title": "Introduction to Education Finance Equity & R",
+    "title": "Introduction to Education Finance Equity, R, RStudio, and GitHub",
     "section": "Advocates need to be at the table with good data to help more states adopt better funding formulas",
-    "text": "Advocates need to be at the table with good data to help more states adopt better funding formulas\nToo many states have outdated, inequitable, and/or inadequate school funding formulas, created over the course of decades of political compromise, intentionally complex and opaque, understood by a select few with disincentives to change.\nTo change this status quo, advocates need better technical capacity:\n\n“The ability to use rigorous data and research to help define the problem and identify potential remedies can help build a compelling, evidence-based case for why policymakers should act.”\n– Dammu & O’Keefe, Making Change\n\n\n\n\nThe ultimate change we hope to achieve through this course:\nMore states across the country with adequate, equitable, transparent funding formulas that set the conditions for higher levels of student success."
+    "text": "Advocates need to be at the table with good data to help more states adopt better funding formulas\nToo many states have outdated, inequitable, and/or inadequate school funding formulas, created over the course of decades of political compromise, intentionally complex and opaque, understood by a select few with disincentives to change.\nTo change this status quo, advocates need better technical capacity:\n\n“The ability to use rigorous data and research to help define the problem and identify potential remedies can help build a compelling, evidence-based case for why policymakers should act.”\n– Dammu & O’Keefe, Making Change\n\n\n\n\n\n\n\nThe ultimate change we hope to achieve through this course:\nMore states across the country with adequate, equitable, transparent funding formulas that set the conditions for higher levels of student success."
   },
   {
     "objectID": "slides/week_01/week_01_course_intro.html#what-are-r-and-rstudio-and-how-do-they-work-together",
     "href": "slides/week_01/week_01_course_intro.html#what-are-r-and-rstudio-and-how-do-they-work-together",
-    "title": "Introduction to Education Finance Equity & R",
+    "title": "Introduction to Education Finance Equity, R, RStudio, and GitHub",
     "section": "What are R and RStudio and how do they work together?",
     "text": "What are R and RStudio and how do they work together?\nR is a statistical programming language. RStudio is a graphical user interface (GUI) that allows R users to better organize and execute R code.\n\n\n\nSource: Modern Drive"
   },
   {
     "objectID": "slides/week_01/week_01_course_intro.html#compared-to-other-data-analysis-tools-r-and-rstudio-are-more-powerful-and-precise-its-a-blessing-and-a-curse",
     "href": "slides/week_01/week_01_course_intro.html#compared-to-other-data-analysis-tools-r-and-rstudio-are-more-powerful-and-precise-its-a-blessing-and-a-curse",
-    "title": "Introduction to Education Finance Equity & R",
+    "title": "Introduction to Education Finance Equity, R, RStudio, and GitHub",
     "section": "Compared to other data analysis tools, R and RStudio are more powerful and precise – it’s a blessing and a curse",
     "text": "Compared to other data analysis tools, R and RStudio are more powerful and precise – it’s a blessing and a curse"
   },
   {
     "objectID": "slides/week_01/week_01_course_intro.html#working-in-r-with-rstudio-allows-for-highly-reproducible-data-analysis-and-straightforward-quality-checking",
     "href": "slides/week_01/week_01_course_intro.html#working-in-r-with-rstudio-allows-for-highly-reproducible-data-analysis-and-straightforward-quality-checking",
-    "title": "Introduction to Education Finance Equity & R",
+    "title": "Introduction to Education Finance Equity, R, RStudio, and GitHub",
     "section": "Working in R with RStudio allows for highly reproducible data analysis and straightforward quality checking",
     "text": "Working in R with RStudio allows for highly reproducible data analysis and straightforward quality checking\nOne of the best features of R is that it is very surly.\n\nIt will not do anything to your data unless you explicitly tell it to do so\nContrast this with Excel, which often tries to be helpful with auto-formatting\n\nData analysis in R is easy to reproduce\n\nR code “reads” data from your hard drive into a working environment for cleaning and analysis\nAnyone with the same raw data files and R scripts can run the code and produce the same results\nIt will NOT edit underlying data files unless you explicitly write code to do so R’s surly nature is very helpful in this respect\n\nConducting quality checks in R scripts is much easier than in Excel workbooks\n\nEvery step of data cleaning and analysis is clearly articulated, in order.\nWorking with R scripts minimizes the potential for “fat finger” errors."
   },
   {
     "objectID": "slides/week_01/week_01_course_intro.html#rstudios-interface-is-divided-into-quadrants-that-allow-users-to-edit-and-run-code-view-plots-and-read-help-docs",
     "href": "slides/week_01/week_01_course_intro.html#rstudios-interface-is-divided-into-quadrants-that-allow-users-to-edit-and-run-code-view-plots-and-read-help-docs",
-    "title": "Introduction to Education Finance Equity & R",
+    "title": "Introduction to Education Finance Equity, R, RStudio, and GitHub",
     "section": "RStudio’s interface is divided into quadrants that allow users to edit and run code, view plots, and read help docs",
     "text": "RStudio’s interface is divided into quadrants that allow users to edit and run code, view plots, and read help docs"
   },
   {
     "objectID": "slides/week_01/week_01_course_intro.html#at-its-core-r-allows-you-to-work-with-variables-and-functions",
     "href": "slides/week_01/week_01_course_intro.html#at-its-core-r-allows-you-to-work-with-variables-and-functions",
-    "title": "Introduction to Education Finance Equity & R",
+    "title": "Introduction to Education Finance Equity, R, RStudio, and GitHub",
     "section": "At its core, R allows you to work with variables and functions",
     "text": "At its core, R allows you to work with variables and functions\nIn the R environment, data is stored in variables that can be manipulated using functions.\nThe most basic functions in R are called operators:\n\nThe most important operator is the assignment arrow: &lt;-\nUsed to store value in a new or existing variable x &lt;- 3\nBasic operators include: +, - , /, *, %, ^\nR comes pre-installed with functions that perform commonly-used operations: sum(), mean(), median(), percentile()"
   },
   {
     "objectID": "slides/week_01/week_01_course_intro.html#variables-in-r-mostly-include-a-few-different-types",
     "href": "slides/week_01/week_01_course_intro.html#variables-in-r-mostly-include-a-few-different-types",
-    "title": "Introduction to Education Finance Equity & R",
+    "title": "Introduction to Education Finance Equity, R, RStudio, and GitHub",
     "section": "Variables in R mostly include a few different types",
     "text": "Variables in R mostly include a few different types\nVariables can have different types:\n\nInteger 3\nFloat (decimal) 3.14\nCharacter “pi”\nFactor (categorical, ordered variable) “Low”, “Medium”, “High”"
   },
   {
     "objectID": "slides/week_01/week_01_course_intro.html#variables-can-be-stored-as-single-values-or-as-vectors-of-multiple-values",
     "href": "slides/week_01/week_01_course_intro.html#variables-can-be-stored-as-single-values-or-as-vectors-of-multiple-values",
-    "title": "Introduction to Education Finance Equity & R",
+    "title": "Introduction to Education Finance Equity, R, RStudio, and GitHub",
     "section": "Variables can be stored as single values or as vectors of multiple values",
     "text": "Variables can be stored as single values or as vectors of multiple values\n\nlibrary(tidyverse)\n\n1x &lt;- 3\n\n2y &lt;- c(2, 4, 5)\nz &lt;- c(\"a\", \"b\", \"c\")\n\n3df &lt;- tibble(letters = z, nums = y)\n\n4df\n\n\n1\n\nVariables can be stored on their own.\n\n2\n\nOr as a vector of multiple variables of the same type.\n\n3\n\nVectors can be joined together to create dataframes (tables) using a range of functions.\n\n4\n\nIf you just run variable name in your code, R will print out its contents.\n\n\n\n\n# A tibble: 3 × 2\n  letters  nums\n  &lt;chr&gt;   &lt;dbl&gt;\n1 a           2\n2 b           4\n3 c           5"
   },
   {
     "objectID": "slides/week_01/week_01_course_intro.html#coding-example-basic-r-use",
     "href": "slides/week_01/week_01_course_intro.html#coding-example-basic-r-use",
-    "title": "Introduction to Education Finance Equity & R",
+    "title": "Introduction to Education Finance Equity, R, RStudio, and GitHub",
     "section": "CODING EXAMPLE – Basic R use",
-    "text": "CODING EXAMPLE – Basic R use\n\n# basic r use ------------\n\n# creating variables using the assignment operator \"&lt;-\"\nvar1 &lt;- 12\nvar2 &lt;- 34\n\n# you can do operations on variables\nvar1 + var2\n\n[1] 46\n\n# we need to store them as a new variable\nvar1_var2_sum &lt;- var1 + var2\n\n# you can group variables together in a vector using the \n# concatenate function \"c()\" to create vectors\nvar_values &lt;- c(var1, var2)\nvar_names &lt;- c(\"Tom Brady\", \"Nolan Ryan\")\n\n# you can run functions across the values in a vector\nmean(var_values)\n\n[1] 23\n\n# individual positions in vectors can be referenced\nvar_names[1]\n\n[1] \"Tom Brady\"\n\n# vectors of equal length can be grouped into tables, called dataframes\nathlete_df &lt;- data.frame(name = var_names, jersey = var_values)\n\n# column names are referenced using \"$\"\nathlete_df$name\n\n[1] \"Tom Brady\"  \"Nolan Ryan\"\n\n# you can run functions on dataframe columns\nmean(athlete_df$jersey)\n\n[1] 23\n\n# but you need to be sure you're using the right datatype\nmean(athlete_df$name)\n\n[1] NA"
+    "text": "CODING EXAMPLE – Basic R use\n\n# basic r use ------------\n\n# creating variables using the assignment operator \"&lt;-\"\nvar1 &lt;- 12\nvar2 &lt;- 34\n\n# you can do operations on variables\nvar1 + var2\n\n[1] 46\n\n# we need to store them as a new variable\nvar1_var2_sum &lt;- var1 + var2\n\n# you can group variables together in a vector using the \n# concatenate function \"c()\" to create vectors\nvar_values &lt;- c(var1, var2)\nvar_names &lt;- c(\"Tom Brady\", \"Nolan Ryan\")\n\n# you can run functions across the values in a vector\nmean(var_values)\n\n[1] 23\n\n# individual positions in vectors can be referenced\nvar_names[1]\n\n[1] \"Tom Brady\"\n\n# vectors of equal length can be grouped into tables, called dataframes\nathlete_df &lt;- data.frame(name = var_names, jersey = var_values)\n\n# column names are referenced using \"$\"\nathlete_df$name\n\n[1] \"Tom Brady\"  \"Nolan Ryan\"\n\n# you can run functions on dataframe columns\nmean(athlete_df$jersey)\n\n[1] 23\n\n# but you need to be sure you're using the right datatype\nmean(athlete_df$name)\n\nWarning in mean.default(athlete_df$name): argument is not numeric or logical:\nreturning NA\n\n\n[1] NA"
   },
   {
     "objectID": "slides/week_01/week_01_course_intro.html#packages-are-collections-of-r-functions-they-allow-users-to-easily-extend-what-they-can-do-in-r",
     "href": "slides/week_01/week_01_course_intro.html#packages-are-collections-of-r-functions-they-allow-users-to-easily-extend-what-they-can-do-in-r",
-    "title": "Introduction to Education Finance Equity & R",
+    "title": "Introduction to Education Finance Equity, R, RStudio, and GitHub",
     "section": "Packages are collections of R functions – they allow users to easily extend what they can do in R",
     "text": "Packages are collections of R functions – they allow users to easily extend what they can do in R\n\n\n\nPackages are an important part of expanding what users can do in R, minimizing barriers to high-quality data analysis and visualization.\nThe most popular packages are available directly through RStudio via the CRAN network.\n\nCRAN packages are reviewed by the R community for quality\nCan be installed via the RStudio GUI or through the R console via the install.packages() function\n\nThe most popular packages in the R community are part of what is called the “tidyverse”\n\nggplot2, tidyr, dplyr, stringr, forcats, tibble, readr, purrr\nTidyverse packages are built to work together"
   },
   {
     "objectID": "slides/week_01/week_01_course_intro.html#adjusting-your-rstudio-defaults",
     "href": "slides/week_01/week_01_course_intro.html#adjusting-your-rstudio-defaults",
-    "title": "Introduction to Education Finance Equity & R",
+    "title": "Introduction to Education Finance Equity, R, RStudio, and GitHub",
     "section": "Adjusting your RStudio defaults",
     "text": "Adjusting your RStudio defaults\n\n\n\nWhen working in RStudio, you want to be sure you control and understand everything in your working environment\nBy default, R will save the variables and history of what you’re working on as you quit and bring in back when you restart\nThis creates bad data management habits – you want to start each coding session fresh, building up your variables by running your code\nDon’t rely on remembering what past you was trying to do!"
   },
   {
     "objectID": "slides/week_01/week_01_course_intro.html#rstudio-lets-you-arrange-your-interface-in-different-ways-we-should-share-a-common-approach",
     "href": "slides/week_01/week_01_course_intro.html#rstudio-lets-you-arrange-your-interface-in-different-ways-we-should-share-a-common-approach",
-    "title": "Introduction to Education Finance Equity & R",
+    "title": "Introduction to Education Finance Equity, R, RStudio, and GitHub",
     "section": "RStudio lets you arrange your interface in different ways; we should share a common approach",
     "text": "RStudio lets you arrange your interface in different ways; we should share a common approach"
   },
   {
     "objectID": "slides/week_01/week_01_course_intro.html#youll-spend-a-lot-of-time-working-in-rstudio-you-should-make-it-look-like-something-that-youll-enjoy-seeing",
     "href": "slides/week_01/week_01_course_intro.html#youll-spend-a-lot-of-time-working-in-rstudio-you-should-make-it-look-like-something-that-youll-enjoy-seeing",
-    "title": "Introduction to Education Finance Equity & R",
+    "title": "Introduction to Education Finance Equity, R, RStudio, and GitHub",
     "section": "You’ll spend a lot of time working in RStudio – you should make it look like something that you’ll enjoy seeing",
     "text": "You’ll spend a lot of time working in RStudio – you should make it look like something that you’ll enjoy seeing"
   },
   {
     "objectID": "slides/week_01/week_01_course_intro.html#use-tab-to-auto-complete-a-variable-or-function-as-you-are-typing-it-or-the-updown-arrows-to-cycle-through-options",
     "href": "slides/week_01/week_01_course_intro.html#use-tab-to-auto-complete-a-variable-or-function-as-you-are-typing-it-or-the-updown-arrows-to-cycle-through-options",
-    "title": "Introduction to Education Finance Equity & R",
+    "title": "Introduction to Education Finance Equity, R, RStudio, and GitHub",
     "section": "Use Tab to auto-complete a variable or function as you are typing it, or the up/down arrows to cycle through options",
     "text": "Use Tab to auto-complete a variable or function as you are typing it, or the up/down arrows to cycle through options"
   },
   {
     "objectID": "slides/week_01/week_01_course_intro.html#use-cmdctrl-enter-to-run-a-line-of-code-from-your-script-in-the-console",
     "href": "slides/week_01/week_01_course_intro.html#use-cmdctrl-enter-to-run-a-line-of-code-from-your-script-in-the-console",
-    "title": "Introduction to Education Finance Equity & R",
+    "title": "Introduction to Education Finance Equity, R, RStudio, and GitHub",
     "section": "Use CMD/CTRL + ENTER to run a line of code from your script in the console",
     "text": "Use CMD/CTRL + ENTER to run a line of code from your script in the console"
   },
   {
     "objectID": "slides/week_01/week_01_course_intro.html#if-your-cursor-is-in-the-console-you-can-use-the-updown-arrows-to-cycle-through-previously-executed-code",
     "href": "slides/week_01/week_01_course_intro.html#if-your-cursor-is-in-the-console-you-can-use-the-updown-arrows-to-cycle-through-previously-executed-code",
-    "title": "Introduction to Education Finance Equity & R",
+    "title": "Introduction to Education Finance Equity, R, RStudio, and GitHub",
     "section": "If your cursor is in the console, you can use the up/down arrows to cycle through previously executed code",
     "text": "If your cursor is in the console, you can use the up/down arrows to cycle through previously executed code"
   },
   {
     "objectID": "slides/week_01/week_01_course_intro.html#use-cmdctrl-shift-0-to-restart-rstudio-often",
     "href": "slides/week_01/week_01_course_intro.html#use-cmdctrl-shift-0-to-restart-rstudio-often",
-    "title": "Introduction to Education Finance Equity & R",
+    "title": "Introduction to Education Finance Equity, R, RStudio, and GitHub",
     "section": "Use CMD/CTRL + SHIFT + 0 to restart RStudio often",
     "text": "Use CMD/CTRL + SHIFT + 0 to restart RStudio often\n\n\nThis key command will clear your workspace —- it’s an important step to do often to ensure that you’re only relying on code you’re writing in scripts and not code you’re executing on the fly in the console\n\nHadley Wickham said it best:\n“This will cause you some short-term pain, because now when you restart RStudio it will not remember the results of the code that you ran last time. But this short-term pain will save you long-term agony because it forces you to capture all important interactions in your code. There’s nothing worse than discovering three months after the fact that you’ve only stored the results of an important calculation in your workspace, not the calculation itself in your code.”"
   },
   {
     "objectID": "slides/week_01/week_01_course_intro.html#there-are-lots-of-other-helpful-shortcuts-in-rstudio",
     "href": "slides/week_01/week_01_course_intro.html#there-are-lots-of-other-helpful-shortcuts-in-rstudio",
-    "title": "Introduction to Education Finance Equity & R",
+    "title": "Introduction to Education Finance Equity, R, RStudio, and GitHub",
     "section": "There are lots of other helpful shortcuts in RStudio",
     "text": "There are lots of other helpful shortcuts in RStudio\n\nRStudio keyboard shortcuts\nRStudio IDE cheatsheet"
   },
   {
     "objectID": "slides/week_01/week_01_course_intro.html#what-is-git",
     "href": "slides/week_01/week_01_course_intro.html#what-is-git",
-    "title": "Introduction to Education Finance Equity & R",
+    "title": "Introduction to Education Finance Equity, R, RStudio, and GitHub",
     "section": "What is git?",
     "text": "What is git?\nGit is version control software – it allows you to save (commit) changes to files and track those changes over time.\n\n\n\n\n\n\n\nSource: Artwork by @allison_horst"
   },
   {
     "objectID": "slides/week_01/week_01_course_intro.html#what-is-github",
     "href": "slides/week_01/week_01_course_intro.html#what-is-github",
-    "title": "Introduction to Education Finance Equity & R",
+    "title": "Introduction to Education Finance Equity, R, RStudio, and GitHub",
     "section": "What is GitHub?",
     "text": "What is GitHub?\nGitHub is to Git what RStudio is to R, but for file management.\n\n\n\n\n\n\n\nSource: Artwork by @allison_horst"
   },
   {
     "objectID": "slides/week_01/week_01_course_intro.html#github-helps-you-collaborate-with-others-including-past-and-future-versions-of-yourself",
     "href": "slides/week_01/week_01_course_intro.html#github-helps-you-collaborate-with-others-including-past-and-future-versions-of-yourself",
-    "title": "Introduction to Education Finance Equity & R",
+    "title": "Introduction to Education Finance Equity, R, RStudio, and GitHub",
     "section": "GitHub helps you collaborate with others, including past and future versions of yourself",
     "text": "GitHub helps you collaborate with others, including past and future versions of yourself\n\n\n\n\n\n\n\nSource: Artwork by @allison_horst"
   },
   {
     "objectID": "slides/week_01/week_01_course_intro.html#we-will-use-github-to-distribute-collect-and-collaborate-on-homework-and-capstone-projects",
     "href": "slides/week_01/week_01_course_intro.html#we-will-use-github-to-distribute-collect-and-collaborate-on-homework-and-capstone-projects",
-    "title": "Introduction to Education Finance Equity & R",
+    "title": "Introduction to Education Finance Equity, R, RStudio, and GitHub",
     "section": "We will use GitHub to distribute, collect, and collaborate on homework and capstone projects",
     "text": "We will use GitHub to distribute, collect, and collaborate on homework and capstone projects\n\n\n\n\n\n\n\nSource: Artwork by @allison_horst"
   },
   {
     "objectID": "slides/week_01/week_01_course_intro.html#youll-be-recieving-an-email-with-an-invitation-to-join-the-github-organization-for-this-training",
     "href": "slides/week_01/week_01_course_intro.html#youll-be-recieving-an-email-with-an-invitation-to-join-the-github-organization-for-this-training",
-    "title": "Introduction to Education Finance Equity & R",
+    "title": "Introduction to Education Finance Equity, R, RStudio, and GitHub",
     "section": "You’ll be recieving an email with an invitation to join the GitHub organization for this training",
     "text": "You’ll be recieving an email with an invitation to join the GitHub organization for this training"
   },
   {
     "objectID": "slides/week_01/week_01_course_intro.html#once-you-click-the-green-button-youll-be-directed-to-github-to-join-the-organization",
     "href": "slides/week_01/week_01_course_intro.html#once-you-click-the-green-button-youll-be-directed-to-github-to-join-the-organization",
-    "title": "Introduction to Education Finance Equity & R",
+    "title": "Introduction to Education Finance Equity, R, RStudio, and GitHub",
     "section": "Once you click the green button, you’ll be directed to GitHub to join the organization",
     "text": "Once you click the green button, you’ll be directed to GitHub to join the organization"
   },
   {
     "objectID": "slides/week_01/week_01_course_intro.html#bookmark-the-organization-page-your-homework-assignments-will-show-up-here-as-repositories",
     "href": "slides/week_01/week_01_course_intro.html#bookmark-the-organization-page-your-homework-assignments-will-show-up-here-as-repositories",
-    "title": "Introduction to Education Finance Equity & R",
+    "title": "Introduction to Education Finance Equity, R, RStudio, and GitHub",
     "section": "Bookmark the organization page – your homework assignments will show up here as repositories",
     "text": "Bookmark the organization page – your homework assignments will show up here as repositories"
   },
   {
     "objectID": "slides/week_01/week_01_course_intro.html#to-start-an-assignment-navigate-to-the-the-repo-and-copy-the-https-link-that-appears-when-you-click-the-code-button",
     "href": "slides/week_01/week_01_course_intro.html#to-start-an-assignment-navigate-to-the-the-repo-and-copy-the-https-link-that-appears-when-you-click-the-code-button",
-    "title": "Introduction to Education Finance Equity & R",
+    "title": "Introduction to Education Finance Equity, R, RStudio, and GitHub",
     "section": "To start an assignment, navigate to the the repo and copy the HTTPS link that appears when you click the “Code” button",
     "text": "To start an assignment, navigate to the the repo and copy the HTTPS link that appears when you click the “Code” button"
   },
   {
     "objectID": "slides/week_01/week_01_course_intro.html#next-youll-open-rstudio-and-create-a-new-project-selecting-the-version-control-and-git-options",
     "href": "slides/week_01/week_01_course_intro.html#next-youll-open-rstudio-and-create-a-new-project-selecting-the-version-control-and-git-options",
-    "title": "Introduction to Education Finance Equity & R",
+    "title": "Introduction to Education Finance Equity, R, RStudio, and GitHub",
     "section": "Next, you’ll open RStudio and create a new project, selecting the “Version Control” and “Git” options",
     "text": "Next, you’ll open RStudio and create a new project, selecting the “Version Control” and “Git” options"
   },
   {
     "objectID": "slides/week_01/week_01_course_intro.html#next-youll-open-rstudio-and-create-a-new-project-selecting-the-version-control-and-git-options-1",
     "href": "slides/week_01/week_01_course_intro.html#next-youll-open-rstudio-and-create-a-new-project-selecting-the-version-control-and-git-options-1",
-    "title": "Introduction to Education Finance Equity & R",
+    "title": "Introduction to Education Finance Equity, R, RStudio, and GitHub",
     "section": "Next, you’ll open RStudio and create a new project, selecting the “Version Control” and “Git” options",
     "text": "Next, you’ll open RStudio and create a new project, selecting the “Version Control” and “Git” options"
   },
   {
     "objectID": "slides/week_01/week_01_course_intro.html#be-sure-to-select-a-folder-where-you-want-to-have-your-homework-files-saved-before-you-click-open",
     "href": "slides/week_01/week_01_course_intro.html#be-sure-to-select-a-folder-where-you-want-to-have-your-homework-files-saved-before-you-click-open",
-    "title": "Introduction to Education Finance Equity & R",
+    "title": "Introduction to Education Finance Equity, R, RStudio, and GitHub",
     "section": "Be sure to select a folder where you want to have your homework files saved before you click “Open”",
     "text": "Be sure to select a folder where you want to have your homework files saved before you click “Open”"
   },
   {
     "objectID": "slides/week_01/week_01_course_intro.html#youre-now-ready-to-start-working-on-your-homework-start-by-opening-the-readme.md-file",
     "href": "slides/week_01/week_01_course_intro.html#youre-now-ready-to-start-working-on-your-homework-start-by-opening-the-readme.md-file",
-    "title": "Introduction to Education Finance Equity & R",
+    "title": "Introduction to Education Finance Equity, R, RStudio, and GitHub",
     "section": "You’re now ready to start working on your homework! Start by opening the README.md file",
     "text": "You’re now ready to start working on your homework! Start by opening the README.md file"
   },
   {
     "objectID": "slides/week_01/week_01_course_intro.html#the-readme.md-file-is-a-text-file-that-will-include-instructions-for-your-assignment-using-the-visual-option-will-make-it-easier-to-read",
     "href": "slides/week_01/week_01_course_intro.html#the-readme.md-file-is-a-text-file-that-will-include-instructions-for-your-assignment-using-the-visual-option-will-make-it-easier-to-read",
-    "title": "Introduction to Education Finance Equity & R",
+    "title": "Introduction to Education Finance Equity, R, RStudio, and GitHub",
     "section": "The README.md file is a text file that will include instructions for your assignment – using the “Visual” option will make it easier to read",
     "text": "The README.md file is a text file that will include instructions for your assignment – using the “Visual” option will make it easier to read"
   },
   {
     "objectID": "slides/week_01/week_01_course_intro.html#the-readme.md-file-is-a-text-file-that-will-include-instructions-for-your-assignment-using-the-visual-option-will-make-it-easier-to-read-1",
     "href": "slides/week_01/week_01_course_intro.html#the-readme.md-file-is-a-text-file-that-will-include-instructions-for-your-assignment-using-the-visual-option-will-make-it-easier-to-read-1",
-    "title": "Introduction to Education Finance Equity & R",
+    "title": "Introduction to Education Finance Equity, R, RStudio, and GitHub",
     "section": "The README.md file is a text file that will include instructions for your assignment – using the “Visual” option will make it easier to read",
     "text": "The README.md file is a text file that will include instructions for your assignment – using the “Visual” option will make it easier to read"
   },
   {
     "objectID": "slides/week_01/week_01_course_intro.html#once-youve-completed-your-assignment-youll-want-to-stage-the-changes-youve-made",
     "href": "slides/week_01/week_01_course_intro.html#once-youve-completed-your-assignment-youll-want-to-stage-the-changes-youve-made",
-    "title": "Introduction to Education Finance Equity & R",
+    "title": "Introduction to Education Finance Equity, R, RStudio, and GitHub",
     "section": "Once you’ve completed your assignment, you’ll want to “stage” the changes you’ve made",
     "text": "Once you’ve completed your assignment, you’ll want to “stage” the changes you’ve made"
   },
   {
     "objectID": "slides/week_01/week_01_course_intro.html#once-youve-completed-your-assignment-youll-want-to-stage-your-changes-and-then-start-the-commit-process",
     "href": "slides/week_01/week_01_course_intro.html#once-youve-completed-your-assignment-youll-want-to-stage-your-changes-and-then-start-the-commit-process",
-    "title": "Introduction to Education Finance Equity & R",
+    "title": "Introduction to Education Finance Equity, R, RStudio, and GitHub",
     "section": "Once you’ve completed your assignment, you’ll want to “stage” your changes and then start the “commit” process",
     "text": "Once you’ve completed your assignment, you’ll want to “stage” your changes and then start the “commit” process"
   },
   {
     "objectID": "slides/week_01/week_01_course_intro.html#well-use-githubs-issues-feature-to-share-feedback-on-your-work",
     "href": "slides/week_01/week_01_course_intro.html#well-use-githubs-issues-feature-to-share-feedback-on-your-work",
-    "title": "Introduction to Education Finance Equity & R",
+    "title": "Introduction to Education Finance Equity, R, RStudio, and GitHub",
     "section": "We’ll use GitHub’s “Issues” feature to share feedback on your work",
     "text": "We’ll use GitHub’s “Issues” feature to share feedback on your work\nAfter you receive an email notification that an issue was opened, you can click a link to view it on GitHub. On the issue page, you can respond if you have questions or click “Close issue” if no follow-up is needed."
   },
   {
     "objectID": "slides/week_01/week_01_course_intro.html#this-weeks-assignment",
     "href": "slides/week_01/week_01_course_intro.html#this-weeks-assignment",
-    "title": "Introduction to Education Finance Equity & R",
+    "title": "Introduction to Education Finance Equity, R, RStudio, and GitHub",
     "section": "This week’s assignment",
     "text": "This week’s assignment\nEach homework assignment will usually include two basic elements:\n\nReading: One or two briefs on school finance policy to read\nCoding task: An R programming task for you to complete\n\nAssignments should be completed by noon Eastern time on the Monday before the next class session will be held. For week 01, this means your assignment is due by 12:00pm ET on Monday, June 10.\nReading\n\nWhat Is School Finance Equity and Why Does It Matter?\nHow Are Public Schools Funded?\n\nCoding Task\n\nSuccessfully copy the assignment repo to your computer\nRun and observe the example script from today’s class\nCreate four new variables using the median() function\n\nNext Class is Tuesday, June 11 from 12:00 - 2:00 PM ET."
   },
@@ -1876,21 +1876,21 @@
   {
     "objectID": "slides/week_01/week_01_course_intro.html#getting-to-know-cohort-4",
     "href": "slides/week_01/week_01_course_intro.html#getting-to-know-cohort-4",
-    "title": "Introduction to Education Finance Equity & R",
-    "section": "Getting to know Cohort 4",
-    "text": "Getting to know Cohort 4\n\n\n\n\n\n\n\n\n\n\n−+\n10:00\n\n\n\n\nPlease share your:\n\nName\nState\nOrganization\nRole\nAny prior experience with R?\nWhy did you take this course?"
+    "title": "Introduction to Education Finance Equity, R, RStudio, and GitHub",
+    "section": "",
+    "text": "−+\n10:00\n\n\n\n\nPlease share your:\n\nName\nState\nOrganization\nRole\nAny prior experience with R?\nWhy did you take this course?"
   },
   {
     "objectID": "slides/week_01/week_01_course_intro.html#follow-the-money-where-does-it-come-from",
     "href": "slides/week_01/week_01_course_intro.html#follow-the-money-where-does-it-come-from",
-    "title": "Introduction to Education Finance Equity & R",
+    "title": "Introduction to Education Finance Equity, R, RStudio, and GitHub",
     "section": "Follow the money: where does it come from?",
-    "text": "Follow the money: where does it come from?\n\n\n\n\nNote: The ESSER I, II, and III funding inflated the federal FY22 percentage. Normally, federal funding accounts for ~8% of overall funding."
+    "text": "Follow the money: where does it come from?\n\n\n\n\n\n\n\n\n\n\n\n\nNote: The ESSER I, II, and III funding inflated the federal FY22 percentage. Normally, federal funding accounts for ~8% of overall funding."
   },
   {
     "objectID": "slides/week_01/week_01_course_intro.html#follow-the-money-where-does-it-come-from-1",
     "href": "slides/week_01/week_01_course_intro.html#follow-the-money-where-does-it-come-from-1",
-    "title": "Introduction to Education Finance Equity & R",
+    "title": "Introduction to Education Finance Equity, R, RStudio, and GitHub",
     "section": "Follow the money: where does it come from?",
     "text": "Follow the money: where does it come from?\n\nLocal revenueState revenueFederal revenue\n\n\n\nLarge share of K-12 funding (~45%).\nRelatively stable (property taxes).\nInherently inequitable with property wealthy districts able to raise more local funding.\n\n\n\n\nLarge share of K-12 funding (~47%), tending to direct more to higher-need districts,\nMore volatile revenue sources compared to local property taxes (income and sales taxes).\nIntended to address inequities in local revenue, but rarely achieves that goal.\n\n\n\n\nRelatively small share of K-12 funding (~8%).\nMajority of federal dollars are allocated through to serve low-income students (Title I), English Language Learners (Title III), and students with special learning needs (IDEA), along with other specific funding streams like school meal programs.\nOver the past decade, there have been waves of stimulus funding directed at K-12 schools in the wake of the Great Recession and the COVID-19 pandemic (ESSER)."
   },
@@ -1904,7 +1904,7 @@
   {
     "objectID": "slides/week_01/week_01_course_intro.html#bellwethers-four-principles-for-assessing-state-finance-policies",
     "href": "slides/week_01/week_01_course_intro.html#bellwethers-four-principles-for-assessing-state-finance-policies",
-    "title": "Introduction to Education Finance Equity & R",
+    "title": "Introduction to Education Finance Equity, R, RStudio, and GitHub",
     "section": "Bellwether’s four principles for assessing state finance policies",
     "text": "Bellwether’s four principles for assessing state finance policies\n\n\n\n\n\n\n\nPrinciple\nQuestions\n\n\n\n\nAdequacy\n\nIs there enough funding in the system to enable schools to meet the state’s educational mandate?\nDoes the policy fulfill and protect the state’s constitutional responsibilities to oversee an education system that can serve every child?\n\n\n\nEquity\n\nDoes the policy allocate greater resources toward groups of students with greater educational needs? |\nDoes it differentiate between wealthy and less-wealthy communities to ensure that limited state dollars are used where they are needed most?\n\n\n\nResponsibility\n\nDoes the policy make clear the locus of decision-making for funding and budgeting, and split local and state responsibilities appropriately?\n\n\n\nTransparency\n\nAre the policies clear on which government entities are responsible for education revenue?"
   },
