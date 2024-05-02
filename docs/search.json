@@ -44,7 +44,7 @@
     "href": "schedule.html",
     "title": "Course Schedule",
     "section": "",
-    "text": "Week\n\n\nDates\n\n\nTopic\n\n\n\n\n\n\nWeek 01\n\n\nJune 6\n\n\nIntroduction to School Finance Equity\n\n\n\n\nWeek 02\n\n\nJune 13\n\n\nBasic data analysis and visualization in R\n\n\n\n\nWeek 03\n\n\nJune 20\n\n\nDeep-dive on education finance and weighted student funding\n\n\n\n\nWeek 04\n\n\nJune 27\n\n\nData cleaning and processing in R\n\n\n\n\nWeek 05\n\n\nJuly 11\n\n\nReproducible data analysis in R\n\n\n\n\nWeek 06\n\n\nJuly 18\n\n\nMapping in R\n\n\n\n\nWeek 07\n\n\nJuly 25\n\n\nModeling state funding policy proposals in R\n\n\n\n\n\nNo matching items",
+    "text": "Week\n\n\nDates\n\n\nTopic\n\n\n\n\n\n\nWeek 01\n\n\nJune 4\n\n\nIntroduction to School Finance Equity\n\n\n\n\nWeek 02\n\n\nJune 11\n\n\nBasic data analysis and visualization in R\n\n\n\n\nWeek 03\n\n\nJune 20\n\n\nDeep-dive on education finance and weighted student funding\n\n\n\n\nWeek 04\n\n\nJune 27\n\n\nData cleaning and processing in R\n\n\n\n\nWeek 05\n\n\nJuly 11\n\n\nReproducible data analysis in R\n\n\n\n\nWeek 06\n\n\nJuly 18\n\n\nMapping in R\n\n\n\n\nWeek 07\n\n\nJuly 25\n\n\nModeling state funding policy proposals in R\n\n\n\n\n\nNo matching items",
     "crumbs": [
       "Schedule"
     ]
@@ -54,7 +54,7 @@
     "href": "schedule.html#class-schedule",
     "title": "Course Schedule",
     "section": "",
-    "text": "Week\n\n\nDates\n\n\nTopic\n\n\n\n\n\n\nWeek 01\n\n\nJune 6\n\n\nIntroduction to School Finance Equity\n\n\n\n\nWeek 02\n\n\nJune 13\n\n\nBasic data analysis and visualization in R\n\n\n\n\nWeek 03\n\n\nJune 20\n\n\nDeep-dive on education finance and weighted student funding\n\n\n\n\nWeek 04\n\n\nJune 27\n\n\nData cleaning and processing in R\n\n\n\n\nWeek 05\n\n\nJuly 11\n\n\nReproducible data analysis in R\n\n\n\n\nWeek 06\n\n\nJuly 18\n\n\nMapping in R\n\n\n\n\nWeek 07\n\n\nJuly 25\n\n\nModeling state funding policy proposals in R\n\n\n\n\n\nNo matching items",
+    "text": "Week\n\n\nDates\n\n\nTopic\n\n\n\n\n\n\nWeek 01\n\n\nJune 4\n\n\nIntroduction to School Finance Equity\n\n\n\n\nWeek 02\n\n\nJune 11\n\n\nBasic data analysis and visualization in R\n\n\n\n\nWeek 03\n\n\nJune 20\n\n\nDeep-dive on education finance and weighted student funding\n\n\n\n\nWeek 04\n\n\nJune 27\n\n\nData cleaning and processing in R\n\n\n\n\nWeek 05\n\n\nJuly 11\n\n\nReproducible data analysis in R\n\n\n\n\nWeek 06\n\n\nJuly 18\n\n\nMapping in R\n\n\n\n\nWeek 07\n\n\nJuly 25\n\n\nModeling state funding policy proposals in R\n\n\n\n\n\nNo matching items",
     "crumbs": [
       "Schedule"
     ]
@@ -879,42 +879,42 @@
     "href": "weeks/week_04.html#lecture-recording",
     "title": "Week 04",
     "section": "Lecture recording",
-    "text": "Lecture recording\nThe Zoom recording from our class is available on Vimeo here. Please refer to the post-class email for the password that will allow you to access the recording."
+    "text": "Lecture recording\nThe Zoom recording from our class is will be made available after class."
   },
   {
     "objectID": "weeks/week_04.html#coding-assignment",
     "href": "weeks/week_04.html#coding-assignment",
     "title": "Week 04",
     "section": "Coding Assignment",
-    "text": "Coding Assignment\nHomework now available on our class GitHub page as a repo that starts with hw04-."
+    "text": "Coding Assignment\nHomework will be available immediately following class."
   },
   {
     "objectID": "weeks/week_04.html#readings",
     "href": "weeks/week_04.html#readings",
     "title": "Week 04",
     "section": "Readings",
-    "text": "Readings\n\nHow Can School Finance Systems Support Students with Additional Learning Needs?"
+    "text": "Readings\nReadings will be made available after class."
   },
   {
     "objectID": "weeks/week_07.html",
     "href": "weeks/week_07.html",
     "title": "Week 07",
     "section": "",
-    "text": "Topic\n\n\nDate\n\n\n\n\n\n\nModeling state funding policy proposals in R\n\n\nJul 25, 2023\n\n\n\n\n\nNo matching items"
+    "text": "Class slides will be available after class."
   },
   {
     "objectID": "weeks/week_07.html#lecture",
     "href": "weeks/week_07.html#lecture",
     "title": "Week 07",
     "section": "",
-    "text": "Topic\n\n\nDate\n\n\n\n\n\n\nModeling state funding policy proposals in R\n\n\nJul 25, 2023\n\n\n\n\n\nNo matching items"
+    "text": "Class slides will be available after class."
   },
   {
     "objectID": "weeks/week_07.html#lecture-recording",
     "href": "weeks/week_07.html#lecture-recording",
     "title": "Week 07",
     "section": "Lecture recording",
-    "text": "Lecture recording\nThe Zoom recording from our class is available on Vimeo here. Please refer to the post-class email for the password that will allow you to access the recording."
+    "text": "Lecture recording\nThe Zoom recording from our class is will be made available after class."
   },
   {
     "objectID": "weeks/week_07.html#reading",
@@ -935,63 +935,63 @@
     "href": "weeks/week_02.html",
     "title": "Week 02",
     "section": "",
-    "text": "Topic\n\n\nDate\n\n\n\n\n\n\nBasic Data Analysis and Visualization in R\n\n\nJun 13, 2023\n\n\n\n\n\nNo matching items"
+    "text": "Class slides will be available after class."
   },
   {
     "objectID": "weeks/week_02.html#lecture",
     "href": "weeks/week_02.html#lecture",
     "title": "Week 02",
     "section": "",
-    "text": "Topic\n\n\nDate\n\n\n\n\n\n\nBasic Data Analysis and Visualization in R\n\n\nJun 13, 2023\n\n\n\n\n\nNo matching items"
+    "text": "Class slides will be available after class."
   },
   {
     "objectID": "weeks/week_02.html#lecture-recording",
     "href": "weeks/week_02.html#lecture-recording",
     "title": "Week 02",
     "section": "Lecture recording",
-    "text": "Lecture recording\nThe Zoom recording from our class is available on Vimeo here. Please refer to the post-class email for the password that will allow you to access the recording."
+    "text": "Lecture recording\nThe Zoom recording from our class is will be made available after class."
   },
   {
     "objectID": "weeks/week_02.html#coding-assignment",
     "href": "weeks/week_02.html#coding-assignment",
     "title": "Week 02",
     "section": "Coding Assignment",
-    "text": "Coding Assignment\nHomework now available on our class GitHub page as a repo that starts with hw02-."
+    "text": "Coding Assignment\nHomework will be available immediately following class."
   },
   {
     "objectID": "weeks/week_02.html#readings",
     "href": "weeks/week_02.html#readings",
     "title": "Week 02",
     "section": "Readings",
-    "text": "Readings\n\nHow Do Local Taxes Affect School Finance Equity?"
+    "text": "Readings\nReadings will be made available after class."
   },
   {
     "objectID": "weeks/week_01.html",
     "href": "weeks/week_01.html",
     "title": "Week 01",
     "section": "",
-    "text": "Topic\n\n\nDate\n\n\n\n\n\n\nIntroduction to Education Finance Equity & R\n\n\nJun 6, 2023\n\n\n\n\n\nNo matching items"
+    "text": "Topic\n\n\nDate\n\n\n\n\n\n\nIntroduction to Education Finance Equity & R\n\n\nJun 4, 2024\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "weeks/week_01.html#slides",
     "href": "weeks/week_01.html#slides",
     "title": "Week 01",
     "section": "",
-    "text": "Topic\n\n\nDate\n\n\n\n\n\n\nIntroduction to Education Finance Equity & R\n\n\nJun 6, 2023\n\n\n\n\n\nNo matching items"
+    "text": "Topic\n\n\nDate\n\n\n\n\n\n\nIntroduction to Education Finance Equity & R\n\n\nJun 4, 2024\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "weeks/week_01.html#lecture-recording",
     "href": "weeks/week_01.html#lecture-recording",
     "title": "Week 01",
     "section": "Lecture recording",
-    "text": "Lecture recording\nThe Zoom recording from our class is available on Vimeo here. Please refer to the post-class email for the password that will allow you to access the recording."
+    "text": "Lecture recording\nThe Zoom recording from our class is will be made available after class."
   },
   {
     "objectID": "weeks/week_01.html#coding-assignment",
     "href": "weeks/week_01.html#coding-assignment",
     "title": "Week 01",
     "section": "Coding Assignment",
-    "text": "Coding Assignment\nHomework now available on our class GitHub page as a repo that starts with hw01-."
+    "text": "Coding Assignment\nHomework will be available immediately following class."
   },
   {
     "objectID": "weeks/week_01.html#readings",
@@ -1005,56 +1005,56 @@
     "href": "weeks/week_03.html",
     "title": "Week 03",
     "section": "",
-    "text": "Slides for this class are attached to a post-class email — please check your inboxes!"
+    "text": "Class slides will be available after class."
   },
   {
     "objectID": "weeks/week_03.html#lecture",
     "href": "weeks/week_03.html#lecture",
     "title": "Week 03",
     "section": "",
-    "text": "Slides for this class are attached to a post-class email — please check your inboxes!"
+    "text": "Class slides will be available after class."
   },
   {
     "objectID": "weeks/week_03.html#lecture-recording",
     "href": "weeks/week_03.html#lecture-recording",
     "title": "Week 03",
     "section": "Lecture recording",
-    "text": "Lecture recording\nThe Zoom recording from our class is available on Vimeo here. Please refer to the post-class email for the password that will allow you to access the recording."
+    "text": "Lecture recording\nThe Zoom recording from our class is will be made available after class."
   },
   {
     "objectID": "weeks/week_03.html#coding-assignment",
     "href": "weeks/week_03.html#coding-assignment",
     "title": "Week 03",
     "section": "Coding Assignment",
-    "text": "Coding Assignment\nHomework now available on our class GitHub page as a repo that starts with hw03-."
+    "text": "Coding Assignment\nHomework will be available immediately following class."
   },
   {
     "objectID": "weeks/week_03.html#readings",
     "href": "weeks/week_03.html#readings",
     "title": "Week 03",
     "section": "Readings",
-    "text": "Readings\n\n“How Are State Education Funding Formulas Structured?”\n“What Are the Biggest Equity Problems in State Education Finance Systems?”"
+    "text": "Readings\nReadings will be made available after class."
   },
   {
     "objectID": "weeks/week_06.html",
     "href": "weeks/week_06.html",
     "title": "Week 06",
     "section": "",
-    "text": "Topic\n\n\nDate\n\n\n\n\n\n\nMapping in R\n\n\nJul 18, 2023\n\n\n\n\n\nNo matching items"
+    "text": "Class slides will be available after class."
   },
   {
     "objectID": "weeks/week_06.html#lecture",
     "href": "weeks/week_06.html#lecture",
     "title": "Week 06",
     "section": "",
-    "text": "Topic\n\n\nDate\n\n\n\n\n\n\nMapping in R\n\n\nJul 18, 2023\n\n\n\n\n\nNo matching items"
+    "text": "Class slides will be available after class."
   },
   {
     "objectID": "weeks/week_06.html#lecture-recording",
     "href": "weeks/week_06.html#lecture-recording",
     "title": "Week 06",
     "section": "Lecture recording",
-    "text": "Lecture recording\nThe Zoom recording from our class is available on Vimeo here. Please refer to the post-class email for the password that will allow you to access the recording."
+    "text": "Lecture recording\nThe Zoom recording from our class is will be made available after class."
   },
   {
     "objectID": "weeks/week_06.html#reading",
@@ -1075,21 +1075,21 @@
     "href": "weeks/week_05.html",
     "title": "Week 05",
     "section": "",
-    "text": "Topic\n\n\nDate\n\n\n\n\n\n\nReproducible data analysis in R\n\n\nJul 11, 2023\n\n\n\n\n\nNo matching items"
+    "text": "Class slides will be available after class."
   },
   {
     "objectID": "weeks/week_05.html#lecture",
     "href": "weeks/week_05.html#lecture",
     "title": "Week 05",
     "section": "",
-    "text": "Topic\n\n\nDate\n\n\n\n\n\n\nReproducible data analysis in R\n\n\nJul 11, 2023\n\n\n\n\n\nNo matching items"
+    "text": "Class slides will be available after class."
   },
   {
     "objectID": "weeks/week_05.html#lecture-recording",
     "href": "weeks/week_05.html#lecture-recording",
     "title": "Week 05",
     "section": "Lecture recording",
-    "text": "Lecture recording\nThe Zoom recording from our class is available on Vimeo here. Please refer to the post-class email for the password that will allow you to access the recording."
+    "text": "Lecture recording\nThe Zoom recording from our class is will be made available after class."
   },
   {
     "objectID": "weeks/week_05.html#in-class-examples",
@@ -1103,7 +1103,7 @@
     "href": "weeks/week_05.html#readings",
     "title": "Week 05",
     "section": "Readings",
-    "text": "Readings\n\nWhat Should the Future of School Finance Equity Look Like?"
+    "text": "Readings\nReadings will be made available after class."
   },
   {
     "objectID": "slides/week_02/week_02_ggplot_slides.html",
@@ -1917,5 +1917,40 @@
     "crumbs": [
       "Syllabus"
     ]
+  },
+  {
+    "objectID": "weeks/week_05.html#coding-assignment",
+    "href": "weeks/week_05.html#coding-assignment",
+    "title": "Week 05",
+    "section": "Coding Assignment",
+    "text": "Coding Assignment\nHomework will be available immediately following class."
+  },
+  {
+    "objectID": "weeks/week_07.html#coding-assignment",
+    "href": "weeks/week_07.html#coding-assignment",
+    "title": "Week 07",
+    "section": "Coding Assignment",
+    "text": "Coding Assignment\nHomework will be available immediately following class."
+  },
+  {
+    "objectID": "weeks/week_07.html#readings",
+    "href": "weeks/week_07.html#readings",
+    "title": "Week 07",
+    "section": "Readings",
+    "text": "Readings\nReadings will be made available after class.mework now available on our class GitHub page as a repo that starts with hw07-."
+  },
+  {
+    "objectID": "weeks/week_06.html#coding-assignment",
+    "href": "weeks/week_06.html#coding-assignment",
+    "title": "Week 06",
+    "section": "Coding Assignment",
+    "text": "Coding Assignment\nHomework will be available immediately following class."
+  },
+  {
+    "objectID": "weeks/week_06.html#readings",
+    "href": "weeks/week_06.html#readings",
+    "title": "Week 06",
+    "section": "Readings",
+    "text": "Readings\nReadings will be made available after class."
   }
 ]

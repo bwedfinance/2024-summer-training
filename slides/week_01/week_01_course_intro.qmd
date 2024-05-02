@@ -1,26 +1,12 @@
 ---
-title: "Introduction to Education Finance Equity & R"
+title: "Introduction to Education Finance Equity, R, RStudio, and GitHub"
 date: "June 4, 2024"
-css:
-  - |
-    .smaller h1 {
-      font-size: 0.5em; /* Adjust the font size as needed */
-    }
-output:
-  quarto::quarto_presentation:
-    format: revealjs
-    theme: 
-      logo: images/primary_full-color.png
-      theme: theme/slides.scss # Choose a theme for your presentation (e.g., simple, serif, solarized, etc.)
-    incremental: true # Whether to display content incrementally (one step at a time)
-    self_contained: true # Whether to create a standalone HTML file
-    highlight_style: "github" # Syntax highlighting style (e.g., github, monokai, etc.)
-    revealjs:
-      controls: true # Display navigation controls (e.g., arrows, slide number, etc.)
-      progress: true # Display a progress bar
-      slideNumber: true # Display slide numbers
-      center: true # Center the content on each slide
-      chalkboard: true # Enable chalkboard mode for reveal.js
+format: 
+  revealjs:
+    chalkboard: true
+execute:
+  freeze: auto
+  echo: false
 ---
 
 ```{r}

@@ -1,7 +1,7 @@
 ---
 title: "Week 05"
-subtitle: "Reproducible data analysis in R"
-description: "July 11"
+subtitle: "Advanced data cleaning with ggplot2"
+description: "July 9"
 author: ""
 date: ""
 listing:
@@ -23,19 +23,23 @@ format: html
 
 ## Lecture
 
-::: {#slides}
-:::
+Class slides will be available after class. 
+
+<!-- ::: {#slides} -->
+<!-- ::: -->
 
 ## Lecture recording
 
-The Zoom recording from our class is [available on Vimeo here](https://vimeo.com/manage/videos/844348866/). Please refer to the post-class email for the password that will allow you to access the recording. 
+The Zoom recording from our class is will be made available after class. 
 
-## In-class examples
+## Coding Assignment
 
-Your homework for this week is to continue the work we started in the Week 04 assignment. A repo with the in-class example R Markdown and Quarto docs is now available [on our class GitHub page](https://github.com/orgs/bw-training-summer23/repositories) as a repo that starts with `wk05-`.
+Homework will be available immediately following class. 
 
 ## Readings
 
--   [***What Should the Future of School Finance Equity Look Like?***](https://bellwether.org/wp-content/uploads/2021/10/Bellwether_SplittingBill_09-FutureEquity_Final.pdf)
+Readings will be made available after class.
+
+<!-- -   [***What Should the Future of School Finance Equity Look Like?***](https://bellwether.org/wp-content/uploads/2021/10/Bellwether_SplittingBill_09-FutureEquity_Final.pdf) -->
 
 

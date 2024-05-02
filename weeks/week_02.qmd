@@ -1,7 +1,7 @@
 ---
 title: "Week 02"
 subtitle: "Basic data analysis and visualization in R"
-description: "June 13"
+description: "June 11"
 author: ""
 date: ""
 listing:
@@ -22,17 +22,21 @@ format: html
 
 ## Lecture
 
-::: {#slides}
-:::
+Class slides will be available after class. 
+<!-- ::: {#slides} -->
+<!-- ::: -->
 
 ## Lecture recording
 
-The Zoom recording from our class is [available on Vimeo here](https://vimeo.com/835996475/). Please refer to the post-class email for the password that will allow you to access the recording. 
+The Zoom recording from our class is will be made available after class. 
 
 ## Coding Assignment
 
-Homework now available [on our class GitHub page](https://github.com/orgs/bw-training-summer23/repositories) as a repo that starts with `hw02-`.
+Homework will be available immediately following class. 
 
 ## Readings
 
--    [***How Do Local Taxes Affect School Finance Equity?***](https://bellwether.org/wp-content/uploads/2021/10/Bellwether_SplittingBill_06-LocalTaxesAndFinanceEquity_Final.pdf)
+Readings will be made available after class.
+
+<!-- -    [***How Do Local Taxes Affect School Finance Equity?***](https://bellwether.org/wp-content/uploads/2021/10/Bellwether_SplittingBill_06-LocalTaxesAndFinanceEquity_Final.pdf) -->
+<!-- -  -->

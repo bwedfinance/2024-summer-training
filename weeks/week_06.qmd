@@ -1,7 +1,7 @@
 ---
 title: "Week 06"
-subtitle: "Mapping in R"
-description: "July 18"
+subtitle: "Reproducible data analysis in R"
+description: "July 16"
 author: ""
 date: ""
 listing:
@@ -20,22 +20,22 @@ tbl-colwidths: [10,50,40]
 format: html
 
 ---
-
 ## Lecture
 
-::: {#slides}
-:::
+Class slides will be available after class. 
 
+<!-- ::: {#slides} -->
+<!-- ::: -->
 
 ## Lecture recording
 
-The Zoom recording from our class is [available on Vimeo here](https://vimeo.com/846445976). Please refer to the post-class email for the password that will allow you to access the recording. 
+The Zoom recording from our class is will be made available after class. 
 
-## Reading
+## Coding Assignment
 
--  [***Balancing Act: How States Can Address Local Wealth Inequity in Education Finance***](https://bellwether.org/publications/balancing-act/)
+Homework will be available immediately following class. 
 
-## Assignment
+## Readings
 
-Homework now available [on our class GitHub page](https://github.com/orgs/bw-training-summer23/repositories) as a repo that starts with `hw06-`.
+Readings will be made available after class.
 
