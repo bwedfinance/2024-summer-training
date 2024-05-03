@@ -150,15 +150,15 @@
     "objectID": "slides/week_01/week_01_course_intro.html#agenda",
     "href": "slides/week_01/week_01_course_intro.html#agenda",
     "title": "Introduction to Education Finance Equity, R, RStudio, and GitHub",
-    "section": "",
-    "text": "Introductions (15 min)\nCourse Overview (5 min)\nIntroduction to Education Funding Policy (30 min)\nIntroduction to R and RStudio (25 min)\nBreak (10 min)\nRStudio Setup and Workflow Tips (10 min)\nIntroduction to Git and GitHub (20 min)\nHomework assignment (5 min)"
+    "section": "Agenda",
+    "text": "Agenda\n\nIntroductions (15 min)\nCourse Overview (5 min)\nIntroduction to Education Funding Policy (30 min)\nIntroduction to R and RStudio (25 min)\nBreak (10 min)\nRStudio Setup and Workflow Tips (10 min)\nIntroduction to Git and GitHub (20 min)\nHomework assignment (5 min)"
   },
   {
     "objectID": "slides/week_01/week_01_course_intro.html#meet-your-instructors",
     "href": "slides/week_01/week_01_course_intro.html#meet-your-instructors",
     "title": "Introduction to Education Finance Equity, R, RStudio, and GitHub",
-    "section": "",
-    "text": "Krista Kaput, Senior Analyst\n\n\n\n\n\n\nJennifer Schiess, Senior Partner & Policy and Evaluation Practice Leader\n\n\n\n\n\n\nAlex Spurrier, Associate Partner\n\n\n\n\n\n\nBonnie O’Keefe, Senior Associate Partner"
+    "section": "Meet your instructors",
+    "text": "Meet your instructors\n\n\n\n\n\n\n\nKrista Kaput, Senior Analyst\n\n\n\n\n\n\nJennifer Schiess, Senior Partner & Policy and Evaluation Practice Leader\n\n\n\n\n\n\nAlex Spurrier, Associate Partner\n\n\n\n\n\n\nBonnie O’Keefe, Senior Associate Partner"
   },
   {
     "objectID": "slides/week_01/week_01_course_intro.html#getting-to-know-cohort-3",
@@ -172,7 +172,7 @@
     "href": "slides/week_01/week_01_course_intro.html#goals-for-this-course",
     "title": "Introduction to Education Finance Equity, R, RStudio, and GitHub",
     "section": "Goals for this course",
-    "text": "Goals for this course\n\n\n\n\n\n\nOur primary goal is to prepare advocates to leverage data analysis and policy knowledge to advocate effectively for school finance reforms that can improve the educational success of historically underserved students.\n\n\n\nWe will achieve this by helping you:\n\nLearn R for data analysis and visualization\nDevelop an understanding of K-12 school funding policies nationally and deep understanding of your state’s system, specifically\nUse R to support in-depth education finance analysis that is:\n\nOrganized\nWell-documented\nReproducible\n\nProduce high-quality, effective data visualizations to make your analysis a more powerful, easy-to-understand tool for advocacy"
+    "text": "Goals for this course\n\n\n\nOur primary goal is to prepare advocates to leverage data analysis and policy knowledge to advocate effectively for school finance reforms that can improve the educational success of historically underserved students.\n\n\n\nWe will achieve this by helping you:\n\nLearn R for data analysis and visualization\nDevelop an understanding of K-12 school funding policies nationally and deep understanding of your state’s system, specifically\nUse R to support in-depth education finance analysis that is:\n\nOrganized\nWell-documented\nReproducible\n\nProduce high-quality, effective data visualizations to make your analysis a more powerful, easy-to-understand tool for advocacy"
   },
   {
     "objectID": "slides/week_01/week_01_course_intro.html#course-website-and-class-structure",
@@ -200,7 +200,7 @@
     "href": "slides/week_01/week_01_course_intro.html#why-does-education-finance-equity-matter",
     "title": "Introduction to Education Finance Equity, R, RStudio, and GitHub",
     "section": "Why does education finance equity matter?",
-    "text": "Why does education finance equity matter?\n\n\n\n\n\n\nThe longstanding and persistent reality is that vast funding inequities in our state public education systems render the education available to millions of American public school students profoundly unequal.”\n– U.S. Commission on Civil Rights, 2018\n\n\n\nSchool finance equity is a critical component of educational equity overall. In an equitable school finance system, schools would receive funds they need to provide a high-quality education for all students. School funding should be based on the needs of students, not the property wealth of individual communities or a checklist of programs.\nAcross the country, almost no states have fully achieved this goal.\nInequity in school finance holds back countless other efforts to improve educational outcomes. Achieving both adequacy (enough funding) and equity (funding distributed to where it is most needed) will not solve every educational problem, but it will enable more schools to provide their students with an excellent education."
+    "text": "Why does education finance equity matter?\n\n\n\nThe longstanding and persistent reality is that vast funding inequities in our state public education systems render the education available to millions of American public school students profoundly unequal.”\n– U.S. Commission on Civil Rights, 2018\n\n\n\nSchool finance equity is a critical component of educational equity overall. In an equitable school finance system, schools would receive funds they need to provide a high-quality education for all students. School funding should be based on the needs of students, not the property wealth of individual communities or a checklist of programs.\nAcross the country, almost no states have fully achieved this goal.\nInequity in school finance holds back countless other efforts to improve educational outcomes. Achieving both adequacy (enough funding) and equity (funding distributed to where it is most needed) will not solve every educational problem, but it will enable more schools to provide their students with an excellent education."
   },
   {
     "objectID": "slides/week_01/week_01_course_intro.html#follow-the-money-where-does-it-all-come-from",
@@ -242,7 +242,7 @@
     "href": "slides/week_01/week_01_course_intro.html#we-are-focused-on-inequities-at-the-district-level-where-state-laws-shape-funding-distribution",
     "title": "Introduction to Education Finance Equity, R, RStudio, and GitHub",
     "section": "We are focused on inequities at the district level, where state laws shape funding distribution",
-    "text": "We are focused on inequities at the district level, where state laws shape funding distribution\nRelying on local property taxes to fund local schools (as most states do) ties school funding closely to housing and property wealth, fueling disparities in funding by race, ethnicity, and class — unless states act to balance the scales.\nProposals to address that challenge – changing structuring funding formulas to align with student needs rather than political clout – face huge barriers\n\n\n\n\n\n\nExample\n\nTaxable property wealth in Bridgeport, Connecticut, is equivalent to more than $500,000 per pupil.\nNeighboring Fairfield, Connecticut, has nearly $2 million in taxable property wealth per pupil.\nFor these communities to generate the same amount of per-pupil funding for their local public schools, Bridgeport would need to tax itself at a significantly higher rate than Fairfield. So lower wealth communities often pay taxes at a higher rate to generate less funds than their neighbors.\nAnd districts like Bridgeport with lower property wealth and higher-needs students rely on states to fill the gap. Which doesn’t always happen.\n\n\n\n\n."
+    "text": "We are focused on inequities at the district level, where state laws shape funding distribution\nRelying on local property taxes to fund local schools (as most states do) ties school funding closely to housing and property wealth, fueling disparities in funding by race, ethnicity, and class — unless states act to balance the scales.\nProposals to address that challenge – changing structuring funding formulas to align with student needs rather than political clout – face huge barriers\n\n\n\nExample\n\nTaxable property wealth in Bridgeport, Connecticut, is equivalent to more than $500,000 per pupil.\nNeighboring Fairfield, Connecticut, has nearly $2 million in taxable property wealth per pupil.\nFor these communities to generate the same amount of per-pupil funding for their local public schools, Bridgeport would need to tax itself at a significantly higher rate than Fairfield. So lower wealth communities often pay taxes at a higher rate to generate less funds than their neighbors.\nAnd districts like Bridgeport with lower property wealth and higher-needs students rely on states to fill the gap. Which doesn’t always happen.\n\n\n\n\n."
   },
   {
     "objectID": "slides/week_01/week_01_course_intro.html#how-can-we-assess-state-funding-policies",
@@ -256,7 +256,7 @@
     "href": "slides/week_01/week_01_course_intro.html#there-are-different-ways-for-states-to-distribute-educational-dollars-some-are-better-aligned-to-student-needs-than-others",
     "title": "Introduction to Education Finance Equity, R, RStudio, and GitHub",
     "section": "There are different ways for states to distribute educational dollars – some are better-aligned to student needs than others",
-    "text": "There are different ways for states to distribute educational dollars – some are better-aligned to student needs than others\n\n\n\n\n\n\nOur perspective, in this course and in general, is that student-based, weighted funding formulas are the best structure to meet our 4 principles.\nBut that structure alone will not ensure equity and adequacy.\n\n\n\n\n\n\n\n\n\n\nCategory\nDefinition\n\n\n\n\nStudent-based\nSchool districts receive funding based on the number of students enrolled or in attendance. In many cases, districts may additionally receive funding weights or supplement based on anticipated student learning needs, with extra funds tied to characteristics of enrolled students, such as low income, disability, and/or status as an English learner.\n\n\nProgram-based\nThis system allocates dollars to school districts based on the cost of educational programs within those districts.\n\n\nResource-based\nSchool districts receive funding based on the anticipated cost of resources and inputs, such as staff salaries and instructional materials."
+    "text": "There are different ways for states to distribute educational dollars – some are better-aligned to student needs than others\n\n\n\nOur perspective, in this course and in general, is that student-based, weighted funding formulas are the best structure to meet our 4 principles.\nBut that structure alone will not ensure equity and adequacy.\n\n\n\n\n\n\n\n\n\n\nCategory\nDefinition\n\n\n\n\nStudent-based\nSchool districts receive funding based on the number of students enrolled or in attendance. In many cases, districts may additionally receive funding weights or supplement based on anticipated student learning needs, with extra funds tied to characteristics of enrolled students, such as low income, disability, and/or status as an English learner.\n\n\nProgram-based\nThis system allocates dollars to school districts based on the cost of educational programs within those districts.\n\n\nResource-based\nSchool districts receive funding based on the anticipated cost of resources and inputs, such as staff salaries and instructional materials."
   },
   {
     "objectID": "slides/week_01/week_01_course_intro.html#school-finance-reform-efforts-can-be-helped-or-hindered-by-several-conditions-in-your-state",
@@ -270,7 +270,7 @@
     "href": "slides/week_01/week_01_course_intro.html#advocates-need-to-be-at-the-table-with-good-data-to-help-more-states-adopt-better-funding-formulas",
     "title": "Introduction to Education Finance Equity, R, RStudio, and GitHub",
     "section": "Advocates need to be at the table with good data to help more states adopt better funding formulas",
-    "text": "Advocates need to be at the table with good data to help more states adopt better funding formulas\nToo many states have outdated, inequitable, and/or inadequate school funding formulas, created over the course of decades of political compromise, intentionally complex and opaque, understood by a select few with disincentives to change.\nTo change this status quo, advocates need better technical capacity:\n\n“The ability to use rigorous data and research to help define the problem and identify potential remedies can help build a compelling, evidence-based case for why policymakers should act.”\n– Dammu & O’Keefe, Making Change\n\n\n\n\n\n\n\nThe ultimate change we hope to achieve through this course:\nMore states across the country with adequate, equitable, transparent funding formulas that set the conditions for higher levels of student success."
+    "text": "Advocates need to be at the table with good data to help more states adopt better funding formulas\nToo many states have outdated, inequitable, and/or inadequate school funding formulas, created over the course of decades of political compromise, intentionally complex and opaque, understood by a select few with disincentives to change.\nTo change this status quo, advocates need better technical capacity:\n\n“The ability to use rigorous data and research to help define the problem and identify potential remedies can help build a compelling, evidence-based case for why policymakers should act.”\n– Dammu & O’Keefe, Making Change\n\n\n\n\nThe ultimate change we hope to achieve through this course:\nMore states across the country with adequate, equitable, transparent funding formulas that set the conditions for higher levels of student success."
   },
   {
     "objectID": "slides/week_01/week_01_course_intro.html#what-are-r-and-rstudio-and-how-do-they-work-together",
@@ -1869,7 +1869,7 @@
   {
     "objectID": "slides/week_01/week_01_course_intro.html#your-cohort-is-part-of-a-growing-network-of-education-finance-advocates",
     "href": "slides/week_01/week_01_course_intro.html#your-cohort-is-part-of-a-growing-network-of-education-finance-advocates",
-    "title": "Introduction to Education Finance Equity & R",
+    "title": "Introduction to Education Finance Equity, R, RStudio, and GitHub",
     "section": "Your cohort is part of a growing network of education finance advocates",
     "text": "Your cohort is part of a growing network of education finance advocates"
   },
@@ -1877,15 +1877,15 @@
     "objectID": "slides/week_01/week_01_course_intro.html#getting-to-know-cohort-4",
     "href": "slides/week_01/week_01_course_intro.html#getting-to-know-cohort-4",
     "title": "Introduction to Education Finance Equity, R, RStudio, and GitHub",
-    "section": "",
-    "text": "−+\n10:00\n\n\n\n\nPlease share your:\n\nName\nState\nOrganization\nRole\nAny prior experience with R?\nWhy did you take this course?"
+    "section": "Getting to know Cohort 4",
+    "text": "Getting to know Cohort 4\n\n\n\n\n\n\n\n\n\n\n−+\n10:00\n\n\n\n\nPlease share your:\n\nName\nState\nOrganization\nRole\nAny prior experience with R?\nWhy did you take this course?"
   },
   {
     "objectID": "slides/week_01/week_01_course_intro.html#follow-the-money-where-does-it-come-from",
     "href": "slides/week_01/week_01_course_intro.html#follow-the-money-where-does-it-come-from",
     "title": "Introduction to Education Finance Equity, R, RStudio, and GitHub",
     "section": "Follow the money: where does it come from?",
-    "text": "Follow the money: where does it come from?\n\n\n\n\n\n\n\n\n\n\n\n\nNote: The ESSER I, II, and III funding inflated the federal FY22 percentage. Normally, federal funding accounts for ~8% of overall funding."
+    "text": "Follow the money: where does it come from?\n\n\n\n\nNote: The ESSER I, II, and III funding inflated the federal FY22 percentage. Normally, federal funding accounts for ~8% of overall funding."
   },
   {
     "objectID": "slides/week_01/week_01_course_intro.html#follow-the-money-where-does-it-come-from-1",
@@ -1989,6 +1989,16 @@
     "title": "Class Materials",
     "section": "Capstone Project",
     "text": "Capstone Project\nCourse participants will have several weeks to complete their capstone project. The teaching team will host office hours to provide targeted support to course participants as they work on their capstone projects.",
+    "crumbs": [
+      "Class Materials"
+    ]
+  },
+  {
+    "objectID": "materials.html#materials",
+    "href": "materials.html#materials",
+    "title": "Class Materials",
+    "section": "",
+    "text": "Week\n\n\nDates\n\n\nTopic\n\n\n\n\n\n\nWeek 01\n\n\nJune 4\n\n\nIntroduction to School Finance Equity\n\n\n\n\n\nNo matching items",
     "crumbs": [
       "Class Materials"
     ]
