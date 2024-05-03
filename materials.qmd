@@ -1,5 +1,5 @@
 ---
-title: "Course Materials"
+title: "Class Materials"
 format: html
 listing:
   - id: schedule
