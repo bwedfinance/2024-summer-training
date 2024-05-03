@@ -2,14 +2,7 @@
   {
     "listing": "/schedule.html",
     "items": [
-      "/weeks/week_01.html",
-      "/weeks/week_02.html",
-      "/weeks/week_03.html",
-      "/weeks/week_04.html",
-      "/weeks/week_05.html",
-      "/weeks/week_06.html",
-      "/weeks/week_07.html",
-      "/weeks/week_08.html"
+      "/weeks/week_01.html"
     ]
   },
   {
@@ -27,7 +20,13 @@
   {
     "listing": "/weeks/week_02.html",
     "items": [
-      "/slides/week_02/week_02_ggplot_slides.html"
+      "/weeks/week_01.html",
+      "/weeks/week_03.html",
+      "/weeks/week_04.html",
+      "/weeks/week_05.html",
+      "/weeks/week_06.html",
+      "/weeks/week_07.html",
+      "/weeks/week_08.html"
     ]
   },
   {
@@ -46,6 +45,12 @@
     "listing": "/weeks/week_05.html",
     "items": [
       "/slides/week_05/week_5_slides.html"
+    ]
+  },
+  {
+    "listing": "/materials.html",
+    "items": [
+      "/weeks/week_01.html"
     ]
   }
 ]

@@ -42,9 +42,9 @@
   {
     "objectID": "schedule.html",
     "href": "schedule.html",
-    "title": "Course Schedule",
+    "title": "Class Schedule",
     "section": "",
-    "text": "Week\n\n\nDates\n\n\nTopic\n\n\n\n\n\n\nWeek 01\n\n\nJune 4\n\n\nIntroduction to School Finance Equity\n\n\n\n\nWeek 02\n\n\nJune 11\n\n\nBasic data analysis and visualization in R\n\n\n\n\nWeek 03\n\n\nJune 18\n\n\nDeep-dive on education finance and weighted student funding\n\n\n\n\nWeek 04\n\n\nJune 25\n\n\nData cleaning and processing in R\n\n\n\n\nWeek 05\n\n\nJuly 9\n\n\nAdvanced data cleaning with ggplot2\n\n\n\n\nWeek 06\n\n\nJuly 16\n\n\nReproducible data analysis in R\n\n\n\n\nWeek 07\n\n\nJuly 23\n\n\nAnalyzing state education finance funding data with plotly\n\n\n\n\nWeek 08\n\n\nJuly 30\n\n\nMapping in R\n\n\n\n\n\nNo matching items",
+    "text": "Class\nDate/Time (ET)\nDetail\n\n\n\n\nClass 1\nJune 4, 2024 from 1:30 - 3:30 PM\nIntroduction to Education Finance, R, RStudio, Github\n\n\nClass 2\nJune 11, 2024 from 12:00 - 2:00 PM\nBasic data analysis and visualization in R\n\n\nClass 3\nJune 18, 2024 from 12:00 - 2:00 PM\nDeep-dive on education finance and weighted student funding\n\n\nClass 4\nJune 25, 2024 from 12:00 - 2:00 PM\nData cleaning and processing in R\n\n\nNO CLASS!\nN/A\nHappy birthday, America!\n\n\nClass 5\nJuly 9, 2024 from 12:00 - 2:00 PM\nAdvanced data visualization with ggplot2\n\n\nClass 6\nJuly 16, 2024 from 12:00 - 2:00 PM\nReproducible data analysis in R\n\n\nClass 7\nJuly 23, 2024 from 12:00 - 2:00 PM\nAnalyzing state education funding data with plotly\n\n\nClass 8\nJuly 30, 2024 from 12:00 - 2:00 PM\nMapping in R\n\n\nClass 9\nAugust 6, 2024 from 12:00 - 2:00 PM\nModeling state funding policy proposals in R\n\n\nNO CLASS!\nAugust 13, 2024 from 12:00 - 2:00 PM\nAlex and Krista will have office hours to support capstone projects.\n\n\nNO CLASS!\nAugust 20, 2024 from 12:00 - 2:00 PM\nAlex and Krista will have office hours to support capstone projects.\n\n\nClass 10\nAugust 27, 2024 from 12:00 - 2:00 PM\nCapstone presentations",
     "crumbs": [
       "Schedule"
     ]
@@ -54,7 +54,7 @@
     "href": "schedule.html#class-schedule",
     "title": "Course Schedule",
     "section": "",
-    "text": "Week\n\n\nDates\n\n\nTopic\n\n\n\n\n\n\nWeek 01\n\n\nJune 4\n\n\nIntroduction to School Finance Equity\n\n\n\n\nWeek 02\n\n\nJune 11\n\n\nBasic data analysis and visualization in R\n\n\n\n\nWeek 03\n\n\nJune 18\n\n\nDeep-dive on education finance and weighted student funding\n\n\n\n\nWeek 04\n\n\nJune 25\n\n\nData cleaning and processing in R\n\n\n\n\nWeek 05\n\n\nJuly 9\n\n\nAdvanced data cleaning with ggplot2\n\n\n\n\nWeek 06\n\n\nJuly 16\n\n\nReproducible data analysis in R\n\n\n\n\nWeek 07\n\n\nJuly 23\n\n\nAnalyzing state education finance funding data with plotly\n\n\n\n\nWeek 08\n\n\nJuly 30\n\n\nMapping in R\n\n\n\n\n\nNo matching items",
+    "text": "Week\n\n\nDates\n\n\nTopic\n\n\n\n\n\n\nWeek 01\n\n\nJune 4\n\n\nIntroduction to School Finance Equity\n\n\n\n\n\nNo matching items",
     "crumbs": [
       "Schedule"
     ]
@@ -970,14 +970,14 @@
     "href": "weeks/week_01.html",
     "title": "Week 01",
     "section": "",
-    "text": "Topic\n\n\nDate\n\n\n\n\n\n\nIntroduction to Education Finance Equity & R\n\n\nJun 4, 2024\n\n\n\n\n\nNo matching items"
+    "text": "Topic\n\n\nDate\n\n\n\n\n\n\nIntroduction to Education Finance Equity, R, RStudio, and GitHub\n\n\nJun 4, 2024\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "weeks/week_01.html#slides",
     "href": "weeks/week_01.html#slides",
     "title": "Week 01",
     "section": "",
-    "text": "Topic\n\n\nDate\n\n\n\n\n\n\nIntroduction to Education Finance Equity & R\n\n\nJun 4, 2024\n\n\n\n\n\nNo matching items"
+    "text": "Topic\n\n\nDate\n\n\n\n\n\n\nIntroduction to Education Finance Equity, R, RStudio, and GitHub\n\n\nJun 4, 2024\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "weeks/week_01.html#lecture-recording",
@@ -1952,5 +1952,45 @@
     "title": "Week 06",
     "section": "Readings",
     "text": "Readings\nReadings will be made available after class."
+  },
+  {
+    "objectID": "materials.html",
+    "href": "materials.html",
+    "title": "Course Materials",
+    "section": "",
+    "text": "Week\n\n\nDates\n\n\nTopic\n\n\n\n\n\n\nWeek 01\n\n\nJune 4\n\n\nIntroduction to School Finance Equity\n\n\n\n\n\nNo matching items",
+    "crumbs": [
+      "Course Materials"
+    ]
+  },
+  {
+    "objectID": "materials.html#class-materials",
+    "href": "materials.html#class-materials",
+    "title": "Course Materials",
+    "section": "",
+    "text": "Week\n\n\nDates\n\n\nTopic\n\n\n\n\n\n\nWeek 01\n\n\nJune 4\n\n\nIntroduction to School Finance Equity\n\n\n\n\n\nNo matching items",
+    "crumbs": [
+      "Course Materials"
+    ]
+  },
+  {
+    "objectID": "materials.html#homework",
+    "href": "materials.html#homework",
+    "title": "Course Materials",
+    "section": "Homework",
+    "text": "Homework\nHomework will be due by 12:00 PM Eastern time on the Monday following a class.",
+    "crumbs": [
+      "Course Materials"
+    ]
+  },
+  {
+    "objectID": "materials.html#capstone-project",
+    "href": "materials.html#capstone-project",
+    "title": "Course Materials",
+    "section": "Capstone Project",
+    "text": "Capstone Project\nCourse participants will have several weeks to complete their capstone project. The teaching team will host office hours to provide targeted support to course participants as they work on their capstone projects.",
+    "crumbs": [
+      "Course Materials"
+    ]
   }
 ]

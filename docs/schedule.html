@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>School Finance Equity Training, Summer 2024 - Course Schedule</title>
+<title>School Finance Equity Training, Summer 2024 - Class Schedule</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -29,8 +29,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -67,65 +65,7 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
 
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-schedule .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-title','listing-description','listing-subtitle',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
-      
-      searchColumns: ["listing-title","listing-author"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-schedule'] = new List('listing-schedule', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
-
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 </head>
 
@@ -189,6 +129,12 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./materials.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Course Materials</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./resources.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">R Resources</span></a>
   </div>
@@ -199,22 +145,14 @@ window.Quarto = {
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#class-schedule" id="toc-class-schedule" class="nav-link active" data-scroll-target="#class-schedule">Class Schedule</a></li>
-  <li><a href="#homework" id="toc-homework" class="nav-link" data-scroll-target="#homework">Homework</a></li>
-  <li><a href="#capstone-project" id="toc-capstone-project" class="nav-link" data-scroll-target="#capstone-project">Capstone Project</a></li>
-  </ul>
-</nav>
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Course Schedule</h1>
+<h1 class="title">Class Schedule</h1>
 </div>
 
 
@@ -231,130 +169,89 @@ window.Quarto = {
 </header>
 
 
-<section id="class-schedule" class="level2">
-<h2 class="anchored" data-anchor-id="class-schedule">Class Schedule</h2>
-<div id="listing-schedule" class="quarto-listing quarto-listing-container-table">
-<table class="quarto-listing-table table">
+<table class="table">
+<colgroup>
+<col style="width: 15%">
+<col style="width: 24%">
+<col style="width: 60%">
+</colgroup>
 <thead>
-<tr>
-<th>
-Week
-</th>
-<th>
-Dates
-</th>
-<th>
-Topic
-</th>
+<tr class="header">
+<th>Class</th>
+<th>Date/Time (ET)</th>
+<th>Detail</th>
 </tr>
 </thead>
-<tbody class="list">
-<tr data-index="0" data-listing-file-modified-sort="1714692464320" data-listing-reading-time-sort="1" data-listing-word-count-sort="44" data-listing-title-sort="Week 01" data-listing-filename-sort="week_01.qmd">
-<td>
-<a href="./weeks/week_01.html" class="title listing-title">Week 01</a>
-</td>
-<td>
-<span class="listing-description">June 4</span>
-</td>
-<td>
-<span class="listing-subtitle">Introduction to School Finance Equity</span>
-</td>
+<tbody>
+<tr class="odd">
+<td>Class 1</td>
+<td>June 4, 2024 from 1:30 - 3:30 PM</td>
+<td>Introduction to Education Finance, R, RStudio, Github</td>
 </tr>
-<tr data-index="1" data-listing-file-modified-sort="1714692885604" data-listing-reading-time-sort="1" data-listing-word-count-sort="60" data-listing-title-sort="Week 02" data-listing-filename-sort="week_02.qmd">
-<td>
-<a href="./weeks/week_02.html" class="title listing-title">Week 02</a>
-</td>
-<td>
-<span class="listing-description">June 11</span>
-</td>
-<td>
-<span class="listing-subtitle">Basic data analysis and visualization in R</span>
-</td>
+<tr class="even">
+<td>Class 2</td>
+<td>June 11, 2024 from 12:00 - 2:00 PM</td>
+<td>Basic data analysis and visualization in R</td>
 </tr>
-<tr data-index="2" data-listing-file-modified-sort="1714693473059" data-listing-reading-time-sort="1" data-listing-word-count-sort="62" data-listing-title-sort="Week 03" data-listing-filename-sort="week_03.qmd">
-<td>
-<a href="./weeks/week_03.html" class="title listing-title">Week 03</a>
-</td>
-<td>
-<span class="listing-description">June 18</span>
-</td>
-<td>
-<span class="listing-subtitle">Deep-dive on education finance and weighted student funding</span>
-</td>
+<tr class="odd">
+<td>Class 3</td>
+<td>June 18, 2024 from 12:00 - 2:00 PM</td>
+<td>Deep-dive on education finance and weighted student funding</td>
 </tr>
-<tr data-index="3" data-listing-file-modified-sort="1714692925725" data-listing-reading-time-sort="1" data-listing-word-count-sort="50" data-listing-title-sort="Week 04" data-listing-filename-sort="week_04.qmd">
-<td>
-<a href="./weeks/week_04.html" class="title listing-title">Week 04</a>
-</td>
-<td>
-<span class="listing-description">June 25</span>
-</td>
-<td>
-<span class="listing-subtitle">Data cleaning and processing in R</span>
-</td>
+<tr class="even">
+<td>Class 4</td>
+<td>June 25, 2024 from 12:00 - 2:00 PM</td>
+<td>Data cleaning and processing in R</td>
 </tr>
-<tr data-index="4" data-listing-file-modified-sort="1714693120259" data-listing-reading-time-sort="1" data-listing-word-count-sort="58" data-listing-title-sort="Week 05" data-listing-filename-sort="week_05.qmd">
-<td>
-<a href="./weeks/week_05.html" class="title listing-title">Week 05</a>
-</td>
-<td>
-<span class="listing-description">July 9</span>
-</td>
-<td>
-<span class="listing-subtitle">Advanced data cleaning with ggplot2</span>
-</td>
+<tr class="odd">
+<td>NO CLASS!</td>
+<td>N/A</td>
+<td>Happy birthday, America!</td>
 </tr>
-<tr data-index="5" data-listing-file-modified-sort="1714693136345" data-listing-reading-time-sort="1" data-listing-word-count-sort="44" data-listing-title-sort="Week 06" data-listing-filename-sort="week_06.qmd">
-<td>
-<a href="./weeks/week_06.html" class="title listing-title">Week 06</a>
-</td>
-<td>
-<span class="listing-description">July 16</span>
-</td>
-<td>
-<span class="listing-subtitle">Reproducible data analysis in R</span>
-</td>
+<tr class="even">
+<td>Class 5</td>
+<td>July 9, 2024 from 12:00 - 2:00 PM</td>
+<td>Advanced data visualization with ggplot2</td>
 </tr>
-<tr data-index="6" data-listing-file-modified-sort="1714693155133" data-listing-reading-time-sort="1" data-listing-word-count-sort="44" data-listing-title-sort="Week 07" data-listing-filename-sort="week_07.qmd">
-<td>
-<a href="./weeks/week_07.html" class="title listing-title">Week 07</a>
-</td>
-<td>
-<span class="listing-description">July 23</span>
-</td>
-<td>
-<span class="listing-subtitle">Analyzing state education finance funding data with plotly</span>
-</td>
+<tr class="odd">
+<td>Class 6</td>
+<td>July 16, 2024 from 12:00 - 2:00 PM</td>
+<td>Reproducible data analysis in R</td>
 </tr>
-<tr data-index="7" data-listing-file-modified-sort="1714693373305" data-listing-reading-time-sort="1" data-listing-word-count-sort="44" data-listing-title-sort="Week 08" data-listing-filename-sort="week_08.qmd">
-<td>
-<a href="./weeks/week_08.html" class="title listing-title">Week 08</a>
-</td>
-<td>
-<span class="listing-description">July 30</span>
-</td>
-<td>
-<span class="listing-subtitle">Mapping in R</span>
-</td>
+<tr class="even">
+<td>Class 7</td>
+<td>July 23, 2024 from 12:00 - 2:00 PM</td>
+<td>Analyzing state education funding data with plotly</td>
+</tr>
+<tr class="odd">
+<td>Class 8</td>
+<td>July 30, 2024 from 12:00 - 2:00 PM</td>
+<td>Mapping in R</td>
+</tr>
+<tr class="even">
+<td>Class 9</td>
+<td>August 6, 2024 from 12:00 - 2:00 PM</td>
+<td>Modeling state funding policy proposals in R</td>
+</tr>
+<tr class="odd">
+<td>NO CLASS!</td>
+<td>August 13, 2024 from 12:00 - 2:00 PM</td>
+<td>Alex and Krista will have office hours to support capstone projects.</td>
+</tr>
+<tr class="even">
+<td>NO CLASS!</td>
+<td>August 20, 2024 from 12:00 - 2:00 PM</td>
+<td>Alex and Krista will have office hours to support capstone projects.</td>
+</tr>
+<tr class="odd">
+<td>Class 10</td>
+<td>August 27, 2024 from 12:00 - 2:00 PM</td>
+<td>Capstone presentations</td>
 </tr>
 </tbody>
 </table>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div>
-</section>
-<section id="homework" class="level2">
-<h2 class="anchored" data-anchor-id="homework">Homework</h2>
-<p>Homework will be due by 12:00 PM Eastern time on the Monday following a class.</p>
-</section>
-<section id="capstone-project" class="level2">
-<h2 class="anchored" data-anchor-id="capstone-project">Capstone Project</h2>
-<p>Course participants will have several weeks to complete their capstone project. The teaching team will host office hours to provide targeted support to course participants as they work on their capstone projects.</p>
 
 
-
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
