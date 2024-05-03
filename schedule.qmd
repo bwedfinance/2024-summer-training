@@ -4,18 +4,18 @@ editor: visual
 format: html
 ---
 
-| Class      | Date/Time (ET)                        | Detail                                                                |
-|-----------|------------------|--------------------------------------------|
-| Class 1    | June 4, 2024 from 1:30 - 3:30 PM      | Introduction to Education Finance, R, RStudio, Github                 |
-| Class 2    | June 11, 2024 from 12:00 - 2:00 PM    | Basic data analysis and visualization in R                            |
-| Class 3    | June 18, 2024 from 12:00 - 2:00 PM    | Deep-dive on education finance and weighted student funding           |
-| Class 4    | June 25, 2024 from 12:00 - 2:00 PM    | Data cleaning and processing in R                                     |
-| NO CLASS!  | N/A                                   | Happy birthday, America!                                              |
-| Class 5    | July 9, 2024 from 12:00 - 2:00 PM     | Advanced data visualization with ggplot2                              |
-| Class 6    | July 16, 2024 from 12:00 - 2:00 PM    | Reproducible data analysis in R                                       |
-| Class 7    | July 23, 2024 from 12:00 - 2:00 PM    | Analyzing state education funding data with plotly                    |
-| Class 8    | July 30, 2024 from 12:00 - 2:00 PM    | Mapping in R                                                          |
-| Class 9    | August 6, 2024 from 12:00 - 2:00 PM   |  Modeling state funding policy proposals in R                         |
-| NO CLASS!  | August 13, 2024 from 12:00 - 2:00 PM  | Alex and Krista will have office hours to support capstone projects.  |
-| NO CLASS!  | August 20, 2024 from 12:00 - 2:00 PM  | Alex and Krista will have office hours to support capstone projects.  |
-| Class 10   | August 27, 2024 from 12:00 - 2:00 PM  | Capstone presentations                                                |
+| Class     | Date/Time (ET)                       | Detail                                                               |
+|-----------|--------------------------------------|----------------------------------------------------------------------|
+| Class 1   | June 4, 2024 from 1:30 - 3:30 PM     | Introduction to Education Finance, R, RStudio, Github                |
+| Class 2   | June 11, 2024 from 12:00 - 2:00 PM   | Basic data analysis and visualization in R                           |
+| Class 3   | June 18, 2024 from 12:00 - 2:00 PM   | Deep-dive on education finance and weighted student funding          |
+| Class 4   | June 25, 2024 from 12:00 - 2:00 PM   | Data cleaning and processing in R                                    |
+| NO CLASS! | N/A                                  | Happy birthday, America!                                             |
+| Class 5   | July 9, 2024 from 12:00 - 2:00 PM    | Advanced data visualization with ggplot2                             |
+| Class 6   | July 16, 2024 from 12:00 - 2:00 PM   | Reproducible data analysis in R                                      |
+| Class 7   | July 23, 2024 from 12:00 - 2:00 PM   | Analyzing state education funding data with plotly                   |
+| Class 8   | July 30, 2024 from 12:00 - 2:00 PM   | Mapping in R                                                         |
+| Class 9   | August 6, 2024 from 12:00 - 2:00 PM  | Modeling state funding policy proposals in R                         |
+| NO CLASS! | August 13, 2024 from 12:00 - 2:00 PM | Alex and Krista will have office hours to support capstone projects. |
+| NO CLASS! | August 20, 2024 from 12:00 - 2:00 PM | Alex and Krista will have office hours to support capstone projects. |
+| Class 10  | August 27, 2024 from 12:00 - 2:00 PM | Capstone presentations                                               |
