@@ -4,8 +4,12 @@ editor: visual
 format: html
 ---
 
+Have questions? [Sign up for Krista's office hours](https://calendar.app.google/aYywwCLgS8XwKK7H9)! 
+
+## Class Schedule 
+
 | Class     | Date/Time (ET)                       | Detail                                                               |
-|-----------|--------------------------------------|----------------------------------------------------------------------|
+|---------------|--------------------|--------------------------------------|
 | Class 1   | June 4, 2024 from 1:30 - 3:30 PM     | Introduction to Education Finance, R, RStudio, Github                |
 | Class 2   | June 11, 2024 from 12:00 - 2:00 PM   | Basic data analysis and visualization in R                           |
 | Class 3   | June 18, 2024 from 12:00 - 2:00 PM   | Deep-dive on education finance and weighted student funding          |

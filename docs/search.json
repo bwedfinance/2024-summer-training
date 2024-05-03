@@ -44,7 +44,7 @@
     "href": "schedule.html",
     "title": "Class Schedule",
     "section": "",
-    "text": "Class\nDate/Time (ET)\nDetail\n\n\n\n\nClass 1\nJune 4, 2024 from 1:30 - 3:30 PM\nIntroduction to Education Finance, R, RStudio, Github\n\n\nClass 2\nJune 11, 2024 from 12:00 - 2:00 PM\nBasic data analysis and visualization in R\n\n\nClass 3\nJune 18, 2024 from 12:00 - 2:00 PM\nDeep-dive on education finance and weighted student funding\n\n\nClass 4\nJune 25, 2024 from 12:00 - 2:00 PM\nData cleaning and processing in R\n\n\nNO CLASS!\nN/A\nHappy birthday, America!\n\n\nClass 5\nJuly 9, 2024 from 12:00 - 2:00 PM\nAdvanced data visualization with ggplot2\n\n\nClass 6\nJuly 16, 2024 from 12:00 - 2:00 PM\nReproducible data analysis in R\n\n\nClass 7\nJuly 23, 2024 from 12:00 - 2:00 PM\nAnalyzing state education funding data with plotly\n\n\nClass 8\nJuly 30, 2024 from 12:00 - 2:00 PM\nMapping in R\n\n\nClass 9\nAugust 6, 2024 from 12:00 - 2:00 PM\nModeling state funding policy proposals in R\n\n\nNO CLASS!\nAugust 13, 2024 from 12:00 - 2:00 PM\nAlex and Krista will have office hours to support capstone projects.\n\n\nNO CLASS!\nAugust 20, 2024 from 12:00 - 2:00 PM\nAlex and Krista will have office hours to support capstone projects.\n\n\nClass 10\nAugust 27, 2024 from 12:00 - 2:00 PM\nCapstone presentations",
+    "text": "Have questions? Sign up for Krista’s office hours!",
     "crumbs": [
       "Schedule"
     ]
@@ -52,9 +52,9 @@
   {
     "objectID": "schedule.html#class-schedule",
     "href": "schedule.html#class-schedule",
-    "title": "Course Schedule",
-    "section": "",
-    "text": "Week\n\n\nDates\n\n\nTopic\n\n\n\n\n\n\nWeek 01\n\n\nJune 4\n\n\nIntroduction to School Finance Equity\n\n\n\n\n\nNo matching items",
+    "title": "Class Schedule",
+    "section": "Class Schedule",
+    "text": "Class Schedule\n\n\n\n\n\n\n\n\nClass\nDate/Time (ET)\nDetail\n\n\n\n\nClass 1\nJune 4, 2024 from 1:30 - 3:30 PM\nIntroduction to Education Finance, R, RStudio, Github\n\n\nClass 2\nJune 11, 2024 from 12:00 - 2:00 PM\nBasic data analysis and visualization in R\n\n\nClass 3\nJune 18, 2024 from 12:00 - 2:00 PM\nDeep-dive on education finance and weighted student funding\n\n\nClass 4\nJune 25, 2024 from 12:00 - 2:00 PM\nData cleaning and processing in R\n\n\nNO CLASS!\nN/A\nHappy birthday, America!\n\n\nClass 5\nJuly 9, 2024 from 12:00 - 2:00 PM\nAdvanced data visualization with ggplot2\n\n\nClass 6\nJuly 16, 2024 from 12:00 - 2:00 PM\nReproducible data analysis in R\n\n\nClass 7\nJuly 23, 2024 from 12:00 - 2:00 PM\nAnalyzing state education funding data with plotly\n\n\nClass 8\nJuly 30, 2024 from 12:00 - 2:00 PM\nMapping in R\n\n\nClass 9\nAugust 6, 2024 from 12:00 - 2:00 PM\nModeling state funding policy proposals in R\n\n\nNO CLASS!\nAugust 13, 2024 from 12:00 - 2:00 PM\nAlex and Krista will have office hours to support capstone projects.\n\n\nNO CLASS!\nAugust 20, 2024 from 12:00 - 2:00 PM\nAlex and Krista will have office hours to support capstone projects.\n\n\nClass 10\nAugust 27, 2024 from 12:00 - 2:00 PM\nCapstone presentations",
     "crumbs": [
       "Schedule"
     ]
@@ -86,7 +86,7 @@
     "section": "",
     "text": "The R language is open-source software available at through the Comprehensive R Archive Network, CRAN. Select the version of R that is compatiable with your operating system.\nOnce you’ve downloaded the installer, go ahead and run it to install R on your computer.",
     "crumbs": [
-      "Course Setup"
+      "Class Setup"
     ]
   },
   {
@@ -96,7 +96,7 @@
     "section": "",
     "text": "The R language is open-source software available at through the Comprehensive R Archive Network, CRAN. Select the version of R that is compatiable with your operating system.\nOnce you’ve downloaded the installer, go ahead and run it to install R on your computer.",
     "crumbs": [
-      "Course Setup"
+      "Class Setup"
     ]
   },
   {
@@ -106,7 +106,7 @@
     "section": "Step 2: Install RStudio",
     "text": "Step 2: Install RStudio\nRStudio is an open-source integrated development environment (IDE) designed to improve your R programming experience. It is available to download through Posit, a public benefit corporation (PBC) that develops open-source software.\nAgain, once you’ve downloaded the installer, go ahead and run it to install RStudio on your computer.",
     "crumbs": [
-      "Course Setup"
+      "Class Setup"
     ]
   },
   {
@@ -116,7 +116,7 @@
     "section": "Step 3: Install required packages",
     "text": "Step 3: Install required packages\nPackages help make R easier to use by providing useful functions and data. During this training, we will use the following packages:\n\ntidyverse: This package is actually a collection of packages that provide essential tools for data cleaning (dplyr) and visualization (ggplot2). Census Bureau that has been cleaned using EdBuild’s methodology for handling such data.\nremotes: This package allows you to download packages hosted on GitHub, such as edbuildr.\nreadxl: This package allows you to read in excel documents to do data cleaning and analysis.\nedbuildr: This package was developed by EdBuild to provide more accessible school finance data. It allows you to download data from the National Center for Educaiton Statistics (NCES) and the U.S. Census Bureau that has been cleaned using EdBuild’s methodology for handling such data.\n\nTo install these packages, open RStudio and copy the code below. In the “Console” pane, paste the code and run it by hitting return:\n\ninstall.packages(c(\"tidyverse\", \"readxl\", \"remotes\"))\n\nremotes::install_github(\"edbuild/edbuildr\")\n\nIf you are having trouble installing ebuildr try the following code:\n\ninstall.packages(\"devtools\") \ndevtools::install_github('EdBuild/edbuildr')",
     "crumbs": [
-      "Course Setup"
+      "Class Setup"
     ]
   },
   {
@@ -126,7 +126,7 @@
     "section": "Step 4: Install Git",
     "text": "Step 4: Install Git\nGit is an Open Source Distributed Version Control System, meaning it helps with tracking content, version control, and sharing information. Instructions for downloading Git can be found below:\n\nWindows: Instructions for downloading and confirming Git is working can be found here.\nMac: Instructions for downloading Git can be found here. Personally, I used the “MacPorts” option. Once you have downloaded Git, in the “Terminal” pane, paste the code in the order it specifies and run it by hitting return:\n\n\n# R INSTRUCTIONS FOR MAC \n\n# First copy and paste this code into the terminal \nxcode-select --install #Press enter \n\n# Then copy and paste this code in the terminal to confirm that you have downloaded Git\ngit version #Press enter",
     "crumbs": [
-      "Course Setup"
+      "Class Setup"
     ]
   },
   {
@@ -136,7 +136,7 @@
     "section": "Step 5: Setting up RStudio for Cloning GitHub respositories",
     "text": "Step 5: Setting up RStudio for Cloning GitHub respositories\nOnce you have confirmed Git is working on your machine, copy and paste the following code in the “Console” pane and run it by hitting return.\n\n# First install these package in the console pane and press enter\n\ninstall.packages(c(\"usethis\", \"gitcreds\", \"gh\")) #Press enter \n\n# Once you have installed the packages, then copy and paste this code into the console pane \n# and pres enter \n\ngitcreds::gitcreds_set() # Press enter\n\n# When prompted, provide your token and press enter\n\n# Once you have provided your token, copy and paste the this code into the console pane \n# and press enter. You should see your credentials listed, confirming you set up your \n# token authentication correctly. \n\ngh::gh_whoami() # Press enter",
     "crumbs": [
-      "Course Setup"
+      "Class Setup"
     ]
   },
   {
@@ -1958,7 +1958,7 @@
     "href": "materials.html",
     "title": "Class Materials",
     "section": "",
-    "text": "Week\n\n\nDates\n\n\nTopic\n\n\n\n\n\n\nWeek 01\n\n\nJune 4\n\n\nIntroduction to School Finance Equity\n\n\n\n\n\nNo matching items",
+    "text": "Have questions? Sign up for Krista’s office hours!",
     "crumbs": [
       "Class Materials"
     ]
@@ -1997,8 +1997,8 @@
     "objectID": "materials.html#materials",
     "href": "materials.html#materials",
     "title": "Class Materials",
-    "section": "",
-    "text": "Week\n\n\nDates\n\n\nTopic\n\n\n\n\n\n\nWeek 01\n\n\nJune 4\n\n\nIntroduction to School Finance Equity\n\n\n\n\n\nNo matching items",
+    "section": "Materials",
+    "text": "Materials\n\n\n\n\n\nWeek\n\n\nDates\n\n\nTopic\n\n\n\n\n\n\nWeek 01\n\n\nJune 4\n\n\nIntroduction to School Finance Equity\n\n\n\n\n\nNo matching items",
     "crumbs": [
       "Class Materials"
     ]

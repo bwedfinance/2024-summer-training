@@ -18,6 +18,8 @@ listing:
 editor: visual
 ---
 
+Have questions? [Sign up for Krista's office hours](https://calendar.app.google/aYywwCLgS8XwKK7H9)! 
+
 ## Materials
 
 ::: {#slides}
