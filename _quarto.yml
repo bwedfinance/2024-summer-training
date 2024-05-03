@@ -19,7 +19,7 @@ website:
       - href: setup.qmd
         text: Class Setup 
       - href: materials.qmd
-        text: Course Materials
+        text: Class Materials
       - href: resources.qmd
         text: R Resources
      
