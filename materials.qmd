@@ -1,5 +1,5 @@
 ---
-title: "Class Materials"
+title: "Course Materials"
 format: html
 listing:
   - id: materials
@@ -18,7 +18,7 @@ listing:
 editor: visual
 ---
 
-## Class Materials
+## Materials
 
 ::: {#materials}
 :::

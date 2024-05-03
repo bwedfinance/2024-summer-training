@@ -86,7 +86,7 @@
     "section": "",
     "text": "The R language is open-source software available at through the Comprehensive R Archive Network, CRAN. Select the version of R that is compatiable with your operating system.\nOnce you’ve downloaded the installer, go ahead and run it to install R on your computer.",
     "crumbs": [
-      "Class Setup"
+      "Course Setup"
     ]
   },
   {
@@ -96,7 +96,7 @@
     "section": "",
     "text": "The R language is open-source software available at through the Comprehensive R Archive Network, CRAN. Select the version of R that is compatiable with your operating system.\nOnce you’ve downloaded the installer, go ahead and run it to install R on your computer.",
     "crumbs": [
-      "Class Setup"
+      "Course Setup"
     ]
   },
   {
@@ -106,7 +106,7 @@
     "section": "Step 2: Install RStudio",
     "text": "Step 2: Install RStudio\nRStudio is an open-source integrated development environment (IDE) designed to improve your R programming experience. It is available to download through Posit, a public benefit corporation (PBC) that develops open-source software.\nAgain, once you’ve downloaded the installer, go ahead and run it to install RStudio on your computer.",
     "crumbs": [
-      "Class Setup"
+      "Course Setup"
     ]
   },
   {
@@ -116,7 +116,7 @@
     "section": "Step 3: Install required packages",
     "text": "Step 3: Install required packages\nPackages help make R easier to use by providing useful functions and data. During this training, we will use the following packages:\n\ntidyverse: This package is actually a collection of packages that provide essential tools for data cleaning (dplyr) and visualization (ggplot2). Census Bureau that has been cleaned using EdBuild’s methodology for handling such data.\nremotes: This package allows you to download packages hosted on GitHub, such as edbuildr.\nreadxl: This package allows you to read in excel documents to do data cleaning and analysis.\nedbuildr: This package was developed by EdBuild to provide more accessible school finance data. It allows you to download data from the National Center for Educaiton Statistics (NCES) and the U.S. Census Bureau that has been cleaned using EdBuild’s methodology for handling such data.\n\nTo install these packages, open RStudio and copy the code below. In the “Console” pane, paste the code and run it by hitting return:\n\ninstall.packages(c(\"tidyverse\", \"readxl\", \"remotes\"))\n\nremotes::install_github(\"edbuild/edbuildr\")\n\nIf you are having trouble installing ebuildr try the following code:\n\ninstall.packages(\"devtools\") \ndevtools::install_github('EdBuild/edbuildr')",
     "crumbs": [
-      "Class Setup"
+      "Course Setup"
     ]
   },
   {
@@ -126,7 +126,7 @@
     "section": "Step 4: Install Git",
     "text": "Step 4: Install Git\nGit is an Open Source Distributed Version Control System, meaning it helps with tracking content, version control, and sharing information. Instructions for downloading Git can be found below:\n\nWindows: Instructions for downloading and confirming Git is working can be found here.\nMac: Instructions for downloading Git can be found here. Personally, I used the “MacPorts” option. Once you have downloaded Git, in the “Terminal” pane, paste the code in the order it specifies and run it by hitting return:\n\n\n# R INSTRUCTIONS FOR MAC \n\n# First copy and paste this code into the terminal \nxcode-select --install #Press enter \n\n# Then copy and paste this code in the terminal to confirm that you have downloaded Git\ngit version #Press enter",
     "crumbs": [
-      "Class Setup"
+      "Course Setup"
     ]
   },
   {
@@ -136,7 +136,7 @@
     "section": "Step 5: Setting up RStudio for Cloning GitHub respositories",
     "text": "Step 5: Setting up RStudio for Cloning GitHub respositories\nOnce you have confirmed Git is working on your machine, copy and paste the following code in the “Console” pane and run it by hitting return.\n\n# First install these package in the console pane and press enter\n\ninstall.packages(c(\"usethis\", \"gitcreds\", \"gh\")) #Press enter \n\n# Once you have installed the packages, then copy and paste this code into the console pane \n# and pres enter \n\ngitcreds::gitcreds_set() # Press enter\n\n# When prompted, provide your token and press enter\n\n# Once you have provided your token, copy and paste the this code into the console pane \n# and press enter. You should see your credentials listed, confirming you set up your \n# token authentication correctly. \n\ngh::gh_whoami() # Press enter",
     "crumbs": [
-      "Class Setup"
+      "Course Setup"
     ]
   },
   {
