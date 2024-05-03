@@ -2,7 +2,7 @@
 title: "Class Materials"
 format: html
 listing:
-  - id: schedule
+  - id: materials
     contents:
       - weeks/week_*.qmd
     type: table
@@ -20,7 +20,7 @@ editor: visual
 
 ## Class Materials
 
-::: {#schedule}
+::: {#materials}
 :::
 
 ## Homework
