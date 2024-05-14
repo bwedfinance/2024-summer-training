@@ -1,6 +1,6 @@
 ---
 title: "Basic Data Analysis and Visualization in R"
-date: "June 13, 2023"
+date: "June 11, 2024"
 format: 
   revealjs:
     chalkboard: true
@@ -25,7 +25,7 @@ execute:
 
 ## Solving a common problem with the homework
 
-Great job, overall! One universal comment is that we want to avoid hard coding values.
+TKTK
 
 ```{r}
 #| echo: true
@@ -74,10 +74,8 @@ Property taxes are typically collected based on two variables:
 School districts generate revenue from the local property tax associated with property located within districts' geographic boundaries. When school districts have significantly different levels of property wealth producing those tax revenues compared to one another, a massive barrier to equitable educational finance results.
 :::
 
-:::aside
-
+::: aside
 Source: [NCES](https://nces.ed.gov/programs/digest/d22/tables/dt22_235.10.asp)
-
 :::
 
 ## Defining key property tax terms
@@ -101,17 +99,16 @@ The way school district boundaries are drawn and the way school funding formulas
 -   **Implementing redistributive mechanisms for exceeding local revenue caps**: If communities wish to generate more revenue for their local school system above the cap, policymakers can set a rule that for every additional dollar generated above the cap, another dollar must be allocated to a state fund for schools in lower-wealth communities.
 -   **Enacting a statewide property tax**: Moving from many locally collected taxes to a single, statewide property tax is the most direct way to address property wealth inequities among school districts. Vermont is the only state to implement a state-level property tax system for financing education.
 
-## Does your state set a local tax floor or ceiling? 
+## Does your state set a local tax floor or ceiling?
 
-| **State**    | **Description**                                                                                                  |
-|:------------|:-------------------------------------------------------|
-| Alabama      | Alabama sets a floor for local property tax rates, as well as a ceiling, above which voter approval is required. |
-| Delaware     | None.                                                                                                            |
-| Georgia      | Georgia sets a floor for local property tax rates, as well as a level above which voter approval is required.    |
-| Michigan     | Michigan sets a ceiling for local property tax rates.                                                            |
-| Mississippi  | Mississippi sets a floor and a ceiling for local property tax rates.                                             |
-| New York     | None.                                                                                                            |
-| Pennsylvania | None.                                                                                                            |
+| **State**            | **Description** |
+|:---------------------|:----------------|
+| Arizona              |                 |
+| Arkansas             |                 |
+| District of Columbia |                 |
+| North Carolina       |                 |
+| Washington           |                 |
+| Virginia             |                 |
 
 ## Questions for advocates
 
@@ -163,7 +160,7 @@ library(edbuildr)
 edbuild_fin_fy19 <- masterpull(data_year = 2019, data_type = "fin")
 ```
 
-This code will load the `edbuildr` package and then download a clean dataframe from EdBuild's server and store it as a variable called `edbuild_fin_fy19`.
+This code will load the `edbuildr` package and then download a clean data frame from EdBuild's server and store it as a variable called `edbuild_fin_fy19`.
 
 There are three options for the `data_type` argument:
 
@@ -297,7 +294,7 @@ The missing data makes sense. All eight of the rows don't have any available dat
 
 ## Step 3: Clean up formatting of chart elements (1/5)
 
-Now that we understand our missing data, we can create an updated dataframe and re-plot our newly cleaned data.
+Now that we understand our missing data, we can create an updated data frame  and re-plot our newly cleaned data.
 
 ```{r}
 #| echo: true
@@ -652,9 +649,9 @@ Summarize the state level data and calculate the median for enrollment, number o
 #| echo: true
 #| output-location: slide
 
-# summarise ------------
+# Summarize  ------------
 
-# create a state summary dataframe
+# create a state summary data frame
 state_summary <- dist_fy19_raw |> 
   group_by(State) |> 
   summarise(enroll_med = median(ENROLL, na.rm = T),
@@ -666,8 +663,6 @@ state_summary <- dist_fy19_raw |>
             mhi_med = median(MHI, na.rm = T),
             mpv_med = median(MPV, na.rm = T),
             state_loc_rev_pp_med = median(SLRPP, na.rm = T))
-
-
 ```
 
 ## Create histograms (1/3)
@@ -719,18 +714,13 @@ ggplot(data = state_summary) +
 
 Use `edbuildr` data and `tidyverse` functions to:
 
--   [ ] Create a dataframe that includes `edbuilder` data from your state
-
+-   [ ] Create a data frame  that includes `edbuildr` data from your state
 -   [ ] Plot histograms shows the distributions of property wealth, income, and per-pupil revenue across school districts
-
--   [ ] Develop two scatterplots that illustrate important relationships in your state's school finance landscape by working within these options:
+-   [ ] Develop two scatter plots that illustrate important relationships in your state's school finance landscape by working within these options:
 
     -   X-axis variable options: median household income (`MHI`), median property value (`MPV`), and student poverty rate (`StPovRate`) as your x-axis variables
-
     -   Y-axis variable options: state per-pupil revenue (`SRPP`), local per-pupil revenue (`LRPP`), and combined state and local per-pupil revenue (`SLRPP`)
-
     -   Size variable: Enrollment (`ENROLL`)
-
     -   Color variables: Urbanicity (`dUrbanicity`), median household income (`MHI`), median property value (`MPV`), and student poverty rate (`StPovRate`)
-
     -   Use the formatting techniques covered in class to create nice axis and legend labels and add titles and captions to your plots.
+
