@@ -2100,5 +2100,25 @@
     "title": "Basic Data Analysis and Visualization in R",
     "section": "Use Edbuildr data to create state summaries",
     "text": "Use Edbuildr data to create state summaries"
+  },
+  {
+    "objectID": "setup.html#step-5-generate-a-token-in-github",
+    "href": "setup.html#step-5-generate-a-token-in-github",
+    "title": "Setup",
+    "section": "Step 5: Generate a Token in GitHub",
+    "text": "Step 5: Generate a Token in GitHub\nGo to https://github.com/settings/tokens. Under “Generate New Token” choose the “Classic” option. Name the token something useful like “2024-r-for-ed-class”.\nYou can choose an expiration date, but I have chosen no expiration date. Select the following: “repo”, “user”, “gist”, and “workflow” and then generate your token. SAVE YOUR TOKEN!!!!",
+    "crumbs": [
+      "Class Setup"
+    ]
+  },
+  {
+    "objectID": "setup.html#step-6-setting-up-rstudio-for-cloning-github-respositories",
+    "href": "setup.html#step-6-setting-up-rstudio-for-cloning-github-respositories",
+    "title": "Setup",
+    "section": "Step 6: Setting up RStudio for Cloning GitHub respositories",
+    "text": "Step 6: Setting up RStudio for Cloning GitHub respositories\nOnce you have confirmed Git is working on your machine, copy and paste the following code in the “Console” pane and run it by hitting return.\n\n# First install these package in the console pane and press enter\n\ninstall.packages(c(\"usethis\", \"gitcreds\", \"gh\")) #Press enter \n\n# Once you have installed the packages, then copy and paste this code into the console pane \n# and pres enter \n\ngitcreds::gitcreds_set() # Press enter\n\n# When prompted, provide your token and press enter\n\n# Once you have provided your token, copy and paste the this code into the console pane \n# and press enter. You should see your credentials listed, confirming you set up your \n# token authentication correctly. \n\ngh::gh_whoami() # Press enter",
+    "crumbs": [
+      "Class Setup"
+    ]
   }
 ]

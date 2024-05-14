@@ -187,7 +187,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#step-2-install-rstudio" id="toc-step-2-install-rstudio" class="nav-link" data-scroll-target="#step-2-install-rstudio">Step 2: Install RStudio</a></li>
   <li><a href="#step-3-install-required-packages" id="toc-step-3-install-required-packages" class="nav-link" data-scroll-target="#step-3-install-required-packages">Step 3: Install required packages</a></li>
   <li><a href="#step-4-install-git" id="toc-step-4-install-git" class="nav-link" data-scroll-target="#step-4-install-git">Step 4: Install Git</a></li>
-  <li><a href="#step-5-setting-up-rstudio-for-cloning-github-respositories" id="toc-step-5-setting-up-rstudio-for-cloning-github-respositories" class="nav-link" data-scroll-target="#step-5-setting-up-rstudio-for-cloning-github-respositories">Step 5: Setting up RStudio for Cloning GitHub respositories</a></li>
+  <li><a href="#step-5-generate-a-token-in-github" id="toc-step-5-generate-a-token-in-github" class="nav-link" data-scroll-target="#step-5-generate-a-token-in-github">Step 5: Generate a Token in GitHub</a></li>
+  <li><a href="#step-6-setting-up-rstudio-for-cloning-github-respositories" id="toc-step-6-setting-up-rstudio-for-cloning-github-respositories" class="nav-link" data-scroll-target="#step-6-setting-up-rstudio-for-cloning-github-respositories">Step 6: Setting up RStudio for Cloning GitHub respositories</a></li>
   </ul>
 </nav>
     </div>
@@ -261,8 +262,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>git version <span class="co">#Press enter </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="step-5-setting-up-rstudio-for-cloning-github-respositories" class="level2">
-<h2 class="anchored" data-anchor-id="step-5-setting-up-rstudio-for-cloning-github-respositories">Step 5: Setting up RStudio for Cloning GitHub respositories</h2>
+<section id="step-5-generate-a-token-in-github" class="level2">
+<h2 class="anchored" data-anchor-id="step-5-generate-a-token-in-github">Step 5: Generate a Token in GitHub</h2>
+<p>Go to https://github.com/settings/tokens. Under “Generate New Token” choose the “Classic” option. Name the token something useful like “2024-r-for-ed-class”.</p>
+<p>You can choose an expiration date, but I have chosen no expiration date. Select the following: “repo”, “user”, “gist”, and “workflow” and then generate your token. SAVE YOUR TOKEN!!!!</p>
+</section>
+<section id="step-6-setting-up-rstudio-for-cloning-github-respositories" class="level2">
+<h2 class="anchored" data-anchor-id="step-6-setting-up-rstudio-for-cloning-github-respositories">Step 6: Setting up RStudio for Cloning GitHub respositories</h2>
 <p>Once you have confirmed Git is working on your machine, copy and paste the following code in the “Console” pane and run it by hitting return.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># First install these package in the console pane and press enter</span></span>

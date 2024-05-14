@@ -67,7 +67,13 @@ git version #Press enter
 
 ```
 
-## Step 5: Setting up RStudio for Cloning GitHub respositories 
+## Step 5: Generate a Token in GitHub 
+
+Go to https://github.com/settings/tokens. Under "Generate New Token" choose the "Classic" option. Name the token something useful like "2024-r-for-ed-class". 
+
+You can choose an expiration date, but I have chosen no expiration date. Select the following: “repo”, “user”, “gist”, and “workflow” and then generate your token. SAVE YOUR TOKEN!!!!
+
+## Step 6: Setting up RStudio for Cloning GitHub respositories 
 
 Once you have confirmed Git is working on your machine, copy and paste the following code in the "Console" pane and run it by hitting return. 
 
