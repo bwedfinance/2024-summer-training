@@ -2106,7 +2106,7 @@
     "href": "setup.html#step-5-generate-a-token-in-github",
     "title": "Setup",
     "section": "Step 5: Generate a Token in GitHub",
-    "text": "Step 5: Generate a Token in GitHub\nGo to https://github.com/settings/tokens. Under “Generate New Token” choose the “Classic” option. Name the token something useful like “2024-r-for-ed-class”.\nYou can choose an expiration date, but I have chosen no expiration date. Select the following: “repo”, “user”, “gist”, and “workflow” and then generate your token. SAVE YOUR TOKEN!!!!",
+    "text": "Step 5: Generate a Token in GitHub\nGo to https://github.com/settings/tokens. Under “Generate New Token” choose the “Classic” option. Name the token something useful like “2024-r-for-ed-class”.\nYou can choose an expiration date, but I have chosen no expiration date. Select the following: “repo”, “user”, “gist”, and “workflow” and then generate your token. SAVE YOUR TOKEN!!!!\nYou can read more about GitHub tokens here.",
     "crumbs": [
       "Class Setup"
     ]
