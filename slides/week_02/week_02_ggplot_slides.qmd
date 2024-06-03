@@ -99,16 +99,18 @@ The way school district boundaries are drawn and the way school funding formulas
 -   **Implementing redistributive mechanisms for exceeding local revenue caps**: If communities wish to generate more revenue for their local school system above the cap, policymakers can set a rule that for every additional dollar generated above the cap, another dollar must be allocated to a state fund for schools in lower-wealth communities.
 -   **Enacting a statewide property tax**: Moving from many locally collected taxes to a single, statewide property tax is the most direct way to address property wealth inequities among school districts. Vermont is the only state to implement a state-level property tax system for financing education.
 
-## Does your state set a local tax floor or ceiling?
+## Does your state set a local tax floor or ceiling? {.smaller .scrollable}
 
-| **State**            | **Description** |
-|:---------------------|:----------------|
-| Arizona              |                 |
-| Arkansas             |                 |
-| District of Columbia |                 |
-| North Carolina       |                 |
-| Washington           |                 |
-| Virginia             |                 |
+| **State**      | **Description**                                                                                                                                                                                                                                                                                                                      |
+|:----------|:-------------------------------------------------------------|
+| Arizona        | Arizona sets a ceiling for local property tax rates, as well as a level above which voter approval is required. School districts require voter approval to raise more than the rate sufficient to reach their formula amount and, even with voter approval, are limited to 15% above their formula amount for operating costs.       |
+| Arkansas       | Arkansas sets a floor for local property tax rates, as well as a level above which voter approval is required. School districts are required to impose at least \$25.00 for every \$1,000 of assessed local property wealth, and they may impose a higher rate with voter approval.                                                  |
+| Maryland       | Maryland sets a floor for local property tax rates. Local jurisdictions must impose taxes sufficient to provide the greatest of their local share or the same amount of revenue they provided in the previous year. Additionally, districts are expected to contribute a specified share of their local revenue toward education.    |
+| North Carolina | North Carolina does not expect districts to contribute revenue to their public schools' instructional and operational expenses. However, facilities expenses generally are the responsibility of county governments.                                                                                                                 |
+| Virginia       | Virginia sets a floor on local property tax rates but no ceiling or level above which voter approval is required. School districts in Virginia may not impose local property taxes. However, local government agencies are required to impose local property taxes that are sufficient to raise the expected local share of revenue. |
+| Washington     | Washington sets a ceiling for local property tax rates as well as a level above which voter approval is required. School districts in Washington may impose supplemental property taxes up to a ceiling with voter approval and with approval from the Office of Superintendent of Public Instruction.                               |
+
+Source: EdBuild, 2023
 
 ## Questions for advocates
 
@@ -260,6 +262,10 @@ The `ggplot2` package is the most widely-used data visualization approach in the
 -   Once your specify your data, you can add layers of "geoms" to create your plot
 -   Today we will use `geom_histogram()` and `geom_point()`
 
+# Using `ggplot2` is like baking! {.smaller}
+
+![](ggplot-cake.png){fig-align="center"}
+
 # Iterating your way to beauty with ggplot2 using Minnesota data
 
 ## Step 1: Create a basic plot
@@ -294,7 +300,7 @@ The missing data makes sense. All eight of the rows don't have any available dat
 
 ## Step 3: Clean up formatting of chart elements (1/5)
 
-Now that we understand our missing data, we can create an updated data frame  and re-plot our newly cleaned data.
+Now that we understand our missing data, we can create an updated data frame and re-plot our newly cleaned data.
 
 ```{r}
 #| echo: true
@@ -714,8 +720,10 @@ ggplot(data = state_summary) +
 
 Use `edbuildr` data and `tidyverse` functions to:
 
--   [ ] Create a data frame  that includes `edbuildr` data from your state
+-   [ ] Create a data frame that includes `edbuildr` data from your state
+
 -   [ ] Plot histograms shows the distributions of property wealth, income, and per-pupil revenue across school districts
+
 -   [ ] Develop two scatter plots that illustrate important relationships in your state's school finance landscape by working within these options:
 
     -   X-axis variable options: median household income (`MHI`), median property value (`MPV`), and student poverty rate (`StPovRate`) as your x-axis variables
@@ -723,4 +731,3 @@ Use `edbuildr` data and `tidyverse` functions to:
     -   Size variable: Enrollment (`ENROLL`)
     -   Color variables: Urbanicity (`dUrbanicity`), median household income (`MHI`), median property value (`MPV`), and student poverty rate (`StPovRate`)
     -   Use the formatting techniques covered in class to create nice axis and legend labels and add titles and captions to your plots.
-
