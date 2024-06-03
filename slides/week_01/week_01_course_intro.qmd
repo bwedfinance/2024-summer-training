@@ -675,19 +675,19 @@ Source: [Artwork by \@allison_horst](https://twitter.com/allison_horst)
 
 ## You'll be recieving an email with an invitation to join the GitHub organization for this training
 
-![](img/git_process/00-gh-email-invite.png){fig-align="center"}
+![](img/git_process/gh-email-invite-2024.png){fig-align="center"}
 
 ## Once you click the green button, you'll be directed to GitHub to join the organization
 
-![](img/git_process/01-gh-org-invite.png){fig-align="center"}
+![](img/git_process/gh-accept-invite-2024.png){fig-align="center"}
 
 ## Bookmark the organization page -- your homework assignments will show up here as repositories
 
-![](img/git_process/02-gh-hw-repo.png){fig-align="center"}
+![](img/git_process/gh-github-page-2024.png){fig-align="center"}
 
 ## To start an assignment, navigate to the the repo and copy the HTTPS link that appears when you click the "Code" button
 
-![](img/git_process/03-gh-repo-url.png){fig-align="center"}
+![](img/git_process/gh-cloning-2024.png){fig-align="center"}
 
 ## Next, you'll open RStudio and create a new project, selecting the "Version Control" and "Git" options
 
@@ -703,29 +703,24 @@ Source: [Artwork by \@allison_horst](https://twitter.com/allison_horst)
 
 ## You're now ready to start working on your homework! Start by opening the README.md file
 
-![](img/git_process/07-assign-repo.png){fig-align="center"}
+![](img/git_process/rstudio-2024.png){fig-align="center"}
 
 ## The README.md file is a text file that will include instructions for your assignment -- using the "Visual" option will make it easier to read
 
-![](img/git_process/08-open-readme.png){fig-align="center"}
+![](img/git_process/readme-2024.png){fig-align="center"}
 
 ## The README.md file is a text file that will include instructions for your assignment -- using the "Visual" option will make it easier to read
 
-![](img/git_process/09-visual-readme.png){fig-align="center"}
+![](img/git_process/readme-visual-2024.png){fig-align="center"}
 
-## Once you've completed your assignment, you'll want to "stage" the changes you've made
+## Once you've completed your assignment, you'll want to "stage" your changes and then start the "commit" process {.smaller}
 
-![](img/git_process/10-gh-stage.png){fig-align="center"}
+- Make sure the "Staged" box is checked
+- Press "Commit"
+- Press "Push". This will send updates to the GitHub repository. 
 
-## Once you've completed your assignment, you'll want to "stage" your changes and then start the "commit" process
+![](img/git_process/git-2024.png){fig-align="center"}
 
-![](img/git_process/11-gh-commit.png){fig-align="center"}
-
-## We'll use GitHub's "Issues" feature to share feedback on your work
-
-After you receive an email notification that an issue was opened, you can click a link to view it on GitHub. On the issue page, you can respond if you have questions or click "Close issue" if no follow-up is needed.
-
-![](img/git_process/15-hw-feedback.png){fig-align="center"}
 
 # Homework
 

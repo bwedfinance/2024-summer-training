@@ -501,7 +501,7 @@
     "href": "slides/week_01/week_01_course_intro.html#once-youve-completed-your-assignment-youll-want-to-stage-your-changes-and-then-start-the-commit-process",
     "title": "Introduction to Education Finance Equity, R, RStudio, and GitHub",
     "section": "Once you’ve completed your assignment, you’ll want to “stage” your changes and then start the “commit” process",
-    "text": "Once you’ve completed your assignment, you’ll want to “stage” your changes and then start the “commit” process"
+    "text": "Once you’ve completed your assignment, you’ll want to “stage” your changes and then start the “commit” process\n\nMake sure the “Staged” box is checked\nPress “Commit”\nPress “Push”. This will send updates to the GitHub repository."
   },
   {
     "objectID": "slides/week_01/week_01_course_intro.html#well-use-githubs-issues-feature-to-share-feedback-on-your-work",
