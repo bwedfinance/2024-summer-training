@@ -44,12 +44,12 @@ us_states <- us_states_raw |>
   filter(GEOID < 60) |> 
   shift_geometry() 
 
-summer24 <- tibble(STUSPS = c("VA", "AZ", "AR", "DC", "NC", 
+summer24 <- tibble(STUSPS = c("VA", "AZ", "AR", "MD", "NC", "WA", 
                               "PA", "DE", "AL", "MI", "GA","NY",
                               "MS",
                               "CO","CA", "IL", "IN",
                               "OH", "MN","TN", "FL"),
-                   status = c(rep("Cohort 4", 5), 
+                   status = c(rep("Cohort 4", 6), 
                               rep("Cohort 3", 7),
                               rep("Cohort 2", 4),
                               rep("Cohort 1", 4))) |> 

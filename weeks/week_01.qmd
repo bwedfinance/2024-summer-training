@@ -26,6 +26,10 @@ format: html
 ::: {#slides}
 :::
 
+## Class Example R Script 
+
+[Link to the R script for class 1](https://gist.github.com/kkaput23/448f479488733c1a5e5fff8418d6ef7c)
+
 ## Lecture recording
 
 The Zoom recording from our class is will be made available after class. 

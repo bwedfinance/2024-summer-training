@@ -457,7 +457,7 @@
 <section id="your-cohort-is-part-of-a-growing-network-of-education-finance-advocates" class="slide level2">
 <h2>Your cohort is part of a growing network of education finance advocates</h2>
 
-<img data-src="week_01_course_intro_files/figure-html/unnamed-chunk-2-1.png" width="672" class="r-stretch"></section>
+<img data-src="week_01_course_intro_files/figure-revealjs/unnamed-chunk-2-1.png" width="960" class="r-stretch"></section>
 <section id="getting-to-know-cohort-4" class="slide level2">
 <h2>Getting to know Cohort 4</h2>
 <div class="columns">
@@ -469,7 +469,7 @@
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_8c733258" data-update-every="1" tabindex="0" style="right:0;bottom:0;font-size:1.5em;">
+<div class="countdown" id="timer_a08c604b" data-update-every="1" tabindex="0" style="right:0;bottom:0;font-size:1.5em;">
 <div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">10</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
@@ -647,7 +647,7 @@
 <!-- ::: aside -->
 <!-- Source: [NCES](https://nces.ed.gov/programs/digest/d22/tables/dt22_235.10.asp) -->
 <!-- ::: -->
-<img data-src="week_01_course_intro_files/figure-html/unnamed-chunk-4-1.png" width="672" class="r-stretch"><p><strong>Note</strong>: The ESSER I, II, and III funding inflated the federal FY22 percentage. Normally, federal funding accounts for ~8% of overall funding.</p>
+<img data-src="week_01_course_intro_files/figure-revealjs/unnamed-chunk-4-1.png" width="960" class="r-stretch"><p><strong>Note</strong>: The ESSER I, II, and III funding inflated the federal FY22 percentage. Normally, federal funding accounts for ~8% of overall funding.</p>
 </section>
 <section id="follow-the-money-where-does-it-come-from-1" class="slide level2">
 <h2>Follow the money: where does it come from?</h2>
@@ -1020,10 +1020,6 @@
 </div>
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a><span class="co"># but you need to be sure you're using the right datatype</span></span>
 <span id="cb12-2"><a></a><span class="fu">mean</span>(athlete_df<span class="sc">$</span>name)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in mean.default(athlete_df$name): argument is not numeric or logical:
-returning NA</code></pre>
-</div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] NA</code></pre>
 </div>
@@ -1059,7 +1055,7 @@ returning NA</code></pre>
 <h1>Break — 10 minutes</h1>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_32b6c7b3" data-update-every="1" tabindex="0" style="right:0;bottom:0;font-size:1.5em;">
+<div class="countdown" id="timer_0e1dd50a" data-update-every="1" tabindex="0" style="right:0;bottom:0;font-size:1.5em;">
 <div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">10</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
@@ -1478,6 +1474,44 @@ returning NA</code></pre>
         ]
       });
     </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {

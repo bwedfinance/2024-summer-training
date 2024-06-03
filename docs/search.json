@@ -326,7 +326,7 @@
     "href": "slides/week_01/week_01_course_intro.html#coding-example-basic-r-use",
     "title": "Introduction to Education Finance Equity, R, RStudio, and GitHub",
     "section": "CODING EXAMPLE – Basic R use",
-    "text": "CODING EXAMPLE – Basic R use\n\n# basic r use ------------\n\n# creating variables using the assignment operator \"&lt;-\"\nvar1 &lt;- 12\nvar2 &lt;- 34\n\n# you can do operations on variables\nvar1 + var2\n\n[1] 46\n\n# we need to store them as a new variable\nvar1_var2_sum &lt;- var1 + var2\n\n# you can group variables together in a vector using the \n# concatenate function \"c()\" to create vectors\nvar_values &lt;- c(var1, var2)\nvar_names &lt;- c(\"Tom Brady\", \"Nolan Ryan\")\n\n# you can run functions across the values in a vector\nmean(var_values)\n\n[1] 23\n\n# individual positions in vectors can be referenced\nvar_names[1]\n\n[1] \"Tom Brady\"\n\n# vectors of equal length can be grouped into tables, called dataframes\nathlete_df &lt;- data.frame(name = var_names, jersey = var_values)\n\n# column names are referenced using \"$\"\nathlete_df$name\n\n[1] \"Tom Brady\"  \"Nolan Ryan\"\n\n# you can run functions on dataframe columns\nmean(athlete_df$jersey)\n\n[1] 23\n\n# but you need to be sure you're using the right datatype\nmean(athlete_df$name)\n\nWarning in mean.default(athlete_df$name): argument is not numeric or logical:\nreturning NA\n\n\n[1] NA"
+    "text": "CODING EXAMPLE – Basic R use\n\n# basic r use ------------\n\n# creating variables using the assignment operator \"&lt;-\"\nvar1 &lt;- 12\nvar2 &lt;- 34\n\n# you can do operations on variables\nvar1 + var2\n\n[1] 46\n\n# we need to store them as a new variable\nvar1_var2_sum &lt;- var1 + var2\n\n# you can group variables together in a vector using the \n# concatenate function \"c()\" to create vectors\nvar_values &lt;- c(var1, var2)\nvar_names &lt;- c(\"Tom Brady\", \"Nolan Ryan\")\n\n# you can run functions across the values in a vector\nmean(var_values)\n\n[1] 23\n\n# individual positions in vectors can be referenced\nvar_names[1]\n\n[1] \"Tom Brady\"\n\n# vectors of equal length can be grouped into tables, called dataframes\nathlete_df &lt;- data.frame(name = var_names, jersey = var_values)\n\n# column names are referenced using \"$\"\nathlete_df$name\n\n[1] \"Tom Brady\"  \"Nolan Ryan\"\n\n# you can run functions on dataframe columns\nmean(athlete_df$jersey)\n\n[1] 23\n\n# but you need to be sure you're using the right datatype\nmean(athlete_df$name)\n\n[1] NA"
   },
   {
     "objectID": "slides/week_01/week_01_course_intro.html#packages-are-collections-of-r-functions-they-allow-users-to-easily-extend-what-they-can-do-in-r",
@@ -2120,5 +2120,12 @@
     "crumbs": [
       "Class Setup"
     ]
+  },
+  {
+    "objectID": "weeks/week_01.html#class-example-r-script",
+    "href": "weeks/week_01.html#class-example-r-script",
+    "title": "Week 01",
+    "section": "Class Example R Script",
+    "text": "Class Example R Script\nLink to the R script for class 1"
   }
 ]
