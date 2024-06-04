@@ -7,14 +7,14 @@ library(tidyverse)
 # CLass examples -----------
 
 # Variables can be stored as single values or as *vectors* of multiple values
-x <- 3 # <1>
+x <- 3 
 
-y <- c(2, 4, 5) # <2>
-z <- c("a", "b", "c") # <2>
+y <- c(2, 4, 5) 
+z <- c("a", "b", "c") 
 
-df <- tibble(letters = z, nums = y) # <3>
+df <- tibble(letters = z, nums = y) 
 
-df #<4>
+df 
 
 # basic r use ------------
 
@@ -37,7 +37,7 @@ var_names <- c("Tom Brady", "Nolan Ryan")
 mean(var_values)
 
 # individual positions in vectors can be referenced
-var_names[1]
+var_names[2]
 
 # vectors of equal length can be grouped into tables, called data frames
 athlete_df <- data.frame(name = var_names, jersey = var_values)
@@ -50,4 +50,11 @@ mean(athlete_df$jersey)
 
 # but you need to be sure you're using the right datatype
 mean(athlete_df$name)
+
+
+View(athlete_df)
+
+
+
+
 

@@ -755,4 +755,4 @@ Assignments should be completed by noon Eastern time on the Monday before the ne
 -   [ ] Run and observe the example script from today's class
 -   [ ] Create four new variables using the `median()` function
 
-**Next Class is Tuesday, June 11 from 12:00 - 2:00 PM ET.**
+**Next Class is Tuesday, June 11 from 1:00 - 3:00 PM ET.**
