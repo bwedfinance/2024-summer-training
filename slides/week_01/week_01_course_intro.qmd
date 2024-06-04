@@ -695,7 +695,7 @@ Source: [Artwork by \@allison_horst](https://twitter.com/allison_horst)
 
 ![](img/git_process/gh-github-page-2024.png){fig-align="center"}
 
-## To start an assignment, navigate to the the repo and copy the HTTPS link that appears when you click the "Code" button
+## To start an assignment, navigate to the repo and copy the HTTPS link that appears when you click the "Code" button
 
 ![](img/git_process/gh-cloning-2024.png){fig-align="center"}
 
