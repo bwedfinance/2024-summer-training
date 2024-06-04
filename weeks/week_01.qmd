@@ -32,11 +32,11 @@ format: html
 
 ## Lecture recording
 
-The Zoom recording from our class is will be made available after class. 
+[Link to the R class recording](https://vimeo.com/953747230?share=copy). Refer to the follow-up email for the password to view the recording.
 
 ## Coding Assignment
 
-Homework will be available immediately following class. 
+Refer to the `hw-wk-1` repository for the homework assignment. 
 
 ## Readings
 
