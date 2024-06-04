@@ -44,12 +44,12 @@ us_states <- us_states_raw |>
   filter(GEOID < 60) |> 
   shift_geometry() 
 
-summer24 <- tibble(STUSPS = c("VA", "AZ", "AR", "MD", "NC", "WA", 
+summer24 <- tibble(STUSPS = c("VA", "AR", "MD", "NC", "WA", 
                               "PA", "DE", "AL", "MI", "GA","NY",
                               "MS",
                               "CO","CA", "IL", "IN",
                               "OH", "MN","TN", "FL"),
-                   status = c(rep("Cohort 4", 6), 
+                   status = c(rep("Cohort 4", 5), 
                               rep("Cohort 3", 7),
                               rep("Cohort 2", 4),
                               rep("Cohort 1", 4))) |> 
@@ -160,7 +160,7 @@ We will achieve this by helping you:
 
 -   Learn R for data analysis and visualization
 
--   Develop an understanding of K-12 school funding policies nationally and deep understanding of your state's system, specifically
+-   Develop an understanding of K-12 school funding policies nationally and deep understanding of your state's system
 
 -   Use R to support in-depth education finance analysis that is:
 
