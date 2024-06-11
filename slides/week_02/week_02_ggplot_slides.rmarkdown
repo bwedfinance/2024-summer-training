@@ -9,6 +9,7 @@ execute:
   echo: false
 ---
 
+
 ## Agenda
 
 -   Policy Overview: Local property taxes (10 minutes)
@@ -118,6 +119,7 @@ Functions are helpful tools to reduce repetition in typing and improves your cod
 
 ## To read EdBuild's finance data into our working environment we will use the masterpull() function
 
+
 ```{r}
 #| echo: true
 #| eval: false
@@ -126,6 +128,7 @@ library(edbuildr)
 
 edbuild_fin_fy19 <- masterpull(data_year = 2019, data_type = "fin")
 ```
+
 
 This code will load the `edbuildr` package and then download a clean data frame from EdBuild's server and store it as a variable called `edbuild_fin_fy19`.
 
@@ -150,6 +153,7 @@ The functions you'll most frequently use from the dplyr packages are:
 
 -   Instead of "nesting" the results of one function inside of another, the pipe allows you to execute the same command in a more human-readable order.
 
+
 ```{r}
 #| echo: true
 #| eval: false
@@ -166,9 +170,11 @@ df2 <- raw_df |> # start with raw_df AND THEN
 
 ```
 
+
 # Iterative exploratory analysis
 
 ## LIVE CODING EXAMPLE: exploring_the_tidyverse.R
+
 
 ```{r}
 #| echo: true
@@ -217,6 +223,7 @@ mn_ed_data <- dist_fy19_raw |>
 
 ```
 
+
 # Visual exploratory analysis
 
 ## Summarizing columns can be helpful, but it can hide nuance in your data that can be better seen via plotting
@@ -235,6 +242,7 @@ The `ggplot2` package is the most widely-used data visualization approach in the
 
 ## Step 1: Create a basic plot
 
+
 ```{r}
 #| echo: true
 #| message: true
@@ -246,9 +254,11 @@ ggplot(mn_ed_data, aes(x = pov_pct, y = local_rev_pp)) +
 
 ```
 
+
 ## Step 2: Address missing values
 
 We need to figure out what's going on with our missing values before we go any further!
+
 
 ```{r}
 #| echo: true
@@ -261,11 +271,13 @@ view(mn_na_dist)
 
 ```
 
+
 The missing data makes sense. All eight of the rows don't have any available data.
 
 ## Step 3: Clean up formatting of chart elements (1/5)
 
 Now that we understand our missing data, we can create an updated data frame and re-plot our newly cleaned data.
+
 
 ```{r}
 #| echo: true
@@ -290,9 +302,11 @@ ggplot(mn_ed_clean, aes(x = pov_pct, y = local_rev_pp)) +
 
 ```
 
+
 ## Step 3: Clean up formatting of chart elements (2/5)
 
 We see some overlap in the points. Reducing the opacity of the points can be accomplished by setting the `alpha` parameter in geom_point() to a value less than 1. Setting it to .5 will make data points 50% translucent.
+
 
 ```{r}
 #| echo: true
@@ -303,11 +317,13 @@ ggplot(mn_ed_clean, aes(x = pov_pct, y = local_rev_pp)) +
 
 ```
 
+
 ## Step 3: Clean up formatting of chart elements (3/5)
 
 Let's take care of some formatting issues.
 
 Our axes don't look great - the decimals ought to be percentages and the vertical axis represents dollars. Here, the `scales` package provides some help.
+
 
 ```{r}
 #| echo: true
@@ -326,9 +342,11 @@ ggplot(mn_ed_clean, aes(x = pov_pct, y = local_rev_pp)) +
 
 ```
 
+
 ## Step 3: Clean up formatting of chart elements (4/5)
 
 Next, we should add some labels to our axes that make sense, along with a title for our plot and a caption that details our data sources.
+
 
 ```{r}
 #| echo: true
@@ -346,9 +364,11 @@ ggplot(mn_ed_clean, aes(x = pov_pct, y = local_rev_pp)) +
 
 ```
 
+
 ## Step 3: Clean up formatting of chart elements (5/5)
 
 Themes can be used to change the appearance of elements in your plot. There are many stock options, but I prefer `theme_bw()` for its clean appearance and helpful and unobtrusive grid lines.
+
 
 ```{r}
 #| echo: true
@@ -367,11 +387,13 @@ ggplot(mn_ed_clean, aes(x = pov_pct, y = local_rev_pp)) +
 
 ```
 
+
 # Break
 
 ## Step 4: Add a new layer of data
 
 Now that we have a decent-looking graph, let's add in a new data element to vary point size by enrollment.
+
 
 ```{r}
 #| echo: true
@@ -390,9 +412,11 @@ ggplot(mn_ed_clean, aes(x = pov_pct, y = local_rev_pp, size = enroll)) +
 
 ```
 
+
 ## Step 5: Tidy up formatting (1/2)
 
 Adding a new variable for size creates a legend. We need to tidy the legend's labels and the title.
+
 
 ```{r}
 #| echo: true
@@ -415,9 +439,11 @@ ggplot(mn_ed_clean, aes(x = pov_pct, y = local_rev_pp, size = enroll)) +
 
 ```
 
+
 ## Step 5: Tidy up formatting (2/2)
 
 We can also adjust some paramenters to allow for more visual contrast in size. By default, `ggplot2` will adjust points' radii based on the size variable. Using area is a more visually honest way to represent the data, so let's make that change.
+
 
 ```{r}
 #| echo: true
@@ -439,9 +465,11 @@ ggplot(mn_ed_clean, aes(x = pov_pct, y = local_rev_pp, size = enroll)) +
 
 ```
 
+
 ## Step 6: Repeat steps 4-5 as needed (1/5)
 
 Adding color can be helpful. Let's add color based on urbanicity.
+
 
 ```{r}
 #| echo: true
@@ -461,9 +489,11 @@ ggplot(mn_ed_clean, aes(x = pov_pct, y = local_rev_pp, size = enroll,
 
 ```
 
+
 ## Step 6: Repeat steps 4-5 as needed (2/5)
 
 That doesn't look great. Let's use some more functions from the `tidyverse` to clean up the data a little more to reduce 11 urbanicity levels to four, then tidy up the legend label.
+
 
 ```{r}
 #| echo: true
@@ -501,9 +531,11 @@ ggplot(mn_ed_clean, aes(x = pov_pct, y = local_rev_pp, size = enroll,
 
 ```
 
+
 ## Step 6: Repeat steps 4-5 as needed (3/5)
 
 We can and should adjust the colors used. R recognizes some pretty funky color names, which can be found in this helpful cheat sheet.
+
 
 ```{r}
 #| echo: true
@@ -530,9 +562,11 @@ ggplot(mn_ed_clean, aes(x = pov_pct, y = local_rev_pp, size = enroll,
 
 ```
 
+
 ## Step 6: Repeat steps 4-5 as needed (4/5)
 
 We should strive to make our analyses as accessible as possible. The `viridis` package includes some color palettes that are friendly for folks with color blindness, which affects 5-10 percent of the US population.
+
 
 ```{r}
 #| echo: true
@@ -559,9 +593,11 @@ ggplot(mn_ed_clean, aes(x = pov_pct, y = local_rev_pp, size = enroll,
 
 ```
 
+
 ## Step 6: Repeat steps 4-5 as needed (5/5)
 
 Let's adjust the range of colors used to exclude that hard-to-see yellow.
+
 
 ```{r}
 #| echo: true
@@ -585,9 +621,11 @@ ggplot(mn_ed_clean, aes(x = pov_pct, y = local_rev_pp, size = enroll,
 
 ```
 
+
 ## Step 7: Replace a layer of data
 
 Sometimes color isn't the answer - let's try facets instead.
+
 
 ```{r}
 #| echo: true
@@ -610,11 +648,13 @@ ggplot(mn_ed_clean, aes(x = pov_pct, y = local_rev_pp, size = enroll)) +
 
 ```
 
+
 # Using histograms to compare state and local revenue
 
 ## Use Edbuildr data to create state summaries
 
 Summarize the state level data and calculate the median for enrollment, number of schools, median household income, median property value, and more.
+
 
 ```{r}
 #| echo: true
@@ -636,9 +676,11 @@ state_summary <- dist_fy19_raw |>
             state_loc_rev_pp_med = median(SLRPP, na.rm = T))
 ```
 
+
 ## Create histograms (1/3)
 
 Use a histogram to visualize the distribution of median property values across states.
+
 
 ```{r}
 #| echo: true
@@ -648,9 +690,11 @@ ggplot(data = state_summary) +
 
 ```
 
+
 ## Create histograms (2/3)
 
 Use a histogram to visualize the distribution of median household income across states.
+
 
 ```{r}
 #| echo: true
@@ -661,9 +705,11 @@ ggplot(data = state_summary) +
 
 ```
 
+
 ## Create histograms (3/3)
 
 Use a histogram to visualize the distribution of state and local per-pupil funding across states.
+
 
 ```{r}
 #| echo: true
@@ -672,6 +718,7 @@ ggplot(data = state_summary) +
   geom_histogram(mapping = aes(x = state_loc_rev_pp_med), binwidth = 2000)
 
 ```
+
 
 # Homework
 
@@ -696,3 +743,4 @@ Use `edbuildr` data and `tidyverse` functions to:
     -   Size variable: Enrollment (`ENROLL`)
     -   Color variables: Urbanicity (`dUrbanicity`), median household income (`MHI`), median property value (`MPV`), and student poverty rate (`StPovRate`)
     -   Use the formatting techniques covered in class to create nice axis and legend labels and add titles and captions to your plots.
+
