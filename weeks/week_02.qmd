@@ -43,7 +43,4 @@ Refer to the `hw-wk-2` repository for the homework assignment.
 -  [*What Is School Finance Equity and Why Does It Matter?*](https://bellwether.org/wp-content/uploads/2021/10/Bellwether_SplittingBill_01-WhatIsSchlFinan_Final.pdf)
 
 -  [*How Are Public Schools Funded?*](https://bellwether.org/wp-content/uploads/2021/10/Bellwether_SplittingBill_02-HowPublSchlFund_Final.pdf)
----
-title: "Untitled"
-editor: visual
----
+

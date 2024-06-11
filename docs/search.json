@@ -933,7 +933,7 @@
   {
     "objectID": "weeks/week_02.html",
     "href": "weeks/week_02.html",
-    "title": "Untitled",
+    "title": "Week 02",
     "section": "",
     "text": "Topic\n\n\nDate\n\n\n\n\n\n\nBasic Data Analysis and Visualization in R\n\n\nJun 11, 2024\n\n\n\n\n\nNo matching items"
   },
@@ -947,21 +947,21 @@
   {
     "objectID": "weeks/week_02.html#lecture-recording",
     "href": "weeks/week_02.html#lecture-recording",
-    "title": "Untitled",
+    "title": "Week 02",
     "section": "Lecture recording",
     "text": "Lecture recording\nWill be uploaded after class"
   },
   {
     "objectID": "weeks/week_02.html#coding-assignment",
     "href": "weeks/week_02.html#coding-assignment",
-    "title": "Untitled",
+    "title": "Week 02",
     "section": "Coding Assignment",
     "text": "Coding Assignment\nRefer to the hw-wk-2 repository for the homework assignment."
   },
   {
     "objectID": "weeks/week_02.html#readings",
     "href": "weeks/week_02.html#readings",
-    "title": "Untitled",
+    "title": "Week 02",
     "section": "Readings",
     "text": "Readings\n\nWhat Is School Finance Equity and Why Does It Matter?\nHow Are Public Schools Funded?"
   },
@@ -1998,7 +1998,7 @@
     "href": "materials.html#materials",
     "title": "Class Materials",
     "section": "Materials",
-    "text": "Materials\n\n\n\n\n\nWeek\n\n\nDates\n\n\nTopic\n\n\n\n\n\n\nWeek 01\n\n\nJune 4\n\n\nIntroduction to School Finance Equity\n\n\n\n\nUntitled\n\n\nJune 11\n\n\nBasic Data Analysis and Visualization in R\n\n\n\n\n\nNo matching items",
+    "text": "Materials\n\n\n\n\n\nWeek\n\n\nDates\n\n\nTopic\n\n\n\n\n\n\nWeek 01\n\n\nJune 4\n\n\nIntroduction to School Finance Equity\n\n\n\n\nWeek 02\n\n\nJune 11\n\n\nBasic Data Analysis and Visualization in R\n\n\n\n\nWeek 04\n\n\nJune 4\n\n\nTest\n\n\n\n\n\nNo matching items",
     "crumbs": [
       "Class Materials"
     ]
@@ -2145,15 +2145,29 @@
   {
     "objectID": "weeks/week_02.html#slides",
     "href": "weeks/week_02.html#slides",
-    "title": "Untitled",
+    "title": "Week 02",
     "section": "",
     "text": "Topic\n\n\nDate\n\n\n\n\n\n\nBasic Data Analysis and Visualization in R\n\n\nJun 11, 2024\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "weeks/week_02.html#class-example-r-script",
     "href": "weeks/week_02.html#class-example-r-script",
-    "title": "Untitled",
+    "title": "Week 02",
     "section": "Class Example R Script",
     "text": "Class Example R Script\nLink to the R script for class 2"
+  },
+  {
+    "objectID": "weeks/week_04.html#slides",
+    "href": "weeks/week_04.html#slides",
+    "title": "Week 04",
+    "section": "",
+    "text": "Topic\n\n\nDate\n\n\n\n\n\n\nData cleaning and processing in R\n\n\nJun 27, 2023\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "weeks/week_04.html#class-example-r-script",
+    "href": "weeks/week_04.html#class-example-r-script",
+    "title": "Week 04",
+    "section": "Class Example R Script",
+    "text": "Class Example R Script\nLink to the R script for class 4"
   }
 ]
