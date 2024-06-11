@@ -293,3 +293,33 @@ ggplot(mn_ed_clean, aes(x = pov_pct, y = local_rev_pp, size = enroll,
        caption = "Source: Edbuild Data, 2019",
        size = "Enrollment", color = "Urbanicity") +
   theme_bw()
+
+# Summarize  ------------
+
+# create a state summary data frame
+state_summary <- dist_fy19_raw |> 
+  group_by(State) |> 
+  summarise(enroll_med = median(ENROLL, na.rm = T),
+            n_schools_med = median(dOperational_schools, na.rm = T),
+            nonwhite_pct_med = median(pctNonwhite, na.rm = T),
+            st_pov_rate_med = median(StPovRate, na.rm = T),
+            sd_area_med = median(sd_area, na.rm = T),
+            student_per_sq_mile_med = median(student_per_sq_mile, na.rm = T),
+            mhi_med = median(MHI, na.rm = T),
+            mpv_med = median(MPV, na.rm = T),
+            state_loc_rev_pp_med = median(SLRPP, na.rm = T))
+
+# Create histograms -----
+
+# histogram of median property value
+
+ggplot(data = state_summary) +
+  geom_histogram(mapping = aes(x = mpv_med), binwidth = 40000)
+
+# histogram of median household income
+ggplot(data = state_summary) +
+  geom_histogram(mapping = aes(x = mhi_med), binwidth = 3000)
+
+# histogram of state + local pp rev
+ggplot(data = state_summary) +
+  geom_histogram(mapping = aes(x = state_loc_rev_pp_med), binwidth = 2000)

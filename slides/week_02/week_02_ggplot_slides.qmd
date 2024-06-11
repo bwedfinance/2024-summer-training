@@ -11,51 +11,17 @@ execute:
 
 ## Agenda
 
--   Homework review (15 min)
+-   Policy Overview: Local property taxes (10 minutes)
 
--   Exploring local revenue through `edbuildr` and the `tidyverse` (60 min)
+-   Exploring local revenue through `edbuildr` and the `tidyverse` (50 min)
 
 -   Break (10 min)
 
--   Visualizing local revenue data with `ggplot2` (30 min)
+-   Visualizing local revenue data with `ggplot2` (35 min)
+
+-   Cloning repositories and using Git (10 minutes)
 
 -   Homework assignment (5 min)
-
-# Homework Review
-
-## Solving a common problem with the homework
-
-TKTK
-
-```{r}
-#| echo: true
-#| eval: false
-
-# Several people took an extra step and hard coded in the value
-
-median(sd_data$MHI, na.rm = T)
-mhi_median <- 57199
-
-# You can streamline the code like this: 
-
-mhi_median <- median(sd_data$MHI, na.rm = T)
-
-# We avoid hard coding variables because if you update the data set and the 'MHI' 
-# variable updates, then 'mhi_median' will automatically update. 
-
-# find the median value of median property value (MPV) and store the result in a variable called `mpv_median`
-
-mpv_median <- median(sd_data$MPV, na.rm = T)
-
-# find the median value of state revenue per pupil (SRPP) and store the result in a variable called `srpp_median`
-
-srpp_median <- median(sd_data$SRPP, na.rm = T)
-
-# find the median value of local revenue per pupil (LRPP) and store the result in a variable called `lrpp_median`
-
-lrpp_median <- median(sd_data$LRPP, na.rm = T)
-
-```
 
 # How do local taxes affect school finance equity?
 
