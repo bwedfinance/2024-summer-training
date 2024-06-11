@@ -1117,7 +1117,7 @@
     "href": "slides/week_02/week_02_ggplot_slides.html#agenda",
     "title": "Basic Data Analysis and Visualization in R",
     "section": "Agenda",
-    "text": "Agenda\n\nPolicy Overview: Local property taxes (10 minutes)\nExploring local revenue through edbuildr and the tidyverse (50 min)\nBreak (10 min)\nVisualizing local revenue data with ggplot2 (35 min)\nCloning repositories and using Git (10 minutes)\nHomework assignment (5 min)"
+    "text": "Agenda\n\nPolicy Overview: Local property taxes (10 minutes)\nExploring local revenue through edbuildr and the tidyverse (50 min)\nBreak (10 min)\nVisualizing local revenue data with ggplot2 (35 min)\nHomework assignment (5 min)\nCloning repositories and using Git (10 minutes)"
   },
   {
     "objectID": "slides/week_02/week_02_ggplot_slides.html#solving-a-common-problem-with-the-homework",
@@ -1355,7 +1355,7 @@
     "href": "slides/week_02/week_02_ggplot_slides.html#this-weeks-assignment",
     "title": "Basic Data Analysis and Visualization in R",
     "section": "This week’s assignment",
-    "text": "This week’s assignment\nReading assignment\n\nHow Do Local Taxes Affect School Finance Equity?\n\nCoding task\nUse edbuildr data and tidyverse functions to:\n\nCreate a data frame that includes edbuildr data from your state\nPlot histograms shows the distributions of property wealth, income, and per-pupil revenue across school districts\nDevelop two scatter plots that illustrate important relationships in your state’s school finance landscape by working within these options:\n\nX-axis variable options: median household income (MHI), median property value (MPV), and student poverty rate (StPovRate) as your x-axis variables\nY-axis variable options: state per-pupil revenue (SRPP), local per-pupil revenue (LRPP), and combined state and local per-pupil revenue (SLRPP)\nSize variable: Enrollment (ENROLL)\nColor variables: Urbanicity (dUrbanicity), median household income (MHI), median property value (MPV), and student poverty rate (StPovRate)\nUse the formatting techniques covered in class to create nice axis and legend labels and add titles and captions to your plots."
+    "text": "This week’s assignment\nReading assignment\n\nHow Do Local Taxes Affect School Finance Equity?\nLeveling the Landscape\n\nCoding task\nUse edbuildr data and tidyverse functions to:\n\nCreate a data frame that includes edbuildr data from your state\nPlot histograms shows the distributions of property wealth, income, and per-pupil revenue across school districts\nDevelop two scatter plots that illustrate important relationships in your state’s school finance landscape by working within these options:\n\nX-axis variable options: median household income (MHI), median property value (MPV), and student poverty rate (StPovRate) as your x-axis variables\nY-axis variable options: state per-pupil revenue (SRPP), local per-pupil revenue (LRPP), and combined state and local per-pupil revenue (SLRPP)\nSize variable: Enrollment (ENROLL)\nColor variables: Urbanicity (dUrbanicity), median household income (MHI), median property value (MPV), and student poverty rate (StPovRate)\nUse the formatting techniques covered in class to create nice axis and legend labels and add titles and captions to your plots."
   },
   {
     "objectID": "slides/week_07/week_07_slides.html",

@@ -19,9 +19,11 @@ execute:
 
 -   Visualizing local revenue data with `ggplot2` (35 min)
 
+-   Homework assignment (5 min)
+
 -   Cloning repositories and using Git (10 minutes)
 
--   Homework assignment (5 min)
+
 
 # How do local taxes affect school finance equity?
 
@@ -679,7 +681,8 @@ ggplot(data = state_summary) +
 
 **Reading assignment**
 
--   [ ] [***How Do Local Taxes Affect School Finance Equity?***](https://bellwether.org/wp-content/uploads/2021/10/Bellwether_SplittingBill_06-LocalTaxesAndFinanceEquity_Final.pdf)
+- [ ] [***How Do Local Taxes Affect School Finance Equity?***](https://bellwether.org/wp-content/uploads/2021/10/Bellwether_SplittingBill_06-LocalTaxesAndFinanceEquity_Final.pdf)
+- [ ] [***Leveling the Landscape***](https://bellwether.org/publications/leveling-the-landscape/)
 
 **Coding task**
 
