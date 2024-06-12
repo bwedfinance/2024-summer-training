@@ -8,7 +8,6 @@ options(scipen = 999)
 
 library(tidyverse)
 library(edbuildr)
-library(scales)
 
 # Krista likes to denote which spreadsheet is raw for transparency 
 dist_fy19_raw <- masterpull(data_type = "geo")
@@ -40,8 +39,8 @@ mn_ed_data <- dist_fy19_raw |>
          median_prop_value = MPV) |>
   # The mutate functions creates new variables 
   mutate(bipoc_enroll = enroll - white_enroll,
-         ell_pct = ell_enroll/enroll, 
-         sped_pct = sped_enroll/enroll, 
+         ell_pct = ell_enroll/ enroll, 
+         sped_pct = sped_enroll/ enroll, 
          local_rev_pp = total_local_rev/enroll,
          state_rev_pp = total_state_rev/enroll,
          local_state_rev_pp = total_state_local_rev/enroll) |>
@@ -115,7 +114,7 @@ ggplot(mn_ed_clean, aes(x = pov_pct, y = local_rev_pp)) +
   scale_y_continuous(labels = label_dollar()) + 
   labs(x = "Student Poverty Rate", y = "Local Per-Pupil Revenue",
        title = "Local Per-Pupil Revenue by Student Poverty Rate in Minnesota School Districts",
-       caption = "Source: Edbuild Data, 2019") 
+       caption = "Source: EdBuild Data, 2019") 
 
 # Themes can be used to change the appearance of elements in your plot. 
 # There are many stock options, but I prefer `theme_bw()` for its clean appearance and helpful and unobtrusive grid lines.
@@ -162,7 +161,7 @@ ggplot(mn_ed_clean, aes(x = pov_pct, y = local_rev_pp, size = enroll)) +
        size = "Enrollment") +
   theme_bw()
 
-# We can also adjust some paramenters to allow for more visual contrast in size. 
+# We can also adjust some parameters to allow for more visual contrast in size. 
 # By default, `ggplot2` will adjust points' radii based on the size variable. 
 # Using area is a more visually honest way to represent the data, so let's make that change.
 
@@ -249,7 +248,7 @@ ggplot(mn_ed_clean, aes(x = pov_pct, y = local_rev_pp, size = enroll,
   scale_y_continuous(labels = label_dollar()) +
   scale_size_area(labels = label_comma(), max_size = 10) + 
   labs(x = "Student Poverty Rate", y = "Local Per-Pupil Revenue",
-       title = "Local Per-Pupil Revenue by Student Povert Rate in Minnesota School Districts",
+       title = "Local Per-Pupil Revenue by Student Poverty Rate in Minnesota School Districts",
        caption = "Source: Edbuild Data, 2019",
        size = "Enrollment") +
   theme_bw()
@@ -289,7 +288,7 @@ ggplot(mn_ed_clean, aes(x = pov_pct, y = local_rev_pp, size = enroll,
   scale_y_continuous(labels = label_dollar()) +
   scale_size_area(labels = label_comma(), max_size = 10) + 
   labs(x = "Student Poverty Rate", y = "Local Per-Pupil Revenue",
-       title = "Local Per-Pupil Revenue by Student Povert Rate in Minnesota School Districts",
+       title = "Local Per-Pupil Revenue by Student Poverty Rate in Minnesota School Districts",
        caption = "Source: Edbuild Data, 2019",
        size = "Enrollment", color = "Urbanicity") +
   theme_bw()
@@ -307,7 +306,8 @@ state_summary <- dist_fy19_raw |>
             student_per_sq_mile_med = median(student_per_sq_mile, na.rm = T),
             mhi_med = median(MHI, na.rm = T),
             mpv_med = median(MPV, na.rm = T),
-            state_loc_rev_pp_med = median(SLRPP, na.rm = T))
+            state_loc_rev_pp_med = median(SLRPP, na.rm = T),
+            total_enroll = sum(ENROLL, na.rm = T))
 
 # Create histograms -----
 

@@ -32,7 +32,7 @@ format: html
 
 ## Lecture recording
 
-Will be uploaded after class
+[Link to the R class recording](https://vimeo.com/957242581). Refer to the follow-up email for the password to view the recording.
 
 ## Coding Assignment
 
@@ -42,5 +42,7 @@ Refer to the `hw-wk-2` repository for the homework assignment.
 
 -  [*What Is School Finance Equity and Why Does It Matter?*](https://bellwether.org/wp-content/uploads/2021/10/Bellwether_SplittingBill_01-WhatIsSchlFinan_Final.pdf)
 
--  [*How Are Public Schools Funded?*](https://bellwether.org/wp-content/uploads/2021/10/Bellwether_SplittingBill_02-HowPublSchlFund_Final.pdf)
+-  [*Leveling the Landscape*](https://bellwether.org/publications/leveling-the-landscape/)
+
+
 
