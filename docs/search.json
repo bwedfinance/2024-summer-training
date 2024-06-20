@@ -710,36 +710,36 @@
     "objectID": "slides/week_04/week_04_slides.html#review-from-week-2",
     "href": "slides/week_04/week_04_slides.html#review-from-week-2",
     "title": "Data cleaning and processing in R",
-    "section": "",
-    "text": "General tips and things to keep in mind from talking with several of you:\n\nKeep all of your variable names lowercase (including dataframes!) — it helps prevent potential problems and errors.\nIn order to create a scatterplot or histogram with ggplot(), you need to make sure the dataframe you want to use is available in your working environment. Reminder: your working environment will be empty when you start RStudio — you’ll need to run each line of code that comes before your plot code in order for it to run successfully.\nTo run the code for a plot, you can execute it by clicking “Run” or hitting Command + Enter on your keybord if you have either 1) placed your cursor anywhere in the code for the plot or 2) you’ve higlighted all of the lines of code to create your plot (highlighting a single line will not work)."
+    "section": "Review from Week 2",
+    "text": "Review from Week 2\nGeneral tips and things to keep in mind from talking with several of you:\n\nKeep all of your variable names lowercase (including dataframes!) — it helps prevent potential problems and errors.\nIn order to create a scatterplot or histogram with ggplot(), you need to make sure the dataframe you want to use is available in your working environment. Reminder: your working environment will be empty when you start RStudio — you’ll need to run each line of code that comes before your plot code in order for it to run successfully.\nTo run the code for a plot, you can execute it by clicking “Run” or hitting Command + Enter on your keybord if you have either 1) placed your cursor anywhere in the code for the plot or 2) you’ve higlighted all of the lines of code to create your plot (highlighting a single line will not work)."
   },
   {
     "objectID": "slides/week_04/week_04_slides.html#cleaning-your-data-one-of-the-most-important-and-under-appreciated-stages-of-good-data-analysis",
     "href": "slides/week_04/week_04_slides.html#cleaning-your-data-one-of-the-most-important-and-under-appreciated-stages-of-good-data-analysis",
-    "title": "Data cleaning and processing in R",
+    "title": "Data Cleaning and Processing in R: Part 1",
     "section": "Cleaning your data: One of the most important and under-appreciated stages of good data analysis",
-    "text": "Cleaning your data: One of the most important and under-appreciated stages of good data analysis\n\n\n\n\n\n\n“Tidy datasets are all alike, but every messy dataset is messy in its own way.” - Hadley Wickham\n\n\n\n\nEducation finance data, like most other data, rarely come to us in a format that is plug-and-play ready for analysis.\nA high-quality analysis of your state’s school finance system must start with gathering and cleaning relevant data.\nThis starts with ensuring that each dataframe of raw data you read into R goes through a process of becoming “tidy” — once you have tidy data, merging and visualizing data becomes much easier.\nThe process of tidying your data is also helpful for identifying anomalies or outliers in your raw data files."
+    "text": "Cleaning your data: One of the most important and under-appreciated stages of good data analysis\n\nMost data rarely come to us in a format that is plug-and-play ready for analysis.\nHigh-quality data analysis must start with gathering and cleaning relevant data.\nThis starts with ensuring that each data frame of raw data you read into R goes through a process of becoming “tidy” — once you have tidy data, merging and visualizing data becomes much easier.\nThe process of tidying your data is also helpful for identifying anomalies or outliers in your raw data files.\n\n\n“Tidy data sets are all alike, but every messy data set is messy in its own way.” - Hadley Wickham"
   },
   {
     "objectID": "slides/week_04/week_04_slides.html#the-principles-of-tidy-data-provide-a-helpful-vision-of-what-good-clean-data-should-look-like",
     "href": "slides/week_04/week_04_slides.html#the-principles-of-tidy-data-provide-a-helpful-vision-of-what-good-clean-data-should-look-like",
-    "title": "Data cleaning and processing in R",
+    "title": "Data Cleaning and Processing in R: Part 1",
     "section": "The principles of “tidy data” provide a helpful vision of what good, clean data should look like",
-    "text": "The principles of “tidy data” provide a helpful vision of what good, clean data should look like\n\n\nTidy data follows three rules:\n\nEach column is a variable\nEach row is an observation\nEach cell is a value\n\n\nBuilding tidy datasets will:\n• Bring consistency to your data across scripts/projects\n• Make it easier to work with functions in the `tidyverse`, which is built to work will with “tidy” data\n\n\n\n\n\n\n\n\n\nSource: R for Data Science"
+    "text": "The principles of “tidy data” provide a helpful vision of what good, clean data should look like\nTidy data follows three rules:\n\nEach column is a variable\nEach row is an observation\nEach cell is a value\n\n\nSource: R for Data Science"
   },
   {
     "objectID": "slides/week_04/week_04_slides.html#it-takes-a-bit-of-work-to-make-data-tidy-including-the-use-of-functions-to-reshape-your-data",
     "href": "slides/week_04/week_04_slides.html#it-takes-a-bit-of-work-to-make-data-tidy-including-the-use-of-functions-to-reshape-your-data",
     "title": "Data cleaning and processing in R",
     "section": "It takes a bit of work to make data tidy, including the use of functions to reshape your data",
-    "text": "It takes a bit of work to make data tidy, including the use of functions to reshape your data\nDatasets can violate the principles of tidy data in several ways:\n\nVariables can be embedded across columns: An common example is when multiple columns represent data from different years. In this case, a variable (year) is actually represented by column names instead of being captured in its own “year” column.\nSolution: Pivot your data longer!\n\n\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.5.0     ✔ tibble    3.2.1\n✔ lubridate 1.9.3     ✔ tidyr     1.3.1\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\n\n# A tibble: 3 × 4\n  state sy20_rev sy21_rev sy22_rev\n  &lt;chr&gt;    &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;\n1 AL     2023902  2304983  3930833\n2 AK      230993   233466   283948\n3 AZ      203492   390282   409828"
+    "text": "It takes a bit of work to make data tidy, including the use of functions to reshape your data\nDatasets can violate the principles of tidy data in several ways:\n\nVariables can be embedded across columns: An common example is when multiple columns represent data from different years. In this case, a variable (year) is actually represented by column names instead of being captured in its own “year” column.\nSolution: Pivot your data longer!\n\n\n\n# A tibble: 3 × 4\n  state sy20_rev sy21_rev sy22_rev\n  &lt;chr&gt;    &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;\n1 AL     2023902  2304983  3930833\n2 AK      230993   233466   283948\n3 AZ      203492   390282   409828"
   },
   {
     "objectID": "slides/week_04/week_04_slides.html#it-takes-a-bit-of-work-to-make-data-tidy-including-the-use-of-functions-to-reshape-your-data-cont.",
     "href": "slides/week_04/week_04_slides.html#it-takes-a-bit-of-work-to-make-data-tidy-including-the-use-of-functions-to-reshape-your-data-cont.",
-    "title": "Data cleaning and processing in R",
+    "title": "Data Cleaning and Processing in R: Part 1",
     "section": "It takes a bit of work to make data tidy, including the use of functions to reshape your data, cont.",
-    "text": "It takes a bit of work to make data tidy, including the use of functions to reshape your data, cont.\n\nA single observation may be spread across multiple rows: This can happen when one column includes multiple variable types within it. And example would be if a dataframe had a “data_type” column that included entries like “n_tested” and “pct_prof”.\nSolution: Pivot your table wider!\n\n\n\n# A tibble: 6 × 3\n  sch_name         data_type  value\n  &lt;chr&gt;            &lt;chr&gt;      &lt;dbl&gt;\n1 Alpha Elementary n_tested  230   \n2 Alpha Elementary pct_prof    0.53\n3 Bravo Middle     n_tested  492   \n4 Bravo Middle     pct_prof    0.34\n5 Charlie High     n_tested  434   \n6 Charlie High     pct_prof    0.43"
+    "text": "It takes a bit of work to make data tidy, including the use of functions to reshape your data, cont.\nA single observation may be spread across multiple rows: This can happen when one column includes multiple variable types within it. And example would be if a dataframe had a “data_type” column that included entries like “n_tested” and “pct_prof”.\nSolution: If your data includes data from a single observation spread across multiple rows, use the pivot_wider() function\n\nSource: R for Data Science"
   },
   {
     "objectID": "slides/week_04/week_04_slides.html#pivot_longer-is-useful-when-a-variable-is-embedded-across-several-column-names",
@@ -800,9 +800,9 @@
   {
     "objectID": "slides/week_04/week_04_slides.html#coding-example-how-to-use-left_join",
     "href": "slides/week_04/week_04_slides.html#coding-example-how-to-use-left_join",
-    "title": "Data cleaning and processing in R",
+    "title": "Data Cleaning and Processing in R: Part 1",
     "section": "Coding example: How to use left_join()",
-    "text": "Coding example: How to use left_join()\n\nExample 1: The common ID columns have the same variable names (sch_id)\nExample 2: The common ID columns have different variable names. The sch_clean dataframe’s variable is sch_id, while the sch_el data frame’s variable name is school_id. The column names can be different, but the values within the cells must be the same so we can join them.\n\n\n# join data ---------\n\n# EXAMPLE 1: Join the ADM, special education, economically disadvantaged, and ELL student data\nsch_clean &lt;- sch_adm |&gt;\n  left_join(sch_ed, by = \"sch_id\") |&gt;\n  left_join(sch_sped, by = \"sch_id\") \n\n# EXAMPLE 2: Join the ELL data \n\nsch_clean &lt;- sch_clean |&gt;\n  left_join(sch_el, by = c(\"sch_id\" = \"school_id\"))"
+    "text": "Coding example: How to use left_join()\n\nExample 1: The common ID columns have the same variable names (dist_id)\nExample 2: The common ID columns have different variable names. The il_test_data_fy23_clean dataframe’s variable is dist_id, while the example_2_il_finance_testing_fy23 data frame’s variable name is rcdts. The column names can be different, but the values within the cells must be the same so we can join them.\n\n\n# Use left_join() function to join the the illinoi data -------\n\n# EXAMPLE 1: Join them with the same \"dist_id\" name \n\nexample_1_il_finance_testing_fy23 &lt;- il_test_data_fy23_clean |&gt;\n  left_join(il_finance_fy23_same_id, by = \"dist_id\")\n\n\n# EXAMPLE 2: Join them with different column names, but they're the same values\n# dist_id comes from because it's in the il_test_data_fy23_clean dataframe \nexample_2_il_finance_testing_fy23 &lt;- il_test_data_fy23_clean |&gt;\n  left_join(il_finance_fy23_diff_id, by = c(\"dist_id\" = \"rcdts\"))"
   },
   {
     "objectID": "slides/week_04/week_04_slides.html#as-you-merge-dataframes-be-sure-to-use-anti_join-to-examine-missing-data",
@@ -830,7 +830,7 @@
     "href": "slides/week_04/week_04_slides.html#to-get-started-youll-need-to-sign-up-for-an-api-key-with-the-census-bureau",
     "title": "Data cleaning and processing in R",
     "section": "To get started, you’ll need to sign up for an API key with the Census Bureau",
-    "text": "To get started, you’ll need to sign up for an API key with the Census Bureau\n\n\n\n\n\nSignup for an API key here!"
+    "text": "To get started, you’ll need to sign up for an API key with the Census Bureau\n\nSignup for an API key here!"
   },
   {
     "objectID": "slides/week_04/week_04_slides.html#in-class-coding-example-clean_and_join.r-13",
@@ -856,7 +856,7 @@
   {
     "objectID": "slides/week_04/week_04_slides.html#this-weeks-assignment",
     "href": "slides/week_04/week_04_slides.html#this-weeks-assignment",
-    "title": "Data cleaning and processing in R",
+    "title": "Data Cleaning and Processing in R: Part 1",
     "section": "This week’s assignment",
     "text": "This week’s assignment\nReading assignment\n\nHow Can School Finance Systems Support Students with Additional Learning Needs?\n\nCoding task\nClean your state’s district data and make sure that you have all of the data you need to model your state’s funding formula and the potential policy changes you want to make. This may require joining dataframes, pivot_longer(), pivot_wider() and/or using mutate() to merge, reshape, and tidy data from your state.\nUltimately, you’ll want to produce a single dataframe where:\n\nEach row represents a single LEA (traditional district or charter school)\nEach column represents a single variable\nAll of the data elements that go into your current formula are present in the dataframe.\n\nIf you need to join more than two dataframes, just start with joining two dataframes for this assingment. We can work on building the full dataset you’ll need to model your formula over the coming weeks.\nTo get started, a template R script is included: scripts/dist_clean.R – please use that file to load, clean, and save your tidy data.\nAs always, once you’ve completed the assignment, be sure to commit and push to GitHub!"
   },
@@ -865,7 +865,7 @@
     "href": "weeks/week_04.html",
     "title": "Week 04",
     "section": "",
-    "text": "Materials are forthcoming!\n\n\n\n\n\n\n\n\n\nTopic\n\n\nDate\n\n\n\n\n\n\nData cleaning and processing in R\n\n\nJun 27, 2023\n\n\n\n\n\nNo matching items"
+    "text": "Materials are forthcoming!\n\n\n\n\n\n\n\n\n\nTopic\n\n\nDate\n\n\n\n\n\n\nData Cleaning and Processing in R: Part 1\n\n\nJun 25, 2024\n\n\n\n\nData cleaning and processing in R\n\n\nJun 25, 2025\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "weeks/week_04.html#lecture",
@@ -1005,7 +1005,7 @@
     "href": "weeks/week_03.html",
     "title": "Week 03",
     "section": "",
-    "text": "Class slides will be available after class."
+    "text": "Link to Class 3 slides"
   },
   {
     "objectID": "weeks/week_03.html#lecture",
@@ -1019,21 +1019,21 @@
     "href": "weeks/week_03.html#lecture-recording",
     "title": "Week 03",
     "section": "Lecture recording",
-    "text": "Lecture recording\nThe Zoom recording from our class is will be made available after class."
+    "text": "Lecture recording\nLink to the R class part 1 recording and the part 2 recording. Refer to the follow-up email for the password to view the recording."
   },
   {
     "objectID": "weeks/week_03.html#coding-assignment",
     "href": "weeks/week_03.html#coding-assignment",
     "title": "Week 03",
     "section": "Coding Assignment",
-    "text": "Coding Assignment\nHomework will be available immediately following class."
+    "text": "Coding Assignment\nRefer to the hw-wk-3 repository for the homework assignment."
   },
   {
     "objectID": "weeks/week_03.html#readings",
     "href": "weeks/week_03.html#readings",
     "title": "Week 03",
     "section": "Readings",
-    "text": "Readings\nReadings will be made available after class."
+    "text": "Readings\n\nHow Are State Education Funding Formulas Structured?\nWhat Are the Biggest Equity Problems in State Education Finance Systems?\nFortifying Funding"
   },
   {
     "objectID": "weeks/week_06.html",
@@ -1998,7 +1998,7 @@
     "href": "materials.html#materials",
     "title": "Class Materials",
     "section": "Materials",
-    "text": "Materials\n\n\n\n\n\nWeek\n\n\nDates\n\n\nTopic\n\n\n\n\n\n\nWeek 01\n\n\nJune 4\n\n\nIntroduction to School Finance Equity\n\n\n\n\nWeek 02\n\n\nJune 11\n\n\nBasic Data Analysis and Visualization in R\n\n\n\n\nWeek 04\n\n\nJune 25\n\n\nData Cleaning and Processing in R\n\n\n\n\n\nNo matching items",
+    "text": "Materials\n\n\n\n\n\nWeek\n\n\nDates\n\n\nTopic\n\n\n\n\n\n\nWeek 01\n\n\nJune 4\n\n\nIntroduction to School Finance Equity\n\n\n\n\nWeek 02\n\n\nJune 11\n\n\nBasic Data Analysis and Visualization in R\n\n\n\n\nWeek 03\n\n\nJune 18\n\n\nStudent-Based Funding Formulas and Advocacy Considerations\n\n\n\n\nWeek 04\n\n\nJune 25\n\n\nData Cleaning and Processing in R\n\n\n\n\n\nNo matching items",
     "crumbs": [
       "Class Materials"
     ]
@@ -2169,5 +2169,278 @@
     "title": "Week 04",
     "section": "Class Example R Script",
     "text": "Class Example R Script\nLink to the R script for class 4"
+  },
+  {
+    "objectID": "slides/week_04/week_04_slides.html#agenda",
+    "href": "slides/week_04/week_04_slides.html#agenda",
+    "title": "Data Cleaning and Processing in R: Part 1",
+    "section": "Agenda",
+    "text": "Agenda\n\nGeneral reminders\nPrinciples of tidy data\nTechniques to clean messy data\nBreak\nJoining data sets\nSummarizing data\nHomework and next class"
+  },
+  {
+    "objectID": "slides/week_04/week_04_slides.html#building-tidy-data-sets-will-bring-consistency-to-your-data-across-scriptsprojects",
+    "href": "slides/week_04/week_04_slides.html#building-tidy-data-sets-will-bring-consistency-to-your-data-across-scriptsprojects",
+    "title": "Data Cleaning and Processing in R: Part 1",
+    "section": "Building tidy data sets will bring consistency to your data across scripts/projects",
+    "text": "Building tidy data sets will bring consistency to your data across scripts/projects\nTidy data sets also make it easier to work with functions in the tidyverse, which is built to work will with “tidy” data. The package we will focus on today is the tidyr package, which is designed to help you tidy up your messy data into a structured, organized format that is conducive to analysis and visualization. It offers a suite of functions for reshaping and transforming your data, making it easier to work with in downstream analyses.\nADD A PHOTO"
+  },
+  {
+    "objectID": "slides/week_04/week_04_slides.html#it-takes-some-work-to-make-data-tidy-including-the-use-of-functions-to-reshape-your-data",
+    "href": "slides/week_04/week_04_slides.html#it-takes-some-work-to-make-data-tidy-including-the-use-of-functions-to-reshape-your-data",
+    "title": "Data Cleaning and Processing in R: Part 1",
+    "section": "It takes some work to make data tidy, including the use of functions to reshape your data",
+    "text": "It takes some work to make data tidy, including the use of functions to reshape your data\nData sets can violate the principles of tidy data in several ways. The most common way is for a variable to be embedded across columns. For example, multiple columns can represent data from different years. In this case, a variable (year) is actually represented by column names instead of being captured in its own “year” column.\nSolution: If your data includes a variable that is embedded across several column names, use the pivot_longer() function\n\nSource: R for Data Science"
+  },
+  {
+    "objectID": "slides/week_04/week_04_slides.html#live-coding-example-using-pivot_longer-function",
+    "href": "slides/week_04/week_04_slides.html#live-coding-example-using-pivot_longer-function",
+    "title": "Data Cleaning and Processing in R: Part 1",
+    "section": "Live coding example: Using pivot_longer() function",
+    "text": "Live coding example: Using pivot_longer() function\nKey arguments of the pivot_longer() function:\n\ncols: The names of the columns to pivot using tidy-select\nnames_to: The name for the new character column\nvalues_to: The name for the new values column\n\n\n# clean the special education data -----\n\nsection_611_longer &lt;- section_611_raw |&gt;\n  # Makes all the letters in a column lowercase\n  rename_with(tolower) |&gt;\n  select(state, fy2016, fy2017, fy2018, fy2019, fy2020, fy2021, fy2022) |&gt;\n  pivot_longer(cols = starts_with(\"fy\"), # The columns start with \"fy\"\n               names_to = \"fiscal_year\", # the names of the columns will become a value in the \"fiscal_year\" column\n               values_to = \"idea_funding\") |&gt; # The values in the \"fy\" columns will be in the new column \"idea_funding\"\n  # Use the gsub to remove the \"fy\" from the fiscal years so that the values are just the year\n  mutate(fiscal_year = as.numeric(gsub(\"^fy\", \"\", fiscal_year))) |&gt;\n  mutate(idea_category = \"Part B, Grants to States\")"
+  },
+  {
+    "objectID": "slides/week_04/week_04_slides.html#live-coding-example-using-pivot_wider-function",
+    "href": "slides/week_04/week_04_slides.html#live-coding-example-using-pivot_wider-function",
+    "title": "Data Cleaning and Processing in R: Part 1",
+    "section": "Live coding example: Using pivot_wider() function",
+    "text": "Live coding example: Using pivot_wider() function\nBreaking down the code:\n\nnames_from: The column with values that include multiple variables; will be pivoted into column names.\nvalues_from: The column with values will be used as cell values after pivoting.\n\n\n# Use pivot_wider with the 2023 graduation rate data \n\nmn_graduation_fy23_wider &lt;- mn_graduation_fy23_raw |&gt;\n  # Makes all the letters in a column lowercase\n  rename_with(tolower) |&gt;\n  # rename the columns so there isn't a space in-between the words\n  rename(district = \"district name\",\n         dist_id = \"district number\",\n         dist_type = \"district type\",\n         group_category = \"group category\",\n         student_group = \"student group\",\n         ending_status = \"ending status\",\n         four_yr_grad_pct = \"four year percent\") |&gt;\n  # Select the columns we want to include in our dataframe for the pivot_wider\n  select(district, dist_id, dist_type, group_category, student_group, ending_status, four_yr_grad_pct) |&gt;\n  # filter so that we are only looking at students who graduated in four years\n  filter(ending_status == \"Graduate\") |&gt;\n  # filter the student demographics because we only want to look at race/ethnicity data\n  filter(group_category == \"Race/Ethnicity\") |&gt;\n  # Pivot_wider! \n  pivot_wider(names_from = \"student_group\", # The names of the columns are from the student group column values\n              values_from = \"four_yr_grad_pct\")"
+  },
+  {
+    "objectID": "slides/week_04/week_04_slides.html#cleaning-data-can-be-challenging-but-its-easier-if-you-take-a-systematic-approach-to-every-raw-data-file",
+    "href": "slides/week_04/week_04_slides.html#cleaning-data-can-be-challenging-but-its-easier-if-you-take-a-systematic-approach-to-every-raw-data-file",
+    "title": "Data Cleaning and Processing in R: Part 1",
+    "section": "Cleaning data can be challenging, but it’s easier if you take a systematic approach to every raw data file",
+    "text": "Cleaning data can be challenging, but it’s easier if you take a systematic approach to every raw data file\n\n\n\n\n\n\n\nStep\nGoal\n\n\n\n\nData import\nEnsure your import function is set up to read the data properly\n\n\nColumn names\nReformat or manually create column names that are:\n\nlowercase\nuse underscores instead of spaces\ndo not begin with a number\nfollow a consistent format\n\n\n\nMis-formatted data\nWork with functions from base R like as.numeric() or from the tidyverse packages like stringr to clean the data that appear in a different format than you want.\n\n\nMissing data\nIdentify where in your dataset there are missing variables and/or outliers - this may be more of an iterative process as your explore your data."
+  },
+  {
+    "objectID": "slides/week_04/week_04_slides.html#in-class-coding-example-minnesota-graduation-data",
+    "href": "slides/week_04/week_04_slides.html#in-class-coding-example-minnesota-graduation-data",
+    "title": "Data Cleaning and Processing in R: Part 1",
+    "section": "In-class coding example: Minnesota graduation data",
+    "text": "In-class coding example: Minnesota graduation data\nWe can manipulate the district and school data using the following functions:\n\ntolower(): Converts characters to lowercase. It’s commonly used when dealing with character data, such as strings, to ensure uniformity in text processing and comparisons.\nstr_to_title(): Converts strings to title case. Title case means that the first letter of each word is capitalized, while all other letters are in lowercase.\nstr_replace_all(): Replaces all occurrences of a pattern within a string with a specified replacement.\n\n\nmn_graduation_school_fy23_clean &lt;- mn_graduation_school_fy23_raw |&gt;\n  \n  # using \"tolower\" to make all the values in the column lowercase\n  mutate(dst_nam = tolower(dst_nam),\n         sch_nam = tolower(sch_nam)) |&gt;\n  \n  # using \"str_to_title\" makes the first letter of each word capitalized\n  mutate(dst_nam = str_to_title(dst_nam),\n         sch_nam = str_to_title(sch_nam)) |&gt;\n  \n  # using \"str_replace_all\" turns \"Dist\" and \"Dist.\"into \"District\"\n  mutate(dst_nam = str_replace_all(dst_nam, c(\"Dist\\\\b\" = \"District\", \"Dist\\\\.\" = \"District\", \"District\\\\.\" = \"District\")))"
+  },
+  {
+    "objectID": "slides/week_04/week_04_slides.html#your-data-will-rarely-come-in-a-single-table-so-you-will-need-to-use-join-functions-to-merge-the-data-frames",
+    "href": "slides/week_04/week_04_slides.html#your-data-will-rarely-come-in-a-single-table-so-you-will-need-to-use-join-functions-to-merge-the-data-frames",
+    "title": "Data Cleaning and Processing in R: Part 1",
+    "section": "Your data will rarely come in a single table, so you will need to use join functions to merge the data frames",
+    "text": "Your data will rarely come in a single table, so you will need to use join functions to merge the data frames\nTo join two data frames, they need to share a common column with a unique identifier.\nState departments of education typically assign a unique ID number to each school district. Make sure this is available in your data sets.\nJoining data sets on a name (e.g. school or district) can create problems based on:\n\nCapitalization (Mcgregor v. McGregor)\nAbbreviation (St. Paul v. Saint Paul)\nMis-spelling (it happens!)"
+  },
+  {
+    "objectID": "slides/week_04/week_04_slides.html#using-left_join-to-merge-data-sets-will-help-preserve-your-data",
+    "href": "slides/week_04/week_04_slides.html#using-left_join-to-merge-data-sets-will-help-preserve-your-data",
+    "title": "Data Cleaning and Processing in R: Part 1",
+    "section": "Using left_join() to merge data sets will help preserve your data",
+    "text": "Using left_join() to merge data sets will help preserve your data\n\nOnce you have dataframes that share a common ID column, start with your most reliable set of data (typically student count data like ADM or enrollment) and use left_join() to attach additional data to that table.\nThis approach will preserve your original data, keeping the number of rows (e.g. districts or schools) consistent as you use left_join() to add data by adding more columns.\nWhen a record in the “left” dataframe does not have a match in the “right” dataframe, left_join() will impute a value of NA for all such instances.\n\n\nSource: R for Data Science"
+  },
+  {
+    "objectID": "slides/week_04/week_04_slides.html#the-identifiers-are-not-always-in-the-same-format.-we-can-use-paste-and-paste0-to-combine-two-columns-to-create-an-identifier",
+    "href": "slides/week_04/week_04_slides.html#the-identifiers-are-not-always-in-the-same-format.-we-can-use-paste-and-paste0-to-combine-two-columns-to-create-an-identifier",
+    "title": "Data Cleaning and Processing in R: Part 1",
+    "section": "The identifiers are not always in the same format. We can use paste() and paste0() to combine two columns to create an identifier",
+    "text": "The identifiers are not always in the same format. We can use paste() and paste0() to combine two columns to create an identifier\nin R, paste() and paste0() are both functions that are used to concatenate strings, but they differ in how they handle separators:\n\nThe paste() function concatenates strings and allows you to specify a separator between the strings using the sep argument. If you do not specify a separator, it defaults to a space (” “).\nThe paste0() function is a convenience function that concatenates strings without any separator. It is equivalent to using paste(..., sep = \"\")."
+  },
+  {
+    "objectID": "slides/week_04/week_04_slides.html#live-coding-example-minnesota-mca-and-frpl-data",
+    "href": "slides/week_04/week_04_slides.html#live-coding-example-minnesota-mca-and-frpl-data",
+    "title": "Data Cleaning and Processing in R: Part 1",
+    "section": "Live coding example: Minnesota MCA and FRPL data",
+    "text": "Live coding example: Minnesota MCA and FRPL data\n\n# Create the unique identifier -----\n\n# Create a unique identifer with paste0\nmn_mca_frpl_district_fy22_clean &lt;- mn_mca_frpl_district_fy22 |&gt;\n  # This tells us that we want the number to have 4 values \n  mutate(dist_number = str_pad(dist_number, width = 4, pad = \"0\"),\n         dist_id = paste0(dist_type, dist_number))\n\n# Another way to do this is with paste\n\nmn_mca_frpl_district_fy22_other &lt;- mn_mca_frpl_district_fy22 |&gt;\n  # This tells us that we want the number to have 4 values \n  mutate(dist_number = str_pad(dist_number, width = 4, pad = \"0\"),\n         dist_id = paste(dist_type, dist_number, sep = \"\"))\n\n# Join the MCA and FRPL data -----\n\n# mn_mca_frpl_data &lt;- mn_mca_frpl_district_fy22_clean |&gt;\n#   left_join(mn_frpl_district_clean, by = \"dist_id\") \n# Once we have shown this example, we will comment this out otherwise we will get \n# en error \n\n# We have an error because they are incompatible types. The \"dist_id\" in the \n# \"mn_frpl_district_clean\" data frame is a number and the \"dist_id\" variable in the \n# \"mn_mca_frpl_district_fy22_clean\" is a \"character. We can convert either of them, \n# but for this example we will convert the id to a number\n\nmn_mca_frpl_join &lt;- mn_mca_frpl_district_fy22_clean|&gt;\n  mutate(dist_id = as.numeric(dist_id, na.rm = T)) |&gt;\n  left_join(mn_frpl_district_clean, by = \"dist_id\") \n\n# We notice that there are two districts. To rectify this we will remove the \n# extra district from one of the data frames. I will choose to remove the district \n# column in mn_frpl_district_clean because it's uppercase \n\nmn_frpl_district_clean &lt;- mn_frpl_district_clean |&gt;\n  # We can use the subtract the sign in front of a column so that it won't be included in the data frame \n  select(-district)\n\n# When we join the data frames there will only be one district column \nmn_mca_frpl_join_no_extra_district &lt;- mn_mca_frpl_district_fy22_clean|&gt;\n  mutate(dist_id = as.numeric(dist_id, na.rm = T)) |&gt; # This mean that anything with an NA is read as 0 \n  left_join(mn_frpl_district_clean, by = \"dist_id\") |&gt;\n  # This removes the two columns we no longer want\n  select(-dist_type, -dist_number) \n\n# Clean up the joined data frame ----\n\n# We notice that there are no charter schools in the FRPL data, so we will drop that \nmn_mca_frpl_district &lt;- mn_mca_frpl_join_no_extra_district |&gt;\n  filter(total_enroll &gt; 0) |&gt;\n  # we also notice that the counts fo the MCA tests are characters, and not numbers\n  # so we will convert them into numbers \n  mutate(does_not_meet_count = as.numeric(does_not_meet_count, na.rm = T),\n         partially_meets_count = as.numeric(partially_meets_count, na.rm = T),\n         meets_count = as.numeric(meets_count, na.rm = T),\n         exceeds_count = as.numeric(exceeds_count, na.rm = T)) |&gt;\n  select(dist_id, district, total_enroll, everything())"
+  },
+  {
+    "objectID": "slides/week_04/week_04_slides.html#we-can-use-the-group_by-function-to-summarize-data",
+    "href": "slides/week_04/week_04_slides.html#we-can-use-the-group_by-function-to-summarize-data",
+    "title": "Data Cleaning and Processing in R: Part 1",
+    "section": "We can use the group_by() function to summarize data",
+    "text": "We can use the group_by() function to summarize data\n\n\nThe group_by() function is part of the dplyr package. The primary purpose of group_by() is to group a data frame by one or more variables, which allows you to perform operations on subsets of the data independently.\n\nUsed to define groups of rows based on the values of one or more columns\nIt is usually followed by summarizing functions like summarize(), mutate(), or other dplyr functions to perform calculations within each group.\nIt simplifies data analysis tasks by allowing you to focus on grouped subsets of the data."
+  },
+  {
+    "objectID": "slides/week_04/week_04_slides.html#common-functions-for-summarizing-data",
+    "href": "slides/week_04/week_04_slides.html#common-functions-for-summarizing-data",
+    "title": "Data Cleaning and Processing in R: Part 1",
+    "section": "Common functions for summarizing data",
+    "text": "Common functions for summarizing data\nAfter the group_by() function is used, then there are several different functions we can use with the summarise() function to summarize the data. A few are listed below:\n\nThe sum() function calculates the sum of the values in each group.\n\nThe first() function returns the first value in each group.\nThe last() function returns the last value in each group.\nThe median() function calculates the median of values in each group.\nThe min() and max() functions minds the minimum and maximum value in each group.\nThe n() function counts the number of observations in each group.\nThe n_distinct() function counts the number of distinct values in each group."
+  },
+  {
+    "objectID": "slides/week_04/week_04_slides.html#live-coding-example-minnesota-frpl-data",
+    "href": "slides/week_04/week_04_slides.html#live-coding-example-minnesota-frpl-data",
+    "title": "Data Cleaning and Processing in R: Part 1",
+    "section": "Live Coding Example: Minnesota FRPL Data",
+    "text": "Live Coding Example: Minnesota FRPL Data\n\n# Summarize the school data to create a district summary -----\n\nmca_frpl_district_summary &lt;- mca_frpl_school_fy22_clean |&gt;\n  # We are going to group the data by the dist_id, which is the unique \n  # district identifier we created \n  group_by(dist_id) |&gt;\n  # The \"first\" indicates to keep the first value. So this will keep the \n  # identification for district and dist_id\n  summarise(dist_id = first(dist_id), \n            district = first(district),\n            # The \"sum\" totals the values of the columns we are specifying\n            total_tested = sum(total_tested, na.rm = T),\n            does_not_meet_count = sum(does_not_meet_count, na.rm =T),\n            partially_meets_count = sum(partially_meets_count, na.rm = T),\n            meets_count = sum(meets_count, na.rm = T),\n            exceeds_count = sum(exceeds_count, na.rm = T))\n\n# We can also make a state summary -----\n\nmca_frpl_state_summary &lt;- mca_frpl_district_summary |&gt;\n  # We do not need to use group_by() because we are only going to have one value\n  summarise(total_tested = sum(total_tested, na.rm = T),\n            does_not_meet_count = sum(does_not_meet_count, na.rm =T),\n            partially_meets_count = sum(partially_meets_count, na.rm = T),\n            meets_count = sum(meets_count, na.rm = T),\n            exceeds_count = sum(exceeds_count, na.rm = T)) |&gt;\n  mutate(state = \"Minnesota\") |&gt;\n  select(state, everything())"
+  },
+  {
+    "objectID": "weeks/week_03.html#slides",
+    "href": "weeks/week_03.html#slides",
+    "title": "Week 03",
+    "section": "",
+    "text": "Link to Class 3 slides"
+  },
+  {
+    "objectID": "weeks/week_03.html#class-example-r-script",
+    "href": "weeks/week_03.html#class-example-r-script",
+    "title": "week_03",
+    "section": "Class Example R Script",
+    "text": "Class Example R Script\nLink to the R script for class 2"
+  },
+  {
+    "objectID": "slides/week_04/week_04_slides_OLD.html",
+    "href": "slides/week_04/week_04_slides_OLD.html",
+    "title": "Data cleaning and processing in R",
+    "section": "",
+    "text": "General tips and things to keep in mind from talking with several of you:\n\nKeep all of your variable names lowercase (including dataframes!) — it helps prevent potential problems and errors.\nIn order to create a scatterplot or histogram with ggplot(), you need to make sure the dataframe you want to use is available in your working environment. Reminder: your working environment will be empty when you start RStudio — you’ll need to run each line of code that comes before your plot code in order for it to run successfully.\nTo run the code for a plot, you can execute it by clicking “Run” or hitting Command + Enter on your keybord if you have either 1) placed your cursor anywhere in the code for the plot or 2) you’ve higlighted all of the lines of code to create your plot (highlighting a single line will not work)."
+  },
+  {
+    "objectID": "slides/week_04/week_04_slides_OLD.html#review-from-week-2",
+    "href": "slides/week_04/week_04_slides_OLD.html#review-from-week-2",
+    "title": "Data cleaning and processing in R",
+    "section": "",
+    "text": "General tips and things to keep in mind from talking with several of you:\n\nKeep all of your variable names lowercase (including dataframes!) — it helps prevent potential problems and errors.\nIn order to create a scatterplot or histogram with ggplot(), you need to make sure the dataframe you want to use is available in your working environment. Reminder: your working environment will be empty when you start RStudio — you’ll need to run each line of code that comes before your plot code in order for it to run successfully.\nTo run the code for a plot, you can execute it by clicking “Run” or hitting Command + Enter on your keybord if you have either 1) placed your cursor anywhere in the code for the plot or 2) you’ve higlighted all of the lines of code to create your plot (highlighting a single line will not work)."
+  },
+  {
+    "objectID": "slides/week_04/week_04_slides_OLD.html#cleaning-your-data-one-of-the-most-important-and-under-appreciated-stages-of-good-data-analysis",
+    "href": "slides/week_04/week_04_slides_OLD.html#cleaning-your-data-one-of-the-most-important-and-under-appreciated-stages-of-good-data-analysis",
+    "title": "Data cleaning and processing in R",
+    "section": "Cleaning your data: One of the most important and under-appreciated stages of good data analysis",
+    "text": "Cleaning your data: One of the most important and under-appreciated stages of good data analysis\n\n\n\n\n\n\n“Tidy datasets are all alike, but every messy data set is messy in its own way.” - Hadley Wickham\n\n\n\n\nEducation finance data, like most other data, rarely come to us in a format that is plug-and-play ready for analysis.\nA high-quality analysis of your state’s school finance system must start with gathering and cleaning relevant data.\nThis starts with ensuring that each dataframe of raw data you read into R goes through a process of becoming “tidy” — once you have tidy data, merging and visualizing data becomes much easier.\nThe process of tidying your data is also helpful for identifying anomalies or outliers in your raw data files."
+  },
+  {
+    "objectID": "slides/week_04/week_04_slides_OLD.html#the-principles-of-tidy-data-provide-a-helpful-vision-of-what-good-clean-data-should-look-like",
+    "href": "slides/week_04/week_04_slides_OLD.html#the-principles-of-tidy-data-provide-a-helpful-vision-of-what-good-clean-data-should-look-like",
+    "title": "Data cleaning and processing in R",
+    "section": "The principles of “tidy data” provide a helpful vision of what good, clean data should look like",
+    "text": "The principles of “tidy data” provide a helpful vision of what good, clean data should look like\n\n\nTidy data follows three rules:\n\nEach column is a variable\nEach row is an observation\nEach cell is a value\n\n\nBuilding tidy datasets will:\n• Bring consistency to your data across scripts/projects\n• Make it easier to work with functions in the `tidyverse`, which is built to work will with “tidy” data\n\n\n\n\n\n\n\n\n\nSource: R for Data Science"
+  },
+  {
+    "objectID": "slides/week_04/week_04_slides_OLD.html#it-takes-a-bit-of-work-to-make-data-tidy-including-the-use-of-functions-to-reshape-your-data",
+    "href": "slides/week_04/week_04_slides_OLD.html#it-takes-a-bit-of-work-to-make-data-tidy-including-the-use-of-functions-to-reshape-your-data",
+    "title": "Data cleaning and processing in R",
+    "section": "It takes a bit of work to make data tidy, including the use of functions to reshape your data",
+    "text": "It takes a bit of work to make data tidy, including the use of functions to reshape your data\nDatasets can violate the principles of tidy data in several ways:\n\nVariables can be embedded across columns: An common example is when multiple columns represent data from different years. In this case, a variable (year) is actually represented by column names instead of being captured in its own “year” column.\nSolution: Pivot your data longer!\n\n\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.5.1     ✔ tibble    3.2.1\n✔ lubridate 1.9.3     ✔ tidyr     1.3.1\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\n\n# A tibble: 3 × 4\n  state sy20_rev sy21_rev sy22_rev\n  &lt;chr&gt;    &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;\n1 AL     2023902  2304983  3930833\n2 AK      230993   233466   283948\n3 AZ      203492   390282   409828"
+  },
+  {
+    "objectID": "slides/week_04/week_04_slides_OLD.html#it-takes-a-bit-of-work-to-make-data-tidy-including-the-use-of-functions-to-reshape-your-data-cont.",
+    "href": "slides/week_04/week_04_slides_OLD.html#it-takes-a-bit-of-work-to-make-data-tidy-including-the-use-of-functions-to-reshape-your-data-cont.",
+    "title": "Data cleaning and processing in R",
+    "section": "It takes a bit of work to make data tidy, including the use of functions to reshape your data, cont.",
+    "text": "It takes a bit of work to make data tidy, including the use of functions to reshape your data, cont.\n\nA single observation may be spread across multiple rows: This can happen when one column includes multiple variable types within it. And example would be if a dataframe had a “data_type” column that included entries like “n_tested” and “pct_prof”.\nSolution: Pivot your table wider!\n\n\n\n# A tibble: 6 × 3\n  sch_name         data_type  value\n  &lt;chr&gt;            &lt;chr&gt;      &lt;dbl&gt;\n1 Alpha Elementary n_tested  230   \n2 Alpha Elementary pct_prof    0.53\n3 Bravo Middle     n_tested  492   \n4 Bravo Middle     pct_prof    0.34\n5 Charlie High     n_tested  434   \n6 Charlie High     pct_prof    0.43"
+  },
+  {
+    "objectID": "slides/week_04/week_04_slides_OLD.html#pivot_longer-is-useful-when-a-variable-is-embedded-across-several-column-names",
+    "href": "slides/week_04/week_04_slides_OLD.html#pivot_longer-is-useful-when-a-variable-is-embedded-across-several-column-names",
+    "title": "Data cleaning and processing in R",
+    "section": "pivot_longer() is useful when a variable is embedded across several column names",
+    "text": "pivot_longer() is useful when a variable is embedded across several column names\n\n\n\n\n\n\n\nSource: The Epidemiologist R Handbook"
+  },
+  {
+    "objectID": "slides/week_04/week_04_slides_OLD.html#live-coding-example-using-pivot_longer",
+    "href": "slides/week_04/week_04_slides_OLD.html#live-coding-example-using-pivot_longer",
+    "title": "Data cleaning and processing in R",
+    "section": "Live coding example: Using pivot_longer()",
+    "text": "Live coding example: Using pivot_longer()\nKey arguments of the pivot_longer() function:\n\ncols: The names of the columns to pivot using tidy-select\nnames_to: The name for the new character column\nvalues_to: The name for the new values column\n\n\n# PIVOT LONGER EXAMPLE\n\n# load ----\nlibrary(tidyverse)\n\n# read in data for analysis\nusa_2008_2021 &lt;- read_csv(\"slides/week_04/data/usa_2008_2021.csv\")\n\n# Clean and analyze data ----\n\n# Per-Pupil Education Streams \nusa_all_education_streams_long &lt;- usa_2008_2021 |&gt;\n  # Filter out years that we don't need in our analysis \n  filter(year &gt; 2007) |&gt;\n  # Select variables that we want to use to pivot our data longer \n  select(year, usa_state_pp, usa_local_pp, usa_federal_pp) |&gt; \n  pivot_longer(cols = usa_state_pp:usa_federal_pp, # These are the columns we want to pivot \n               names_to = \"revenue_source\", # The name for the new character column\n               values_to = \"revenue\") |&gt; # The name for the new values \n  # Convert the column created with \"names_to\" to a nicely-labeled factor\n  mutate(revenue_source = factor(revenue_source,\n                                 # specify the order of values in this variable\n                                 levels = c(\"usa_state_pp\",\n                                            \"usa_local_pp\", \n                                            \"usa_federal_pp\"),\n                                 # give the variable nice labels\n                                 # these need to be the same order as the levels you set!\n                                 labels = c(\"Local\", \"State\", \"Federal\"))) |&gt;\n  # create a new column that indicates all of this data is national\n  mutate(state = \"United States\") |&gt;\n  # create a nicely-formatted year column\n  mutate(year_1 = year - 1,\n         year_2 = str_sub(as.character(year), start = 3),\n         year = paste0(year_1, \"-\", year_2)) |&gt;\n  # remove intermediate year columns |&gt; \n  select(-year_1, -year_2) |&gt; \n  # reorder our columns so that state and year are first\n  select(state, year, everything())"
+  },
+  {
+    "objectID": "slides/week_04/week_04_slides_OLD.html#if-your-data-includes-data-from-a-single-observation-spread-across-multiple-rows-use-pivot_wider",
+    "href": "slides/week_04/week_04_slides_OLD.html#if-your-data-includes-data-from-a-single-observation-spread-across-multiple-rows-use-pivot_wider",
+    "title": "Data cleaning and processing in R",
+    "section": "If your data includes data from a single observation spread across multiple rows, use pivot_wider()",
+    "text": "If your data includes data from a single observation spread across multiple rows, use pivot_wider()\n\n\n\n\n\n\n\nSource: Macalester College COMP/STAT 112: Introduction to Data Science"
+  },
+  {
+    "objectID": "slides/week_04/week_04_slides_OLD.html#live-coding-example-using-pivot_wider",
+    "href": "slides/week_04/week_04_slides_OLD.html#live-coding-example-using-pivot_wider",
+    "title": "Data cleaning and processing in R",
+    "section": "Live coding example: Using pivot_wider()",
+    "text": "Live coding example: Using pivot_wider()\nBreaking down the code:\n\nnames_from: The column with values that include multiple variables; will be pivoted into column names.\nvalues_from: The column with values will be used as cell values after pivoting.\n\n\n# PIVOT WIDER EXAMPLE\ndist_sped_raw &lt;- read_csv(\"data/dist_sped_raw.csv\")\n\n# clean special ed data ---------\n\ndist_sped &lt;- dist_sped_raw |&gt;\n  pivot_wider(names_from = cat_number, # The column where we are using the value as a column name \n              values_from = enroll) # The column whose values will be used as the values in the cell"
+  },
+  {
+    "objectID": "slides/week_04/week_04_slides_OLD.html#cleaning-data-can-be-challenging-but-its-easier-if-you-take-a-systematic-approach",
+    "href": "slides/week_04/week_04_slides_OLD.html#cleaning-data-can-be-challenging-but-its-easier-if-you-take-a-systematic-approach",
+    "title": "Data cleaning and processing in R",
+    "section": "Cleaning data can be challenging, but it’s easier if you take a systematic approach",
+    "text": "Cleaning data can be challenging, but it’s easier if you take a systematic approach\n\n\n\n\n\n\n\nStep\nGoal\n\n\n\n\nData import\nEnsure your import function is set up to read the data properly\n\n\nColumn names\nReformat or manually create column names that are:\n\nlowercase\nuse underscores instead of spaces\ndo not begin with a number\nfollow a consistent format\n\n\n\nMis-formatted data\nWork with functions from base R like as.numeric() or from the tidyverse packages like stringr to clean the data that appear in a different format than you want.\n\n\nMissing data\nIdentify where in your dataset there are missing variables and/or outliers - this may be more of an iterative process as your explore your data."
+  },
+  {
+    "objectID": "slides/week_04/week_04_slides_OLD.html#live-coding-example-florida_clean.r",
+    "href": "slides/week_04/week_04_slides_OLD.html#live-coding-example-florida_clean.r",
+    "title": "Data cleaning and processing in R",
+    "section": "Live coding example: florida_clean.R",
+    "text": "Live coding example: florida_clean.R\n\n# load ---------\n\noptions(scipen = 999)\n\nlibrary(tidyverse)\nlibrary(readxl)\n\n# load fl revenue raw data\nfl_tax_raw &lt;- read_excel(\"data/1819Tables.xlsx\", \n                         sheet = 9)\n\n# skip first row when reading data\nfl_tax_raw &lt;- read_excel(\"data/1819Tables.xlsx\", \n                         sheet = 9, skip = 1)\n\n# limit data to max of 67 rows\nfl_tax_raw &lt;- read_excel(\"data/1819Tables.xlsx\", \n                         sheet = 9, skip = 1, n_max = 67)\n\n# clean ---------\n\n# fix column names\nfl_tax_clean &lt;- fl_tax_raw |&gt;\n  # convert colnames to lowercase\n  rename_with(tolower) \n\n# look at column names\nnames(fl_tax_clean)\n\n# create vector of new column names\nnew_names &lt;- c(\"district\", \n               \"operating_millage\", \n               \"tax_roll_fy18\",\n               \"operating_tax_yield\", \n               \"required_effort\")\n\n# manually replace column names\ncolnames(fl_tax_clean) &lt;- new_names\n\n# look at column names now\nnames(fl_tax_clean)\n\n# look at district names\nglimpse(fl_tax_clean$district)\n\n# convert district names to title case\nfl_tax_clean &lt;- fl_tax_clean |&gt; \n  mutate(district = str_to_title(district))\n\n# look at district names now\nglimpse(fl_tax_clean$district)\n\n# fix a special case - \"Desoto\" should be \"DeSoto\"\nfl_tax_clean$district[14]\n\n# replace all instances of \"Desoto\" with \"DeSoto\"\nfl_tax_clean &lt;- fl_tax_clean |&gt; \n  mutate(district = str_replace_all(district, \"Desoto\", \"DeSoto\"))\n\n# check that the above code worked\nfl_tax_clean$district[14]"
+  },
+  {
+    "objectID": "slides/week_04/week_04_slides_OLD.html#your-data-will-rarely-come-to-you-in-a-single-table.-you-will-need-to-join-functions-to-merge-dataframes-together",
+    "href": "slides/week_04/week_04_slides_OLD.html#your-data-will-rarely-come-to-you-in-a-single-table.-you-will-need-to-join-functions-to-merge-dataframes-together",
+    "title": "Data cleaning and processing in R",
+    "section": "Your data will rarely come to you in a single table. You will need to join functions to merge dataframes together",
+    "text": "Your data will rarely come to you in a single table. You will need to join functions to merge dataframes together\nTo join two dataframes, they need to share a common column with a unique identifier.\nState departments of education typically assign a unique ID number to each school district. Make sure this is available in your datasets.\nJoining datasets on a name (e.g. school or district) can create problems based on:\n\nCapitalization (Mcgregor v. McGregor)\nAbbreviation (St. Paul v. Saint Paul)\nMis-spelling (it happens!)"
+  },
+  {
+    "objectID": "slides/week_04/week_04_slides_OLD.html#using-left_join-to-merge-datasets-will-help-preserve-your-data",
+    "href": "slides/week_04/week_04_slides_OLD.html#using-left_join-to-merge-datasets-will-help-preserve-your-data",
+    "title": "Data cleaning and processing in R",
+    "section": "Using left_join() to merge datasets will help preserve your data",
+    "text": "Using left_join() to merge datasets will help preserve your data\n\n\n\nOnce you have dataframes that share a common ID column, start with your most reliable set of data (typically student count data like ADM or enrollment) and use left_join() to attach additional data to that table.\nThis approach will preserve your original data, keeping the number of rows (e.g. districts or schools) consistent as you use left_join() to add data by adding more columns.\nWhen a record in the “left” dataframe does not have a match in the “right” dataframe, left_join() will impute a value of NA for all such instances.\n\n\n\n\n\n\n\n\n\n\n\nSource: R for Data Science"
+  },
+  {
+    "objectID": "slides/week_04/week_04_slides_OLD.html#coding-example-how-to-use-left_join",
+    "href": "slides/week_04/week_04_slides_OLD.html#coding-example-how-to-use-left_join",
+    "title": "Data cleaning and processing in R",
+    "section": "Coding example: How to use left_join()",
+    "text": "Coding example: How to use left_join()\n\nExample 1: The common ID columns have the same variable names (sch_id)\nExample 2: The common ID columns have different variable names. The sch_clean dataframe’s variable is sch_id, while the sch_el data frame’s variable name is school_id. The column names can be different, but the values within the cells must be the same so we can join them.\n\n\n# join data ---------\n\n# EXAMPLE 1: Join the ADM, special education, economically disadvantaged, and ELL student data\nsch_clean &lt;- sch_adm |&gt;\n  left_join(sch_ed, by = \"sch_id\") |&gt;\n  left_join(sch_sped, by = \"sch_id\") \n\n# EXAMPLE 2: Join the ELL data \n\nsch_clean &lt;- sch_clean |&gt;\n  left_join(sch_el, by = c(\"sch_id\" = \"school_id\"))"
+  },
+  {
+    "objectID": "slides/week_04/week_04_slides_OLD.html#as-you-merge-dataframes-be-sure-to-use-anti_join-to-examine-missing-data",
+    "href": "slides/week_04/week_04_slides_OLD.html#as-you-merge-dataframes-be-sure-to-use-anti_join-to-examine-missing-data",
+    "title": "Data cleaning and processing in R",
+    "section": "As you merge dataframes, be sure to use anti_join() to examine missing data",
+    "text": "As you merge dataframes, be sure to use anti_join() to examine missing data\nUsing the anti_join() function from the dplyr package in R returns all rows in one data frame that do not have matching values in another data frame. Using anti_join() allows you to explore the incongruities in your data.\n\n\n\n\n\n\n\nSource: R for Data Science"
+  },
+  {
+    "objectID": "slides/week_04/week_04_slides_OLD.html#coding-example-how-to-use-anti_join",
+    "href": "slides/week_04/week_04_slides_OLD.html#coding-example-how-to-use-anti_join",
+    "title": "Data cleaning and processing in R",
+    "section": "Coding example: How to use anti_join()",
+    "text": "Coding example: How to use anti_join()\n\n# matching tests --------\n\n# only charlie county, which only has adm of 5\ndist_no_area &lt;- dist_summary |&gt;\n  anti_join(state_dist_area)\n\n# check to make sure there aren't any distircts in the area df\n# that arent in our dist_summary df\n# no misses!\narea_no_dist &lt;- state_dist_area |&gt;\n  anti_join(dist_summary)"
+  },
+  {
+    "objectID": "slides/week_04/week_04_slides_OLD.html#the-tidycensus-package-can-provide-data-at-the-school-district-level-that-may-be-helpful-for-school-finance-analysis",
+    "href": "slides/week_04/week_04_slides_OLD.html#the-tidycensus-package-can-provide-data-at-the-school-district-level-that-may-be-helpful-for-school-finance-analysis",
+    "title": "Data cleaning and processing in R",
+    "section": "The tidycensus package can provide data at the school district level that may be helpful for school finance analysis",
+    "text": "The tidycensus package can provide data at the school district level that may be helpful for school finance analysis\n\n\nThe Census Bureau collects a lot of information that is reported at the school district level. This includes information on topics that are relevant to school finance, like housing.\nThe tidycensus R package makes it easy to access, explore, and analyze Census Bureau data.\nUse install.packages(\"tidycensus\") to download the package in RStudio."
+  },
+  {
+    "objectID": "slides/week_04/week_04_slides_OLD.html#to-get-started-youll-need-to-sign-up-for-an-api-key-with-the-census-bureau",
+    "href": "slides/week_04/week_04_slides_OLD.html#to-get-started-youll-need-to-sign-up-for-an-api-key-with-the-census-bureau",
+    "title": "Data cleaning and processing in R",
+    "section": "To get started, you’ll need to sign up for an API key with the Census Bureau",
+    "text": "To get started, you’ll need to sign up for an API key with the Census Bureau\n\n\n\n\n\nSignup for an API key here!"
+  },
+  {
+    "objectID": "slides/week_04/week_04_slides_OLD.html#in-class-coding-example-clean_and_join.r-13",
+    "href": "slides/week_04/week_04_slides_OLD.html#in-class-coding-example-clean_and_join.r-13",
+    "title": "Data cleaning and processing in R",
+    "section": "In-class coding example: clean_and_join.R (1/3)",
+    "text": "In-class coding example: clean_and_join.R (1/3)\n\n# load -----------\n\noptions(scipen = 999)\n\nlibrary(tidyverse)\nlibrary(edbuildr)\nlibrary(tidycensus)\nlibrary(viridis)\nlibrary(scales)\n\n# get your own api key from https://api.census.gov/data/key_signup.html\n# only run this line of code once after you replace the text below\n# with your API key\ncensus_api_key(\"YOUR API KEY GOES HERE\", install = TRUE, overwrite = TRUE)\n\n# get edbuild data\nedbuild_fy19 &lt;- masterpull(data_type = \"geo\")\n\n# load census variables from 2019 acs 5-year estimates\nv19 &lt;- load_variables(2019, \"acs5\", cache = TRUE)\n\n# get mortgage data for unified school districts\nmortgage_unified_raw &lt;- get_acs(variables = c(\"B25101_001\", # total households\n                                              \"B25101_002\", # total with a mortgage\n                                              \"B25101_024\"), # total not mortgaged\n                        geography = \"school district (unified)\",\n                        state = \"MN\", \n                        year = 2019)\n\n# get mortgage data for elementary school districts\nmortgage_elementary_raw &lt;- get_acs(variables = c(\"B25101_001\", # total households\n                                                  \"B25101_002\", # total with a mortgage\n                                                  \"B25101_024\"), # total not mortgaged\n                                    geography = \"school district (elementary)\",\n                                    state = \"MN\", \n                                    year = 2019)\n\n# get mortgage data for secondary school districts\nmortgage_secondary_raw &lt;- get_acs(variables = c(\"B25101_001\", # total households\n                                                  \"B25101_002\", # total with a mortgage\n                                                  \"B25101_024\"), # total not mortgaged\n                                    geography = \"school district (secondary)\",\n                                    state = \"MN\", \n                                    year = 2019)\n\n\n# clean ------------\n\n# clean mortgage data for unified school districts\nmortgage_pct_unified &lt;- mortgage_unified_raw |&gt; \n  # replace vars with more descriptive names\n  mutate(variable = str_replace_all(variable, \"B25101_001\", \"households\"),\n         variable = str_replace_all(variable, \"B25101_002\", \"with_mortgage\"),\n         variable = str_replace_all(variable, \"B25101_024\", \"no_mortgage\")\n        ) |&gt;  # close mutate \n  # remove margin of error column\n  select(-moe) |&gt; \n  # pivot variable column into distinct columns\n  pivot_wider(names_from = variable, values_from = estimate) |&gt; \n  # calculate percent of households within a school district with a mortgage\n  mutate(mortgage_pct = with_mortgage / households) \n\n# clean mortgage data for elementary school districts\nmortgage_pct_elementary &lt;- mortgage_elementary_raw |&gt; \n  mutate(variable = str_replace_all(variable, \"B25101_001\", \"households\"),\n         variable = str_replace_all(variable, \"B25101_002\", \"with_mortgage\"),\n         variable = str_replace_all(variable, \"B25101_024\", \"no_mortgage\")\n  ) |&gt;  # close mutate \n  select(-moe) |&gt; \n  pivot_wider(names_from = variable, values_from = estimate) |&gt; \n  mutate(mortgage_pct = with_mortgage / households)\n\n# clean mortgage data for secondary school districts\nmortgage_pct_secondary &lt;- mortgage_secondary_raw |&gt; \n  mutate(variable = str_replace_all(variable, \"B25101_001\", \"households\"),\n         variable = str_replace_all(variable, \"B25101_002\", \"with_mortgage\"),\n         variable = str_replace_all(variable, \"B25101_024\", \"no_mortgage\")\n  ) |&gt;  # close mutate \n  select(-moe) |&gt; \n  pivot_wider(names_from = variable, values_from = estimate) |&gt; \n  mutate(mortgage_pct = with_mortgage / households)\n# NOTE: this data isn't really that useful for mn!"
+  },
+  {
+    "objectID": "slides/week_04/week_04_slides_OLD.html#in-class-coding-example-clean_and_join.r-23",
+    "href": "slides/week_04/week_04_slides_OLD.html#in-class-coding-example-clean_and_join.r-23",
+    "title": "Data cleaning and processing in R",
+    "section": "In-class coding example: clean_and_join.R (2/3)",
+    "text": "In-class coding example: clean_and_join.R (2/3)\n\n# join ----------\n\n# join unified and elementary data by binding rows\nmortgage_pct_mn &lt;- mortgage_pct_unified |&gt; \n  bind_rows(mortgage_pct_elementary) |&gt; \n  # filter out summary row\n  filter(GEOID != \"2199999\") |&gt; \n  # arrange from largest to smallest district\n  arrange(-households)\n\n# join edbuild and census data using left_join\nedbuild_mortgage_mn &lt;- edbuild_fy19 |&gt; \n  filter(State == \"Minnesota\") |&gt; \n  left_join(mortgage_pct_mn, by = c(\"NCESID\" = \"GEOID\"))\n\n# do the join again, but this time select for the columns we want to keep\n# to avoid duplicates like district.x and district.y\nedbuild_mortgage_mn &lt;- edbuild_fy19 |&gt; \n  filter(State == \"Minnesota\") |&gt; \n  left_join(mortgage_pct_mn |&gt; \n              select(GEOID, households, with_mortgage, mortgage_pct),\n            by = c(\"NCESID\" = \"GEOID\"))\n\n# use anti_join() to check for districts with no mortgage data\nedbuild_mortgage_mn_no_match &lt;- edbuild_fy19 |&gt; \n  filter(State == \"Minnesota\") |&gt; \n  anti_join(mortgage_pct_mn |&gt; \n              select(GEOID,households, with_mortgage, mortgage_pct),\n            by = c(\"NCESID\" = \"GEOID\"))\n\n# run the reverse anti_join to see if the census data has \n#  districts not included in the edbuild table\nmortgage_edbuild_mn_no_match &lt;- mortgage_pct_mn |&gt; \n  select(GEOID,households, with_mortgage, mortgage_pct) |&gt; \n  anti_join(edbuild_fy19 |&gt; \n              filter(State == \"Minnesota\") ,\n            by = c(\"GEOID\" = \"NCESID\"))"
+  },
+  {
+    "objectID": "slides/week_04/week_04_slides_OLD.html#in-class-coding-example-clean_and_join.r-33",
+    "href": "slides/week_04/week_04_slides_OLD.html#in-class-coding-example-clean_and_join.r-33",
+    "title": "Data cleaning and processing in R",
+    "section": "In-class coding example: clean_and_join.R (3/3)",
+    "text": "In-class coding example: clean_and_join.R (3/3)\n\n# plot -----------\n\n# first plot of the joined dataset\nggplot(edbuild_mortgage_mn) +\n  geom_point(aes(x = MHI, y = mortgage_pct, \n                 color = StPovRate, size = ENROLL),\n             alpha = .7) +\n  scale_size_area(max_size = 10, labels = label_comma()) +\n  scale_x_continuous(labels = label_dollar()) +\n  scale_y_continuous(labels = label_percent()) +\n  scale_color_viridis(labels = label_percent()) +\n  labs(x = \"MHI\", y = \"Percent of households with a mortgage\",\n       color = \"Poverty rate\", size = \"Enrollment\") +\n  theme_bw()\n\n# facet by sdType\nggplot(edbuild_mortgage_mn) +\n  geom_point(aes(x = MHI, y = mortgage_pct, \n                 color = StPovRate, size = ENROLL),\n             alpha = .7) +\n  scale_size_area(max_size = 10, labels = label_comma()) +\n  scale_x_continuous(labels = label_dollar()) +\n  scale_y_continuous(labels = label_percent()) +\n  scale_color_viridis(labels = label_percent()) +\n  labs(x = \"MHI\", y = \"Percent of households with a mortgage\",\n       color = \"Poverty rate\", size = \"Enrollment\") +\n  facet_wrap(~sdType) +\n  theme_bw()\n\n# filter out secondary districts and create better labels for \n# elementary and unified districts\nggplot(edbuild_mortgage_mn |&gt; \n         filter(sdType != \"secon\") |&gt; \n         mutate(sdType = case_when(sdType == \"elem\" ~ \"Elementary\",\n                                   sdType == \"uni\" ~ \"Unified\"))) +\n  geom_point(aes(x = MHI, y = mortgage_pct, \n                 color = StPovRate, size = ENROLL),\n             alpha = .7) +\n  scale_size_area(max_size = 10, labels = label_comma()) +\n  scale_x_continuous(labels = label_dollar()) +\n  scale_y_continuous(labels = label_percent()) +\n  scale_color_viridis(labels = label_percent()) +\n  labs(x = \"MHI\", y = \"Percent of households with a mortgage\",\n       color = \"Poverty rate\", size = \"Enrollment\") +\n  facet_wrap(~sdType) +\n  theme_bw()\n\n# same chart, but filter  allow for free x+y axis scales\nggplot(edbuild_mortgage_mn |&gt; \n         filter(sdType != \"secon\") |&gt; \n         mutate(sdType = case_when(sdType == \"elem\" ~ \"Elementary\",\n                                   sdType == \"uni\" ~ \"Unified\"))) +\n  geom_point(aes(x = MHI, y = mortgage_pct, \n                 color = StPovRate, size = ENROLL),\n             alpha = .7) +\n  scale_size_area(max_size = 10, labels = label_comma()) +\n  scale_x_continuous(labels = label_dollar()) +\n  scale_y_continuous(labels = label_percent()) +\n  scale_color_viridis(labels = label_percent()) +\n  labs(x = \"MHI\", y = \"Percent of households with a mortgage\",\n       color = \"Poverty rate\", size = \"Enrollment\") +\n  facet_wrap(~sdType, scales = \"free\") +\n  theme_bw()"
+  },
+  {
+    "objectID": "slides/week_04/week_04_slides_OLD.html#this-weeks-assignment",
+    "href": "slides/week_04/week_04_slides_OLD.html#this-weeks-assignment",
+    "title": "Data cleaning and processing in R",
+    "section": "This week’s assignment",
+    "text": "This week’s assignment\nReading assignment\n\nHow Can School Finance Systems Support Students with Additional Learning Needs?\n\nCoding task\nClean your state’s district data and make sure that you have all of the data you need to model your state’s funding formula and the potential policy changes you want to make. This may require joining dataframes, pivot_longer(), pivot_wider() and/or using mutate() to merge, reshape, and tidy data from your state.\nUltimately, you’ll want to produce a single dataframe where:\n\nEach row represents a single LEA (traditional district or charter school)\nEach column represents a single variable\nAll of the data elements that go into your current formula are present in the dataframe.\n\nIf you need to join more than two dataframes, just start with joining two dataframes for this assingment. We can work on building the full dataset you’ll need to model your formula over the coming weeks.\nTo get started, a template R script is included: scripts/dist_clean.R – please use that file to load, clean, and save your tidy data.\nAs always, once you’ve completed the assignment, be sure to commit and push to GitHub!"
   }
 ]

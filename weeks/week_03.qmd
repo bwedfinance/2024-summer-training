@@ -1,0 +1,42 @@
+---
+title: "Week 03"
+subtitle: "Student-Based Funding Formulas and Advocacy Considerations"
+description: "June 18"
+author: ""
+date: ""
+# listing:
+#   - id: slides
+#     contents:
+#       - ../slides/week_03/*.qmd
+#     type: table
+#     fields: [title, date]
+#     field-display-names:
+#       title: "Topic"
+#       date: "Date"
+#     sort: [filename]
+#     sort-ui: false
+#     filter-ui: false
+tbl-colwidths: [10,50,40]
+format: html
+
+---
+
+## Slides
+
+[Link to Class 3 slides](https://drive.google.com/file/d/1u048-MIu37V0MAYYCwVT61AQTRw9-elY/view?usp=sharing) 
+
+
+## Lecture recording
+
+Link to the R class [part 1 recording](https://vimeo.com/962752926?share=copy) and the [part 2 recording](https://vimeo.com/962754065?share=copy). Refer to the follow-up email for the password to view the recording.
+
+## Coding Assignment
+
+Refer to the `hw-wk-3` repository for the homework assignment. 
+
+## Readings
+
+- [How Are State Education Funding Formulas Structured?](https://bellwether.org/wp-content/uploads/2023/10/SplittingtheBill_3_Bellwether_October2023.pdf)
+- [What Are the Biggest Equity Problems in State Education Finance Systems?](https://bellwether.org/wp-content/uploads/2021/10/Bellwether_SplittingBill_04-BiggestProblems_Final.pdf)
+- [Fortifying Funding](https://bellwether.org/publications/fortifying-funding/)
+

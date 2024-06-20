@@ -8,7 +8,8 @@
   {
     "listing": "/weeks/week_04.html",
     "items": [
-      "/slides/week_04/week_04_slides.html"
+      "/slides/week_04/week_04_slides.html",
+      "/slides/week_04/week_04_slides_OLD.html"
     ]
   },
   {
@@ -46,7 +47,14 @@
     "items": [
       "/weeks/week_01.html",
       "/weeks/week_02.html",
+      "/weeks/week_03.html",
       "/weeks/week_04.html"
+    ]
+  },
+  {
+    "listing": "/weeks/week_03.html",
+    "items": [
+      "/slides/week_03/week_03.html"
     ]
   }
 ]
