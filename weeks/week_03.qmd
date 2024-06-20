@@ -38,5 +38,5 @@ Refer to the `hw-wk-3` repository for the homework assignment.
 
 - [How Are State Education Funding Formulas Structured?](https://bellwether.org/wp-content/uploads/2023/10/SplittingtheBill_3_Bellwether_October2023.pdf)
 - [What Are the Biggest Equity Problems in State Education Finance Systems?](https://bellwether.org/wp-content/uploads/2021/10/Bellwether_SplittingBill_04-BiggestProblems_Final.pdf)
-- [Fortifying Funding](https://bellwether.org/publications/fortifying-funding/)
+- [Fortifying Funding: How States Can Strengthen Education Finance Systems for the Future](https://bellwether.org/publications/fortifying-funding/)
 
