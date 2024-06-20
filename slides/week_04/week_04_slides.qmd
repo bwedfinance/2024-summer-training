@@ -1,5 +1,5 @@
 ---
-title: "Data Cleaning and Processing in R: Part 1"
+title: "Data Cleaning and Processing in R"
 date: "June 25, 2024"
 css:
   - |
@@ -62,9 +62,9 @@ bw_secondary <- c("#FFC762", # 1 yellow
 -   General reminders
 -   Principles of tidy data
 -   Techniques to clean messy data
--   Break 
+-   Break
 -   Joining data sets
--   Summarizing data 
+-   Review: Summarizing data
 -   Homework and next class
 
 # Principles of tidy data
@@ -91,12 +91,11 @@ Tidy data follows three rules:
 
 ![Source: R for Data Science](https://d33wubrfki0l68.cloudfront.net/6f1ddb544fc5c69a2478e444ab8112fb0eea23f8/08547/images/r4ds/tidy-1.png){fig-align="center" width="3520"}
 
-
 ## Building tidy data sets will bring consistency to your data across scripts/projects {.smaller}
 
 Tidy data sets also make it easier to work with functions in the `tidyverse`, which is built to work will with "tidy" data. The package we will focus on today is the `tidyr` package, which is designed to help you tidy up your messy data into a structured, organized format that is conducive to analysis and visualization. It offers a suite of functions for reshaping and transforming your data, making it easier to work with in downstream analyses.
 
-ADD A PHOTO
+![](https://bookdown.org/michela_cameletti/rcodingfordatascience/images/4_tidyverse-packages.png){fig-align="center"}
 
 ## It takes some work to make data tidy, including the use of functions to reshape your data {.smaller}
 
@@ -176,7 +175,6 @@ mn_graduation_fy23_wider <- mn_graduation_fy23_raw |>
 
 ```
 
-
 # Techniques to clean messy data
 
 ## Cleaning data can be challenging, but it's easier if you take a systematic approach to every raw data file {.smaller}
@@ -226,7 +224,7 @@ mn_graduation_school_fy23_clean <- mn_graduation_school_fy23_raw |>
 
 ```
 
-# Break 
+# Break
 
 ## Your data will rarely come in a single table, so you will need to use join functions to merge the data frames {.smaller}
 
@@ -270,16 +268,17 @@ example_2_il_finance_testing_fy23 <- il_test_data_fy23_clean |>
 
 ```
 
-# What do you do if you need to create the unique identifier? 
+# What do you do if you need to create the unique identifier?
 
 ## The identifiers are not always in the same format. We can use `paste()` and `paste0()` to combine two columns to create an identifier
 
-in R, `paste()` and `paste0()` are both functions that are used to concatenate strings, but they differ in how they handle separators: 
+in R, `paste()` and `paste0()` are both functions that are used to concatenate strings, but they differ in how they handle separators:
 
-- The `paste()` function concatenates strings and allows you to specify a separator between the strings using the `sep` argument. If you do not specify a separator, it defaults to a space (" ").
-- The `paste0()` function is a convenience function that concatenates strings without any separator. It is equivalent to using `paste(..., sep = "")`.
+-   The `paste()` function concatenates strings and allows you to specify a separator between the strings using the `sep` argument. If you do not specify a separator, it defaults to a space (" ").
+-   The `paste0()` function is a convenience function that concatenates strings without any separator. It is equivalent to using `paste(..., sep = "")`.
 
-## Live coding example: Minnesota MCA and FRPL data 
+## Live coding example: Minnesota MCA and FRPL data
+
 ```{r echo=TRUE, eval=FALSE}
 
 # Create the unique identifier -----
@@ -344,42 +343,37 @@ mn_mca_frpl_district <- mn_mca_frpl_join_no_extra_district |>
 
 ```
 
-
-# Summarizing Data
+# Rewview: Summarizing Data
 
 ## We can use the `group_by()` function to summarize data {.smaller}
 
 ::: columns
 ::: {.column width="45%"}
-
 The `group_by()` function is part of the `dplyr` package. The primary purpose of `group_by()` is to group a data frame by one or more variables, which allows you to perform operations on subsets of the data independently.
 
 -   Used to define groups of rows based on the values of one or more columns
 -   It is usually followed by summarizing functions like `summarize()`, `mutate()`, or other dplyr functions to perform calculations within each group.
 -   It simplifies data analysis tasks by allowing you to focus on grouped subsets of the data.
-
 :::
 
 ::: {.column width="45%"}
-
 ![](https://swcarpentry.github.io/r-novice-gapminder/fig/13-dplyr-fig3.png)
-
 :::
 :::
 
 ## Common functions for summarizing data {.smaller}
 
-After the `group_by()` function is used, then there are several different functions we can use with the `summarise()` function to summarize the data. A few are listed below: 
+After the `group_by()` function is used, then there are several different functions we can use with the `summarise()` function to summarize the data. A few are listed below:
 
-- The `sum()` function calculates the sum of the values in each group.  
-- The `first()` function returns the first value in each group. 
-- The `last()` function returns the last value in each group. 
-- The `median()` function calculates the median of values in each group. 
-- The `min()` and `max()` functions minds the minimum and maximum value in each group. 
-- The `n()` function counts the number of observations in each group. 
-- The `n_distinct()` function counts the number of distinct values in each group. 
+-   The `sum()` function calculates the sum of the values in each group.\
+-   The `first()` function returns the first value in each group.
+-   The `last()` function returns the last value in each group.
+-   The `median()` function calculates the median of values in each group.
+-   The `min()` and `max()` functions minds the minimum and maximum value in each group.
+-   The `n()` function counts the number of observations in each group.
+-   The `n_distinct()` function counts the number of distinct values in each group.
 
-## Live Coding Example: Minnesota FRPL Data 
+## Live Coding Example: Minnesota FRPL Data
 
 ```{r echo=TRUE, eval=FALSE}
 
@@ -422,20 +416,20 @@ mca_frpl_state_summary <- mca_frpl_district_summary |>
 
 -   [***How Can School Finance Systems Support Students with Additional Learning Needs?***](https://bellwether.org/wp-content/uploads/2021/10/Bellwether_SplittingBill_05-HowCanSchoolFinStudentswLearnNeeds_Final.pdf)
 
+-   [***How Do School Finance Systems Support English Learners?***](https://bellwether.org/wp-content/uploads/2024/03/SplittingtheBill_13_Bellwether_March2024.pdf)
+
+
+-   [***How Do School Finance Systems Support Students With Disabilities? ***](https://bellwether.org/wp-content/uploads/2024/05/SplittingtheBill_16_Bellwether_May2024.pdf)
+
+**Data task**
+
+Come to the July 9 class with you state's education finance and related student demographic data. We will go over how to create a GitHub repository so you can start cleaning your state's data! 
+
 **Coding task**
 
-Clean your state's district data and make sure that you have all of the data you need to model your state's funding formula and the potential policy changes you want to make. This may require joining dataframes, `pivot_longer()`, `pivot_wider()` and/or using `mutate()` to merge, reshape, and tidy data from your state.
+In the `hw-wk-4` GitHub repository, there are four scripts in the /scripts folder. Complete the scripts in the following order:
 
-Ultimately, you'll want to produce a single dataframe where:
-
-- Each row represents a single LEA (traditional district or charter school)
-- Each column represents a single variable
-- All of the data elements that go into your current formula are present in the dataframe.
-
-If you need to join more than two dataframes, **just start with joining two dataframes for this assingment.** We can work on building the full dataset you'll need to model your formula over the coming weeks.
-
-To get started, a template R script is included: `scripts/dist_clean.R` – please use that file to load, clean, and save your tidy data.
-
-As always, once you've completed the assignment, be sure to commit and push to GitHub!
-
-
+- hw_04_pivot_wider.R: Manipulate the data using the `pivot_wider` function. I have already provided the code to load the raw data frames, and named the cleaned data frames.
+- hw_04_pivot_longer.R: Manipulate the data using the `pivot_longer` function. I have already provided the code to load the raw data frames, and named the cleaned data frames.
+- hw_04_join_data.R: You will clean, join, and export two data frames. I have already provided the code to load the raw data frames, and named the cleaned data frames.
+- hw_04_summarize_data.R: I have already created a cleaned data frame. You have to create a district and state summary for total student enrollment and for all grades, and then export the data frames.

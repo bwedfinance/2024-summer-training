@@ -11,7 +11,7 @@
   <meta name="generator" content="quarto-1.4.550">
 
   <meta name="dcterms.date" content="2024-06-25">
-  <title>School Finance Equity Training, Summer 2024 - Data Cleaning and Processing in R: Part 1</title>
+  <title>School Finance Equity Training, Summer 2024 - Data Cleaning and Processing in R</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -394,7 +394,7 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Data Cleaning and Processing in R: Part 1</h1>
+  <h1 class="title">Data Cleaning and Processing in R</h1>
 
 <div class="quarto-title-authors">
 </div>
@@ -409,7 +409,7 @@
 <li>Techniques to clean messy data</li>
 <li>Break</li>
 <li>Joining data sets</li>
-<li>Summarizing data</li>
+<li>Review: Summarizing data</li>
 <li>Homework and next class</li>
 </ul>
 </section>
@@ -443,8 +443,8 @@
 <section id="building-tidy-data-sets-will-bring-consistency-to-your-data-across-scriptsprojects" class="slide level2 smaller">
 <h2>Building tidy data sets will bring consistency to your data across scripts/projects</h2>
 <p>Tidy data sets also make it easier to work with functions in the <code>tidyverse</code>, which is built to work will with “tidy” data. The package we will focus on today is the <code>tidyr</code> package, which is designed to help you tidy up your messy data into a structured, organized format that is conducive to analysis and visualization. It offers a suite of functions for reshaping and transforming your data, making it easier to work with in downstream analyses.</p>
-<p>ADD A PHOTO</p>
-</section>
+
+<img data-src="https://bookdown.org/michela_cameletti/rcodingfordatascience/images/4_tidyverse-packages.png" class="quarto-figure quarto-figure-center r-stretch"></section>
 <section id="it-takes-some-work-to-make-data-tidy-including-the-use-of-functions-to-reshape-your-data" class="slide level2 smaller">
 <h2>It takes some work to make data tidy, including the use of functions to reshape your data</h2>
 <p>Data sets can violate the principles of tidy data in several ways. The most common way is for a variable to be embedded across columns. For example, multiple columns can represent data from different years. In this case, a variable (year) is actually represented by column names instead of being captured in its own “year” column.</p>
@@ -702,8 +702,8 @@
 </div>
 </section></section>
 <section>
-<section id="summarizing-data" class="title-slide slide level1 center">
-<h1>Summarizing Data</h1>
+<section id="rewview-summarizing-data" class="title-slide slide level1 center">
+<h1>Rewview: Summarizing Data</h1>
 
 </section>
 <section id="we-can-use-the-group_by-function-to-summarize-data" class="slide level2 smaller">
@@ -777,19 +777,20 @@
 <h2>This week’s assignment</h2>
 <p><strong>Reading assignment</strong></p>
 <ul>
-<li><a href="https://bellwether.org/wp-content/uploads/2021/10/Bellwether_SplittingBill_05-HowCanSchoolFinStudentswLearnNeeds_Final.pdf"><strong><em>How Can School Finance Systems Support Students with Additional Learning Needs?</em></strong></a></li>
+<li><p><a href="https://bellwether.org/wp-content/uploads/2021/10/Bellwether_SplittingBill_05-HowCanSchoolFinStudentswLearnNeeds_Final.pdf"><strong><em>How Can School Finance Systems Support Students with Additional Learning Needs?</em></strong></a></p></li>
+<li><p><a href="https://bellwether.org/wp-content/uploads/2024/03/SplittingtheBill_13_Bellwether_March2024.pdf"><strong><em>How Do School Finance Systems Support English Learners?</em></strong></a></p></li>
+<li><p><a href="https://bellwether.org/wp-content/uploads/2024/05/SplittingtheBill_16_Bellwether_May2024.pdf"><strong><em>How Do School Finance Systems Support Students With Disabilities? </em></strong></a></p></li>
 </ul>
+<p><strong>Data task</strong></p>
+<p>Come to the July 9 class with you state’s education finance and related student demographic data. We will go over how to create a GitHub repository so you can start cleaning your state’s data!</p>
 <p><strong>Coding task</strong></p>
-<p>Clean your state’s district data and make sure that you have all of the data you need to model your state’s funding formula and the potential policy changes you want to make. This may require joining dataframes, <code>pivot_longer()</code>, <code>pivot_wider()</code> and/or using <code>mutate()</code> to merge, reshape, and tidy data from your state.</p>
-<p>Ultimately, you’ll want to produce a single dataframe where:</p>
+<p>In the <code>hw-wk-4</code> GitHub repository, there are four scripts in the /scripts folder. Complete the scripts in the following order:</p>
 <ul>
-<li>Each row represents a single LEA (traditional district or charter school)</li>
-<li>Each column represents a single variable</li>
-<li>All of the data elements that go into your current formula are present in the dataframe.</li>
+<li>hw_04_pivot_wider.R: Manipulate the data using the <code>pivot_wider</code> function. I have already provided the code to load the raw data frames, and named the cleaned data frames.</li>
+<li>hw_04_pivot_longer.R: Manipulate the data using the <code>pivot_longer</code> function. I have already provided the code to load the raw data frames, and named the cleaned data frames.</li>
+<li>hw_04_join_data.R: You will clean, join, and export two data frames. I have already provided the code to load the raw data frames, and named the cleaned data frames.</li>
+<li>hw_04_summarize_data.R: I have already created a cleaned data frame. You have to create a district and state summary for total student enrollment and for all grades, and then export the data frames.</li>
 </ul>
-<p>If you need to join more than two dataframes, <strong>just start with joining two dataframes for this assingment.</strong> We can work on building the full dataset you’ll need to model your formula over the coming weeks.</p>
-<p>To get started, a template R script is included: <code>scripts/dist_clean.R</code> – please use that file to load, clean, and save your tidy data.</p>
-<p>As always, once you’ve completed the assignment, be sure to commit and push to GitHub!</p>
 
 <div class="quarto-auto-generated-content">
 <p><img src="../../images/primary_full-color.png" class="slide-logo"></p>
