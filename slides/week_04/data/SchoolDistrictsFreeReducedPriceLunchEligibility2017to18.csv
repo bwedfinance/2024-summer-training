@@ -1,0 +1,330 @@
+DistrictNum,SchoolDistrict,County,TotalStudents,FreeEligNum,ReduceEligNum,TotalEligNum,FreeEligPct,ReducEligPct,TotalEligPct,PovertyLevel,PovertySublevel
+12396,A.C.G.C. ,Meeker                                       ,817,254,115,369,31.1,14.1,45.2,Low,Mid-low
+12854,ADA-BORUP,Norman                                       ,540,190,61,251,35.2,11.3,46.5,Low,Mid-low
+10511,ADRIAN,Nobles                                       ,576,142,81,223,24.7,14.1,38.7,Low,Mid-low
+10001,AITKIN,Aitkin                                       ,"1,162",330,175,505,28.4,15.1,43.5,Low,Mid-low
+10745,ALBANY AREA,Stearns                                      ,"1,768",226,123,349,12.8,7,19.7,Low,Low
+10241,ALBERT LEA,Freeborn                                     ,"3,391","1,327",356,"1,683",39.1,10.5,49.6,Low,Mid-low
+10242,ALDEN-CONGER,Freeborn                                     ,494,111,53,164,22.5,10.7,33.2,Low,Mid-low
+10206,ALEXANDRIA,Douglas                                      ,"4,109",814,371,"1,185",19.8,9,28.8,Low,Mid-low
+10876,ANNANDALE,Wright                                       ,"1,858",299,170,469,16.1,9.1,25.2,Low,Mid-low
+10011,ANOKA-HENNEPIN,Anoka                                        ,"37,787","8,989","3,553","12,542",23.8,9.4,33.2,Low,Mid-low
+10261,ASHBY,Grant                                        ,258,73,32,105,28.3,12.4,40.7,Low,Mid-low
+10492,AUSTIN ,Mower                                        ,"5,000","2,200",629,"2,829",44,12.6,56.6,High,Mid-high
+10676,BADGER,Roseau                                       ,233,49,45,94,21,19.3,40.3,Low,Mid-low
+10162,BAGLEY ,Clearwater                                   ,"1,011",385,122,507,38.1,12.1,50.1,High,Mid-high
+10146,BARNESVILLE,Clay                                         ,854,87,47,134,10.2,5.5,15.7,Low,Low
+10091,BARNUM,Carlton                                      ,745,162,68,230,21.7,9.1,30.9,Low,Mid-low
+10542,BATTLE LAKE,Otter Tail                                   ,424,80,54,134,18.9,12.7,31.6,Low,Mid-low
+10726,BECKER,Sherburne                                    ,"2,850",324,189,513,11.4,6.6,18,Low,Low
+12364,BELGRADE-BROOTEN-ELROSA,Stearns                                      ,642,144,61,205,22.4,9.5,31.9,Low,Mid-low
+10716,BELLE PLAINE,Scott                                        ,"1,618",217,113,330,13.4,7,20.4,Low,Low
+10031,BEMIDJI,Beltrami                                     ,"5,081","1,816",628,"2,444",35.7,12.4,48.1,Low,Mid-low
+10777,BENSON,Swift                                        ,822,261,85,346,31.8,10.3,42.1,Low,Mid-low
+10786,BERTHA-HEWITT,Todd                                         ,471,176,85,261,37.4,18,55.4,High,Mid-high
+10727,BIG LAKE,Sherburne                                    ,"3,041",489,243,732,16.1,8,24.1,Low,Low
+12534,BIRD ISLAND-OLIVIA-LAKE LILLIAN    ,Renville                                     ,686,213,96,309,31,14,45,Low,Mid-low
+10032,BLACKDUCK,Beltrami                                     ,604,256,94,350,42.4,15.6,57.9,High,Mid-high
+10756,BLOOMING PRAIRIE,Steele                                       ,722,134,76,210,18.6,10.5,29.1,Low,Mid-low
+10271,BLOOMINGTON,Hennepin                                     ,"10,285","3,318",979,"4,297",32.3,9.5,41.8,Low,Mid-low
+12860,BLUE EARTH AREA ,Faribault                                    ,"1,099",379,131,510,34.5,11.9,46.4,Low,Mid-low
+10314,BRAHAM,Isanti                                       ,720,201,84,285,27.9,11.7,39.6,Low,Mid-low
+10181,BRAINERD,Crow Wing                                    ,"6,516","1,695",824,"2,519",26,12.6,38.7,Low,Mid-low
+12908,BRANDON-EVANSVILLE,Douglas                                      ,458,94,54,148,20.5,11.8,32.3,Low,Mid-low
+10846,BRECKENRIDGE,Wilkin                                       ,646,223,28,251,34.5,4.3,38.9,Low,Mid-low
+10286,BROOKLYN CENTER,Hennepin                                     ,"2,442","1,545",375,"1,920",63.3,15.4,78.6,High,High
+10787,BROWERVILLE,Todd                                         ,553,184,77,261,33.3,13.9,47.2,Low,Mid-low
+10801,BROWNS VALLEY,Traverse                                     ,146,78,25,103,53.4,17.1,70.5,High,Mid-high
+12159,BUFFALO LK-HECTOR-STEWART,Renville                                     ,515,141,56,197,27.4,10.9,38.3,Low,Mid-low
+10877,BUFFALO-HANOVER-MONTROSE,Wright                                       ,"5,706",967,427,"1,394",16.9,7.5,24.4,Low,Low
+10191,BURNSVILLE,Dakota                                       ,"8,563","3,635",758,"4,393",42.5,8.9,51.3,High,Mid-high
+10836,BUTTERFIELD,Watonwan                                     ,190,92,42,134,48.4,22.1,70.5,High,Mid-high
+10531,BYRON ,Olmsted                                      ,"2,057",162,78,240,7.9,3.8,11.7,Low,Low
+10299,CALEDONIA,Houston                                      ,678,135,36,171,19.9,5.3,25.2,Low,Mid-low
+10911,CAMBRIDGE-ISANTI ,Isanti                                       ,"4,876","1,073",496,"1,569",22,10.2,32.2,Low,Mid-low
+10852,CAMPBELL-TINTAH,Wilkin                                       ,143,63,14,77,44.1,9.8,53.8,High,Mid-high
+10891,CANBY ,Yellow Medicine                              ,561,115,77,192,20.5,13.7,34.2,Low,Mid-low
+10252,CANNON FALLS,Goodhue                                      ,"1,137",173,102,275,15.2,9,24.2,Low,Low
+10093,CARLTON,Carlton                                      ,455,119,43,162,26.2,9.5,35.6,Low,Mid-low
+10115,CASS LAKE-BENA ,Cass                                         ,"1,176",879,79,958,74.7,6.7,81.5,High,High
+12754,CEDAR MOUNTAIN,Redwood                                      ,468,130,102,232,27.8,21.8,49.6,Low,Mid-low
+10012,CENTENNIAL,Anoka                                        ,"6,593",841,273,"1,114",12.8,4.1,16.9,Low,Low
+10108,CENTRAL,Carver                                       ,998,130,49,179,13,4.9,17.9,Low,Low
+10227,CHATFIELD,Olmsted                                      ,906,126,48,174,13.9,5.3,19.2,Low,Low
+12144,CHISAGO LAKES,Chisago                                      ,"3,394",474,218,692,14,6.4,20.4,Low,Low
+10695,CHISHOLM,St. Louis                                    ,725,273,69,342,37.7,9.5,47.2,Low,Mid-low
+10771,CHOKIO-ALBERTA,Stevens                                      ,158,32,16,48,20.3,10.1,30.4,Low,Mid-low
+12311,CLEARBROOK-GONVICK,Clearwater                                   ,437,170,65,235,38.9,14.9,53.8,High,Mid-high
+10391,CLEVELAND ,Le Sueur                                     ,512,79,40,119,15.4,7.8,23.2,Low,Low
+10592,CLIMAX-SHELLY,Polk                                         ,213,109,17,126,51.2,8,59.2,High,Mid-high
+12888,CLINTON-GRACEVILLE-BEARDSLEY       ,Big Stone                                    ,326,101,29,130,31,8.9,39.9,Low,Mid-low
+10094,CLOQUET,Carlton                                      ,"2,556",901,219,"1,120",35.3,8.6,43.8,Low,Mid-low
+10013,COLUMBIA HEIGHTS,Anoka                                        ,"3,140","2,048",404,"2,452",65.2,12.9,78.1,High,High
+10081,COMFREY,Brown                                        ,144,33,34,67,22.9,23.6,46.5,Low,Mid-low
+10166,COOK COUNTY,Cook                                         ,460,128,50,178,27.8,10.9,38.7,Low,Mid-low
+10095,CROMWELL-WRIGHT,Carlton                                      ,316,79,40,119,25,12.7,37.7,Low,Mid-low
+10593,CROOKSTON,Polk                                         ,"1,195",487,93,580,40.8,7.8,48.5,Low,Mid-low
+10182,CROSBY-IRONTON,Crow Wing                                    ,"1,020",330,123,453,32.4,12.1,44.4,Low,Mid-low
+10466,DASSEL-COKATO ,Wright                                       ,"2,232",361,228,589,16.2,10.2,26.4,Low,Mid-low
+10378,DAWSON-BOYD,Lac qui Parle                                ,556,135,77,212,24.3,13.8,38.1,Low,Mid-low
+10317,DEER RIVER,Itasca                                       ,873,488,109,597,55.9,12.5,68.4,High,Mid-high
+10879,DELANO ,Wright                                       ,"2,495",152,83,235,6.1,3.3,9.4,Low,Low
+10022,DETROIT LAKES,Becker                                       ,"2,981",819,309,"1,128",27.5,10.4,37.8,Low,Mid-low
+12164,DILWORTH-GLYNDON-FELTON            ,Clay                                         ,"1,614",351,98,449,21.7,6.1,27.8,Low,Mid-low
+10533,DOVER-EYOTA,Olmsted                                      ,"1,112",122,76,198,11,6.8,17.8,Low,Low
+10709,DULUTH ,St. Louis                                    ,"8,458","3,033",588,"3,621",35.9,7,42.8,Low,Mid-low
+12580,EAST CENTRAL,Pine                                         ,694,279,90,369,40.2,13,53.2,High,Mid-high
+10595,EAST GRAND FORKS,Polk                                         ,"1,879",519,108,627,27.6,5.7,33.4,Low,Mid-low
+10112,EASTERN CARVER COUNTY,Carver                                       ,"9,686","1,307",455,"1,762",13.5,4.7,18.2,Low,Low
+10272,EDEN PRAIRIE,Hennepin                                     ,"8,723","1,512",327,"1,839",17.3,3.7,21.1,Low,Low
+10463,EDEN VALLEY-WATKINS,Meeker                                       ,960,170,133,303,17.7,13.9,31.6,Low,Mid-low
+10581,EDGERTON,Pipestone                                    ,399,104,85,189,26.1,21.3,47.4,Low,Mid-low
+10273,EDINA ,Hennepin                                     ,"8,484",543,139,682,6.4,1.6,8,Low,Low
+10728,ELK RIVER,Sherburne                                    ,"13,158","1,575",673,"2,248",12,5.1,17.1,Low,Low
+10514,ELLSWORTH,Nobles                                       ,138,35,27,62,25.4,19.6,44.9,Low,Mid-low
+10696,ELY ,St. Louis                                    ,592,125,61,186,21.1,10.3,31.4,Low,Mid-low
+10099,ESKO,Carlton                                      ,"1,257",77,43,120,6.1,3.4,9.5,Low,Low
+12154,EVELETH-GILBERT,St. Louis                                    ,931,238,93,331,25.6,10,35.6,Low,Mid-low
+12752,FAIRMONT AREA,Martin                                       ,"1,692",581,180,761,34.3,10.6,45,Low,Mid-low
+10656,FARIBAULT,Rice                                         ,"3,627","1,951",312,"2,263",53.8,8.6,62.4,High,Mid-high
+10192,FARMINGTON ,Dakota                                       ,"7,122",762,365,"1,127",10.7,5.1,15.8,Low,Low
+10544,FERGUS FALLS,Otter Tail                                   ,"2,812",739,235,974,26.3,8.4,34.6,Low,Mid-low
+10599,FERTILE-BELTRAMI,Polk                                         ,457,71,48,119,15.5,10.5,26,Low,Mid-low
+12198,FILLMORE CENTRAL                   ,Fillmore                                     ,632,133,78,211,21,12.3,33.4,Low,Mid-low
+10600,FISHER,Polk                                         ,270,88,22,110,32.6,8.1,40.7,Low,Mid-low
+10698,FLOODWOOD,St. Louis                                    ,224,83,20,103,37.1,8.9,46,Low,Mid-low
+10051,FOLEY,Benton                                       ,"1,951",366,185,551,18.8,9.5,28.2,Low,Mid-low
+10831,FOREST LAKE,Washington                                   ,"6,165",939,424,"1,363",15.2,6.9,22.1,Low,Low
+10601,FOSSTON,Polk                                         ,637,176,74,250,27.6,11.6,39.2,Low,Mid-low
+10023,FRAZEE-VERGAS,Becker                                       ,911,270,156,426,29.6,17.1,46.8,Low,Mid-low
+10014,FRIDLEY,Anoka                                        ,"3,065","1,579",424,"2,003",51.5,13.8,65.4,High,Mid-high
+10505,FULDA,Murray                                       ,320,104,28,132,32.5,8.8,41.3,Low,Mid-low
+12365,G.F.W.                             ,Sibley                                       ,693,174,111,285,25.1,16,41.1,Low,Mid-low
+12859,GLENCOE-SILVER LAKE,McLeod                                       ,"1,596",323,196,519,20.2,12.3,32.5,Low,Mid-low
+12886,GLENVILLE-EMMONS,Freeborn                                     ,236,59,25,84,25,10.6,35.6,Low,Mid-low
+10253,GOODHUE,Goodhue                                      ,651,44,5,49,6.8,0.8,7.5,Low,Low
+10561,GOODRIDGE ,Pennington                                   ,209,50,60,110,23.9,28.7,52.6,High,Mid-high
+12536,GRANADA HUNTLEY-EAST CHAIN         ,Martin                                       ,278,87,36,123,31.3,12.9,44.2,Low,Mid-low
+10495,GRAND MEADOW,Mower                                        ,437,69,51,120,15.8,11.7,27.5,Low,Mid-low
+10318,GRAND RAPIDS,Itasca                                       ,"4,016","1,233",348,"1,581",30.7,8.7,39.4,Low,Mid-low
+12683,GREENBUSH-MIDDLE RIVER,Roseau                                       ,323,61,38,99,18.9,11.8,30.7,Low,Mid-low
+10316,GREENWAY,Itasca                                       ,996,384,118,502,38.6,11.8,50.4,High,Mid-high
+10447,GRYGLA,Marshall                                     ,151,33,37,70,21.9,24.5,46.4,Low,Mid-low
+10768,HANCOCK,Stevens                                      ,348,56,38,94,16.1,10.9,27,Low,Mid-low
+10200,HASTINGS,Dakota                                       ,"4,332",637,283,920,14.7,6.5,21.2,Low,Low
+10150,HAWLEY,Clay                                         ,981,106,38,144,10.8,3.9,14.7,Low,Low
+10203,HAYFIELD,Dodge                                        ,678,147,53,200,21.7,7.8,29.5,Low,Mid-low
+10402,HENDRICKS,Lincoln                                      ,123,53,12,65,43.1,9.8,52.8,High,Mid-high
+10545,HENNING,Otter Tail                                   ,388,80,33,113,20.6,8.5,29.1,Low,Mid-low
+10264,HERMAN-NORCROSS,Grant                                        ,111,31,10,41,27.9,9,36.9,Low,Mid-low
+10700,HERMANTOWN ,St. Louis                                    ,"2,097",200,87,287,9.5,4.1,13.7,Low,Low
+10330,HERON LAKE-OKABENA,Jackson                                      ,283,76,41,117,26.9,14.5,41.3,Low,Mid-low
+10701,HIBBING,St. Louis                                    ,"2,412",778,224,"1,002",32.3,9.3,41.5,Low,Mid-low
+10002,HILL CITY,Aitkin                                       ,259,108,44,152,41.7,17,58.7,High,Mid-high
+10671,HILLS-BEAVER CREEK,Rock                                         ,372,67,28,95,18,7.5,25.5,Low,Mid-low
+12165,HINCKLEY-FINLAYSON,Pine                                         ,954,371,145,516,38.9,15.2,54.1,High,Mid-high
+10738,HOLDINGFORD ,Stearns                                      ,"1,073",159,115,274,14.8,10.7,25.5,Low,Mid-low
+10270,HOPKINS,Hennepin                                     ,"6,597","1,861",519,"2,380",28.2,7.9,36.1,Low,Mid-low
+10294,HOUSTON,Houston                                      ,"1,987",509,125,634,25.6,6.3,31.9,Low,Mid-low
+12687,HOWARD LAKE-WAVERLY-WINSTED        ,Wright                                       ,"1,211",234,92,326,19.3,7.6,26.9,Low,Mid-low
+10423,HUTCHINSON,McLeod                                       ,"2,896",586,228,814,20.2,7.9,28.1,Low,Mid-low
+10361,INTERNATIONAL FALLS,Koochiching                                  ,"1,039",308,84,392,29.6,8.1,37.7,Low,Mid-low
+10199,INVER GROVE HEIGHTS,Dakota                                       ,"3,538","1,161",332,"1,493",32.8,9.4,42.2,Low,Mid-low
+10473,ISLE,Mille Lacs                                   ,441,191,59,250,43.3,13.4,56.7,High,Mid-high
+10403,IVANHOE,Lincoln                                      ,87,15,16,31,17.2,18.4,35.6,Low,Mid-low
+12895,JACKSON COUNTY CENTRAL,Jackson                                      ,"1,108",276,152,428,24.9,13.7,38.6,Low,Mid-low
+12835,JANESVILLE-WALDORF-PEMBERTON       ,Waseca                                       ,651,147,50,197,22.6,7.7,30.3,Low,Mid-low
+10717,JORDAN ,Scott                                        ,"1,802",261,122,383,14.5,6.8,21.3,Low,Low
+10204,KASSON-MANTORVILLE,Dodge                                        ,"2,148",301,62,363,14,2.9,16.9,Low,Low
+10036,KELLIHER,Beltrami                                     ,264,145,55,200,54.9,20.8,75.8,High,High
+12172,KENYON-WANAMINGO,Goodhue                                      ,798,188,81,269,23.6,10.2,33.7,Low,Mid-low
+10775,KERKHOVEN-MURDOCK-SUNBURG          ,Swift                                        ,715,136,114,250,19,15.9,35,Low,Mid-low
+10739,KIMBALL,Stearns                                      ,741,103,85,188,13.9,11.5,25.4,Low,Mid-low
+12137,KINGSLAND,Fillmore                                     ,545,121,33,154,22.2,6.1,28.3,Low,Mid-low
+12171,KITTSON CENTRAL,Kittson                                      ,241,33,44,77,13.7,18.3,32,Low,Mid-low
+10300,LA CRESCENT-HOKAH,Houston                                      ,"1,123",145,58,203,12.9,5.2,18.1,Low,Low
+12853,LAC QUI PARLE VALLEY,Lac qui Parle                                ,768,245,102,347,31.9,13.3,45.2,Low,Mid-low
+10404,LAKE BENTON,Lincoln                                      ,138,35,13,48,25.4,9.4,34.8,Low,Mid-low
+10813,LAKE CITY,Wabasha                                      ,"1,227",204,88,292,16.6,7.2,23.8,Low,Low
+12071,LAKE CRYSTAL-WELLCOME MEMORIAL     ,Blue Earth                                   ,893,158,85,243,17.7,9.5,27.2,Low,Mid-low
+10390,LAKE OF THE WOODS,Lake of the Woods                            ,443,134,68,202,30.2,15.3,45.6,Low,Mid-low
+12889,LAKE PARK AUDUBON,Becker                                       ,703,156,51,207,22.2,7.3,29.4,Low,Mid-low
+10381,LAKE SUPERIOR,Lake                                         ,"1,359",249,103,352,18.3,7.6,25.9,Low,Mid-low
+12167,LAKEVIEW ,Lyon                                         ,660,152,69,221,23,10.5,33.5,Low,Mid-low
+10194,LAKEVILLE ,Dakota                                       ,"10,930","1,028",440,"1,468",9.4,4,13.4,Low,Low
+10356,LANCASTER,Kittson                                      ,175,49,19,68,28,10.9,38.9,Low,Mid-low
+10229,LANESBORO,Fillmore                                     ,348,70,57,127,20.1,16.4,36.5,Low,Mid-low
+10306,LAPORTE,Hubbard                                      ,302,139,37,176,46,12.3,58.3,High,Mid-high
+12397,LE SUEUR-HENDERSON,Le Sueur                                     ,"1,010",252,106,358,25,10.5,35.4,Low,Mid-low
+10499,LEROY-OSTRANDER,Mower                                        ,280,63,39,102,22.5,13.9,36.4,Low,Mid-low
+10424,LESTER PRAIRIE,McLeod                                       ,443,78,59,137,17.6,13.3,30.9,Low,Mid-low
+10857,LEWISTON-ALTURA,Winona                                       ,724,171,81,252,23.6,11.2,34.8,Low,Mid-low
+10465,LITCHFIELD ,Meeker                                       ,"1,523",386,171,557,25.3,11.2,36.6,Low,Mid-low
+10482,LITTLE FALLS ,Morrison                                     ,"2,439",825,306,"1,131",33.8,12.5,46.4,Low,Mid-low
+10362,LITTLEFORK-BIG FALLS,Koochiching                                  ,337,97,33,130,28.8,9.8,38.6,Low,Mid-low
+12753,LONG PRAIRIE-GREY EAGLE,Todd                                         ,879,407,140,547,46.3,15.9,62.2,High,Mid-high
+12184,LUVERNE,Rock                                         ,"1,248",233,139,372,18.7,11.1,29.8,Low,Mid-low
+10497,LYLE,Mower                                        ,281,120,34,154,42.7,12.1,54.8,High,Mid-high
+10415,LYND,Lyon                                         ,147,69,27,96,46.9,18.4,65.3,High,Mid-high
+12180,M.A.C.C.R.A.Y.,Chippewa                                     ,703,216,86,302,30.7,12.2,43,Low,Mid-low
+10238,MABEL-CANTON,Fillmore                                     ,262,50,35,85,19.1,13.4,32.4,Low,Mid-low
+10837,MADELIA ,Watonwan                                     ,557,218,72,290,39.1,12.9,52.1,High,Mid-high
+10432,MAHNOMEN,Mahnomen                                     ,631,470,42,512,74.5,6.7,81.1,High,High
+10832,MAHTOMEDI,Washington                                   ,"3,267",184,87,271,5.6,2.7,8.3,Low,Low
+10077,MANKATO,Blue Earth                                   ,"8,464","2,377",636,"3,013",28.1,7.5,35.6,Low,Mid-low
+10881,MAPLE LAKE,Wright                                       ,832,112,68,180,13.5,8.2,21.6,Low,Low
+12135,MAPLE RIVER,Blue Earth                                   ,913,205,99,304,22.5,10.8,33.3,Low,Mid-low
+10413,MARSHALL,Lyon                                         ,"2,527",947,199,"1,146",37.5,7.9,45.4,Low,Mid-low
+10441,MARSHALL COUNTY CENTRAL,Marshall                                     ,401,75,69,144,18.7,17.2,35.9,Low,Mid-low
+12448,MARTIN COUNTY WEST,Martin                                       ,723,242,65,307,33.5,9,42.5,Low,Mid-low
+10004,MCGREGOR,Aitkin                                       ,441,206,33,239,46.7,7.5,54.2,High,Mid-high
+10763,MEDFORD ,Steele                                       ,909,248,64,312,27.3,7,34.3,Low,Mid-low
+10740,MELROSE,Stearns                                      ,"1,307",395,154,549,30.2,11.8,42,Low,Mid-low
+10821,MENAHGA,Wadena                                       ,"1,008",313,150,463,31.1,14.9,45.9,Low,Mid-low
+12711,MESABI EAST ,St. Louis                                    ,937,299,83,382,31.9,8.9,40.8,Low,Mid-low
+10912,MILACA,Mille Lacs                                   ,"1,762",495,213,708,28.1,12.1,40.2,Low,Mid-low
+10635,MILROY,Redwood                                      ,30,11,4,15,36.7,13.3,50,High,Mid-low
+30001,MINNEAPOLIS,Hennepin                                     ,"35,292","19,066","1,965","21,031",54,5.6,59.6,High,Mid-high
+10414,MINNEOTA ,Lyon                                         ,524,88,61,149,16.8,11.6,28.4,Low,Mid-low
+10276,MINNETONKA,Hennepin                                     ,"10,767",526,185,711,4.9,1.7,6.6,Low,Low
+12149,MINNEWASKA,Pope                                         ,"1,215",224,139,363,18.4,11.4,29.9,Low,Mid-low
+10129,MONTEVIDEO,Chippewa                                     ,"1,365",431,143,574,31.6,10.5,42.1,Low,Mid-low
+10882,MONTICELLO,Wright                                       ,"4,105",737,310,"1,047",18,7.6,25.5,Low,Mid-low
+10152,MOORHEAD,Clay                                         ,"6,567","2,362",239,"2,601",36,3.6,39.6,Low,Mid-low
+10097,MOOSE LAKE,Carlton                                      ,663,156,55,211,23.5,8.3,31.8,Low,Mid-low
+10332,MORA,Kanabec                                      ,"1,616",469,181,650,29,11.2,40.2,Low,Mid-low
+12769,MORRIS AREA,Stevens                                      ,"1,015",132,134,266,13,13.2,26.2,Low,Mid-low
+10621,MOUNDS VIEW,Ramsey                                       ,"11,399","2,585",925,"3,510",22.7,8.1,30.8,Low,Mid-low
+10712,MOUNTAIN IRON-BUHL,St. Louis                                    ,507,154,60,214,30.4,11.8,42.2,Low,Mid-low
+10173,MOUNTAIN LAKE,Cottonwood                                   ,503,204,70,274,40.6,13.9,54.5,High,Mid-high
+12169,MURRAY COUNTY,Murray                                       ,721,139,69,208,19.3,9.6,28.8,Low,Mid-low
+10319,NASHWAUK-KEEWATIN,Itasca                                       ,585,245,49,294,41.9,8.4,50.3,High,Mid-high
+10707,NETT LAKE,St. Louis                                    ,54,35,5,40,64.8,9.3,74.1,High,Mid-high
+10308,NEVIS ,Hubbard                                      ,585,215,74,289,36.8,12.6,49.4,Low,Mid-low
+10345,NEW LONDON-SPICER,Kandiyohi                                    ,"1,513",267,125,392,17.6,8.3,25.9,Low,Mid-low
+10721,NEW PRAGUE AREA,Scott                                        ,"4,152",355,212,567,8.6,5.1,13.7,Low,Low
+10088,NEW ULM,Brown                                        ,"2,069",408,184,592,19.7,8.9,28.6,Low,Mid-low
+10553,NEW YORK MILLS,Otter Tail                                   ,748,179,108,287,23.9,14.4,38.4,Low,Mid-low
+10507,NICOLLET,Nicollet                                     ,381,45,25,70,11.8,6.6,18.4,Low,Low
+12215,NORMAN COUNTY EAST,Norman                                       ,268,97,21,118,36.2,7.8,44,Low,Mid-low
+12527,NORMAN COUNTY WEST ,Norman                                       ,203,60,1,61,29.6,0.5,30,Low,Mid-low
+10138,NORTH BRANCH,Chisago                                      ,"2,910",521,297,818,17.9,10.2,28.1,Low,Mid-low
+10622,NORTH ST PAUL-MAPLEWOOD OAKDALE,Ramsey                                       ,"10,270","4,479","1,366","5,845",43.6,13.3,56.9,High,Mid-high
+10659,NORTHFIELD,Rice                                         ,"4,015",786,281,"1,067",19.6,7,26.6,Low,Mid-low
+10118,NORTHLAND COMMUNITY,Cass                                         ,324,189,36,225,58.3,11.1,69.4,High,Mid-high
+12168,NRHEG,Waseca                                       ,875,196,91,287,22.4,10.4,32.8,Low,Mid-low
+10333,OGILVIE,Kanabec                                      ,490,189,43,232,38.6,8.8,47.3,Low,Mid-low
+10480,ONAMIA ,Mille Lacs                                   ,612,367,83,450,60,13.6,73.5,High,Mid-high
+10278,ORONO,Hennepin                                     ,"2,827",131,59,190,4.6,2.1,6.7,Low,Low
+12903,ORTONVILLE,Big Stone                                    ,483,136,65,201,28.2,13.5,41.6,Low,Mid-low
+10213,OSAKIS,Douglas                                      ,808,133,116,249,16.5,14.4,30.8,Low,Mid-low
+10279,OSSEO,Hennepin                                     ,"20,504","6,976","1,902","8,878",34,9.3,43.3,Low,Mid-low
+10761,OWATONNA,Steele                                       ,"4,853","1,665",375,"2,040",34.3,7.7,42,Low,Mid-low
+10309,PARK RAPIDS,Hubbard                                      ,"1,585",605,169,774,38.2,10.7,48.8,Low,Mid-low
+10547,PARKERS PRAIRIE,Otter Tail                                   ,544,97,55,152,17.8,10.1,27.9,Low,Mid-low
+10741,PAYNESVILLE,Stearns                                      ,916,172,122,294,18.8,13.3,32.1,Low,Mid-low
+10548,PELICAN RAPIDS,Otter Tail                                   ,836,326,127,453,39,15.2,54.2,High,Mid-high
+10186,PEQUOT LAKES,Crow Wing                                    ,"1,687",259,162,421,15.4,9.6,25,Low,Low
+10549,PERHAM-DENT,Otter Tail                                   ,"1,446",383,128,511,26.5,8.9,35.3,Low,Mid-low
+10484,PIERZ,Morrison                                     ,"1,175",295,130,425,25.1,11.1,36.2,Low,Mid-low
+10116,PILLAGER ,Cass                                         ,"1,093",270,199,469,24.7,18.2,42.9,Low,Mid-low
+10578,PINE CITY,Pine                                         ,"1,631",455,118,573,27.9,7.2,35.1,Low,Mid-low
+10255,PINE ISLAND,Goodhue                                      ,"1,308",130,66,196,9.9,5,15,Low,Low
+10025,PINE POINT,Becker                                       ,64,59,0,59,92.2,0,92.2,High,High
+12174,PINE RIVER-BACKUS,Cass                                         ,904,355,106,461,39.3,11.7,51,High,Mid-high
+12689,PIPESTONE AREA,Pipestone                                    ,"1,115",351,166,517,31.5,14.9,46.4,Low,Mid-low
+12899,PLAINVIEW-ELGIN-MILLVILLE          ,Wabasha                                      ,"1,463",242,82,324,16.5,5.6,22.1,Low,Low
+10477,PRINCETON,Mille Lacs                                   ,"3,330",656,363,"1,019",19.7,10.9,30.6,Low,Mid-low
+10719,PRIOR LAKE-SAVAGE AREA,Scott                                        ,"8,567",672,340,"1,012",7.8,4,11.8,Low,Low
+10704,PROCTOR ,St. Louis                                    ,"1,789",365,164,529,20.4,9.2,29.6,Low,Mid-low
+10195,RANDOLPH ,Dakota                                       ,658,70,41,111,10.6,6.2,16.9,Low,Low
+10038,RED LAKE,Beltrami                                     ,"1,534","1,203",44,"1,247",78.4,2.9,81.3,High,High
+12906,RED LAKE COUNTY CENTRAL,Red Lake                                     ,359,108,59,167,30.1,16.4,46.5,Low,Mid-low
+10630,RED LAKE FALLS,Red Lake                                     ,357,71,44,115,19.9,12.3,32.2,Low,Mid-low
+12884,RED ROCK CENTRAL,Cottonwood                                   ,385,109,64,173,28.3,16.6,44.9,Low,Mid-low
+10256,RED WING,Goodhue                                      ,"2,613",669,204,873,25.6,7.8,33.4,Low,Mid-low
+12897,REDWOOD AREA,Redwood                                      ,"1,111",382,135,517,34.4,12.2,46.5,Low,Mid-low
+12890,RENVILLE COUNTY WEST ,Renville                                     ,527,193,74,267,36.6,14,50.7,High,Mid-high
+10280,RICHFIELD ,Hennepin                                     ,"4,159","2,223",496,"2,719",53.5,11.9,65.4,High,Mid-high
+10281,ROBBINSDALE,Hennepin                                     ,"12,011","5,090","1,211","6,301",42.4,10.1,52.5,High,Mid-high
+10535,ROCHESTER,Olmsted                                      ,"17,317","5,107","1,321","6,428",29.5,7.6,37.1,Low,Mid-low
+10883,ROCKFORD AREA,Wright                                       ,"1,703",289,115,404,17,6.8,23.7,Low,Low
+10750,ROCORI ,Stearns                                      ,"2,085",343,179,522,16.5,8.6,25,Low,Low
+10682,ROSEAU,Roseau                                       ,"1,162",195,143,338,16.8,12.3,29.1,Low,Mid-low
+10196,ROSEMOUNT-APPLE VALLEY-EAGAN       ,Dakota                                       ,"28,195","4,756","1,610","6,366",16.9,5.7,22.6,Low,Low
+10623,ROSEVILLE ,Ramsey                                       ,"7,613","2,706",704,"3,410",35.5,9.2,44.8,Low,Mid-low
+10850,ROTHSAY ,Wilkin                                       ,307,89,29,118,29,9.4,38.4,Low,Mid-low
+12907,ROUND LAKE-BREWSTER ,Nobles                                       ,238,132,49,181,55.5,20.6,76.1,High,High
+10485,ROYALTON ,Morrison                                     ,933,150,100,250,16.1,10.7,26.8,Low,Mid-low
+12902,RTR,Lincoln                                      ,583,108,62,170,18.5,10.6,29.2,Low,Mid-low
+10139,RUSH CITY,Chisago                                      ,864,203,89,292,23.5,10.3,33.8,Low,Mid-low
+10239,RUSHFORD-PETERSON,Fillmore                                     ,651,111,94,205,17.1,14.4,31.5,Low,Mid-low
+10748,SARTELL-ST. STEPHEN,Stearns                                      ,"3,891",342,201,543,8.8,5.2,14,Low,Low
+10743,SAUK CENTRE,Stearns                                      ,"1,064",275,128,403,25.8,12,37.9,Low,Mid-low
+10047,SAUK RAPIDS-RICE,Benton                                       ,"4,550","1,032",394,"1,426",22.7,8.7,31.3,Low,Mid-low
+10820,SEBEKA,Wadena                                       ,508,179,59,238,35.2,11.6,46.9,Low,Mid-low
+10720,SHAKOPEE,Scott                                        ,"8,226","1,969",927,"2,896",23.9,11.3,35.2,Low,Mid-low
+12310,SIBLEY EAST ,Sibley                                       ,"1,185",347,149,496,29.3,12.6,41.9,Low,Mid-low
+10084,SLEEPY EYE,Brown                                        ,579,225,56,281,38.9,9.7,48.5,Low,Mid-low
+10363,SOUTH KOOCHICHING,Koochiching                                  ,275,109,29,138,39.6,10.5,50.2,High,Mid-high
+30006,SOUTH ST. PAUL,Dakota                                       ,"3,340","1,275",418,"1,693",38.2,12.5,50.7,High,Mid-high
+10833,SOUTH WASHINGTON COUNTY,Washington                                   ,"18,370","3,029",714,"3,743",16.5,3.9,20.4,Low,Low
+10500,SOUTHLAND,Mower                                        ,425,61,42,103,14.4,9.9,24.2,Low,Low
+10297,SPRING GROVE,Houston                                      ,342,55,41,96,16.1,12,28.1,Low,Mid-low
+10016,SPRING LAKE PARK,Anoka                                        ,"5,760","1,536",570,"2,106",26.7,9.9,36.6,Low,Mid-low
+10085,SPRINGFIELD,Brown                                        ,550,158,64,222,28.7,11.6,40.4,Low,Mid-low
+10282,ST. ANTHONY-NEW BRIGHTON,Hennepin                                     ,"1,832",262,130,392,14.3,7.1,21.4,Low,Low
+10858,ST. CHARLES ,Winona                                       ,942,175,80,255,18.6,8.5,27.1,Low,Mid-low
+10075,ST. CLAIR,Blue Earth                                   ,671,67,43,110,10,6.4,16.4,Low,Low
+10742,ST. CLOUD,Stearns                                      ,"9,652","5,276",670,"5,946",54.7,6.9,61.6,High,Mid-high
+10015,ST. FRANCIS,Anoka                                        ,"4,455",777,406,"1,183",17.4,9.1,26.6,Low,Mid-low
+10840,ST. JAMES,Watonwan                                     ,989,432,140,572,43.7,14.2,57.8,High,Mid-high
+12142,ST. LOUIS COUNTY,St. Louis                                    ,"1,906",646,229,875,33.9,12,45.9,Low,Mid-low
+10283,ST. LOUIS PARK,Hennepin                                     ,"4,644","1,295",237,"1,532",27.9,5.1,33,Low,Mid-low
+10885,ST. MICHAEL-ALBERTVILLE,Wright                                       ,"6,280",548,230,778,8.7,3.7,12.4,Low,Low
+10625,ST. PAUL ,Ramsey                                       ,"36,087","21,324","3,260","24,584",59.1,9,68.1,High,Mid-high
+10508,ST. PETER,Nicollet                                     ,"2,180",671,209,880,30.8,9.6,40.4,Low,Mid-low
+12170,STAPLES-MOTLEY,Todd                                         ,"1,094",349,219,568,31.9,20,51.9,High,Mid-high
+12856,STEPHEN-ARGYLE CENTRAL,Marshall                                     ,299,51,58,109,17.1,19.4,36.5,Low,Mid-low
+10534,STEWARTVILLE,Olmsted                                      ,"2,086",384,110,494,18.4,5.3,23.7,Low,Low
+10834,STILLWATER AREA,Washington                                   ,"8,250",933,333,"1,266",11.3,4,15.3,Low,Low
+10486,SWANVILLE,Morrison                                     ,307,82,46,128,26.7,15,41.7,Low,Mid-low
+10564,THIEF RIVER FALLS,Pennington                                   ,"1,994",514,240,754,25.8,12,37.8,Low,Mid-low
+12904,TRACY AREA,Lyon                                         ,714,249,114,363,34.9,16,50.8,High,Mid-high
+12905,TRI-CITY UNITED,Le Sueur                                     ,"1,872",458,244,702,24.5,13,37.5,Low,Mid-low
+12358,TRI-COUNTY,Kittson                                      ,181,57,34,91,31.5,18.8,50.3,High,Mid-high
+12125,TRITON ,Dodge                                        ,"1,101",284,126,410,25.8,11.4,37.2,Low,Mid-low
+10458,TRUMAN,Martin                                       ,191,64,31,95,33.5,16.2,49.7,Low,Mid-low
+10914,ULEN-HITTERDAL,Clay                                         ,307,59,31,90,19.2,10.1,29.3,Low,Mid-low
+10550,UNDERWOOD ,Otter Tail                                   ,544,136,107,243,25,19.7,44.7,Low,Mid-low
+12134,UNITED SOUTH CENTRAL,Faribault                                    ,654,235,87,322,35.9,13.3,49.2,Low,Mid-low
+10487,UPSALA,Morrison                                     ,366,72,35,107,19.7,9.6,29.2,Low,Mid-low
+10818,VERNDALE,Wadena                                       ,541,221,62,283,40.9,11.5,52.3,High,Mid-high
+10706,VIRGINIA,St. Louis                                    ,"1,647",468,166,634,28.4,10.1,38.5,Low,Mid-low
+10811,WABASHA-KELLOGG,Wabasha                                      ,533,138,43,181,25.9,8.1,34,Low,Mid-low
+10640,WABASSO ,Redwood                                      ,390,62,51,113,15.9,13.1,29,Low,Mid-low
+10110,WACONIA,Carver                                       ,"4,023",261,144,405,6.5,3.6,10.1,Low,Low
+12155,WADENA-DEER CREEK,Wadena                                       ,"1,018",358,204,562,35.2,20,55.2,High,Mid-high
+10113,WALKER-HACKENSACK-AKELEY,Cass                                         ,773,331,75,406,42.8,9.7,52.5,High,Mid-high
+12176,WARREN-ALVARADO-OSLO,Marshall                                     ,445,125,71,196,28.1,16,44,Low,Mid-low
+10690,WARROAD ,Roseau                                       ,958,249,116,365,26,12.1,38.1,Low,Mid-low
+10829,WASECA,Waseca                                       ,"1,904",561,146,707,29.5,7.7,37.1,Low,Mid-low
+10111,WATERTOWN-MAYER,Carver                                       ,"1,530",180,124,304,11.8,8.1,19.9,Low,Low
+12143,WATERVILLE-ELYSIAN-MORRISTOWN      ,Le Sueur                                     ,754,148,86,234,19.6,11.4,31,Low,Mid-low
+10435,WAUBUN-OGEMA-WHITE EARTH,Mahnomen                                     ,621,354,59,413,57,9.5,66.5,High,Mid-high
+10284,WAYZATA,Hennepin                                     ,"11,574",959,374,"1,333",8.3,3.2,11.5,Low,Low
+12342,WEST CENTRAL AREA                  ,Grant                                        ,747,204,62,266,27.3,8.3,35.6,Low,Mid-low
+10197,WEST ST. PAUL-MENDOTA HTS.-EAGAN   ,Dakota                                       ,"5,025","1,537",425,"1,962",30.6,8.5,39,Low,Mid-low
+12898,WESTBROOK-WALNUT GROVE,Cottonwood                                   ,357,152,40,192,42.6,11.2,53.8,High,Mid-high
+10277,WESTONKA,Hennepin                                     ,"2,327",243,131,374,10.4,5.6,16.1,Low,Low
+10803,WHEATON AREA,Traverse                                     ,374,98,34,132,26.2,9.1,35.3,Low,Mid-low
+10624,WHITE BEAR LAKE,Ramsey                                       ,"8,523","1,738",644,"2,382",20.4,7.6,27.9,Low,Mid-low
+10347,WILLMAR,Kandiyohi                                    ,"4,221","2,305",316,"2,621",54.6,7.5,62.1,High,Mid-high
+10577,WILLOW RIVER ,Pine                                         ,432,117,43,160,27.1,10,37,Low,Mid-low
+10177,WINDOM,Cottonwood                                   ,"1,047",304,177,481,29,16.9,45.9,Low,Mid-low
+12609,WIN-E-MAC ,Polk                                         ,443,151,54,205,34.1,12.2,46.3,Low,Mid-low
+10861,WINONA AREA,Winona                                       ,"2,978",921,266,"1,187",30.9,8.9,39.9,Low,Mid-low
+10518,WORTHINGTON,Nobles                                       ,"3,514","1,823",484,"2,307",51.9,13.8,65.7,High,Mid-high
+10100,WRENSHAL,Carlton                                      ,388,118,48,166,30.4,12.4,42.8,Low,Mid-low
+12190,YELLOW MEDICINE EAST               ,Yellow Medicine                              ,707,215,68,283,30.4,9.6,40,Low,Mid-low
+12805,ZUMBROTA-MAZEPPA,Wabasha                                      ,"1,207",198,76,274,16.4,6.3,22.7,Low,Low
