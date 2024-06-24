@@ -865,7 +865,7 @@
     "href": "weeks/week_04.html",
     "title": "Week 04",
     "section": "",
-    "text": "Materials are forthcoming!\n\n\n\n\n\n\n\n\n\nTopic\n\n\nDate\n\n\n\n\n\n\nData Cleaning and Processing in R: Part 1\n\n\nJun 25, 2024\n\n\n\n\nData cleaning and processing in R\n\n\nJun 25, 2025\n\n\n\n\n\nNo matching items"
+    "text": "Materials are forthcoming!\n\n\n\n\n\n\n\n\n\nTopic\n\n\nDate\n\n\n\n\n\n\nData Cleaning and Processing in R\n\n\nJun 25, 2024\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "weeks/week_04.html#lecture",
@@ -1988,7 +1988,7 @@
     "href": "materials.html#capstone-project",
     "title": "Class Materials",
     "section": "Capstone Project",
-    "text": "Capstone Project\nCourse participants will have several weeks to complete their capstone project. The teaching team will host office hours to provide targeted support to course participants as they work on their capstone projects.",
+    "text": "Capstone Project\nCourse participants will have several weeks to complete their capstone project. The capstone project will analyze a current funding formula issue in the participants’ state, and will include the following:\n\nAn overview of the policy problem\n2-3 policy changes they want to model\nHow they will know if the policy options would be an improvement over current policy\nData they used to do their analysis\n\nThe participants can do their capstone in a Quarto document, PowerPoint deck, or a Word document. With that said, the capstone must include at least 5 data visualizations the participant did in R. The teaching team will host office hours to provide targeted support to course participants as they work on their capstone projects.",
     "crumbs": [
       "Class Materials"
     ]
