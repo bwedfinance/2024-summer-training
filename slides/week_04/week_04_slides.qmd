@@ -234,6 +234,8 @@ mn_graduation_school_fy23_clean <- mn_graduation_school_fy23_raw |>
 
 # Break
 
+Before you go on break, please clone the `rclass-hw-wk-4` GitHub repository
+
 ## Your data will rarely come in a single table, so you will need to use join functions to merge the data frames {.smaller}
 
 To join two data frames, they need to share a common column with a unique identifier.
@@ -351,7 +353,7 @@ mn_mca_frpl_district <- mn_mca_frpl_join_no_extra_district |>
 
 ```
 
-# Rewview: Summarizing Data
+# Review: Summarizing Data
 
 ## We can use the `group_by()` function to summarize data {.smaller}
 
@@ -426,17 +428,18 @@ mca_frpl_state_summary <- mca_frpl_district_summary |>
 
 -   [***How Do School Finance Systems Support English Learners?***](https://bellwether.org/wp-content/uploads/2024/03/SplittingtheBill_13_Bellwether_March2024.pdf)
 
--   [***How Do School Finance Systems Support Students With Disabilities?***](https://bellwether.org/wp-content/uploads/2024/05/SplittingtheBill_16_Bellwether_May2024.pdf)
 
 **Data task**
 
-Come to the July 9 class with you state's education finance and related student demographic data. We will go over how to create a GitHub repository so you can start cleaning your state's data!
+Come to the July 9 class with your state's education finance and related student demographic data. We will go over how to create a GitHub repository so you can start cleaning your state's data!
 
 **Coding task**
 
-In the `hw-wk-4` GitHub repository, there are four scripts in the /scripts folder. Complete the scripts in the following order:
+In the `rclass-hw-wk-4` GitHub repository, there are four scripts in the /scripts folder. Complete the scripts in the following order:
 
--   hw_04_pivot_wider.R: Manipulate the data using the `pivot_wider` function. I have already provided the code to load the raw data frames, and named the cleaned data frames.
--   hw_04_pivot_longer.R: Manipulate the data using the `pivot_longer` function. I have already provided the code to load the raw data frames, and named the cleaned data frames.
--   hw_04_join_data.R: You will clean, join, and export two data frames. I have already provided the code to load the raw data frames, and named the cleaned data frames.
--   hw_04_summarize_data.R: I have already created a cleaned data frame. You have to create a district and state summary for total student enrollment and for all grades, and then export the data frames.
+-   hw_04_pivot_wider_part1.R: Manipulate the data using the `pivot_wider` function. I have already provided the code to load the raw data frames, and named the cleaned data frames.
+-   hw_04_pivot_longer_part2.R: Manipulate the data using the `pivot_longer` function. I have already provided the code to load the raw data frames, and named the cleaned data frames.
+-   hw_04_join_data_part3.R: You will clean, join, and export two data frames. I have already provided the code to load the raw data frames, and named the cleaned data frames.
+-   hw_04_summarize_data_part4.R: I have already created a cleaned data frame. You have to create a district and state summary for total student enrollment and for all grades, and then export the data frames.
+
+**Homework is due by noon CT on Monday, July 8**
