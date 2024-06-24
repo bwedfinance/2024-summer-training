@@ -108,10 +108,9 @@ Data sets can violate the principles of tidy data in several ways. The most comm
 
 -   Load all packages at the top of the script
 -   To load in a file to go the `data` folder, click on the file, and then click "Import Dataset"
--   The R code is in the left hand corner to load the data 
+-   The R code is in the left hand corner to load the data
 
-![](images/Screenshot 2024-06-24 at 2.02.13 PM.png){fig-align="center"}
-
+![](images/Screenshot%202024-06-24%20at%202.02.13%20PM.png){fig-align="center"}
 
 ## Live coding example: Using `pivot_longer()` function
 
@@ -418,7 +417,7 @@ mca_frpl_state_summary <- mca_frpl_district_summary |>
 
 ```
 
-# Homework assignment
+# Homework Assignment
 
 ## This week's assignment {.smaller}
 
@@ -427,7 +426,6 @@ mca_frpl_state_summary <- mca_frpl_district_summary |>
 -   [***How Can School Finance Systems Support Students with Additional Learning Needs?***](https://bellwether.org/wp-content/uploads/2021/10/Bellwether_SplittingBill_05-HowCanSchoolFinStudentswLearnNeeds_Final.pdf)
 
 -   [***How Do School Finance Systems Support English Learners?***](https://bellwether.org/wp-content/uploads/2024/03/SplittingtheBill_13_Bellwether_March2024.pdf)
-
 
 **Data task**
 
@@ -443,3 +441,20 @@ In the `rclass-hw-wk-4` GitHub repository, there are four scripts in the /script
 -   hw_04_summarize_data_part4.R: I have already created a cleaned data frame. You have to create a district and state summary for total student enrollment and for all grades, and then export the data frames.
 
 **Homework is due by noon CT on Monday, July 8**
+
+## Capstone Overview
+
+Course participants will have several weeks to complete their capstone project. The capstone project will analyze a current funding formula issue in the participants' state, and will include the following:
+
+-   An overview of the policy problem
+-   Description of the 2-3 policy changes they are modeling
+-   How they know if the policy options would be an improvement over current policy
+-   Data they used to do their analysis
+
+The participants can do their capstone in a Quarto document, PowerPoint deck, or a Word document. With that said, the capstone must include at least 5 data visualizations the participant did in R. The teaching team will host office hours to provide targeted support to course participants as they work on their capstone projects.
+
+# Example: Krista's Capstone 
+
+I modeled the impact that five policy changes would have on Minnesota's compensatory revenue formula, which is the state's formula for economically disadvantaged students. The images below demonstrate the impact of lifting the 80% funding cap on districts with more than 80% low-income students.
+
+![](images/Screenshot 2024-06-24 at 2.50.09 PM.png){fig-align="center"}

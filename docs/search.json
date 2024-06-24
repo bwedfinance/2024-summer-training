@@ -702,9 +702,9 @@
   {
     "objectID": "slides/week_04/week_04_slides.html",
     "href": "slides/week_04/week_04_slides.html",
-    "title": "Data cleaning and processing in R",
+    "title": "Data Cleaning and Processing in R",
     "section": "",
-    "text": "General tips and things to keep in mind from talking with several of you:\n\nKeep all of your variable names lowercase (including dataframes!) — it helps prevent potential problems and errors.\nIn order to create a scatterplot or histogram with ggplot(), you need to make sure the dataframe you want to use is available in your working environment. Reminder: your working environment will be empty when you start RStudio — you’ll need to run each line of code that comes before your plot code in order for it to run successfully.\nTo run the code for a plot, you can execute it by clicking “Run” or hitting Command + Enter on your keybord if you have either 1) placed your cursor anywhere in the code for the plot or 2) you’ve higlighted all of the lines of code to create your plot (highlighting a single line will not work)."
+    "text": "library(tidyverse)\nlibrary(countdown)\nlibrary(tigris)\nlibrary(sf)\nlibrary(scales)\nlibrary(edbuildr)\nlibrary(viridis)\nlibrary(readxl)\n\n\n\n\nbw_primary &lt;- c(\"#6D1E4A\", # 1 plum\n                \"#007786\", # 2 teal\n                \"#0D525A\", # 3 dark green\n                \"#212B46\", # 4 navy\n                \"#5A6675\", # 5 grey\n                \"#F0DEC1\") # 6 cream\n\nbw_secondary &lt;- c(\"#FFC762\", # 1 yellow\n                  \"#FFB653\", # 2 orange\n                  \"#BEC6CE\", # 3 light grey\n                  \"#2E1A4A\", # 4 deep purple\n                  \"#7EA2D1\", # 5 soft blue\n                  \"#CAD3FB\", # 6 lavender\n                  \"#9CD4EA\", # 7 sky\n                  \"#FFA497\") # 8 peach"
   },
   {
     "objectID": "slides/week_04/week_04_slides.html#review-from-week-2",
@@ -1988,7 +1988,7 @@
     "href": "materials.html#capstone-project",
     "title": "Class Materials",
     "section": "Capstone Project",
-    "text": "Capstone Project\nCourse participants will have several weeks to complete their capstone project. The capstone project will analyze a current funding formula issue in the participants’ state, and will include the following:\n\nAn overview of the policy problem\n2-3 policy changes they want to model\nHow they will know if the policy options would be an improvement over current policy\nData they used to do their analysis\n\nThe participants can do their capstone in a Quarto document, PowerPoint deck, or a Word document. With that said, the capstone must include at least 5 data visualizations the participant did in R. The teaching team will host office hours to provide targeted support to course participants as they work on their capstone projects.",
+    "text": "Capstone Project\nCourse participants will have several weeks to complete their capstone project. The capstone project will analyze a current funding formula issue in the participants’ state, and will include the following:\n\nAn overview of the policy problem\nDescription of the 2-3 policy changes they are modeling\nHow they know if the policy options would be an improvement over current policy\nData they used to do their analysis\n\nThe participants can do their capstone in a Quarto document, PowerPoint deck, or a Word document. With that said, the capstone must include at least 5 data visualizations the participant did in R. The teaching team will host office hours to provide targeted support to course participants as they work on their capstone projects.",
     "crumbs": [
       "Class Materials"
     ]
@@ -2449,5 +2449,12 @@
     "title": "Data Cleaning and Processing in R",
     "section": "Data Importing",
     "text": "Data Importing\n\nLoad all packages at the top of the script\nTo load in a file to go the data folder, click on the file, and then click “Import Dataset”\nThe R code is in the left hand corner to load the data"
+  },
+  {
+    "objectID": "slides/week_04/week_04_slides.html#capstone-overview",
+    "href": "slides/week_04/week_04_slides.html#capstone-overview",
+    "title": "Data Cleaning and Processing in R",
+    "section": "Capstone Overview",
+    "text": "Capstone Overview\nCourse participants will have several weeks to complete their capstone project. The capstone project will analyze a current funding formula issue in the participants’ state, and will include the following:\n\nAn overview of the policy problem\nDescription of the 2-3 policy changes they are modeling\nHow they know if the policy options would be an improvement over current policy\nData they used to do their analysis\n\nThe participants can do their capstone in a Quarto document, PowerPoint deck, or a Word document. With that said, the capstone must include at least 5 data visualizations the participant did in R. The teaching team will host office hours to provide targeted support to course participants as they work on their capstone projects."
   }
 ]
