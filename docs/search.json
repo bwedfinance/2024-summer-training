@@ -858,7 +858,7 @@
     "href": "slides/week_04/week_04_slides.html#this-weeks-assignment",
     "title": "Data Cleaning and Processing in R",
     "section": "This week’s assignment",
-    "text": "This week’s assignment\nReading assignment\n\nHow Can School Finance Systems Support Students with Additional Learning Needs?\nHow Do School Finance Systems Support English Learners?\nHow Do School Finance Systems Support Students With Disabilities? \n\nData task\nCome to the July 9 class with you state’s education finance and related student demographic data. We will go over how to create a GitHub repository so you can start cleaning your state’s data!\nCoding task\nIn the hw-wk-4 GitHub repository, there are four scripts in the /scripts folder. Complete the scripts in the following order:\n\nhw_04_pivot_wider.R: Manipulate the data using the pivot_wider function. I have already provided the code to load the raw data frames, and named the cleaned data frames.\nhw_04_pivot_longer.R: Manipulate the data using the pivot_longer function. I have already provided the code to load the raw data frames, and named the cleaned data frames.\nhw_04_join_data.R: You will clean, join, and export two data frames. I have already provided the code to load the raw data frames, and named the cleaned data frames.\nhw_04_summarize_data.R: I have already created a cleaned data frame. You have to create a district and state summary for total student enrollment and for all grades, and then export the data frames."
+    "text": "This week’s assignment\nReading assignment\n\nHow Can School Finance Systems Support Students with Additional Learning Needs?\nHow Do School Finance Systems Support English Learners?\nHow Do School Finance Systems Support Students With Disabilities?\n\nData task\nCome to the July 9 class with you state’s education finance and related student demographic data. We will go over how to create a GitHub repository so you can start cleaning your state’s data!\nCoding task\nIn the hw-wk-4 GitHub repository, there are four scripts in the /scripts folder. Complete the scripts in the following order:\n\nhw_04_pivot_wider.R: Manipulate the data using the pivot_wider function. I have already provided the code to load the raw data frames, and named the cleaned data frames.\nhw_04_pivot_longer.R: Manipulate the data using the pivot_longer function. I have already provided the code to load the raw data frames, and named the cleaned data frames.\nhw_04_join_data.R: You will clean, join, and export two data frames. I have already provided the code to load the raw data frames, and named the cleaned data frames.\nhw_04_summarize_data.R: I have already created a cleaned data frame. You have to create a district and state summary for total student enrollment and for all grades, and then export the data frames."
   },
   {
     "objectID": "weeks/week_04.html",
@@ -2175,7 +2175,7 @@
     "href": "slides/week_04/week_04_slides.html#agenda",
     "title": "Data Cleaning and Processing in R",
     "section": "Agenda",
-    "text": "Agenda\n\nGeneral reminders\nPrinciples of tidy data\nTechniques to clean messy data\nBreak\nJoining data sets\nReview: Summarizing data\nHomework and next class"
+    "text": "Agenda\n\nPrinciples of tidy data\nTechniques to clean messy data\nBreak\nJoining data sets\nReview: Summarizing data\nHomework and next class"
   },
   {
     "objectID": "slides/week_04/week_04_slides.html#building-tidy-data-sets-will-bring-consistency-to-your-data-across-scriptsprojects",
@@ -2189,7 +2189,7 @@
     "href": "slides/week_04/week_04_slides.html#it-takes-some-work-to-make-data-tidy-including-the-use-of-functions-to-reshape-your-data",
     "title": "Data Cleaning and Processing in R",
     "section": "It takes some work to make data tidy, including the use of functions to reshape your data",
-    "text": "It takes some work to make data tidy, including the use of functions to reshape your data\nData sets can violate the principles of tidy data in several ways. The most common way is for a variable to be embedded across columns. For example, multiple columns can represent data from different years. In this case, a variable (year) is actually represented by column names instead of being captured in its own “year” column.\nSolution: If your data includes a variable that is embedded across several column names, use the pivot_longer() function\n\nSource: R for Data Science"
+    "text": "It takes some work to make data tidy, including the use of functions to reshape your data\nData sets can violate the principles of tidy data in several ways. The most common way is for a variable to be embedded across columns. For example, multiple columns can represent data from different years. In this case, a variable (year) is actually represented by column names instead of being captured in its own “year” column.\nSolution: If your data includes a variable that is embedded across several column names, use the pivot_longer() function\n ## Data Importing Guidelines"
   },
   {
     "objectID": "slides/week_04/week_04_slides.html#live-coding-example-using-pivot_longer-function",
@@ -2442,5 +2442,12 @@
     "title": "Data cleaning and processing in R",
     "section": "This week’s assignment",
     "text": "This week’s assignment\nReading assignment\n\nHow Can School Finance Systems Support Students with Additional Learning Needs?\n\nCoding task\nClean your state’s district data and make sure that you have all of the data you need to model your state’s funding formula and the potential policy changes you want to make. This may require joining dataframes, pivot_longer(), pivot_wider() and/or using mutate() to merge, reshape, and tidy data from your state.\nUltimately, you’ll want to produce a single dataframe where:\n\nEach row represents a single LEA (traditional district or charter school)\nEach column represents a single variable\nAll of the data elements that go into your current formula are present in the dataframe.\n\nIf you need to join more than two dataframes, just start with joining two dataframes for this assingment. We can work on building the full dataset you’ll need to model your formula over the coming weeks.\nTo get started, a template R script is included: scripts/dist_clean.R – please use that file to load, clean, and save your tidy data.\nAs always, once you’ve completed the assignment, be sure to commit and push to GitHub!"
+  },
+  {
+    "objectID": "slides/week_04/week_04_slides.html#data-importing",
+    "href": "slides/week_04/week_04_slides.html#data-importing",
+    "title": "Data Cleaning and Processing in R",
+    "section": "Data Importing",
+    "text": "Data Importing\n\nLoad all packages at the top of the script\nTo load in a file to go the data folder, click on the file, and then click “Import Dataset”\nThe R code is in the left hand corner to load the data"
   }
 ]

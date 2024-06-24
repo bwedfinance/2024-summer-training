@@ -404,7 +404,6 @@
 <section id="agenda" class="slide level2">
 <h2>Agenda</h2>
 <ul>
-<li>General reminders</li>
 <li>Principles of tidy data</li>
 <li>Techniques to clean messy data</li>
 <li>Break</li>
@@ -449,8 +448,17 @@
 <h2>It takes some work to make data tidy, including the use of functions to reshape your data</h2>
 <p>Data sets can violate the principles of tidy data in several ways. The most common way is for a variable to be embedded across columns. For example, multiple columns can represent data from different years. In this case, a variable (year) is actually represented by column names instead of being captured in its own “year” column.</p>
 <p><strong>Solution:</strong> If your data includes a variable that is embedded across several column names, use the <strong>pivot_longer()</strong> function</p>
+<p><img data-src="https://epirhandbook.com/en/images/pivoting/pivot_longer_new.png" alt="Source: R for Data Science"> ## Data Importing Guidelines</p>
+</section>
+<section id="data-importing" class="slide level2 smaller">
+<h2>Data Importing</h2>
+<ul>
+<li>Load all packages at the top of the script</li>
+<li>To load in a file to go the <code>data</code> folder, click on the file, and then click “Import Dataset”</li>
+<li>The R code is in the left hand corner to load the data</li>
+</ul>
 
-<img data-src="https://epirhandbook.com/en/images/pivoting/pivot_longer_new.png" class="r-stretch quarto-figure-center"><p class="caption">Source: R for Data Science</p></section>
+<img data-src="images/Screenshot 2024-06-24 at 2.02.13 PM.png" class="quarto-figure quarto-figure-center r-stretch"></section>
 <section id="live-coding-example-using-pivot_longer-function" class="slide level2">
 <h2>Live coding example: Using <code>pivot_longer()</code> function</h2>
 <p>Key arguments of the <code>pivot_longer()</code> function:</p>
@@ -779,7 +787,7 @@
 <ul>
 <li><p><a href="https://bellwether.org/wp-content/uploads/2021/10/Bellwether_SplittingBill_05-HowCanSchoolFinStudentswLearnNeeds_Final.pdf"><strong><em>How Can School Finance Systems Support Students with Additional Learning Needs?</em></strong></a></p></li>
 <li><p><a href="https://bellwether.org/wp-content/uploads/2024/03/SplittingtheBill_13_Bellwether_March2024.pdf"><strong><em>How Do School Finance Systems Support English Learners?</em></strong></a></p></li>
-<li><p><a href="https://bellwether.org/wp-content/uploads/2024/05/SplittingtheBill_16_Bellwether_May2024.pdf"><strong><em>How Do School Finance Systems Support Students With Disabilities? </em></strong></a></p></li>
+<li><p><a href="https://bellwether.org/wp-content/uploads/2024/05/SplittingtheBill_16_Bellwether_May2024.pdf"><strong><em>How Do School Finance Systems Support Students With Disabilities?</em></strong></a></p></li>
 </ul>
 <p><strong>Data task</strong></p>
 <p>Come to the July 9 class with you state’s education finance and related student demographic data. We will go over how to create a GitHub repository so you can start cleaning your state’s data!</p>
