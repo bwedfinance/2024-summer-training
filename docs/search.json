@@ -2456,5 +2456,12 @@
     "title": "Data Cleaning and Processing in R",
     "section": "Capstone Overview",
     "text": "Capstone Overview\nCourse participants will have several weeks to complete their capstone project. The capstone project will analyze a current funding formula issue in the participants’ state, and will include the following:\n\nAn overview of the policy problem\nDescription of the 2-3 policy changes they are modeling\nHow they know if the policy options would be an improvement over current policy\nData they used to do their analysis\n\nThe participants can do their capstone in a Quarto document, PowerPoint deck, or a Word document. With that said, the capstone must include at least 5 data visualizations the participant did in R. The teaching team will host office hours to provide targeted support to course participants as they work on their capstone projects."
+  },
+  {
+    "objectID": "slides/week_04/week_04_slides.html#review-the-dplyr-package-provides-many-functions-to-manipulate-your-data-frames-columns-and-rows",
+    "href": "slides/week_04/week_04_slides.html#review-the-dplyr-package-provides-many-functions-to-manipulate-your-data-frames-columns-and-rows",
+    "title": "Data Cleaning and Processing in R",
+    "section": "Review: The dplyr() package provides many functions to manipulate your data frames’ columns and rows",
+    "text": "Review: The dplyr() package provides many functions to manipulate your data frames’ columns and rows\nThese were the functions we learned in week 2, and are the functions you’ll most frequently use from the dplyr packages are:\n\nselect(): names columns to keep from a data frame\nrename(): name columns to keep from a data frame\nfilter(): remove rows that do not meet the condition in the logical statement from the output\nmutate(): create a new column that will be added to the end of your data frame."
   }
 ]
