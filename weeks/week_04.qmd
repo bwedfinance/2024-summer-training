@@ -21,4 +21,22 @@ format: html
 
 ---
 
-Materials are forthcoming! 
+## Slides
+
+::: {#slides}
+:::
+
+## Lecture recording
+
+[Link to the R class](https://vimeo.com/968256894?share=copy). Refer to the follow-up email for the password to view the recording.
+
+## Coding Assignment
+
+Refer to the `hw-wk-4` repository for the homework assignment. 
+
+## Readings
+
+-   [***How Can School Finance Systems Support Students with Additional Learning Needs?***](https://bellwether.org/wp-content/uploads/2021/10/Bellwether_SplittingBill_05-HowCanSchoolFinStudentswLearnNeeds_Final.pdf)
+
+-   [***How Do School Finance Systems Support English Learners?***](https://bellwether.org/wp-content/uploads/2024/03/SplittingtheBill_13_Bellwether_March2024.pdf)
+
