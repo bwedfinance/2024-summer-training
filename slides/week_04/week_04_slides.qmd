@@ -66,6 +66,15 @@ bw_secondary <- c("#FFC762", # 1 yellow
 -   Review: Summarizing data
 -   Homework and next class
 
+# Review: The dplyr() package provides many functions to manipulate your data frames' columns and rows
+
+These were the functions we learned in week 2, and are the functions you'll most frequently use from the dplyr packages are:
+
+-   `select()`: names columns to keep from a data frame
+-   `rename()`: name columns to keep from a data frame
+-   `filter()`: remove rows that do not meet the condition in the logical statement from the output
+-   `mutate()`: create a new column that will be added to the end of your data frame.
+
 # Principles of tidy data
 
 ## Cleaning your data: One of the most important and under-appreciated stages of good data analysis
