@@ -60,27 +60,24 @@ bw_secondary <- c("#FFC762", # 1 yellow
 ## Agenda
 
 -   Homework review
--   Tidycensus 
--   Partner activity 
+-   Tidycensus
+-   Partner activity
 -   Break
 -   Reproducible data in R
 -   Homework and next class
 
-# Homework Review 
+# Homework Review
 
-# Tidycensus 
+# Tidycensus
 
 ## The tidycensus R package is a powerful tool designed to simplify the process of accessing and working with US Census data {.smaller}
 
 ::: columns
 ::: {.column width="60%"}
+The Census Bureau collects a lot of information that is reported at the school district level. This includes information on topics that are relevant to school finance, like housing and health. The two main `tidycensus()` functions we will use are:
 
-The Census Bureau collects a lot of information that is reported at the school district level. This includes information on topics that are relevant to school finance, like housing and health. The two main `tidycensus()` functions we will use are: 
-
-- `get_acs()`: Accesses data from 1-year and 5-year American Community Survey samples
-- `get_estimates()`: Interfaces with Population Estimates APIs
-
-
+-   `get_acs()`: Accesses data from 1-year and 5-year American Community Survey samples
+-   `get_estimates()`: Interfaces with Population Estimates APIs
 :::
 
 ::: {.column width="40%" height="45%" fig-align="center"}
@@ -88,21 +85,21 @@ The Census Bureau collects a lot of information that is reported at the school d
 :::
 :::
 
-## To get started, you will need to sign up for an API key with the Census Bureau 
+## To get started, you will need to sign up for an API key with the Census Bureau
 
 ![](https://michaeldgarber.github.io/teach-r/images/census-api-key-landing.png){fig-align="center"}
 
 [Signup for an API key here!](https://api.census.gov/data/key_signup.html)
 
-# In-class `tidycensus()` exercise 
+# In-class `tidycensus()` exercise
 
 ## In the example we will use functions that are part of the `dplyr` package and `ggplot2` packages {.smaller}
 
-- `anti_join()`: Part of the `dplyr` package and filters observations from one data frame based on non-matches with another data frame. 
-- `bind_rows()`: Part of the `dplyr` package and combines multiple data frames or tibbles by stacking them vertically. 
-- `facet_wrap()`: Part of the `ggplot2` package and creates multi-panel plots by wrapping a 1D sequence of panels into a 2D layout. 
+-   `anti_join()`: Part of the `dplyr` package and filters observations from one data frame based on non-matches with another data frame.
+-   `bind_rows()`: Part of the `dplyr` package and combines multiple data frames or tibbles by stacking them vertically.
+-   `facet_wrap()`: Part of the `ggplot2` package and creates multi-panel plots by wrapping a 1D sequence of panels into a 2D layout.
 
-We will also use several functions that we have already learned in the first four classes. 
+We will also use several functions that we have already learned in the first four classes.
 
 ## In-class coding example: clean_and_join.R
 
@@ -299,9 +296,10 @@ ggplot(edbuild_mortgage_mn |>
 
 
 ```
-# Small Group Activitiy 
 
-# Break 
+# Small Group Activitiy
+
+# Break
 
 # Setting up your data processing project
 
@@ -320,7 +318,7 @@ ggplot(edbuild_mortgage_mn |>
 ## Remember: After you've created a project, use a consistent folder structure to keep your analysis organized
 
 ::: columns
-::: {.column width="50%"}
+::: {.column width="40%"}
 -   Building a consistent file structure in your projects will help you (and others!) easily navigate your code.
 
 -   Minimally, you will want to have a separate folder for:
@@ -332,8 +330,8 @@ ggplot(edbuild_mortgage_mn |>
     -   `figures`
 :::
 
-::: {.column width="50%"}
-![](https://i.stack.imgur.com/AlNMJ.png){fig-align="center" width="350"}
+::: {.column width="60%"}
+![](week_5_images/Screenshot 2024-07-03 at 2.24.37 PM.png){fig-align="center" width="400"}
 :::
 :::
 
@@ -594,10 +592,10 @@ R code chunks in R Markdown are contained within a pair of triple backticks that
 
 **Coding task**
 
-- Continue working on your `week04` assignment!
-- If you've completed a join of your first two datasets, add in the rest of the data you'll need to model your state's current funding formula
-- Two blocks of office hours will be available this week on Thursday and Friday to help with any data joining and/or cleaning challenges
+-   Continue working on your `week04` assignment!
+-   If you've completed a join of your first two datasets, add in the rest of the data you'll need to model your state's current funding formula
+-   Two blocks of office hours will be available this week on Thursday and Friday to help with any data joining and/or cleaning challenges
 
 **Finance contact**
 
-- Please share the contact information for your organization's finance/operations lead by Friday, July 14. We will be contacting them next week regarding the grant funding we have available.
+-   Please share the contact information for your organization's finance/operations lead by Friday, July 14. We will be contacting them next week regarding the grant funding we have available.

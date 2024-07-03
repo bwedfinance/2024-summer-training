@@ -1550,29 +1550,29 @@
     "objectID": "slides/week_06/week_06_slides.html#streamlining-code-in-our-cleaning-scripts",
     "href": "slides/week_06/week_06_slides.html#streamlining-code-in-our-cleaning-scripts",
     "title": "Mapping in R",
-    "section": "",
-    "text": "Initial state data cleaning is looking pretty good!\nThere are a few code style practices for us to adopt moving forward:\n\n\n# when reading/writing data, the full file path is not needed\nfinance_raw &lt;- read_csv(\"~/Desktop/BW R Course/capstone/data/state_data.csv\")\n\n# only include the portion of the filepath that is within your \n# project folder, in this case, our project is in the `capstone` folder\nfinance_raw &lt;- read_csv(\"data/state_data.csv\")\n\n# these are helpful commands to run in the console to check your dfs\n# but they don't need to be included in your scripts. if you want to keep \n# them in, please comment them out when theyre not in use!\n\n# View(finance_raw)\n# names(finance_raw)"
+    "section": "Streamlining code in our cleaning scripts",
+    "text": "Streamlining code in our cleaning scripts\n\nInitial state data cleaning is looking pretty good!\nThere are a few code style practices for us to adopt moving forward:\n\n\n# when reading/writing data, the full file path is not needed\nfinance_raw &lt;- read_csv(\"~/Desktop/BW R Course/capstone/data/state_data.csv\")\n\n# only include the portion of the filepath that is within your \n# project folder, in this case, our project is in the `capstone` folder\nfinance_raw &lt;- read_csv(\"data/state_data.csv\")\n\n# these are helpful commands to run in the console to check your dfs\n# but they don't need to be included in your scripts. if you want to keep \n# them in, please comment them out when theyre not in use!\n\n# View(finance_raw)\n# names(finance_raw)"
   },
   {
     "objectID": "slides/week_06/week_06_slides.html#additional-workflow-tips-for-using-git",
     "href": "slides/week_06/week_06_slides.html#additional-workflow-tips-for-using-git",
     "title": "Mapping in R",
-    "section": "",
-    "text": "Be sure to commit and push the data files you’re cleaning and joining!\nAfter Krista or I submit feedback, be sure to click the “Pull” button in your RStudio project to update your code to reflect the changes we’ve made.\nBreak your commit and push cycles into small but meaningful chunks"
+    "section": "Additional workflow tips for using git",
+    "text": "Additional workflow tips for using git\n\n\n\nBe sure to commit and push the data files you’re cleaning and joining!\nAfter Krista or I submit feedback, be sure to click the “Pull” button in your RStudio project to update your code to reflect the changes we’ve made.\nBreak your commit and push cycles into small but meaningful chunks"
   },
   {
     "objectID": "slides/week_06/week_06_slides.html#working-with-pivot_wider",
     "href": "slides/week_06/week_06_slides.html#working-with-pivot_wider",
     "title": "Mapping in R",
-    "section": "",
-    "text": "# load -----\nlibrary(tidyverse)\nlibrary(readxl)\n\noptions(scipen = 999)\n\nmn_grad_fy22_raw &lt;- read_excel(\"data/2022 Graduation Indicators.xlsx\", \n                                                              sheet = \"District\", skip = 4)\n\n# clean ----------\n\n# create df of all grad data with cols for each demographic group  \nmn_all_grad_data_fy22 &lt;- mn_grad_fy22_raw |&gt;\n  # tidy up column names\n  rename_with(tolower) |&gt;\n  rename(county = \"county name\",\n         district_number = \"district number\",\n         district = \"district name\",\n         group_category = \"group category\",\n         student_group =  \"student group\",\n         ending_status = \"ending status\",\n         four_year_count = \"four year count\",\n         total_cohort_count = \"total four year cohort count\") |&gt;\n  # calculate pct of cohort\n  mutate(cohort_pct = four_year_count / total_cohort_count) |&gt;\n  select(district_number, district, student_group, ending_status, cohort_pct) |&gt;\n  pivot_wider(names_from = student_group,\n              values_from = cohort_pct)\n\n# create df that only includes graduate rate\nmn_grad_fy22_2 &lt;- mn_all_grad_data_fy22 |&gt; \n  filter(ending_status == \"Graduate\")"
+    "section": "Working with pivot_wider()",
+    "text": "Working with pivot_wider()\n\n# load -----\nlibrary(tidyverse)\nlibrary(readxl)\n\noptions(scipen = 999)\n\nmn_grad_fy22_raw &lt;- read_excel(\"data/2022 Graduation Indicators.xlsx\", \n                                                              sheet = \"District\", skip = 4)\n\n# clean ----------\n\n# create df of all grad data with cols for each demographic group  \nmn_all_grad_data_fy22 &lt;- mn_grad_fy22_raw |&gt;\n  # tidy up column names\n  rename_with(tolower) |&gt;\n  rename(county = \"county name\",\n         district_number = \"district number\",\n         district = \"district name\",\n         group_category = \"group category\",\n         student_group =  \"student group\",\n         ending_status = \"ending status\",\n         four_year_count = \"four year count\",\n         total_cohort_count = \"total four year cohort count\") |&gt;\n  # calculate pct of cohort\n  mutate(cohort_pct = four_year_count / total_cohort_count) |&gt;\n  select(district_number, district, student_group, ending_status, cohort_pct) |&gt;\n  pivot_wider(names_from = student_group,\n              values_from = cohort_pct)\n\n# create df that only includes graduate rate\nmn_grad_fy22_2 &lt;- mn_all_grad_data_fy22 |&gt; \n  filter(ending_status == \"Graduate\")"
   },
   {
     "objectID": "slides/week_06/week_06_slides.html#overview-of-the-sf-package",
     "href": "slides/week_06/week_06_slides.html#overview-of-the-sf-package",
     "title": "Mapping in R",
     "section": "Overview of the sf package",
-    "text": "Overview of the sf package\n\nThere are many R packages that handle spatial data but sf is the most modern and easy-to-use.\nIn the sf package, spatial data is represented as a simple feature, which is a set of standards on how to store spatial objects.\nSpatial data is represented as a data frame with:\n\nA geography column that lists all the coordinates that make up the shape\n“Slots” that hold spatial information\n\n\n\n\n\n\n\n\nYou can learn more about simple features and the sf package here."
+    "text": "Overview of the sf package\n\nThere are many R packages that handle spatial data but sf is the most modern and easy-to-use.\nIn the sf package, spatial data is represented as a simple feature, which is a set of standards on how to store spatial objects.\nSpatial data is represented as a data frame with:\n\nA geography column that lists all the coordinates that make up the shape\n“Slots” that hold spatial information\n\n\n\n\n\nYou can learn more about simple features and the sf package here."
   },
   {
     "objectID": "slides/week_06/week_06_slides.html#reading-and-writing-functions-in-sf",
@@ -1593,7 +1593,7 @@
     "href": "slides/week_06/week_06_slides.html#in-class-exercise-create-a-simple-features-object",
     "title": "Mapping in R",
     "section": "In-class exercise: Create a simple features object",
-    "text": "In-class exercise: Create a simple features object\nStep 1: At the top of your script, load in the sf package and and your clean data into your environment\n\n# load -------\n\nlibrary(tidyverse) \n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.5.0     ✔ tibble    3.2.1\n✔ lubridate 1.9.3     ✔ tidyr     1.3.1\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nlibrary(sf)\n\nLinking to GEOS 3.11.0, GDAL 3.5.3, PROJ 9.1.0; sf_use_s2() is TRUE\n\noptions(scipen = 999)\n\n# Load in the Minnesota schools data \n\nmn_schools &lt;- read_csv(here::here(\"slides/week_06/data/mn_schools_clean.csv\"))\n\nRows: 1905 Columns: 10\n── Column specification ────────────────────────────────────────────────────────\nDelimiter: \",\"\nchr (3): school, district, title_1_school_status\ndbl (7): ncesid, lat, long, total_enroll, bipoc_enroll, bipoc_pct, white_enroll\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.\n\nglimpse(mn_schools)\n\nRows: 1,905\nColumns: 10\n$ school                &lt;chr&gt; \"112 ALC MIDDLE SCHOOL\", \"6-12TH GRADE BUILDING\"…\n$ district              &lt;chr&gt; \"EASTERN CARVER COUNTY PUBLIC SCHOOL\", \"CLINTON-…\n$ ncesid                &lt;dbl&gt; 2708190, 2700150, 2702264, 2700026, 2700026, 273…\n$ title_1_school_status &lt;chr&gt; \"2-Title I targeted assistance school\", \"2-Title…\n$ lat                   &lt;dbl&gt; 44.84160, 45.56920, 45.03684, 44.74140, 44.74140…\n$ long                  &lt;dbl&gt; -93.59690, -96.43320, -92.98547, -93.11454, -93.…\n$ total_enroll          &lt;dbl&gt; 404, 131, 82, 46, 140, 67, 332, 401, 456, 568, 9…\n$ bipoc_enroll          &lt;dbl&gt; 171, 4, 42, 29, 66, 65, 30, 47, 48, 547, 40, 15,…\n$ bipoc_pct             &lt;dbl&gt; 0.42326733, 0.03053435, 0.51219512, 0.63043478, …\n$ white_enroll          &lt;dbl&gt; 233, 127, 40, 17, 74, 2, 302, 354, 408, 21, 50, …"
+    "text": "In-class exercise: Create a simple features object\nStep 1: At the top of your script, load in the sf package and and your clean data into your environment\n\n# load -------\n\nlibrary(tidyverse) \nlibrary(sf)\n\noptions(scipen = 999)\n\n# Load in the Minnesota schools data \n\nmn_schools &lt;- read_csv(here::here(\"slides/week_06/data/mn_schools_clean.csv\"))\n\nglimpse(mn_schools)\n\nRows: 1,905\nColumns: 10\n$ school                &lt;chr&gt; \"112 ALC MIDDLE SCHOOL\", \"6-12TH GRADE BUILDING\"…\n$ district              &lt;chr&gt; \"EASTERN CARVER COUNTY PUBLIC SCHOOL\", \"CLINTON-…\n$ ncesid                &lt;dbl&gt; 2708190, 2700150, 2702264, 2700026, 2700026, 273…\n$ title_1_school_status &lt;chr&gt; \"2-Title I targeted assistance school\", \"2-Title…\n$ lat                   &lt;dbl&gt; 44.84160, 45.56920, 45.03684, 44.74140, 44.74140…\n$ long                  &lt;dbl&gt; -93.59690, -96.43320, -92.98547, -93.11454, -93.…\n$ total_enroll          &lt;dbl&gt; 404, 131, 82, 46, 140, 67, 332, 401, 456, 568, 9…\n$ bipoc_enroll          &lt;dbl&gt; 171, 4, 42, 29, 66, 65, 30, 47, 48, 547, 40, 15,…\n$ bipoc_pct             &lt;dbl&gt; 0.42326733, 0.03053435, 0.51219512, 0.63043478, …\n$ white_enroll          &lt;dbl&gt; 233, 127, 40, 17, 74, 2, 302, 354, 408, 21, 50, …"
   },
   {
     "objectID": "slides/week_06/week_06_slides.html#in-class-exercise-create-a-simple-features-object-1",
@@ -1628,7 +1628,7 @@
     "href": "slides/week_06/week_06_slides.html#in-class-exsercise-mapping-with-geom_sf-2",
     "title": "Mapping in R",
     "section": "In-class exsercise: Mapping with geom_sf()",
-    "text": "In-class exsercise: Mapping with geom_sf()\n\nlibrary(scales)\n\n\nAttaching package: 'scales'\n\n\nThe following object is masked from 'package:purrr':\n\n    discard\n\n\nThe following object is masked from 'package:readr':\n\n    col_factor\n\nlibrary(viridis)\n\nLoading required package: viridisLite\n\n\n\nAttaching package: 'viridis'\n\n\nThe following object is masked from 'package:scales':\n\n    viridis_pal\n\n# plotting multiple geom_sf layers ---------\nggplot() +\n  geom_sf(data = mn_outline, color = \"black\") +\n  geom_sf(data = mn_schools_shp, \n          # we can use aes() to map data just like with geom_point()\n          aes(size = total_enroll,\n              color = bipoc_pct),\n          alpha = .5) +\n  scale_color_viridis(labels = percent_format()) +\n  scale_size_area(max_size = 5,\n                  labels = comma_format()) +\n  labs(color = \"Percent BIPOC\", \n       size = \"Enrollment\",\n       title = \"Minnesota School Size, Location, and Demographics\") +\n  theme_void()"
+    "text": "In-class exsercise: Mapping with geom_sf()\n\nlibrary(scales)\nlibrary(viridis)\n\n# plotting multiple geom_sf layers ---------\nggplot() +\n  geom_sf(data = mn_outline, color = \"black\") +\n  geom_sf(data = mn_schools_shp, \n          # we can use aes() to map data just like with geom_point()\n          aes(size = total_enroll,\n              color = bipoc_pct),\n          alpha = .5) +\n  scale_color_viridis(labels = percent_format()) +\n  scale_size_area(max_size = 5,\n                  labels = comma_format()) +\n  labs(color = \"Percent BIPOC\", \n       size = \"Enrollment\",\n       title = \"Minnesota School Size, Location, and Demographics\") +\n  theme_void()"
   },
   {
     "objectID": "slides/week_06/week_06_slides.html#review-overview-of-the-edbuildr-package",
@@ -1649,7 +1649,7 @@
     "href": "slides/week_06/week_06_slides.html#live-coding-example-making-a-state-map-with-edbuildmapr",
     "title": "Mapping in R",
     "section": "LIVE CODING EXAMPLE: Making a state map with edbuildmapr",
-    "text": "LIVE CODING EXAMPLE: Making a state map with edbuildmapr\nStep 1: Load in packages and data from edbuildmapr and edbuild\n\n# load -------\n\noptions(scipen = 999)\n\nlibrary(edbuildr)\nlibrary(edbuildmapr)\n\n\nAttaching package: 'edbuildmapr'\n\n\nThe following object is masked from 'package:ggplot2':\n\n    borders\n\nlibrary(viridis)\nlibrary(scales)\n\n# load in the school district mapping data\nsd_map_raw &lt;- sd_shapepull(data_year = \"2019\", with_data = TRUE)\n\nReading layer `shapefile_1819' from data source \n  `/private/var/folders/25/5vf1tf0164x0sv9_4xgtq9040000gn/T/RtmpiIheh9/file101ca502b1467/shapefile_1819.shp' \n  using driver `ESRI Shapefile'\nSimple feature collection with 13315 features and 6 fields\nGeometry type: MULTIPOLYGON\nDimension:     XY\nBounding box:  xmin: -179.1686 ymin: -14.54858 xmax: 179.7487 ymax: 71.38961\nGeodetic CRS:  NAD83\n\n\nNOTE::This shapefile has been simplified to make analysis quicker. For final vizualizations, please use the unsimplified shapefiles available through NCES.\n\n# load in raw district finance data\ndist_data_raw &lt;- masterpull(data_type = \"geo\")"
+    "text": "LIVE CODING EXAMPLE: Making a state map with edbuildmapr\nStep 1: Load in packages and data from edbuildmapr and edbuild\n\n# load -------\n\noptions(scipen = 999)\n\nlibrary(edbuildr)\nlibrary(edbuildmapr)\nlibrary(viridis)\nlibrary(scales)\n\n# load in the school district mapping data\nsd_map_raw &lt;- sd_shapepull(data_year = \"2019\", with_data = TRUE)\n\nReading layer `shapefile_1819' from data source \n  `/private/var/folders/25/5vf1tf0164x0sv9_4xgtq9040000gn/T/RtmpmRT4pn/file2cbe16f9604f/shapefile_1819.shp' \n  using driver `ESRI Shapefile'\nSimple feature collection with 13315 features and 6 fields\nGeometry type: MULTIPOLYGON\nDimension:     XY\nBounding box:  xmin: -179.1686 ymin: -14.54858 xmax: 179.7487 ymax: 71.38961\nGeodetic CRS:  NAD83\n\n# load in raw district finance data\ndist_data_raw &lt;- masterpull(data_type = \"geo\")"
   },
   {
     "objectID": "slides/week_06/week_06_slides.html#live-coding-example-making-a-state-map-with-edbuildmapr-1",
@@ -1677,7 +1677,7 @@
     "href": "slides/week_06/week_06_slides.html#live-coding-example-making-a-state-map-with-edbuildmapr-4",
     "title": "Mapping in R",
     "section": "LIVE CODING EXAMPLE: Making a state map with edbuildmapr",
-    "text": "LIVE CODING EXAMPLE: Making a state map with edbuildmapr\nStep 5: Make your own color palette and create bins to more clearly break up your data!\n\n# load -------\n\n# create custom color palette\nbw_state_revenue &lt;- c(\"#BEC6CE\", \"#FFC762\", \"#007786\", \"#212B46\", \"#6D1E4A\")\n\n# plot another nicely-formatted map\nggplot()  + \n  geom_sf(data = state_shp,\n          aes(fill = pct_sr),\n          color = \"#ffffff\") +\n  theme_void() +\n  scale_fill_stepsn(breaks=c(0, .3, .5, .7, 1), # Breaks up the data\n                    colors = bw_state_revenue, \n                    name=\"State K-12 Revenue (%)\",\n                    labels=percent_format(accuracy = 1L)) + \n  labs(\n    title = \"School Districts' Reliance on State Revenue\",\n    subtitle = \"Percent of District K-12 Revenue From State (2019)\",\n    caption = \"Source: EdBuildr Data, 2019\")\n\n\n\n\n\n\n\n\nYou can export your map like any other plot via ggsave()"
+    "text": "LIVE CODING EXAMPLE: Making a state map with edbuildmapr\nStep 5: Make your own color palette and create bins to more clearly break up your data!\n\n# load -------\n\n# create custom color palette\nbw_state_revenue &lt;- c(\"#BEC6CE\", \"#FFC762\", \"#007786\", \"#212B46\", \"#6D1E4A\")\n\n# plot another nicely-formatted map\nggplot()  + \n  geom_sf(data = state_shp,\n          aes(fill = pct_sr),\n          color = \"#ffffff\") +\n  theme_void() +\n  scale_fill_stepsn(breaks=c(0, .3, .5, .7, 1), # Breaks up the data\n                    colors = bw_state_revenue, \n                    name=\"State K-12 Revenue (%)\",\n                    labels=percent_format(accuracy = 1L)) + \n  labs(\n    title = \"School Districts' Reliance on State Revenue\",\n    subtitle = \"Percent of District K-12 Revenue From State (2019)\",\n    caption = \"Source: EdBuildr Data, 2019\")\n\n\nYou can export your map like any other plot via ggsave()"
   },
   {
     "objectID": "slides/week_06/week_06_slides.html#state-group-activity-making-maps-with-edbuildr-data",
@@ -1726,7 +1726,7 @@
     "href": "slides/week_06/week_06_slides.html#adding-a-popup-to-your-leaflet-map",
     "title": "Mapping in R",
     "section": "Adding a popup to your leaflet map",
-    "text": "Adding a popup to your leaflet map\nThe popup parameter defines the text that displays when you click on an object in your leaflet map.\n\nCombine reactive data elements with text using the paste0() function\n\npopup = paste0(\"School: \",  ga_schools_shp$school, \"&lt;br&gt; Enrollment: \", ga_schools_shp$total_enroll)\n\n\n\n\n\n\nNote: A few considerations when adding the popup parameter:\n\nMake sure that you put the text within quotes\nUse dataframe$ to call the variables you want to use\n&lt;br&gt; is the line break html tag, which starts a new line"
+    "text": "Adding a popup to your leaflet map\nThe popup parameter defines the text that displays when you click on an object in your leaflet map.\n\nCombine reactive data elements with text using the paste0() function\n\npopup = paste0(\"School: \",  ga_schools_shp$school, \"&lt;br&gt; Enrollment: \", ga_schools_shp$total_enroll)\n\n\n\nNote: A few considerations when adding the popup parameter:\n\nMake sure that you put the text within quotes\nUse dataframe$ to call the variables you want to use\n&lt;br&gt; is the line break html tag, which starts a new line"
   },
   {
     "objectID": "slides/week_06/week_06_slides.html#in-class-exercise-mapping-with-leaflet-4",
@@ -1740,14 +1740,14 @@
     "href": "slides/week_06/week_06_slides.html#there-are-many-other-parameters-you-can-style-in-your-leaflet-map",
     "title": "Mapping in R",
     "section": "There are many other parameters you can style in your leaflet map",
-    "text": "There are many other parameters you can style in your leaflet map\n\nstroke: Outline of the circles or polygons\ncolor: Outline color\nweight: Thickness of the outline\nopacity: Transparency out the outline from 0 (transparent) to 1 (opaque)\nfill: Inside of the circle or polygon\nfillcolor: Inside color\n\n\n\n\n\n\n\nYou can define colors with the hex code or by referencing one of the color names included in base R."
+    "text": "There are many other parameters you can style in your leaflet map\n\nstroke: Outline of the circles or polygons\ncolor: Outline color\nweight: Thickness of the outline\nopacity: Transparency out the outline from 0 (transparent) to 1 (opaque)\nfill: Inside of the circle or polygon\nfillcolor: Inside color\n\n\n\n\nYou can define colors with the hex code or by referencing one of the color names included in base R."
   },
   {
     "objectID": "slides/week_06/week_06_slides.html#in-class-exercise-mapping-with-leaflet-5",
     "href": "slides/week_06/week_06_slides.html#in-class-exercise-mapping-with-leaflet-5",
     "title": "Mapping in R",
     "section": "In-class exercise: Mapping with leaflet",
-    "text": "In-class exercise: Mapping with leaflet\nStep 6: Create a more advanced map with dynamic fill and a legend\n\n# advanced leaflet example ------------------\n\nbw_primary &lt;- c(\"#6D1E4A\", # 1 plum\n                \"#007786\", # 2 teal\n                \"#0D525A\", # 3 dark green\n                \"#212B46\", # 4 navy\n                \"#5A6675\", # 5 grey\n                \"#F0DEC1\") # 6 cream\n\nbw_secondary &lt;- c(\"#FFC762\", # 1 yellow\n                  \"#FFB653\", # 2 orange\n                  \"#BEC6CE\", # 3 light grey\n                  \"#2E1A4A\", # 4 deep purple\n                  \"#7EA2D1\", # 5 soft blue\n                  \"#CAD3FB\", # 6 lavender\n                  \"#9CD4EA\", # 7 sky\n                  \"#FFA497\") # 8 peach\n\n# define breaks for fill variable\nstate_rev_breaks &lt;- c(0, .4, .6, .7, .8, 1)\n\n# define custom color palette\nbw_scale &lt;- c(bw_primary[6],\n              bw_secondary[1],\n              bw_primary[2],\n              bw_primary[3],\n              bw_primary[4])\n\n# create color palette object\nstate_rev_palette &lt;- colorBin(palette = bw_scale,\n                              domain = state_shp$pct_sr,\n                              bins = state_rev_breaks,\n                              na.color = bw_primary[5]) \n\n# create advanced leaflet map\nleaflet() |&gt;\n  addProviderTiles(provider = \"CartoDB.Positron\") |&gt;\n  addPolygons(data = state_shp,\n              color = \"#ababab\",\n              weight = .5,\n              popup = paste0(\"District: \",\n                             str_to_title(state_shp$name), \n                             \"&lt;br&gt; Enrollment: \", \n                             comma(state_shp$enroll),\n                             \"&lt;br&gt; Percent state revenue: \",\n                             percent(state_shp$pct_sr, accuracy = .1)),\n              fillColor = ~ state_rev_palette(pct_sr),\n              fillOpacity = .8) |&gt; \n  addLegend(\"topright\", \n            opacity = .8,\n            pal = state_rev_palette,\n            values = state_shp$pct_sr,\n            labFormat = labelFormat(\n              suffix = \"%\", between = \" - \",\n              transform = function(x) 100 * x\n            ),\n            title = \"Percent state revenue\")\n\n\n\n\n\n\n\nNotice there is a “~” after the “=” in the “fillColor” parameter"
+    "text": "In-class exercise: Mapping with leaflet\nStep 6: Create a more advanced map with dynamic fill and a legend\n\n# advanced leaflet example ------------------\n\nbw_primary &lt;- c(\"#6D1E4A\", # 1 plum\n                \"#007786\", # 2 teal\n                \"#0D525A\", # 3 dark green\n                \"#212B46\", # 4 navy\n                \"#5A6675\", # 5 grey\n                \"#F0DEC1\") # 6 cream\n\nbw_secondary &lt;- c(\"#FFC762\", # 1 yellow\n                  \"#FFB653\", # 2 orange\n                  \"#BEC6CE\", # 3 light grey\n                  \"#2E1A4A\", # 4 deep purple\n                  \"#7EA2D1\", # 5 soft blue\n                  \"#CAD3FB\", # 6 lavender\n                  \"#9CD4EA\", # 7 sky\n                  \"#FFA497\") # 8 peach\n\n# define breaks for fill variable\nstate_rev_breaks &lt;- c(0, .4, .6, .7, .8, 1)\n\n# define custom color palette\nbw_scale &lt;- c(bw_primary[6],\n              bw_secondary[1],\n              bw_primary[2],\n              bw_primary[3],\n              bw_primary[4])\n\n# create color palette object\nstate_rev_palette &lt;- colorBin(palette = bw_scale,\n                              domain = state_shp$pct_sr,\n                              bins = state_rev_breaks,\n                              na.color = bw_primary[5]) \n\n# create advanced leaflet map\nleaflet() |&gt;\n  addProviderTiles(provider = \"CartoDB.Positron\") |&gt;\n  addPolygons(data = state_shp,\n              color = \"#ababab\",\n              weight = .5,\n              popup = paste0(\"District: \",\n                             str_to_title(state_shp$name), \n                             \"&lt;br&gt; Enrollment: \", \n                             comma(state_shp$enroll),\n                             \"&lt;br&gt; Percent state revenue: \",\n                             percent(state_shp$pct_sr, accuracy = .1)),\n              fillColor = ~ state_rev_palette(pct_sr),\n              fillOpacity = .8) |&gt; \n  addLegend(\"topright\", \n            opacity = .8,\n            pal = state_rev_palette,\n            values = state_shp$pct_sr,\n            labFormat = labelFormat(\n              suffix = \"%\", between = \" - \",\n              transform = function(x) 100 * x\n            ),\n            title = \"Percent state revenue\")\n\n\n\n\nNotice there is a “~” after the “=” in the “fillColor” parameter"
   },
   {
     "objectID": "slides/week_06/week_06_slides.html#exporting-a-leaflet-map",
@@ -2519,5 +2519,54 @@
     "title": "Tidycensus and Reproducible Data in R",
     "section": "In the example we will use functions that are part of the dplyr package and ggplot2 packages",
     "text": "In the example we will use functions that are part of the dplyr package and ggplot2 packages\n\nanti_join(): Part of the dplyr package and filters observations from one data frame based on non-matches with another data frame.\nbind_rows(): Part of the dplyr package and combines multiple data frames or tibbles by stacking them vertically.\nfacet_wrap(): Part of the ggplot2 package and creates multi-panel plots by wrapping a 1D sequence of panels into a 2D layout.\n\nWe will also use several functions that we have already learned in the first four classes."
+  },
+  {
+    "objectID": "slides/week_06/week_06_slides.html#viewing-homework-feedback-on-github",
+    "href": "slides/week_06/week_06_slides.html#viewing-homework-feedback-on-github",
+    "title": "Mapping in R",
+    "section": "Viewing homework feedback on GitHub",
+    "text": "Viewing homework feedback on GitHub"
+  },
+  {
+    "objectID": "slides/week_06/week_06_slides.html#viewing-homework-feedback-on-github-1",
+    "href": "slides/week_06/week_06_slides.html#viewing-homework-feedback-on-github-1",
+    "title": "Mapping in R",
+    "section": "Viewing homework feedback on GitHub",
+    "text": "Viewing homework feedback on GitHub"
+  },
+  {
+    "objectID": "slides/week_06/week_06_slides.html#viewing-homework-feedback-on-github-2",
+    "href": "slides/week_06/week_06_slides.html#viewing-homework-feedback-on-github-2",
+    "title": "Mapping in R",
+    "section": "Viewing homework feedback on GitHub",
+    "text": "Viewing homework feedback on GitHub"
+  },
+  {
+    "objectID": "slides/week_06/week_06_slides.html#in-class-exsercise-mapping-with-geom_sf-2-output",
+    "href": "slides/week_06/week_06_slides.html#in-class-exsercise-mapping-with-geom_sf-2-output",
+    "title": "Mapping in R",
+    "section": "In-class exsercise: Mapping with geom_sf()",
+    "text": "In-class exsercise: Mapping with geom_sf()"
+  },
+  {
+    "objectID": "slides/week_06/week_06_slides.html#live-coding-example-making-a-state-map-with-edbuildmapr-2-output",
+    "href": "slides/week_06/week_06_slides.html#live-coding-example-making-a-state-map-with-edbuildmapr-2-output",
+    "title": "Mapping in R",
+    "section": "LIVE CODING EXAMPLE: Making a state map with edbuildmapr",
+    "text": "LIVE CODING EXAMPLE: Making a state map with edbuildmapr"
+  },
+  {
+    "objectID": "slides/week_06/week_06_slides.html#live-coding-example-making-a-state-map-with-edbuildmapr-3-output",
+    "href": "slides/week_06/week_06_slides.html#live-coding-example-making-a-state-map-with-edbuildmapr-3-output",
+    "title": "Mapping in R",
+    "section": "LIVE CODING EXAMPLE: Making a state map with edbuildmapr",
+    "text": "LIVE CODING EXAMPLE: Making a state map with edbuildmapr"
+  },
+  {
+    "objectID": "slides/week_06/week_06_slides.html#live-coding-example-making-a-state-map-with-edbuildmapr-4-output",
+    "href": "slides/week_06/week_06_slides.html#live-coding-example-making-a-state-map-with-edbuildmapr-4-output",
+    "title": "Mapping in R",
+    "section": "LIVE CODING EXAMPLE: Making a state map with edbuildmapr",
+    "text": "LIVE CODING EXAMPLE: Making a state map with edbuildmapr"
   }
 ]
