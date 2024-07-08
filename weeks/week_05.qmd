@@ -28,8 +28,8 @@ format: html
 
 ## Class Example R Script 
 
-- [Link to the R script for class 5 examples]
-- [Link to the R script for class 5 small group activity]
+- [Link to the R script for class 5 examples](https://gist.github.com/kkaput23/a1536916b4a323a06b47bc0d8bb500f7)
+- [Link to the R script for class 5 small group activity]()
 
 ## Lecture recording
 
