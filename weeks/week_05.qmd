@@ -29,7 +29,7 @@ format: html
 ## Class Example R Script 
 
 - [Link to the R script for class 5 examples](https://gist.github.com/kkaput23/a1536916b4a323a06b47bc0d8bb500f7)
-- [Link to the R script for class 5 small group activity]()
+- [Link to the R script for class 5 small group activity](https://gist.github.com/kkaput23/6331978bc1a6da51a0309e7681c50b7a)
 
 ## Lecture recording
 
@@ -37,7 +37,7 @@ Link will be uploaded after class.
 
 ## Coding Assignment
 
-To come after class. 
+Homework assignment will be added after class. 
 
 
 
