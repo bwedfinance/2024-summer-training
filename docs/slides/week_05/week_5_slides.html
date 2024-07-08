@@ -1,6 +1,20 @@
 <!DOCTYPE html>
 <html lang="en"><head>
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light"><script src="../../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../../site_libs/quarto-html/tabby.min.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -389,7 +403,7 @@
     }
   </style>
 </head>
-<body class="quarto-light">
+<body class="quarto-light nav-sidebar">
   <div class="reveal">
     <div class="slides">
 
@@ -433,8 +447,8 @@
 </ul>
 </div><div class="column" height="45%" data-fig-align="center" style="width:40%;">
 <div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="https://walker-data.com/tidycensus/logo.png" class="quarto-figure quarto-figure-center" data-fig-height="50%"></p>
+<figure class="figure">
+<p><img data-src="https://walker-data.com/tidycensus/logo.png" class="quarto-figure quarto-figure-center figure-img" data-fig-height="50%"></p>
 </figure>
 </div>
 </div>
@@ -646,7 +660,7 @@
 <span id="cb1-182"><a></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"MHI"</span>, <span class="at">y =</span> <span class="st">"Percent of households with a mortgage"</span>,</span>
 <span id="cb1-183"><a></a>       <span class="at">color =</span> <span class="st">"Poverty rate"</span>, <span class="at">size =</span> <span class="st">"Enrollment"</span>) <span class="sc">+</span></span>
 <span id="cb1-184"><a></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>sdType, <span class="at">scales =</span> <span class="st">"free"</span>) <span class="sc">+</span></span>
-<span id="cb1-185"><a></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-185"><a></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section></section>
 <section>
@@ -703,8 +717,8 @@
 </ul>
 </div><div class="column" style="width:60%;">
 <div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="week_5_images/Screenshot 2024-07-03 at 2.24.37 PM.png" class="quarto-figure quarto-figure-center" width="400"></p>
+<figure class="figure">
+<p><img data-src="week_5_images/Screenshot 2024-07-03 at 2.24.37 PM.png" class="quarto-figure quarto-figure-center figure-img" width="400"></p>
 </figure>
 </div>
 </div>
@@ -721,8 +735,8 @@
 </ul>
 </div><div class="column" style="width:50%;">
 <div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="week_5_images/Screenshot 2023-06-27 at 4.50.22 PM.png" class="quarto-figure quarto-figure-center" width="475"></p>
+<figure class="figure">
+<p><img data-src="week_5_images/Screenshot 2023-06-27 at 4.50.22 PM.png" class="quarto-figure quarto-figure-center figure-img" width="475"></p>
 </figure>
 </div>
 </div>
@@ -750,7 +764,7 @@
 <span id="cb2-7"><a></a></span>
 <span id="cb2-8"><a></a><span class="co"># Calling in scripts from the "updated_app_data" folder then the code in </span></span>
 <span id="cb2-9"><a></a><span class="co"># scripts 1-13 will run! </span></span>
-<span id="cb2-10"><a></a><span class="fu">source</span>(<span class="st">"updated_app_data/13_updated_2020_app_data.R"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-10"><a></a><span class="fu">source</span>(<span class="st">"updated_app_data/13_updated_2020_app_data.R"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="live-coding-example-u.s.-census-annual-survey-of-school-system-finances" class="slide level2">
@@ -873,7 +887,7 @@
 <span id="cb3-115"><a></a>         <span class="at">capital_expenses =</span> <span class="st">"Capital Outlay"</span>) <span class="sc">|&gt;</span></span>
 <span id="cb3-116"><a></a>  <span class="fu">mutate</span>(<span class="at">year =</span> <span class="dv">2011</span>) <span class="sc">|&gt;</span></span>
 <span id="cb3-117"><a></a>  <span class="fu">select</span>(year, state, total_revenue, federal_revenue, state_revenue, local_revenue,</span>
-<span id="cb3-118"><a></a>         total_expenditures, current_expenditures, capital_expenses)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-118"><a></a>         total_expenditures, current_expenditures, capital_expenses)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section></section>
 <section>
@@ -895,8 +909,8 @@
 </ol>
 </div><div class="column" style="width:50%;">
 <div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="week_5_images/Screenshot 2023-06-27 at 5.19.26 PM.png" class="quarto-figure quarto-figure-center" width="550"></p>
+<figure class="figure">
+<p><img data-src="week_5_images/Screenshot 2023-06-27 at 5.19.26 PM.png" class="quarto-figure quarto-figure-center figure-img" width="550"></p>
 </figure>
 </div>
 </div>
@@ -916,8 +930,8 @@
 </ul>
 </div><div class="column" style="width:50%;">
 <div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="week_5_images/Screenshot 2023-06-27 at 5.25.44 PM.png" class="quarto-figure quarto-figure-center"></p>
+<figure class="figure">
+<p><img data-src="week_5_images/Screenshot 2023-06-27 at 5.25.44 PM.png" class="quarto-figure quarto-figure-center figure-img"></p>
 </figure>
 </div>
 </div>

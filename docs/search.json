@@ -1075,7 +1075,7 @@
     "href": "weeks/week_05.html",
     "title": "Week 05",
     "section": "",
-    "text": "Class slides will be available after class."
+    "text": "Topic\n\n\nDate\n\n\n\n\n\n\nTidycensus and Reproducible Data in R\n\n\nJul 9, 2024\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "weeks/week_05.html#lecture",
@@ -1089,7 +1089,7 @@
     "href": "weeks/week_05.html#lecture-recording",
     "title": "Week 05",
     "section": "Lecture recording",
-    "text": "Lecture recording\nThe Zoom recording from our class is will be made available after class."
+    "text": "Lecture recording\nLink will be uploaded after class."
   },
   {
     "objectID": "weeks/week_05.html#in-class-examples",
@@ -1923,7 +1923,7 @@
     "href": "weeks/week_05.html#coding-assignment",
     "title": "Week 05",
     "section": "Coding Assignment",
-    "text": "Coding Assignment\nHomework will be available immediately following class."
+    "text": "Coding Assignment\nTo come after class."
   },
   {
     "objectID": "weeks/week_07.html#coding-assignment",
@@ -1998,7 +1998,7 @@
     "href": "materials.html#materials",
     "title": "Class Materials",
     "section": "Materials",
-    "text": "Materials\n\n\n\n\n\nWeek\n\n\nDates\n\n\nTopic\n\n\n\n\n\n\nWeek 01\n\n\nJune 4\n\n\nIntroduction to School Finance Equity\n\n\n\n\nWeek 02\n\n\nJune 11\n\n\nBasic Data Analysis and Visualization in R\n\n\n\n\nWeek 03\n\n\nJune 18\n\n\nStudent-Based Funding Formulas and Advocacy Considerations\n\n\n\n\nWeek 04\n\n\nJune 25\n\n\nData Cleaning and Processing in R\n\n\n\n\n\nNo matching items",
+    "text": "Materials\n\n\n\n\n\nWeek\n\n\nDates\n\n\nTopic\n\n\n\n\n\n\nWeek 01\n\n\nJune 4\n\n\nIntroduction to School Finance Equity\n\n\n\n\nWeek 02\n\n\nJune 11\n\n\nBasic Data Analysis and Visualization in R\n\n\n\n\nWeek 03\n\n\nJune 18\n\n\nStudent-Based Funding Formulas and Advocacy Considerations\n\n\n\n\nWeek 04\n\n\nJune 25\n\n\nData Cleaning and Processing in R\n\n\n\n\nWeek 05\n\n\nJuly 9\n\n\nTidycensus and Reproducible Data in R\n\n\n\n\n\nNo matching items",
     "crumbs": [
       "Class Materials"
     ]
@@ -2582,5 +2582,19 @@
     "title": "Tidycensus and Reproducible Data in R",
     "section": "In small groups you will….",
     "text": "In small groups you will….\nDo the in-class exercise but for your state. As you are looking through the data frames and the charts, ask yourselves:\n\nWhat do you notice about the data?\nAnything surprising or seem off?"
+  },
+  {
+    "objectID": "weeks/week_05.html#slides",
+    "href": "weeks/week_05.html#slides",
+    "title": "Week 05",
+    "section": "",
+    "text": "Topic\n\n\nDate\n\n\n\n\n\n\nTidycensus and Reproducible Data in R\n\n\nJul 9, 2024\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "weeks/week_05.html#class-example-r-script",
+    "href": "weeks/week_05.html#class-example-r-script",
+    "title": "Week 05",
+    "section": "Class Example R Script",
+    "text": "Class Example R Script\n\n[Link to the R script for class 5 examples]\n[Link to the R script for class 5 small group activity]"
   }
 ]
