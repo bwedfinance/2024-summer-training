@@ -299,6 +299,13 @@ ggplot(edbuild_mortgage_mn |>
 
 # Small Group Activitiy
 
+## In small groups you will....
+
+Do the in-class exercise but for your state. As you are looking through the data frames and the charts, ask yourselves: 
+
+- What do you notice about the data? 
+- Anything surprising or seem off? 
+
 # Break
 
 # Setting up your data processing project
@@ -592,10 +599,7 @@ R code chunks in R Markdown are contained within a pair of triple backticks that
 
 **Coding task**
 
--   Continue working on your `week04` assignment!
--   If you've completed a join of your first two datasets, add in the rest of the data you'll need to model your state's current funding formula
--   Two blocks of office hours will be available this week on Thursday and Friday to help with any data joining and/or cleaning challenges
+-   Clone the `rclass-capstone-project` capstone GitHub repository. Upload your data using the file structure we discussed today and start cleaning and analyzing your state's education finance data! 
+-   If you were not able to finish the week 4 homework, please finish it by noon on Monday, July 15. 
+-   Sign up for 1:1 check-in with Alex and Krista so we can discuss your capstone projects. Link will be sent in follow-up email. 
 
-**Finance contact**
-
--   Please share the contact information for your organization's finance/operations lead by Friday, July 14. We will be contacting them next week regarding the grant funding we have available.

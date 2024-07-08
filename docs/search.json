@@ -697,7 +697,7 @@
     "href": "slides/week_05/week_5_slides.html#this-weeks-homework-assignment",
     "title": "Tidycensus and Reproducible Data in R",
     "section": "This week’s homework assignment",
-    "text": "This week’s homework assignment\nReading assignment\n\nWhat Should the Future of School Finance Equity Look Like?\n\nCoding task\n\nContinue working on your week04 assignment!\nIf you’ve completed a join of your first two datasets, add in the rest of the data you’ll need to model your state’s current funding formula\nTwo blocks of office hours will be available this week on Thursday and Friday to help with any data joining and/or cleaning challenges\n\nFinance contact\n\nPlease share the contact information for your organization’s finance/operations lead by Friday, July 14. We will be contacting them next week regarding the grant funding we have available."
+    "text": "This week’s homework assignment\nReading assignment\n\nWhat Should the Future of School Finance Equity Look Like?\n\nCoding task\n\nClone the rclass-capstone-project capstone GitHub repository. Upload your data using the file structure we discussed today and start cleaning and analyzing your state’s education finance data!\nIf you were not able to finish the week 4 homework, please finish it by noon on Monday, July 15.\nSign up for 1:1 check-in with Alex and Krista so we can discuss your capstone projects. Link will be sent in follow-up email."
   },
   {
     "objectID": "slides/week_04/week_04_slides.html",
@@ -2568,5 +2568,19 @@
     "title": "Mapping in R",
     "section": "LIVE CODING EXAMPLE: Making a state map with edbuildmapr",
     "text": "LIVE CODING EXAMPLE: Making a state map with edbuildmapr"
+  },
+  {
+    "objectID": "slides/week_05/week_5_slides.html#in-small-groups-you-will-do-the-following",
+    "href": "slides/week_05/week_5_slides.html#in-small-groups-you-will-do-the-following",
+    "title": "Tidycensus and Reproducible Data in R",
+    "section": "In small groups you will do the following:",
+    "text": "In small groups you will do the following:"
+  },
+  {
+    "objectID": "slides/week_05/week_5_slides.html#in-small-groups-you-will.",
+    "href": "slides/week_05/week_5_slides.html#in-small-groups-you-will.",
+    "title": "Tidycensus and Reproducible Data in R",
+    "section": "In small groups you will….",
+    "text": "In small groups you will….\nDo the in-class exercise but for your state. As you are looking through the data frames and the charts, ask yourselves:\n\nWhat do you notice about the data?\nAnything surprising or seem off?"
   }
 ]
