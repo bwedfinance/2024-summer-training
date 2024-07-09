@@ -1851,7 +1851,7 @@
     "href": "resources.html#r-packages",
     "title": "R Resources",
     "section": "R Packages",
-    "text": "R Packages\n\ntidyverse: The core tidyverse includes the packages that you’re likely to use in everyday data analyses.\nggplot2: ggplot2 is a system for declaratively creating graphics, based on The Grammar of Graphics. You provide the data, tell ggplot2 how to map variables to aesthetics, what graphical primitives to use, and it takes care of the details.\ndplyr: dplyr is a grammar of data manipulation, providing a consistent set of verbs that help you solve the most common data manipulation challenges.\nreadr: The goal of readr is to provide a fast and friendly way to read rectangular data from delimited files, such as comma-separated values (CSV) and tab-separated values (TSV). It is designed to parse many types of data found in the wild, while providing an informative problem report when parsing leads to unexpected results.\nviridis: Provides a series of color maps that are designed to improve graph readability for readers with common forms of color blindness and/or color vision deficiency.\nscales: Provides the internal scaling infrastructure used by ggplot2, and gives you tools to override the default breaks, labels, transformations and palettes.",
+    "text": "R Packages\n\ntidyverse: The core tidyverse includes the packages that you’re likely to use in everyday data analyses.\nggplot2: ggplot2 is a system for declaratively creating graphics, based on The Grammar of Graphics. You provide the data, tell ggplot2 how to map variables to aesthetics, what graphical primitives to use, and it takes care of the details.\ndplyr: dplyr is a grammar of data manipulation, providing a consistent set of verbs that help you solve the most common data manipulation challenges.\nreadr: The goal of readr is to provide a fast and friendly way to read rectangular data from delimited files, such as comma-separated values (CSV) and tab-separated values (TSV). It is designed to parse many types of data found in the wild, while providing an informative problem report when parsing leads to unexpected results.\nviridis: Provides a series of color maps that are designed to improve graph readability for readers with common forms of color blindness and/or color vision deficiency.\nscales: Provides the internal scaling infrastructure used by ggplot2, and gives you tools to override the default breaks, labels, transformations and palettes.\ntidycensus: Allows users to work with US Census Bureau data. It provides an easy and streamlined way to access and analyze demographic data from various census datasets, including the Decennial Census and the American Community Survey (ACS)",
     "crumbs": [
       "R Resources"
     ]
@@ -2610,5 +2610,15 @@
     "title": "Tidycensus and Reproducible Data in R",
     "section": "School district geography options in tidycensus",
     "text": "School district geography options in tidycensus\nIn tidycensus, you can specify school districts as one of the geography types when pulling data. There are three primary types of school districts to work with:\n\nElementary School Districts: Represent areas served by elementary schools.\nSecondary School Districts: Represent areas served by secondary schools (middle and high schools).\nUnified School Districts: Represent areas that serve both elementary and secondary school students.\n\nMost states in the U.S. primarily have unified school districts, which are more common because they serve both elementary and secondary students. However, the exact distribution of school district types varies by by state. Some states may have a mix of elementary, secondary, and unified school districts, while others may predominantly feature one type over the others."
+  },
+  {
+    "objectID": "resources.html#r-cheat-sheets",
+    "href": "resources.html#r-cheat-sheets",
+    "title": "R Resources",
+    "section": "R Cheat Sheets",
+    "text": "R Cheat Sheets\n\nR Color Palettes: A collection of 497 palettes from 16 popular R packages divided into continuous, discrete, and dynamic palettes.\nR Keyboard Shortcuts: Keyboard Shortcuts in the RStudio IDE.",
+    "crumbs": [
+      "R Resources"
+    ]
   }
 ]

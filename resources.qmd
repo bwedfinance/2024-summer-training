@@ -17,6 +17,12 @@ format: html
 -   [**`readr`**](https://readr.tidyverse.org/): The goal of readr is to provide a fast and friendly way to read rectangular data from delimited files, such as comma-separated values (CSV) and tab-separated values (TSV). It is designed to parse many types of data found in the wild, while providing an informative problem report when parsing leads to unexpected results.
 -   [**`viridis`**](https://sjmgarnier.github.io/viridis/articles/intro-to-viridis.html): Provides a series of color maps that are designed to improve graph readability for readers with common forms of color blindness and/or color vision deficiency.
 -   [**`scales`**](https://scales.r-lib.org/): Provides the internal scaling infrastructure used by ggplot2, and gives you tools to override the default breaks, labels, transformations and palettes.
+- [**`tidycensus`**](https://walker-data.com/census-r/an-introduction-to-tidycensus.html): Allows users to work with US Census Bureau data. It provides an easy and streamlined way to access and analyze demographic data from various census datasets, including the Decennial Census and the American Community Survey (ACS)
+
+## R Cheat Sheets
+
+- [**R Color Palettes**](https://r-charts.com/color-palettes/): A collection of 497 palettes from 16 popular R packages divided into continuous, discrete, and dynamic palettes. 
+- [**R Keyboard Shortcuts**](https://support.posit.co/hc/en-us/articles/200711853-Keyboard-Shortcuts-in-the-RStudio-IDE): Keyboard Shortcuts in the RStudio IDE.
 
 ## Free PDF Versions of Books on R
 
