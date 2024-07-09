@@ -2469,7 +2469,7 @@
     "href": "slides/week_05/week_5_slides.html#agenda",
     "title": "Tidycensus and Reproducible Data in R",
     "section": "Agenda",
-    "text": "Agenda\n\nHomework review\nTidycensus\nPartner activity\nBreak\nReproducible data in R\nHomework and next class"
+    "text": "Agenda\n\nHomework Note\nTidycensus\nPartner activity\nBreak\nReproducible data in R\nHomework and next class"
   },
   {
     "objectID": "slides/week_05/week_5_slides.html#the-tidycensus-r-package-is-a-powerful-tool-designed-to-simplify-the-process-of-accessing-and-working-with-us-census-data",
@@ -2581,7 +2581,7 @@
     "href": "slides/week_05/week_5_slides.html#in-small-groups-you-will.",
     "title": "Tidycensus and Reproducible Data in R",
     "section": "In small groups you will….",
-    "text": "In small groups you will….\nDo the in-class exercise but for your state. As you are looking through the data frames and the charts, ask yourselves:\n\nWhat do you notice about the data?\nAnything surprising or seem off?"
+    "text": "In small groups you will….\nDo the in-class exercise but for your state. As you are looking through the data frames and the charts, ask yourselves:\n\nWhat do you notice about the data?\nAnything surprising or seem off?\n\nIf you have time, look through the variable book and explore the variables. Are there any variables that you think would be helpful or interesting to explore for your state?"
   },
   {
     "objectID": "weeks/week_05.html#slides",
@@ -2596,5 +2596,12 @@
     "title": "Week 05",
     "section": "Class Example R Script",
     "text": "Class Example R Script\n\nLink to the R script for class 5 examples\nLink to the R script for class 5 small group activity"
+  },
+  {
+    "objectID": "slides/week_05/week_5_slides.html#please-do-the-homework",
+    "href": "slides/week_05/week_5_slides.html#please-do-the-homework",
+    "title": "Tidycensus and Reproducible Data in R",
+    "section": "Please do the homework!",
+    "text": "Please do the homework!\nWith the holiday and such, several of you didn’t complete the homework. Please have it done by noon CT on Monday, July 15. We will do a homework review next class.\nIf you have questions, please sign up for office hours. If you send an email, please include your script or a screenshot of your code. This helps a lot with problem solving."
   }
 ]

@@ -59,14 +59,20 @@ bw_secondary <- c("#FFC762", # 1 yellow
 
 ## Agenda
 
--   Homework review
+-   Homework Note
 -   Tidycensus
 -   Partner activity
 -   Break
 -   Reproducible data in R
 -   Homework and next class
 
-# Homework Review
+# Homework Note
+
+## Please do the homework! 
+
+With the holiday and such, several of you didn't complete the homework. Please have it done by noon CT on Monday, July 15. We will do a homework review next class. 
+
+If you have questions, please sign up for office hours. If you send an email, please include your script or a screenshot of your code. This helps a lot with problem solving. 
 
 # Tidycensus
 
@@ -305,6 +311,8 @@ Do the in-class exercise but for your state. As you are looking through the data
 
 - What do you notice about the data? 
 - Anything surprising or seem off? 
+
+If you have time, look through the variable book and explore the variables. Are there any variables that you think would be helpful or interesting to explore for your state? 
 
 # Break
 
