@@ -95,6 +95,14 @@ mortgage_pct_mn <- mortgage_pct_unified |>
   # arrange from largest to smallest district
   arrange(-households)
 
+
+# Another way to bind the rows 
+mortgage_pct_mn_other <- rbind(mortgage_pct_unified, mortgage_pct_elementary) |> 
+  # filter out summary row
+  filter(GEOID != "2199999") |> 
+  # arrange from largest to smallest district
+  arrange(-households)
+
 # join edbuild and census data using left_join
 edbuild_mortgage_mn <- edbuild_fy19 |> 
   filter(State == "Minnesota") |> 
@@ -106,7 +114,8 @@ edbuild_mortgage_mn <- edbuild_fy19 |>
   filter(State == "Minnesota") |> 
   left_join(mortgage_pct_mn |> 
               select(GEOID, households, with_mortgage, mortgage_pct),
-            by = c("NCESID" = "GEOID"))
+            by = c("NCESID" = "GEOID")) |>
+  filter()
 
 # use anti_join() to check for districts with no mortgage data
 edbuild_mortgage_mn_no_match <- edbuild_fy19 |> 

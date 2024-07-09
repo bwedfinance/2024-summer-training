@@ -2603,5 +2603,12 @@
     "title": "Tidycensus and Reproducible Data in R",
     "section": "Please do the homework!",
     "text": "Please do the homework!\nWith the holiday and such, several of you didn’t complete the homework. Please have it done by noon CT on Monday, July 15. We will do a homework review next class.\nIf you have questions, please sign up for office hours. If you send an email, please include your script or a screenshot of your code. This helps a lot with problem solving."
+  },
+  {
+    "objectID": "slides/week_05/week_5_slides.html#school-district-geography-options-in-tidycensus",
+    "href": "slides/week_05/week_5_slides.html#school-district-geography-options-in-tidycensus",
+    "title": "Tidycensus and Reproducible Data in R",
+    "section": "School district geography options in tidycensus",
+    "text": "School district geography options in tidycensus\nIn tidycensus, you can specify school districts as one of the geography types when pulling data. There are three primary types of school districts to work with:\n\nElementary School Districts: Represent areas served by elementary schools.\nSecondary School Districts: Represent areas served by secondary schools (middle and high schools).\nUnified School Districts: Represent areas that serve both elementary and secondary school students.\n\nMost states in the U.S. primarily have unified school districts, which are more common because they serve both elementary and secondary students. However, the exact distribution of school district types varies by by state. Some states may have a mix of elementary, secondary, and unified school districts, while others may predominantly feature one type over the others."
   }
 ]

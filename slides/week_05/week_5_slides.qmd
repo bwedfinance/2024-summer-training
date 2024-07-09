@@ -91,6 +91,16 @@ The Census Bureau collects a lot of information that is reported at the school d
 :::
 :::
 
+## School district geography options in `tidycensus`
+
+In `tidycensus`, you can specify school districts as one of the geography types when pulling data. There are three primary types of school districts to work with:
+
+- **Elementary School Districts**: Represent areas served by elementary schools.
+- **Secondary School Districts**: Represent areas served by secondary schools (middle and high schools).
+- **Unified School Districts**: Represent areas that serve both elementary and secondary school students.
+
+Most states in the U.S. primarily have unified school districts, which are more common because they serve both elementary and secondary students. However, the exact distribution of school district types varies by by state. Some states may have a mix of elementary, secondary, and unified school districts, while others may predominantly feature one type over the others.
+
 ## To get started, you will need to sign up for an API key with the Census Bureau
 
 ![](https://michaeldgarber.github.io/teach-r/images/census-api-key-landing.png){fig-align="center"}
@@ -106,6 +116,7 @@ The Census Bureau collects a lot of information that is reported at the school d
 -   `facet_wrap()`: Part of the `ggplot2` package and creates multi-panel plots by wrapping a 1D sequence of panels into a 2D layout.
 
 We will also use several functions that we have already learned in the first four classes.
+
 
 ## In-class coding example: clean_and_join.R
 
