@@ -91,7 +91,7 @@ mortgage_pct_secondary <- mortgage_secondary_raw |>
 mortgage_pct_mn <- mortgage_pct_unified |> 
   bind_rows(mortgage_pct_elementary) |> 
   # filter out summary row
-  filter(GEOID != "2199999") |> 
+  filter(GEOID != "2799999") |> 
   # arrange from largest to smallest district
   arrange(-households)
 
@@ -99,7 +99,7 @@ mortgage_pct_mn <- mortgage_pct_unified |>
 # Another way to bind the rows 
 mortgage_pct_mn_other <- rbind(mortgage_pct_unified, mortgage_pct_elementary) |> 
   # filter out summary row
-  filter(GEOID != "2199999") |> 
+  filter(GEOID != "2799999") |> 
   # arrange from largest to smallest district
   arrange(-households)
 

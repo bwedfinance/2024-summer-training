@@ -33,12 +33,11 @@ format: html
 
 ## Lecture recording
 
-Link will be uploaded after class. 
+[Link to class 5 recording](https://vimeo.com/981657261?share=copy)
 
 ## Coding Assignment
 
-Homework assignment will be added after class. 
-
+Upload and start cleaning your state's education and enrollment data in the `rlcass-capstone-project` GitHub repository. 
 
 
 
