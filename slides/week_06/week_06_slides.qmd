@@ -1,19 +1,72 @@
 ---
 title: "Mapping in R"
-date: "July 18, 2023"
-format:
-  revealjs:
-    chalkboard: true
-execute:
-  freeze: auto
-  echo: false
+date: "July 16, 2024"
+css:
+  - |
+    .smaller h1 {
+      font-size: 0.5em; /* Adjust the font size as needed */
+    }
+output:
+  quarto::quarto_presentation:
+    format: revealjs
+    theme: 
+      logo: images/primary_full-color.png
+      theme: theme/slides.scss # Choose a theme for your presentation (e.g., simple, serif, solarized, etc.)
+    incremental: true # Whether to display content incrementally (one step at a time)
+    self_contained: true # Whether to create a standalone HTML file
+    highlight_style: "github" # Syntax highlighting style (e.g., github, monokai, etc.)
+    revealjs:
+      controls: true # Display navigation controls (e.g., arrows, slide number, etc.)
+      progress: true # Display a progress bar
+      slideNumber: true # Display slide numbers
+      center: true # Center the content on each slide
+      chalkboard: true # Enable chalkboard mode for reveal.js
 ---
 
 ```{r}
+#| output: false
+
+library(tidyverse)
 library(countdown)
+library(tigris)
+library(sf)
+library(scales)
+library(edbuildr)
+library(viridis)
+library(readxl)
+library(countdown)
+
+
+
+
+bw_primary <- c("#6D1E4A", # 1 plum
+                "#007786", # 2 teal
+                "#0D525A", # 3 dark green
+                "#212B46", # 4 navy
+                "#5A6675", # 5 grey
+                "#F0DEC1") # 6 cream
+
+bw_secondary <- c("#FFC762", # 1 yellow
+                  "#FFB653", # 2 orange
+                  "#BEC6CE", # 3 light grey
+                  "#2E1A4A", # 4 deep purple
+                  "#7EA2D1", # 5 soft blue
+                  "#CAD3FB", # 6 lavender
+                  "#9CD4EA", # 7 sky
+                  "#FFA497") # 8 peach
+
+
 ```
 
-# Homework Review
+## Agenda
+
+-   Homework Note
+-   Introduction to `sf`
+-   Partner activity
+-   Break
+-   
+-   Homework and next class
+
 
 
 # Introduction to `sf`
@@ -246,11 +299,11 @@ dist_data_raw <- masterpull(data_type = "geo")
 #| echo: true
 #| eval: true
 
-# filter mapping data for your state
+# filter mapping data for your state ------
 state_shp_raw <- sd_map_raw |> 
   # tidy up colnames
   rename_with(tolower) |> 
-  filter(state == "Kentucky") |>
+  filter(state == "Minnesota") |>
   rename(ncesid = geoid) |> 
   rename_with(tolower) |> 
   select(ncesid, geometry)
@@ -258,7 +311,7 @@ state_shp_raw <- sd_map_raw |>
 # filter state finance data for your state
 state_data <- dist_data_raw |> 
   rename_with(tolower) |> 
-  filter(state == "Kentucky")
+  filter(state == "Minnesota")
 
 # join data
 state_shp <- state_shp_raw |> 
@@ -298,9 +351,7 @@ The map looks okay, but there is a lot we can improve!
 #| eval: true
 #| output-location: slide
 
-# load -------
-
-# Make several aesthetic changes
+# Make several aesthetic changes ------
 ggplot() + 
   geom_sf(data = state_shp, 
           aes(fill = pct_sr),
@@ -325,7 +376,7 @@ ggplot() +
 #| eval: true
 #| output-location: slide
 
-# load -------
+# Make your own color palette and create bins to more clearly break up your data! ----
 
 # create custom color palette
 bw_state_revenue <- c("#BEC6CE", "#FFC762", "#007786", "#212B46", "#6D1E4A")
@@ -351,11 +402,9 @@ You can export your map like any other plot via `ggsave()`
 
 ## State Group Activity: Making maps with `edbuildr` data
 
--   Clone the `hw06-` repo, which should be available via GitHub.
 -   Open this example script: `scripts/edbuildmapr_example.R`.
 -   In small groups or your state teams, pull in data from `edbuildr` and `edbuildmapr` for your state and create a map!
 -   Play around with the colors, fills, and variables.
--   Be prepared for at least one person in your group to share their map!
 
 Alex and Krista will be circulating to answer questions. Feel free to also come back into the main room if you have questions!
 
@@ -430,7 +479,7 @@ dist_data_raw <- masterpull(data_type = "geo")
 state_shp_raw <- sd_map_raw |> 
   # tidy up colnames
   rename_with(tolower) |> 
-  filter(state == "Kentucky") |>
+  filter(state == "Texas") |>
   rename(ncesid = geoid) |> 
   rename_with(tolower) |> 
   select(ncesid, geometry)
@@ -438,7 +487,7 @@ state_shp_raw <- sd_map_raw |>
 # filter finance data for your state
 state_data <- dist_data_raw |> 
   rename_with(tolower) |> 
-  filter(state == "Kentucky")
+  filter(state == "Texas")
 
 # join data
 state_shp <- state_shp_raw |> 

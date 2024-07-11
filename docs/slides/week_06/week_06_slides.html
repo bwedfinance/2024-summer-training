@@ -10,7 +10,7 @@
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.4.550">
 
-  <meta name="dcterms.date" content="2023-07-18">
+  <meta name="dcterms.date" content="2024-07-16">
   <title>School Finance Equity Training, Summer 2024 - Mapping in R</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -96,11 +96,12 @@
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto.css">
+  <link rel="stylesheet" href=".smaller h1 {
+  font-size: 0.5em; /* Adjust the font size as needed */
+}">
   <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
-  <link href="../../site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
-  <link href="../../site_libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
   <style type="text/css">
 
@@ -400,13 +401,19 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">2023-07-18</p>
+  <p class="date">2024-07-16</p>
 </section>
-<section id="homework-review" class="title-slide slide level1 center">
-<h1>Homework Review</h1>
-
+<section id="agenda" class="slide level2">
+<h2>Agenda</h2>
+<ul>
+<li>Homework Note</li>
+<li>Introduction to <code>sf</code></li>
+<li>Partner activity</li>
+<li>Break</li>
+<li></li>
+<li>Homework and next class</li>
+</ul>
 </section>
-
 <section>
 <section id="introduction-to-sf" class="title-slide slide level1 center">
 <h1>Introduction to <code>sf</code></h1>
@@ -680,7 +687,7 @@ GEOGCRS["WGS 84",
 <span id="cb13-11"><a></a>sd_map_raw <span class="ot">&lt;-</span> <span class="fu">sd_shapepull</span>(<span class="at">data_year =</span> <span class="st">"2019"</span>, <span class="at">with_data =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Reading layer `shapefile_1819' from data source 
-  `/private/var/folders/25/5vf1tf0164x0sv9_4xgtq9040000gn/T/RtmpmRT4pn/file2cbe16f9604f/shapefile_1819.shp' 
+  `/private/var/folders/25/5vf1tf0164x0sv9_4xgtq9040000gn/T/RtmpGssFPM/file59b74d642d5e/shapefile_1819.shp' 
   using driver `ESRI Shapefile'
 Simple feature collection with 13315 features and 6 fields
 Geometry type: MULTIPOLYGON
@@ -696,11 +703,11 @@ Geodetic CRS:  NAD83</code></pre>
 <h2>LIVE CODING EXAMPLE: Making a state map with <code>edbuildmapr</code></h2>
 <p><strong>Step 2</strong>: Filter for your state, create a new variable, and join the data</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a><span class="co"># filter mapping data for your state</span></span>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a><span class="co"># filter mapping data for your state ------</span></span>
 <span id="cb16-2"><a></a>state_shp_raw <span class="ot">&lt;-</span> sd_map_raw <span class="sc">|&gt;</span> </span>
 <span id="cb16-3"><a></a>  <span class="co"># tidy up colnames</span></span>
 <span id="cb16-4"><a></a>  <span class="fu">rename_with</span>(tolower) <span class="sc">|&gt;</span> </span>
-<span id="cb16-5"><a></a>  <span class="fu">filter</span>(state <span class="sc">==</span> <span class="st">"Kentucky"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb16-5"><a></a>  <span class="fu">filter</span>(state <span class="sc">==</span> <span class="st">"Minnesota"</span>) <span class="sc">|&gt;</span></span>
 <span id="cb16-6"><a></a>  <span class="fu">rename</span>(<span class="at">ncesid =</span> geoid) <span class="sc">|&gt;</span> </span>
 <span id="cb16-7"><a></a>  <span class="fu">rename_with</span>(tolower) <span class="sc">|&gt;</span> </span>
 <span id="cb16-8"><a></a>  <span class="fu">select</span>(ncesid, geometry)</span>
@@ -708,7 +715,7 @@ Geodetic CRS:  NAD83</code></pre>
 <span id="cb16-10"><a></a><span class="co"># filter state finance data for your state</span></span>
 <span id="cb16-11"><a></a>state_data <span class="ot">&lt;-</span> dist_data_raw <span class="sc">|&gt;</span> </span>
 <span id="cb16-12"><a></a>  <span class="fu">rename_with</span>(tolower) <span class="sc">|&gt;</span> </span>
-<span id="cb16-13"><a></a>  <span class="fu">filter</span>(state <span class="sc">==</span> <span class="st">"Kentucky"</span>)</span>
+<span id="cb16-13"><a></a>  <span class="fu">filter</span>(state <span class="sc">==</span> <span class="st">"Minnesota"</span>)</span>
 <span id="cb16-14"><a></a></span>
 <span id="cb16-15"><a></a><span class="co"># join data</span></span>
 <span id="cb16-16"><a></a>state_shp <span class="ot">&lt;-</span> state_shp_raw <span class="sc">|&gt;</span> </span>
@@ -745,21 +752,19 @@ Geodetic CRS:  NAD83</code></pre>
 <li>Add a title, subtitle, and source caption within <code>labs()</code></li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a><span class="co"># load -------</span></span>
-<span id="cb18-2"><a></a></span>
-<span id="cb18-3"><a></a><span class="co"># Make several aesthetic changes</span></span>
-<span id="cb18-4"><a></a><span class="fu">ggplot</span>() <span class="sc">+</span> </span>
-<span id="cb18-5"><a></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> state_shp, </span>
-<span id="cb18-6"><a></a>          <span class="fu">aes</span>(<span class="at">fill =</span> pct_sr),</span>
-<span id="cb18-7"><a></a>          <span class="at">color =</span> <span class="st">"#ffffff"</span>) <span class="sc">+</span></span>
-<span id="cb18-8"><a></a>  <span class="fu">theme_void</span>() <span class="sc">+</span></span>
-<span id="cb18-9"><a></a>  <span class="fu">scale_fill_viridis</span>(<span class="at">name =</span> <span class="st">"Percent K-12 Budget</span><span class="sc">\n</span><span class="st">from State Revenue (%)"</span>,</span>
-<span id="cb18-10"><a></a>                     <span class="at">labels =</span> <span class="fu">percent_format</span>(<span class="at">accuracy =</span> <span class="dv">1</span>), </span>
-<span id="cb18-11"><a></a>                     <span class="at">direction =</span> <span class="sc">-</span><span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb18-12"><a></a>  <span class="fu">labs</span>(</span>
-<span id="cb18-13"><a></a>    <span class="at">title =</span> <span class="st">"School Districts' Reliance on State Revenue"</span>,</span>
-<span id="cb18-14"><a></a>    <span class="at">subtitle =</span> <span class="st">"Percent of District K-12 Revenue From State, 2018-19"</span>,</span>
-<span id="cb18-15"><a></a>    <span class="at">caption =</span> <span class="st">"Source: EdBuild"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a><span class="co"># Make several aesthetic changes ------</span></span>
+<span id="cb18-2"><a></a><span class="fu">ggplot</span>() <span class="sc">+</span> </span>
+<span id="cb18-3"><a></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> state_shp, </span>
+<span id="cb18-4"><a></a>          <span class="fu">aes</span>(<span class="at">fill =</span> pct_sr),</span>
+<span id="cb18-5"><a></a>          <span class="at">color =</span> <span class="st">"#ffffff"</span>) <span class="sc">+</span></span>
+<span id="cb18-6"><a></a>  <span class="fu">theme_void</span>() <span class="sc">+</span></span>
+<span id="cb18-7"><a></a>  <span class="fu">scale_fill_viridis</span>(<span class="at">name =</span> <span class="st">"Percent K-12 Budget</span><span class="sc">\n</span><span class="st">from State Revenue (%)"</span>,</span>
+<span id="cb18-8"><a></a>                     <span class="at">labels =</span> <span class="fu">percent_format</span>(<span class="at">accuracy =</span> <span class="dv">1</span>), </span>
+<span id="cb18-9"><a></a>                     <span class="at">direction =</span> <span class="sc">-</span><span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb18-10"><a></a>  <span class="fu">labs</span>(</span>
+<span id="cb18-11"><a></a>    <span class="at">title =</span> <span class="st">"School Districts' Reliance on State Revenue"</span>,</span>
+<span id="cb18-12"><a></a>    <span class="at">subtitle =</span> <span class="st">"Percent of District K-12 Revenue From State, 2018-19"</span>,</span>
+<span id="cb18-13"><a></a>    <span class="at">caption =</span> <span class="st">"Source: EdBuild"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 </section>
@@ -775,7 +780,7 @@ Geodetic CRS:  NAD83</code></pre>
 <h2>LIVE CODING EXAMPLE: Making a state map with <code>edbuildmapr</code></h2>
 <p><strong>Step 5</strong>: Make your own color palette and create bins to more clearly break up your data!</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a></a><span class="co"># load -------</span></span>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a></a><span class="co"># Make your own color palette and create bins to more clearly break up your data! ----</span></span>
 <span id="cb19-2"><a></a></span>
 <span id="cb19-3"><a></a><span class="co"># create custom color palette</span></span>
 <span id="cb19-4"><a></a>bw_state_revenue <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"#BEC6CE"</span>, <span class="st">"#FFC762"</span>, <span class="st">"#007786"</span>, <span class="st">"#212B46"</span>, <span class="st">"#6D1E4A"</span>)</span>
@@ -809,11 +814,9 @@ Geodetic CRS:  NAD83</code></pre>
 </div></section><section id="state-group-activity-making-maps-with-edbuildr-data" class="slide level2">
 <h2>State Group Activity: Making maps with <code>edbuildr</code> data</h2>
 <ul>
-<li>Clone the <code>hw06-</code> repo, which should be available via GitHub.</li>
 <li>Open this example script: <code>scripts/edbuildmapr_example.R</code>.</li>
 <li>In small groups or your state teams, pull in data from <code>edbuildr</code> and <code>edbuildmapr</code> for your state and create a map!</li>
 <li>Play around with the colors, fills, and variables.</li>
-<li>Be prepared for at least one person in your group to share their map!</li>
 </ul>
 <p>Alex and Krista will be circulating to answer questions. Feel free to also come back into the main room if you have questions!</p>
 </section></section>
@@ -821,7 +824,7 @@ Geodetic CRS:  NAD83</code></pre>
 <h1>Break</h1>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_50b239df" data-update-every="1" tabindex="0" style="right:0;bottom:0;font-size:1.5em;">
+<div class="countdown" id="timer_7d1fa750" data-update-every="1" tabindex="0" style="right:0;bottom:0;font-size:1.5em;">
 <div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">10</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
@@ -1112,7 +1115,6 @@ Geodetic CRS:  NAD83</code></pre>
   <script src="../../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
   <script src="../../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
   <script src="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
-  <script src="../../site_libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
   <script src="../../site_libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
@@ -1133,8 +1135,7 @@ Geodetic CRS:  NAD83</code></pre>
 'autoAnimateEasing': "ease",
 'autoAnimateDuration': 1,
 'autoAnimateUnmatched': true,
-'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
-'chalkboard': {"buttons":true},
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
 'smaller': false,
  
         // Display controls in the bottom right corner
@@ -1305,7 +1306,7 @@ Geodetic CRS:  NAD83</code></pre>
         },
 
         // reveal.js plugins
-        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, QuartoSupport,
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
 
           RevealMath,
           RevealNotes,

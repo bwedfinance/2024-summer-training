@@ -1649,14 +1649,14 @@
     "href": "slides/week_06/week_06_slides.html#live-coding-example-making-a-state-map-with-edbuildmapr",
     "title": "Mapping in R",
     "section": "LIVE CODING EXAMPLE: Making a state map with edbuildmapr",
-    "text": "LIVE CODING EXAMPLE: Making a state map with edbuildmapr\nStep 1: Load in packages and data from edbuildmapr and edbuild\n\n# load -------\n\noptions(scipen = 999)\n\nlibrary(edbuildr)\nlibrary(edbuildmapr)\nlibrary(viridis)\nlibrary(scales)\n\n# load in the school district mapping data\nsd_map_raw &lt;- sd_shapepull(data_year = \"2019\", with_data = TRUE)\n\nReading layer `shapefile_1819' from data source \n  `/private/var/folders/25/5vf1tf0164x0sv9_4xgtq9040000gn/T/RtmpmRT4pn/file2cbe16f9604f/shapefile_1819.shp' \n  using driver `ESRI Shapefile'\nSimple feature collection with 13315 features and 6 fields\nGeometry type: MULTIPOLYGON\nDimension:     XY\nBounding box:  xmin: -179.1686 ymin: -14.54858 xmax: 179.7487 ymax: 71.38961\nGeodetic CRS:  NAD83\n\n# load in raw district finance data\ndist_data_raw &lt;- masterpull(data_type = \"geo\")"
+    "text": "LIVE CODING EXAMPLE: Making a state map with edbuildmapr\nStep 1: Load in packages and data from edbuildmapr and edbuild\n\n# load -------\n\noptions(scipen = 999)\n\nlibrary(edbuildr)\nlibrary(edbuildmapr)\nlibrary(viridis)\nlibrary(scales)\n\n# load in the school district mapping data\nsd_map_raw &lt;- sd_shapepull(data_year = \"2019\", with_data = TRUE)\n\nReading layer `shapefile_1819' from data source \n  `/private/var/folders/25/5vf1tf0164x0sv9_4xgtq9040000gn/T/RtmpGssFPM/file59b74d642d5e/shapefile_1819.shp' \n  using driver `ESRI Shapefile'\nSimple feature collection with 13315 features and 6 fields\nGeometry type: MULTIPOLYGON\nDimension:     XY\nBounding box:  xmin: -179.1686 ymin: -14.54858 xmax: 179.7487 ymax: 71.38961\nGeodetic CRS:  NAD83\n\n# load in raw district finance data\ndist_data_raw &lt;- masterpull(data_type = \"geo\")"
   },
   {
     "objectID": "slides/week_06/week_06_slides.html#live-coding-example-making-a-state-map-with-edbuildmapr-1",
     "href": "slides/week_06/week_06_slides.html#live-coding-example-making-a-state-map-with-edbuildmapr-1",
     "title": "Mapping in R",
     "section": "LIVE CODING EXAMPLE: Making a state map with edbuildmapr",
-    "text": "LIVE CODING EXAMPLE: Making a state map with edbuildmapr\nStep 2: Filter for your state, create a new variable, and join the data\n\n# filter mapping data for your state\nstate_shp_raw &lt;- sd_map_raw |&gt; \n  # tidy up colnames\n  rename_with(tolower) |&gt; \n  filter(state == \"Kentucky\") |&gt;\n  rename(ncesid = geoid) |&gt; \n  rename_with(tolower) |&gt; \n  select(ncesid, geometry)\n\n# filter state finance data for your state\nstate_data &lt;- dist_data_raw |&gt; \n  rename_with(tolower) |&gt; \n  filter(state == \"Kentucky\")\n\n# join data\nstate_shp &lt;- state_shp_raw |&gt; \n  left_join(state_data, by = \"ncesid\") |&gt; \n  mutate(pct_sr = srpp / slrpp)"
+    "text": "LIVE CODING EXAMPLE: Making a state map with edbuildmapr\nStep 2: Filter for your state, create a new variable, and join the data\n\n# filter mapping data for your state ------\nstate_shp_raw &lt;- sd_map_raw |&gt; \n  # tidy up colnames\n  rename_with(tolower) |&gt; \n  filter(state == \"Minnesota\") |&gt;\n  rename(ncesid = geoid) |&gt; \n  rename_with(tolower) |&gt; \n  select(ncesid, geometry)\n\n# filter state finance data for your state\nstate_data &lt;- dist_data_raw |&gt; \n  rename_with(tolower) |&gt; \n  filter(state == \"Minnesota\")\n\n# join data\nstate_shp &lt;- state_shp_raw |&gt; \n  left_join(state_data, by = \"ncesid\") |&gt; \n  mutate(pct_sr = srpp / slrpp)"
   },
   {
     "objectID": "slides/week_06/week_06_slides.html#live-coding-example-making-a-state-map-with-edbuildmapr-2",
@@ -1670,21 +1670,21 @@
     "href": "slides/week_06/week_06_slides.html#live-coding-example-making-a-state-map-with-edbuildmapr-3",
     "title": "Mapping in R",
     "section": "LIVE CODING EXAMPLE: Making a state map with edbuildmapr",
-    "text": "LIVE CODING EXAMPLE: Making a state map with edbuildmapr\nThe map looks okay, but there is a lot we can improve!\nStep 4: Make several aesthetic changes\n\nChange the color of the lines to white within geom_sf()\nReverse the direction of the color scale within scale_fill_viridis()\nAdd a title, subtitle, and source caption within labs()\n\n\n# load -------\n\n# Make several aesthetic changes\nggplot() + \n  geom_sf(data = state_shp, \n          aes(fill = pct_sr),\n          color = \"#ffffff\") +\n  theme_void() +\n  scale_fill_viridis(name = \"Percent K-12 Budget\\nfrom State Revenue (%)\",\n                     labels = percent_format(accuracy = 1), \n                     direction = -1) +\n  labs(\n    title = \"School Districts' Reliance on State Revenue\",\n    subtitle = \"Percent of District K-12 Revenue From State, 2018-19\",\n    caption = \"Source: EdBuild\")"
+    "text": "LIVE CODING EXAMPLE: Making a state map with edbuildmapr\nThe map looks okay, but there is a lot we can improve!\nStep 4: Make several aesthetic changes\n\nChange the color of the lines to white within geom_sf()\nReverse the direction of the color scale within scale_fill_viridis()\nAdd a title, subtitle, and source caption within labs()\n\n\n# Make several aesthetic changes ------\nggplot() + \n  geom_sf(data = state_shp, \n          aes(fill = pct_sr),\n          color = \"#ffffff\") +\n  theme_void() +\n  scale_fill_viridis(name = \"Percent K-12 Budget\\nfrom State Revenue (%)\",\n                     labels = percent_format(accuracy = 1), \n                     direction = -1) +\n  labs(\n    title = \"School Districts' Reliance on State Revenue\",\n    subtitle = \"Percent of District K-12 Revenue From State, 2018-19\",\n    caption = \"Source: EdBuild\")"
   },
   {
     "objectID": "slides/week_06/week_06_slides.html#live-coding-example-making-a-state-map-with-edbuildmapr-4",
     "href": "slides/week_06/week_06_slides.html#live-coding-example-making-a-state-map-with-edbuildmapr-4",
     "title": "Mapping in R",
     "section": "LIVE CODING EXAMPLE: Making a state map with edbuildmapr",
-    "text": "LIVE CODING EXAMPLE: Making a state map with edbuildmapr\nStep 5: Make your own color palette and create bins to more clearly break up your data!\n\n# load -------\n\n# create custom color palette\nbw_state_revenue &lt;- c(\"#BEC6CE\", \"#FFC762\", \"#007786\", \"#212B46\", \"#6D1E4A\")\n\n# plot another nicely-formatted map\nggplot()  + \n  geom_sf(data = state_shp,\n          aes(fill = pct_sr),\n          color = \"#ffffff\") +\n  theme_void() +\n  scale_fill_stepsn(breaks=c(0, .3, .5, .7, 1), # Breaks up the data\n                    colors = bw_state_revenue, \n                    name=\"State K-12 Revenue (%)\",\n                    labels=percent_format(accuracy = 1L)) + \n  labs(\n    title = \"School Districts' Reliance on State Revenue\",\n    subtitle = \"Percent of District K-12 Revenue From State (2019)\",\n    caption = \"Source: EdBuildr Data, 2019\")\n\n\nYou can export your map like any other plot via ggsave()"
+    "text": "LIVE CODING EXAMPLE: Making a state map with edbuildmapr\nStep 5: Make your own color palette and create bins to more clearly break up your data!\n\n# Make your own color palette and create bins to more clearly break up your data! ----\n\n# create custom color palette\nbw_state_revenue &lt;- c(\"#BEC6CE\", \"#FFC762\", \"#007786\", \"#212B46\", \"#6D1E4A\")\n\n# plot another nicely-formatted map\nggplot()  + \n  geom_sf(data = state_shp,\n          aes(fill = pct_sr),\n          color = \"#ffffff\") +\n  theme_void() +\n  scale_fill_stepsn(breaks=c(0, .3, .5, .7, 1), # Breaks up the data\n                    colors = bw_state_revenue, \n                    name=\"State K-12 Revenue (%)\",\n                    labels=percent_format(accuracy = 1L)) + \n  labs(\n    title = \"School Districts' Reliance on State Revenue\",\n    subtitle = \"Percent of District K-12 Revenue From State (2019)\",\n    caption = \"Source: EdBuildr Data, 2019\")\n\n\nYou can export your map like any other plot via ggsave()"
   },
   {
     "objectID": "slides/week_06/week_06_slides.html#state-group-activity-making-maps-with-edbuildr-data",
     "href": "slides/week_06/week_06_slides.html#state-group-activity-making-maps-with-edbuildr-data",
     "title": "Mapping in R",
     "section": "State Group Activity: Making maps with edbuildr data",
-    "text": "State Group Activity: Making maps with edbuildr data\n\nClone the hw06- repo, which should be available via GitHub.\nOpen this example script: scripts/edbuildmapr_example.R.\nIn small groups or your state teams, pull in data from edbuildr and edbuildmapr for your state and create a map!\nPlay around with the colors, fills, and variables.\nBe prepared for at least one person in your group to share their map!\n\nAlex and Krista will be circulating to answer questions. Feel free to also come back into the main room if you have questions!"
+    "text": "State Group Activity: Making maps with edbuildr data\n\nOpen this example script: scripts/edbuildmapr_example.R.\nIn small groups or your state teams, pull in data from edbuildr and edbuildmapr for your state and create a map!\nPlay around with the colors, fills, and variables.\n\nAlex and Krista will be circulating to answer questions. Feel free to also come back into the main room if you have questions!"
   },
   {
     "objectID": "slides/week_06/week_06_slides.html#leaflet-is-an-interactive-mapping-package",
@@ -2620,5 +2620,12 @@
     "crumbs": [
       "R Resources"
     ]
+  },
+  {
+    "objectID": "slides/week_06/week_06_slides.html#agenda",
+    "href": "slides/week_06/week_06_slides.html#agenda",
+    "title": "Mapping in R",
+    "section": "Agenda",
+    "text": "Agenda\n\nHomework Note\nIntroduction to sf\nPartner activity\nBreak\n\nHomework and next class"
   }
 ]
