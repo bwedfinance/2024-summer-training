@@ -62,11 +62,11 @@ bw_secondary <- c("#FFC762", # 1 yellow
 
 -   Homework Note
 -   Introduction to `sf`
+-   Mapping using `edbuildmapr`
 -   Partner activity
 -   Break
--   
+-   Mapping using `leaflet`
 -   Homework and next class
-
 
 
 # Introduction to `sf`
