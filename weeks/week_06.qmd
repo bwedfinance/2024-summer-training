@@ -29,15 +29,23 @@ format: html
 
 ## R Small Group Activity 
 
-You can access the script for the in-class small group activity [here.](https://gist.github.com/kkaput23/783bd2cf7e1a420bf923320585e66829)
+You can access the R script for the in-class small group activity [here.](https://gist.github.com/kkaput23/783bd2cf7e1a420bf923320585e66829)
+
+## R Class `edbuildmapr` example with `factor()` function 
+
+You can access the R script with the `factor()` example for mapping [here](https://gist.github.com/kkaput23/5f8cb2bd58d1f29265a7e65b1ae44836).
 
 ## Lecture recording
 
-Link to class 6 recording will be added after class. 
+You can access the link to the [class recording here](https://vimeo.com/985207981?share=copy). Please see follow-up email for the password. 
 
 ## Coding Assignment
 
-Coding assignment will be loaded after class.  
+Look at script in the `hw-wk-6` repository and complete the following tasks: 
+
+-   Create at least three production-quality maps of district-level finance data for your state.
+-   Ensure that at least one of your maps includes state per-pupil funding as the `fill` variable.
+-   Be sure to use the `ggsave()` commands to save your final maps in the `/figures` folder.
 
 
 

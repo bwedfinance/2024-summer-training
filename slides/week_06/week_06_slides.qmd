@@ -408,7 +408,7 @@ You can export your map like any other plot via `ggsave()`
 ## State Group Activity: Making maps with `edbuildr` data
 
 -   Open this example script: `scripts/edbuildmapr_example.R`.
--   In small groups or your state teams, pull in data from `edbuildr` and `edbuildmapr` for your state and create a map!
+-   In small groups, pull in data from `edbuildr` and `edbuildmapr` for your state and create a map!
 -   Play around with the colors, fills, and variables.
 
 Alex and Krista will be circulating to answer questions. Feel free to also come back into the main room if you have questions!

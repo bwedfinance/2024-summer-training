@@ -1054,7 +1054,7 @@
     "href": "weeks/week_06.html#lecture-recording",
     "title": "Week 06",
     "section": "Lecture recording",
-    "text": "Lecture recording\nLink to class 6 recording will be added after class."
+    "text": "Lecture recording\nYou can access the link to the class recording here. Please see follow-up email for the password."
   },
   {
     "objectID": "weeks/week_06.html#reading",
@@ -1649,7 +1649,7 @@
     "href": "slides/week_06/week_06_slides.html#live-coding-example-making-a-state-map-with-edbuildmapr",
     "title": "Mapping in R",
     "section": "LIVE CODING EXAMPLE: Making a state map with edbuildmapr",
-    "text": "LIVE CODING EXAMPLE: Making a state map with edbuildmapr\nStep 1: Load in packages and data from edbuildmapr and edbuild\n\n# load -------\n\noptions(scipen = 999)\n\nlibrary(edbuildr)\nlibrary(edbuildmapr)\nlibrary(viridis)\nlibrary(scales)\n\n# load in the school district mapping data\nsd_map_raw &lt;- sd_shapepull(data_year = \"2019\", with_data = TRUE)\n\nReading layer `shapefile_1819' from data source \n  `/private/var/folders/25/5vf1tf0164x0sv9_4xgtq9040000gn/T/RtmpjRwOhn/file3dbc3f1b8061/shapefile_1819.shp' \n  using driver `ESRI Shapefile'\nSimple feature collection with 13315 features and 6 fields\nGeometry type: MULTIPOLYGON\nDimension:     XY\nBounding box:  xmin: -179.1686 ymin: -14.54858 xmax: 179.7487 ymax: 71.38961\nGeodetic CRS:  NAD83\n\n# load in raw district finance data\ndist_data_raw &lt;- masterpull(data_type = \"geo\")"
+    "text": "LIVE CODING EXAMPLE: Making a state map with edbuildmapr\nStep 1: Load in packages and data from edbuildmapr and edbuild\n\n# load -------\n\noptions(scipen = 999)\n\nlibrary(edbuildr)\nlibrary(edbuildmapr)\nlibrary(viridis)\nlibrary(scales)\n\n# load in the school district mapping data\nsd_map_raw &lt;- sd_shapepull(data_year = \"2019\", with_data = TRUE)\n\nReading layer `shapefile_1819' from data source \n  `/private/var/folders/25/5vf1tf0164x0sv9_4xgtq9040000gn/T/RtmpijWbqq/file5a60528c5d93/shapefile_1819.shp' \n  using driver `ESRI Shapefile'\nSimple feature collection with 13315 features and 6 fields\nGeometry type: MULTIPOLYGON\nDimension:     XY\nBounding box:  xmin: -179.1686 ymin: -14.54858 xmax: 179.7487 ymax: 71.38961\nGeodetic CRS:  NAD83\n\n# load in raw district finance data\ndist_data_raw &lt;- masterpull(data_type = \"geo\")"
   },
   {
     "objectID": "slides/week_06/week_06_slides.html#live-coding-example-making-a-state-map-with-edbuildmapr-1",
@@ -1684,7 +1684,7 @@
     "href": "slides/week_06/week_06_slides.html#state-group-activity-making-maps-with-edbuildr-data",
     "title": "Mapping in R",
     "section": "State Group Activity: Making maps with edbuildr data",
-    "text": "State Group Activity: Making maps with edbuildr data\n\nOpen this example script: scripts/edbuildmapr_example.R.\nIn small groups or your state teams, pull in data from edbuildr and edbuildmapr for your state and create a map!\nPlay around with the colors, fills, and variables.\n\nAlex and Krista will be circulating to answer questions. Feel free to also come back into the main room if you have questions!"
+    "text": "State Group Activity: Making maps with edbuildr data\n\nOpen this example script: scripts/edbuildmapr_example.R.\nIn small groups, pull in data from edbuildr and edbuildmapr for your state and create a map!\nPlay around with the colors, fills, and variables.\n\nAlex and Krista will be circulating to answer questions. Feel free to also come back into the main room if you have questions!"
   },
   {
     "objectID": "slides/week_06/week_06_slides.html#leaflet-is-an-interactive-mapping-package",
@@ -1944,7 +1944,7 @@
     "href": "weeks/week_06.html#coding-assignment",
     "title": "Week 06",
     "section": "Coding Assignment",
-    "text": "Coding Assignment\nCoding assignment will be loaded after class."
+    "text": "Coding Assignment\nLook at script in the hw-wk-6 repository and complete the following tasks:\n\nCreate at least three production-quality maps of district-level finance data for your state.\nEnsure that at least one of your maps includes state per-pupil funding as the fill variable.\nBe sure to use the ggsave() commands to save your final maps in the /figures folder."
   },
   {
     "objectID": "weeks/week_06.html#readings",
@@ -2654,6 +2654,20 @@
     "href": "weeks/week_06.html#r-small-group-activity",
     "title": "Week 06",
     "section": "R Small Group Activity",
-    "text": "R Small Group Activity\nYou can access the script for the in-class small group activity here."
+    "text": "R Small Group Activity\nYou can access the R script for the in-class small group activity here."
+  },
+  {
+    "objectID": "weeks/week_06.html#r-class-edbuildmapr-example-with-as.factor-function",
+    "href": "weeks/week_06.html#r-class-edbuildmapr-example-with-as.factor-function",
+    "title": "Week 06",
+    "section": "R Class edbuildmapr example with as.factor function",
+    "text": "R Class edbuildmapr example with as.factor function\nYou can access the R script with the as.factor() example for mapping here."
+  },
+  {
+    "objectID": "weeks/week_06.html#r-class-edbuildmapr-example-with-factor-function",
+    "href": "weeks/week_06.html#r-class-edbuildmapr-example-with-factor-function",
+    "title": "Week 06",
+    "section": "R Class edbuildmapr example with factor() function",
+    "text": "R Class edbuildmapr example with factor() function\nYou can access the R script with the factor() example for mapping here."
   }
 ]

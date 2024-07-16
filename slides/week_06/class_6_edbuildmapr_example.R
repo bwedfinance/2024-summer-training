@@ -59,7 +59,7 @@ ggplot() +
 # Step #5: Make your own color palette and create bins to more clearly break up your data!
 
 # create custom color palette
-bw_state_revenue <- c("#BEC6CE", "#FFC762", "#007786", "#212B46", "#6D1E4A")
+bw_state_revenue <- c("#BEC6CE","#FFC762", "#007786", "#212B46", "#6D1E4A")
 
 # plot another nicely-formatted map
 ggplot()  + 
