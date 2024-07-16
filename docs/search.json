@@ -1649,7 +1649,7 @@
     "href": "slides/week_06/week_06_slides.html#live-coding-example-making-a-state-map-with-edbuildmapr",
     "title": "Mapping in R",
     "section": "LIVE CODING EXAMPLE: Making a state map with edbuildmapr",
-    "text": "LIVE CODING EXAMPLE: Making a state map with edbuildmapr\nStep 1: Load in packages and data from edbuildmapr and edbuild\n\n# load -------\n\noptions(scipen = 999)\n\nlibrary(edbuildr)\nlibrary(edbuildmapr)\nlibrary(viridis)\nlibrary(scales)\n\n# load in the school district mapping data\nsd_map_raw &lt;- sd_shapepull(data_year = \"2019\", with_data = TRUE)\n\nReading layer `shapefile_1819' from data source \n  `/private/var/folders/25/5vf1tf0164x0sv9_4xgtq9040000gn/T/RtmpGq010o/filea41829183895/shapefile_1819.shp' \n  using driver `ESRI Shapefile'\nSimple feature collection with 13315 features and 6 fields\nGeometry type: MULTIPOLYGON\nDimension:     XY\nBounding box:  xmin: -179.1686 ymin: -14.54858 xmax: 179.7487 ymax: 71.38961\nGeodetic CRS:  NAD83\n\n# load in raw district finance data\ndist_data_raw &lt;- masterpull(data_type = \"geo\")"
+    "text": "LIVE CODING EXAMPLE: Making a state map with edbuildmapr\nStep 1: Load in packages and data from edbuildmapr and edbuild\n\n# load -------\n\noptions(scipen = 999)\n\nlibrary(edbuildr)\nlibrary(edbuildmapr)\nlibrary(viridis)\nlibrary(scales)\n\n# load in the school district mapping data\nsd_map_raw &lt;- sd_shapepull(data_year = \"2019\", with_data = TRUE)\n\nReading layer `shapefile_1819' from data source \n  `/private/var/folders/25/5vf1tf0164x0sv9_4xgtq9040000gn/T/RtmpjRwOhn/file3dbc3f1b8061/shapefile_1819.shp' \n  using driver `ESRI Shapefile'\nSimple feature collection with 13315 features and 6 fields\nGeometry type: MULTIPOLYGON\nDimension:     XY\nBounding box:  xmin: -179.1686 ymin: -14.54858 xmax: 179.7487 ymax: 71.38961\nGeodetic CRS:  NAD83\n\n# load in raw district finance data\ndist_data_raw &lt;- masterpull(data_type = \"geo\")"
   },
   {
     "objectID": "slides/week_06/week_06_slides.html#live-coding-example-making-a-state-map-with-edbuildmapr-1",
@@ -2626,7 +2626,7 @@
     "href": "slides/week_06/week_06_slides.html#agenda",
     "title": "Mapping in R",
     "section": "Agenda",
-    "text": "Agenda\n\nHomework Note\nIntroduction to sf\nMapping using edbuildmapr\nPartner activity\nBreak\nMapping using leaflet\nHomework and next class"
+    "text": "Agenda\n\nHomework Notes\nIntroduction to sf\nMapping using edbuildmapr\nPartner activity\nBreak\nMapping using leaflet\nHomework and next class"
   },
   {
     "objectID": "weeks/week_06.html#slides",
@@ -2641,5 +2641,12 @@
     "title": "Week 06",
     "section": "Class Example R Script",
     "text": "Class Example R Script"
+  },
+  {
+    "objectID": "slides/week_06/week_06_slides.html#homework-notes---the-devil-is-in-the-details",
+    "href": "slides/week_06/week_06_slides.html#homework-notes---the-devil-is-in-the-details",
+    "title": "Mapping in R",
+    "section": "Homework notes - the devil is in the details!!!",
+    "text": "Homework notes - the devil is in the details!!!\n\nTake the time to clean your data! A few of you had issues summarizing the data because you didn’t clean the data first to drop districts without enrollment or remove rows that had NA\nOnce you have installed a package, you don’t need to keep doing it! You can comment out the line.\nYou cannot end a chained function with a pipe operator!"
   }
 ]

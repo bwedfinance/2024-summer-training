@@ -60,7 +60,7 @@ bw_secondary <- c("#FFC762", # 1 yellow
 
 ## Agenda
 
--   Homework Note
+-   Homework Notes
 -   Introduction to `sf`
 -   Mapping using `edbuildmapr`
 -   Partner activity
@@ -68,6 +68,11 @@ bw_secondary <- c("#FFC762", # 1 yellow
 -   Mapping using `leaflet`
 -   Homework and next class
 
+## Homework notes - the devil is in the details!!!
+
+- Take the time to clean your data! A few of you had issues summarizing the data because you didn't clean the data first to drop districts without enrollment or remove rows that had NA 
+- Once you have installed a package, you don't need to keep doing it! You can comment out the line. 
+- You cannot end a chained function with a pipe operator! 
 
 # Introduction to `sf`
 
