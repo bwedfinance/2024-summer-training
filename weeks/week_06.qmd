@@ -26,6 +26,11 @@ format: html
 ::: {#slides}
 :::
 
+
+## R Small Group Activity 
+
+You can access the script for the in-class small group activity [here.](https://gist.github.com/kkaput23/783bd2cf7e1a420bf923320585e66829)
+
 ## Lecture recording
 
 Link to class 6 recording will be added after class. 

@@ -2648,5 +2648,12 @@
     "title": "Mapping in R",
     "section": "Homework notes - the devil is in the details!!!",
     "text": "Homework notes - the devil is in the details!!!\n\nTake the time to clean your data! A few of you had issues summarizing the data because you didn’t clean the data first to drop districts without enrollment or remove rows that had NA\nOnce you have installed a package, you don’t need to keep doing it! You can comment out the line.\nYou cannot end a chained function with a pipe operator!"
+  },
+  {
+    "objectID": "weeks/week_06.html#r-small-group-activity",
+    "href": "weeks/week_06.html#r-small-group-activity",
+    "title": "Week 06",
+    "section": "R Small Group Activity",
+    "text": "R Small Group Activity\nYou can access the script for the in-class small group activity here."
   }
 ]
