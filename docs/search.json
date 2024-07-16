@@ -1040,7 +1040,7 @@
     "href": "weeks/week_06.html",
     "title": "Week 06",
     "section": "",
-    "text": "Class slides will be available after class."
+    "text": "Topic\n\n\nDate\n\n\n\n\n\n\nMapping in R\n\n\nJul 16, 2024\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "weeks/week_06.html#lecture",
@@ -1054,7 +1054,7 @@
     "href": "weeks/week_06.html#lecture-recording",
     "title": "Week 06",
     "section": "Lecture recording",
-    "text": "Lecture recording\nThe Zoom recording from our class is will be made available after class."
+    "text": "Lecture recording\nLink to class 6 recording will be added after class."
   },
   {
     "objectID": "weeks/week_06.html#reading",
@@ -1649,7 +1649,7 @@
     "href": "slides/week_06/week_06_slides.html#live-coding-example-making-a-state-map-with-edbuildmapr",
     "title": "Mapping in R",
     "section": "LIVE CODING EXAMPLE: Making a state map with edbuildmapr",
-    "text": "LIVE CODING EXAMPLE: Making a state map with edbuildmapr\nStep 1: Load in packages and data from edbuildmapr and edbuild\n\n# load -------\n\noptions(scipen = 999)\n\nlibrary(edbuildr)\nlibrary(edbuildmapr)\nlibrary(viridis)\nlibrary(scales)\n\n# load in the school district mapping data\nsd_map_raw &lt;- sd_shapepull(data_year = \"2019\", with_data = TRUE)\n\nReading layer `shapefile_1819' from data source \n  `/private/var/folders/25/5vf1tf0164x0sv9_4xgtq9040000gn/T/RtmpGssFPM/file59b74d642d5e/shapefile_1819.shp' \n  using driver `ESRI Shapefile'\nSimple feature collection with 13315 features and 6 fields\nGeometry type: MULTIPOLYGON\nDimension:     XY\nBounding box:  xmin: -179.1686 ymin: -14.54858 xmax: 179.7487 ymax: 71.38961\nGeodetic CRS:  NAD83\n\n# load in raw district finance data\ndist_data_raw &lt;- masterpull(data_type = \"geo\")"
+    "text": "LIVE CODING EXAMPLE: Making a state map with edbuildmapr\nStep 1: Load in packages and data from edbuildmapr and edbuild\n\n# load -------\n\noptions(scipen = 999)\n\nlibrary(edbuildr)\nlibrary(edbuildmapr)\nlibrary(viridis)\nlibrary(scales)\n\n# load in the school district mapping data\nsd_map_raw &lt;- sd_shapepull(data_year = \"2019\", with_data = TRUE)\n\nReading layer `shapefile_1819' from data source \n  `/private/var/folders/25/5vf1tf0164x0sv9_4xgtq9040000gn/T/RtmpGq010o/filea41829183895/shapefile_1819.shp' \n  using driver `ESRI Shapefile'\nSimple feature collection with 13315 features and 6 fields\nGeometry type: MULTIPOLYGON\nDimension:     XY\nBounding box:  xmin: -179.1686 ymin: -14.54858 xmax: 179.7487 ymax: 71.38961\nGeodetic CRS:  NAD83\n\n# load in raw district finance data\ndist_data_raw &lt;- masterpull(data_type = \"geo\")"
   },
   {
     "objectID": "slides/week_06/week_06_slides.html#live-coding-example-making-a-state-map-with-edbuildmapr-1",
@@ -1698,7 +1698,7 @@
     "href": "slides/week_06/week_06_slides.html#in-class-exercise-mapping-with-leaflet",
     "title": "Mapping in R",
     "section": "In-class exercise: Mapping with leaflet",
-    "text": "In-class exercise: Mapping with leaflet\nStep 1: Load packages and then download and clean data\n\n# load -------------\n\nlibrary(tidyverse)\nlibrary(edbuildr)\nlibrary(edbuildmapr)\nlibrary(viridis)\nlibrary(scales)\nlibrary(sf)\nlibrary(leaflet)\n\n# load in the school district mapping data\nsd_map_raw &lt;- sd_shapepull(data_year = \"2019\", with_data = TRUE)\n\ndist_data_raw &lt;- masterpull(data_type = \"geo\")\n\n# clean ----------------\n\n# filter mapping data for your state\nstate_shp_raw &lt;- sd_map_raw |&gt; \n  # tidy up colnames\n  rename_with(tolower) |&gt; \n  filter(state == \"Kentucky\") |&gt;\n  rename(ncesid = geoid) |&gt; \n  rename_with(tolower) |&gt; \n  select(ncesid, geometry)\n\n# filter finance data for your state\nstate_data &lt;- dist_data_raw |&gt; \n  rename_with(tolower) |&gt; \n  filter(state == \"Kentucky\")\n\n# join data\nstate_shp &lt;- state_shp_raw |&gt; \n  left_join(state_data, by = \"ncesid\") |&gt; \n  mutate(pct_sr = srpp / slrpp) |&gt; \n  st_transform(st_crs(\"EPSG:4326\"))"
+    "text": "In-class exercise: Mapping with leaflet\nStep 1: Load packages and then download and clean data\n\n# load -------------\n\nlibrary(tidyverse)\nlibrary(edbuildr)\nlibrary(edbuildmapr)\nlibrary(viridis)\nlibrary(scales)\nlibrary(sf)\nlibrary(leaflet)\n\n# load in the school district mapping data\nsd_map_raw &lt;- sd_shapepull(data_year = \"2019\", with_data = TRUE)\n\ndist_data_raw &lt;- masterpull(data_type = \"geo\")\n\n# clean ----------------\n\n# filter mapping data for your state\nstate_shp_raw &lt;- sd_map_raw |&gt; \n  # tidy up colnames\n  rename_with(tolower) |&gt; \n  filter(state == \"Texas\") |&gt;\n  rename(ncesid = geoid) |&gt; \n  rename_with(tolower) |&gt; \n  select(ncesid, geometry)\n\n# filter finance data for your state\nstate_data &lt;- dist_data_raw |&gt; \n  rename_with(tolower) |&gt; \n  filter(state == \"Texas\")\n\n# join data\nstate_shp &lt;- state_shp_raw |&gt; \n  left_join(state_data, by = \"ncesid\") |&gt; \n  mutate(pct_sr = srpp / slrpp) |&gt; \n  st_transform(st_crs(\"EPSG:4326\"))"
   },
   {
     "objectID": "slides/week_06/week_06_slides.html#in-class-exercise-mapping-with-leaflet-1",
@@ -1944,7 +1944,7 @@
     "href": "weeks/week_06.html#coding-assignment",
     "title": "Week 06",
     "section": "Coding Assignment",
-    "text": "Coding Assignment\nHomework will be available immediately following class."
+    "text": "Coding Assignment\nCoding assignment will be loaded after class."
   },
   {
     "objectID": "weeks/week_06.html#readings",
@@ -1998,7 +1998,7 @@
     "href": "materials.html#materials",
     "title": "Class Materials",
     "section": "Materials",
-    "text": "Materials\n\n\n\n\n\nWeek\n\n\nDates\n\n\nTopic\n\n\n\n\n\n\nWeek 01\n\n\nJune 4\n\n\nIntroduction to School Finance Equity\n\n\n\n\nWeek 02\n\n\nJune 11\n\n\nBasic Data Analysis and Visualization in R\n\n\n\n\nWeek 03\n\n\nJune 18\n\n\nStudent-Based Funding Formulas and Advocacy Considerations\n\n\n\n\nWeek 04\n\n\nJune 25\n\n\nData Cleaning and Processing in R\n\n\n\n\nWeek 05\n\n\nJuly 9\n\n\nTidycensus and Reproducible Data in R\n\n\n\n\n\nNo matching items",
+    "text": "Materials\n\n\n\n\n\nWeek\n\n\nDates\n\n\nTopic\n\n\n\n\n\n\nWeek 01\n\n\nJune 4\n\n\nIntroduction to School Finance Equity\n\n\n\n\nWeek 02\n\n\nJune 11\n\n\nBasic Data Analysis and Visualization in R\n\n\n\n\nWeek 03\n\n\nJune 18\n\n\nStudent-Based Funding Formulas and Advocacy Considerations\n\n\n\n\nWeek 04\n\n\nJune 25\n\n\nData Cleaning and Processing in R\n\n\n\n\nWeek 05\n\n\nJuly 9\n\n\nTidycensus and Reproducible Data in R\n\n\n\n\nWeek 06\n\n\nJuly 16\n\n\nMapping in R\n\n\n\n\n\nNo matching items",
     "crumbs": [
       "Class Materials"
     ]
@@ -2626,6 +2626,20 @@
     "href": "slides/week_06/week_06_slides.html#agenda",
     "title": "Mapping in R",
     "section": "Agenda",
-    "text": "Agenda\n\nHomework Note\nIntroduction to sf\nPartner activity\nBreak\n\nHomework and next class"
+    "text": "Agenda\n\nHomework Note\nIntroduction to sf\nMapping using edbuildmapr\nPartner activity\nBreak\nMapping using leaflet\nHomework and next class"
+  },
+  {
+    "objectID": "weeks/week_06.html#slides",
+    "href": "weeks/week_06.html#slides",
+    "title": "Week 06",
+    "section": "",
+    "text": "Topic\n\n\nDate\n\n\n\n\n\n\nMapping in R\n\n\nJul 16, 2024\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "weeks/week_06.html#class-example-r-script",
+    "href": "weeks/week_06.html#class-example-r-script",
+    "title": "Week 06",
+    "section": "Class Example R Script",
+    "text": "Class Example R Script"
   }
 ]
