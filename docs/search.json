@@ -1368,8 +1368,8 @@
     "objectID": "slides/week_07/week_07_slides.html#overview-of-homework",
     "href": "slides/week_07/week_07_slides.html#overview-of-homework",
     "title": "Modeling state funding policy proposals in R",
-    "section": "",
-    "text": "Any technical issues?\nDid your maps confirm what you already knew, provide new insights, or a little of both?"
+    "section": "Overview of Homework",
+    "text": "Overview of Homework\n\nAny technical issues?\nDid your maps confirm what you already knew, provide new insights, or a little of both?"
   },
   {
     "objectID": "slides/week_07/week_07_slides.html#in-small-groups-answer-the-questions-below.",
@@ -2669,5 +2669,12 @@
     "title": "Week 06",
     "section": "R Class edbuildmapr example with factor() function",
     "text": "R Class edbuildmapr example with factor() function\nYou can access the R script with the factor() example for mapping here."
+  },
+  {
+    "objectID": "slides/week_07/week_07_slides.html#homework-and-next-steps",
+    "href": "slides/week_07/week_07_slides.html#homework-and-next-steps",
+    "title": "Modeling state funding policy proposals in R",
+    "section": "Homework and Next Steps",
+    "text": "Homework and Next Steps\nCoding task\n\nContinue to clean and analyze your state’s data.\nIf you are able, start doing the modeling component of your capstone project.\nIf you need to catch up on homework, please do it this week."
   }
 ]

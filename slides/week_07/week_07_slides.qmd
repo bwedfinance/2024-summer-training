@@ -381,7 +381,7 @@ Other times, the direct funding calculations can be more complicated.
 
 ## Don't panic! One step at a time!
 
-![](https://sd.keepcalms.com/i/keep-calm-and-code-on-821.png){fig-align="center"}
+![](https://image.freepik.com/free-vector/panic_1174-364.jpg){fig-align="center"}
 
 ## Ohio Example: Direct Funding, more detail
 
@@ -445,13 +445,12 @@ Your team has been tasked with building your state's newly passed funding formul
 
 # Homework {.smaller}
 
-**Reading**
-
--   [Priced Out of Public Schools: District Lines, Housing Access, and Inequitable Educational Options](https://bellwether.org/publications/priced-out/)
+## Homework and Next Steps 
 
 **Coding task**
 
-Start building a version of your state's funding formula in R! If you still have data cleaning work outstanding, please prioritize that this week. Once you _do_ have clean data, start building out your state's formula. Follow the steps we outlined in class, take it slow, and be sure to keep your code organized and commented well.
+- Continue to clean and analyze your state's data. 
+- If you are able, start doing the modeling component of your capstone project. 
+- If you need to catch up on homework, please do it this week. 
 
-- Please be sure to add a `data` folder with a copy of the clean state data you created.
-- As always, once you've completed the assignment, be sure to commit and push to GitHub! (make sure the data your formula uses is also committed and pushed)
+
