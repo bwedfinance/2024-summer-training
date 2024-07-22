@@ -2676,5 +2676,19 @@
     "title": "Modeling state funding policy proposals in R",
     "section": "Homework and Next Steps",
     "text": "Homework and Next Steps\nCoding task\n\nContinue to clean and analyze your state’s data.\nIf you are able, start doing the modeling component of your capstone project.\nIf you need to catch up on homework, please do it this week."
+  },
+  {
+    "objectID": "slides/week_07/week_07_slides.html#putting-it-all-together",
+    "href": "slides/week_07/week_07_slides.html#putting-it-all-together",
+    "title": "Modeling state funding policy proposals in R",
+    "section": "Putting it all together",
+    "text": "Putting it all together\n\n# Hard code the variables --------\n\nbase &lt;- 7500 # per-pupil base funding \n\ned_weight &lt;- .3 # economically disadvantaged student weight \n\nsped_weight &lt;- .5 # special education weight \n\nel_weight &lt;- .1 # English learner weight \n\ncte_weight &lt;- .15 # weight for students enrolled in CTE courses \n\n\n# Model the student-based funding formula  ------\n\n    delaware_model &lt;- delaware_data_clean |&gt;\n      # Do the WSF modeling \n      # Base funding \n      mutate(wsf_base_funding = total_enroll * base,\n             \n             # FRPL Funding \n             wsf_frpl_funding = base * frpl_enroll * ed_weight,\n             \n             # EL Funding \n             wsf_el_funding = base * el_enroll * el_weight,\n             \n             # SPED Funding\n             wsf_sped_funding = base * sped_enroll * sped_weight,\n             \n             # CTE Funding \n             wsf_cte_funding = base * voc_enroll * cte_weight,\n             \n             # Total WSF funding\n             wsf_total_funding = wsf_base_funding + wsf_el_funding + wsf_sped_funding \n             + wsf_frpl_funding + wsf_cte_funding,\n             # Calculate the per-pupil funding \n             wsf_pp_funding = wsf_total_funding / total_enroll)"
+  },
+  {
+    "objectID": "slides/week_07/week_07_slides.html#putting-it-all-together-example-of-a-student-based-funding-formula",
+    "href": "slides/week_07/week_07_slides.html#putting-it-all-together-example-of-a-student-based-funding-formula",
+    "title": "Modeling state funding policy proposals in R",
+    "section": "Putting it all together: Example of a student-based funding formula",
+    "text": "Putting it all together: Example of a student-based funding formula\n\n# Hard code the variables --------\n\nbase &lt;- 7500 # per-pupil base funding \n\ned_weight &lt;- .3 # economically disadvantaged student weight \n\nsped_weight &lt;- .5 # special education weight \n\nel_weight &lt;- .1 # English learner weight \n\ncte_weight &lt;- .15 # weight for students enrolled in CTE courses \n\n\n# Model the student-based funding formula  ------\n\n    wsf_state_model &lt;- state_data_clean |&gt;\n      # Do the WSF modeling \n      # Base funding \n      mutate(wsf_base_funding = total_enroll * base,\n             \n             # FRPL Funding \n             wsf_frpl_funding = base * frpl_enroll * ed_weight,\n             \n             # EL Funding \n             wsf_el_funding = base * el_enroll * el_weight,\n             \n             # SPED Funding\n             wsf_sped_funding = base * sped_enroll * sped_weight,\n             \n             # CTE Funding \n             wsf_cte_funding = base * voc_enroll * cte_weight,\n             \n             # Total WSF funding\n             wsf_total_funding = wsf_base_funding + wsf_el_funding + wsf_sped_funding \n             + wsf_frpl_funding + wsf_cte_funding,\n             # Calculate the per-pupil funding \n             wsf_pp_funding = wsf_total_funding / total_enroll)"
   }
 ]

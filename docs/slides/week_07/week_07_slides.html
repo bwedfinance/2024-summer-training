@@ -10,7 +10,7 @@
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.4.550">
 
-  <meta name="dcterms.date" content="2023-07-25">
+  <meta name="dcterms.date" content="2024-07-23">
   <title>School Finance Equity Training, Summer 2024 - Modeling state funding policy proposals in R</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -398,7 +398,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">2023-07-25</p>
+  <p class="date">2024-07-23</p>
 </section>
 <section>
 <section id="homework-review" class="title-slide slide level1 center">
@@ -798,7 +798,49 @@
 <h2>Why are per-pupil amounts important?</h2>
 <p>Per-pupil amounts are important to identify if funding formulas are equitably distributing funds</p>
 
-<img data-src="images/per-pupil-before-after.png" class="quarto-figure quarto-figure-center r-stretch"></section></section>
+<img data-src="images/per-pupil-before-after.png" class="quarto-figure quarto-figure-center r-stretch"></section>
+<section id="putting-it-all-together-example-of-a-student-based-funding-formula" class="slide level2">
+<h2>Putting it all together: Example of a student-based funding formula</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a><span class="co"># Hard code the variables --------</span></span>
+<span id="cb9-2"><a></a></span>
+<span id="cb9-3"><a></a>base <span class="ot">&lt;-</span> <span class="dv">7500</span> <span class="co"># per-pupil base funding </span></span>
+<span id="cb9-4"><a></a></span>
+<span id="cb9-5"><a></a>ed_weight <span class="ot">&lt;-</span> .<span class="dv">3</span> <span class="co"># economically disadvantaged student weight </span></span>
+<span id="cb9-6"><a></a></span>
+<span id="cb9-7"><a></a>sped_weight <span class="ot">&lt;-</span> .<span class="dv">5</span> <span class="co"># special education weight </span></span>
+<span id="cb9-8"><a></a></span>
+<span id="cb9-9"><a></a>el_weight <span class="ot">&lt;-</span> .<span class="dv">1</span> <span class="co"># English learner weight </span></span>
+<span id="cb9-10"><a></a></span>
+<span id="cb9-11"><a></a>cte_weight <span class="ot">&lt;-</span> .<span class="dv">15</span> <span class="co"># weight for students enrolled in CTE courses </span></span>
+<span id="cb9-12"><a></a></span>
+<span id="cb9-13"><a></a></span>
+<span id="cb9-14"><a></a><span class="co"># Model the student-based funding formula  ------</span></span>
+<span id="cb9-15"><a></a></span>
+<span id="cb9-16"><a></a>    wsf_state_model <span class="ot">&lt;-</span> state_data_clean <span class="sc">|&gt;</span></span>
+<span id="cb9-17"><a></a>      <span class="co"># Do the WSF modeling </span></span>
+<span id="cb9-18"><a></a>      <span class="co"># Base funding </span></span>
+<span id="cb9-19"><a></a>      <span class="fu">mutate</span>(<span class="at">wsf_base_funding =</span> total_enroll <span class="sc">*</span> base,</span>
+<span id="cb9-20"><a></a>             </span>
+<span id="cb9-21"><a></a>             <span class="co"># FRPL Funding </span></span>
+<span id="cb9-22"><a></a>             <span class="at">wsf_frpl_funding =</span> base <span class="sc">*</span> frpl_enroll <span class="sc">*</span> ed_weight,</span>
+<span id="cb9-23"><a></a>             </span>
+<span id="cb9-24"><a></a>             <span class="co"># EL Funding </span></span>
+<span id="cb9-25"><a></a>             <span class="at">wsf_el_funding =</span> base <span class="sc">*</span> el_enroll <span class="sc">*</span> el_weight,</span>
+<span id="cb9-26"><a></a>             </span>
+<span id="cb9-27"><a></a>             <span class="co"># SPED Funding</span></span>
+<span id="cb9-28"><a></a>             <span class="at">wsf_sped_funding =</span> base <span class="sc">*</span> sped_enroll <span class="sc">*</span> sped_weight,</span>
+<span id="cb9-29"><a></a>             </span>
+<span id="cb9-30"><a></a>             <span class="co"># CTE Funding </span></span>
+<span id="cb9-31"><a></a>             <span class="at">wsf_cte_funding =</span> base <span class="sc">*</span> voc_enroll <span class="sc">*</span> cte_weight,</span>
+<span id="cb9-32"><a></a>             </span>
+<span id="cb9-33"><a></a>             <span class="co"># Total WSF funding</span></span>
+<span id="cb9-34"><a></a>             <span class="at">wsf_total_funding =</span> wsf_base_funding <span class="sc">+</span> wsf_el_funding <span class="sc">+</span> wsf_sped_funding </span>
+<span id="cb9-35"><a></a>             <span class="sc">+</span> wsf_frpl_funding <span class="sc">+</span> wsf_cte_funding,</span>
+<span id="cb9-36"><a></a>             <span class="co"># Calculate the per-pupil funding </span></span>
+<span id="cb9-37"><a></a>             <span class="at">wsf_pp_funding =</span> wsf_total_funding <span class="sc">/</span> total_enroll) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section></section>
 <section>
 <section id="small-group-activity" class="title-slide slide level1 center">
 <h1>Small group activity</h1>

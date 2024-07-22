@@ -1,6 +1,6 @@
 ---
 title: "Modeling state funding policy proposals in R"
-date: "July 25, 2023"
+date: "July 23, 2024"
 format:
   revealjs:
     chalkboard: true
@@ -405,6 +405,7 @@ You may need to consult multiple sets of documentation to uncover precise busine
 
 ![](images/dpia-e-school.png){fig-align="center"}
 
+
 ## Step 6: Calculate the state total for each district and the per-pupil amount
 
 -   To calculate the total, add together the base cost, the weights, and the direct funding
@@ -434,6 +435,52 @@ charter_state_funding <- charter_funding_formula |>
 Per-pupil amounts are important to identify if funding formulas are equitably distributing funds
 
 ![](images/per-pupil-before-after.png){fig-align="center"}
+
+## Putting it all together: Example of a student-based funding formula 
+
+```{r}
+#| echo: true
+#| eval: false
+
+# Hard code the variables --------
+
+base <- 7500 # per-pupil base funding 
+
+ed_weight <- .3 # economically disadvantaged student weight 
+
+sped_weight <- .5 # special education weight 
+
+el_weight <- .1 # English learner weight 
+
+cte_weight <- .15 # weight for students enrolled in CTE courses 
+
+
+# Model the student-based funding formula  ------
+
+    wsf_state_model <- state_data_clean |>
+      # Do the WSF modeling 
+      # Base funding 
+      mutate(wsf_base_funding = total_enroll * base,
+             
+             # FRPL Funding 
+             wsf_frpl_funding = base * frpl_enroll * ed_weight,
+             
+             # EL Funding 
+             wsf_el_funding = base * el_enroll * el_weight,
+             
+             # SPED Funding
+             wsf_sped_funding = base * sped_enroll * sped_weight,
+             
+             # CTE Funding 
+             wsf_cte_funding = base * voc_enroll * cte_weight,
+             
+             # Total WSF funding
+             wsf_total_funding = wsf_base_funding + wsf_el_funding + wsf_sped_funding 
+             + wsf_frpl_funding + wsf_cte_funding,
+             # Calculate the per-pupil funding 
+             wsf_pp_funding = wsf_total_funding / total_enroll) 
+```
+
 
 # Small group activity
 
