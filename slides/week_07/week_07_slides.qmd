@@ -1,5 +1,5 @@
 ---
-title: "Modeling state funding policy proposals in R"
+title: "Modeling state funding policies in R"
 date: "July 23, 2024"
 format:
   revealjs:

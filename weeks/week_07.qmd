@@ -1,0 +1,45 @@
+---
+title: "Week 07"
+subtitle: "Modeling state funding policies in R"
+description: "July 23"
+author: ""
+date: ""
+listing:
+  - id: slides
+    contents:
+      - ../slides/week_07/*.qmd
+    type: table
+    fields: [title, date]
+    field-display-names:
+      title: "Topic"
+      date: "Date"
+    sort: [filename]
+    sort-ui: false
+    filter-ui: false
+tbl-colwidths: [10,50,40]
+format: html
+
+---
+
+## Slides
+
+::: {#slides}
+:::
+
+
+## R Small Group Activity 
+
+- You can access the R script for the in-class small group activity [here.](https://gist.github.com/kkaput23/51930f10b649e068d24d50df9ac2fecb)
+- You can access the directions for the small group activity [here.](https://docs.google.com/document/d/1PfPcicexymFQ3N1mJzx0AhnxurVXnBEms7pmt_mlVzQ/edit)
+
+
+## Lecture recording
+
+Class recording will be uploaded after class. 
+
+## Coding Assignment
+
+- Continue to clean and analyze your state's data. 
+- If you are able, start doing the modeling component of your capstone project. 
+- If you need to catch up on homework, please do it this week. 
+
