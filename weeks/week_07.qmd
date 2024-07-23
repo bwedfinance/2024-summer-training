@@ -31,6 +31,7 @@ format: html
 
 - You can access the R script for the in-class small group activity [here.](https://gist.github.com/kkaput23/51930f10b649e068d24d50df9ac2fecb)
 - You can access the directions for the small group activity [here.](https://docs.google.com/document/d/1PfPcicexymFQ3N1mJzx0AhnxurVXnBEms7pmt_mlVzQ/edit)
+- You can access the key to the small group activity [here.](https://gist.github.com/kkaput23/d624820af5580e4ded72d6a8037be017)
 
 
 ## Lecture recording

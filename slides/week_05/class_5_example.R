@@ -1,8 +1,8 @@
-# class_5_example 
-# last updated 2024-07-03 by Krista Kaput 
+# quant_plc_class_6_example
+# Last updated on 2024-07-22 by Krista Kaput
 
+# load -----------
 
-# load ------
 options(scipen = 999)
 
 library(tidyverse)
@@ -14,7 +14,7 @@ library(scales)
 # get your own api key from https://api.census.gov/data/key_signup.html
 # only run this line of code once after you replace the text below
 # with your API key
-# census_api_key("YOUR API KEY GOES HERE", install = TRUE, overwrite = TRUE)
+# census_api_key("e06cf35bdaf878b6e70975a941f787b2923e753b", install = TRUE, overwrite = TRUE)
 
 # get edbuild data
 edbuild_fy19 <- masterpull(data_type = "geo")
