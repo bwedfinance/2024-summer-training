@@ -63,6 +63,19 @@ delaware_modeling_data <- read_csv("slides/week_08/de_example/data/processed/upd
            wsf_total_diff = wsf_total_funding - state_revenue)
   
   
+  # State summary -----
+  
+  # Total state amount 
+  delaware_wsf_model_state_summary <-  delaware_wsf_model |>
+    filter(wsf_total_diff > 0) |>
+    summarise(wsf_total_diff = sum(wsf_total_diff))
+  
+  
+  # Total state hold harmless 
+  delaware_wsf_model_state_hh_summary <-  delaware_wsf_model |>
+    filter(wsf_total_diff < 0) |>
+    summarise(wsf_total_diff = sum(wsf_total_diff))
+  
   # Plot the funding differences -----
   
   ggplot( delaware_wsf_model, aes(x = frpl_pct,
