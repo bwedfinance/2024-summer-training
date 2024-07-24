@@ -104,6 +104,9 @@ delaware_modeling_data <- read_csv("slides/week_08/de_example/data/processed/upd
     theme(text = element_text(family = "Avenir", size = 12),
           plot.caption = element_text(hjust = 0, size = 10))
   
+  ggsave("slides/week_08/de_example/figures/plot1_current_pp_funding.png", units = "in", 
+         height = 5, width = 8)
+  
   
   # WSF model formula -----
   
@@ -126,6 +129,8 @@ delaware_modeling_data <- read_csv("slides/week_08/de_example/data/processed/upd
           plot.caption = element_text(hjust = 0, size = 10))
   
   
+  ggsave("slides/week_08/de_example/figures/plot2_wsf_pp_funding.png", units = "in", 
+         height = 5, width = 8)
   
   # Plot the funding differences -----
   
@@ -146,6 +151,9 @@ delaware_modeling_data <- read_csv("slides/week_08/de_example/data/processed/upd
     theme_bw() +
     theme(text = element_text(family = "Avenir", size = 12),
           plot.caption = element_text(hjust = 0, size = 10))
+  
+  ggsave("slides/week_08/de_example/figures/plot3_pp_diff.png", units = "in", 
+         height = 5, width = 8)
   
   
   

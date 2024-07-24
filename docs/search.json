@@ -599,7 +599,7 @@
     "href": "slides/week_08/week_08_slides.html#homework",
     "title": "Modeling state funding policy changes in R",
     "section": "Homework",
-    "text": "Homework\nWrite an overview of the policy problem you want to model in your capstone project and submit it to Alex and Krista by Monday, August 7. The overview should include descriptions of:\n\nAn overview of the policy problem\n2-3 policy changes you want to model\nHow you will know if the policy options would be an improvement over current policy\nData you will use to do your analysis\n\nSchedule at least one office hours session with Alex and Krista the week of August 14. As a reminder, capstone projects will be presented on Tuesday, August 29 from 2:00 - 4:00 PM CST."
+    "text": "Homework\nTKTK"
   },
   {
     "objectID": "slides/week_05/week_5_slides.html#you-can-and-should-start-your-projects-by-creating-a-new-repo-on-your-github-account",
@@ -2732,5 +2732,12 @@
     "title": "Modeling state funding policy changes in R",
     "section": "Impact on increasing the reduced price weight from 0.5 to .75 and lifting the 80% cap",
     "text": "Impact on increasing the reduced price weight from 0.5 to .75 and lifting the 80% cap\nThe scatterplot shows the increase in per-pupil funding when the weight for reduced price lunch students is increased and the 80% cap is lifted. Not every school would benefit from the change, because they either have 0 or very few students who qualify for reduced price lunch, or they do not have more than 80% FRPL. Schools with more students who qualify for reduced price lunch would benefit more than schools that do not, as would schools schools with more than 80% FRPL. These two policy changes would cost the state about $52 million annually."
+  },
+  {
+    "objectID": "slides/week_08/week_08_slides.html#agenda",
+    "href": "slides/week_08/week_08_slides.html#agenda",
+    "title": "Modeling state funding policy changes in R",
+    "section": "Agenda",
+    "text": "Agenda\n\nHomework/Capstone Notes\nModeling changes to a funding stream\nBreak\nModeling wholesale funding reform\nPartner activity\nHomework and next class"
   }
 ]
