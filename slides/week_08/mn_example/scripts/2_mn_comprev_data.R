@@ -13,16 +13,16 @@ library(viridis)
 library(stringr)   
 
 #Load in FRPL School data for 2020-21 from House Research
-comprev_house_raw <- read_excel("slides/week_08/mn_example/mn_comp_rev-main/Kaput_Final_Bellwether_Project/comprev_fall2020.xlsx", 
+comprev_house_raw <- read_excel("slides/week_08/mn_example/data/comprev_fall2020.xlsx", 
                                 sheet = "MDEFall2020", skip = 1)
 
 #Load in the data that has the urbanicity by schools 
-nces_urbanicity_raw <- read_excel("slides/week_08/mn_example/mn_comp_rev-main/Kaput_Final_Bellwether_Project/NCES_ID_Urbanicity.xls", 
+nces_urbanicity_raw <- read_excel("slides/week_08/mn_example/data/NCES_ID_Urbanicity.xls", 
                                   skip = 14)
 
 
 #Load in the other student demographic data including race/ethnicity, students with disabilities, etc. and filter out extraneous rows
-mn_enrollment_raw <- read_excel("slides/week_08/mn_example/mn_comp_rev-main/Kaput_Final_Bellwether_Project/MDE 2020-21 Enrollment.xlsx",
+mn_enrollment_raw <- read_excel("slides/week_08/mn_example/data/MDE 2020-21 Enrollment.xlsx",
                                 sheet = "School")
 
 # clean ----- 
