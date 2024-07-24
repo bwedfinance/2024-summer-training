@@ -2739,5 +2739,19 @@
     "title": "Modeling state funding policy changes in R",
     "section": "Agenda",
     "text": "Agenda\n\nHomework/Capstone Notes\nModeling changes to a funding stream\nBreak\nModeling wholesale funding reform\nPartner activity\nHomework and next class"
+  },
+  {
+    "objectID": "slides/week_08/week_08_slides.html#delaware-example-moving-from-resource-to-student-based-funding-formula",
+    "href": "slides/week_08/week_08_slides.html#delaware-example-moving-from-resource-to-student-based-funding-formula",
+    "title": "Modeling state funding policy changes in R",
+    "section": "Delaware Example: Moving from Resource to Student-Based Funding Formula",
+    "text": "Delaware Example: Moving from Resource to Student-Based Funding Formula\n\n#Hard code the variables --------\n  \n  base &lt;- 8000 # per-pupil base funding \n  \n  ed_weight &lt;- .5 # economically disadvantaged student weight \n  \n  sped_no_complex_intense_weight &lt;- 0.5 # special education weight for students who are not intense or complex \n  sped_complex_weight &lt;- 1.4 # special education weight for complex students \n  sped_intense_weight &lt;- 2.1 # special education weight for intense, which is the state's high level of support\n\n  \n  el_weight &lt;- .3 # English learner weight \n  \n  cte_weight &lt;- .2 # weight for students enrolled in CTE courses \n  \n  \n  # Model the student-based funding formula  ------\n  \n delaware_wsf_model &lt;- delaware_modeling_data |&gt;\n    # Do the WSF modeling \n    # Base funding \n    mutate(wsf_base_funding = total_enroll * base,\n           \n           # FRPL Funding \n           wsf_frpl_funding = base * frpl_enroll * ed_weight,\n           \n           # EL Funding \n           wsf_el_funding = base * el_enroll * el_weight,\n           \n           # SPED Funding\n           wsf_sped_no_complex_intense_funding = base * sped_enroll *  sped_no_complex_intense_weight,\n           wsf_sped_complex_funding = base * complex_sped_enroll *  sped_complex_weight,\n           wsf_sped_intense_funding = base * intense_sped_enroll *  sped_intense_weight,\n           wsf_sped_total_funding = wsf_sped_no_complex_intense_funding + wsf_sped_complex_funding + wsf_sped_intense_funding, \n           \n           # CTE Funding \n           wsf_cte_funding = base * voc_enroll * cte_weight,\n           \n           # Total WSF funding\n           wsf_total_funding = wsf_base_funding + wsf_el_funding + wsf_sped_total_funding \n           + wsf_frpl_funding + wsf_cte_funding,\n           # Calculate the per-pupil funding \n           wsf_pp_funding = wsf_total_funding / total_enroll) |&gt;\n    # Calculate the per-pupil differences \n    mutate(wsf_pp_diff = wsf_pp_funding - state_pp_revenue,\n           wsf_total_diff = wsf_total_funding - state_revenue)"
+  },
+  {
+    "objectID": "slides/week_08/week_08_slides.html#delaware-example-moving-from-resource-to-student-based-funding-formula-1",
+    "href": "slides/week_08/week_08_slides.html#delaware-example-moving-from-resource-to-student-based-funding-formula-1",
+    "title": "Modeling state funding policy changes in R",
+    "section": "Delaware Example: Moving from Resource to Student-Based Funding Formula",
+    "text": "Delaware Example: Moving from Resource to Student-Based Funding Formula"
   }
 ]
