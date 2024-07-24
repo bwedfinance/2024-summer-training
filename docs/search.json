@@ -592,7 +592,7 @@
     "href": "slides/week_08/week_08_slides.html#impact-on-increasing-the-reduced-price-weight-from-0.5-to-.75",
     "title": "Modeling state funding policy changes in R",
     "section": "Impact on increasing the reduced price weight from 0.5 to .75",
-    "text": "Impact on increasing the reduced price weight from 0.5 to .75\nThe scatterplot shows the increase in per-pupil funding when the weight for reduce price lunch students. Not every school would benefit from the change, because they either have 0 or very few students who qualify for reduced price lunch. Schools with more students who qualify for reduced price lunch would benefit more than schools that do not.\nIncreasing the reduced price lunch weight would benefit more than 1,600 schools and would cost the state about $40.1 million annually."
+    "text": "Impact on increasing the reduced price weight from 0.5 to .75\nThe scatterplot shows the increase in per-pupil funding when the weight for reduced price lunch students is increased. Not every school would benefit from the change, because they either have 0 or very few students who qualify for reduced price lunch. Schools with more students who qualify for reduced price lunch would benefit more than schools that do not.\nIncreasing the reduced price lunch weight would benefit more than 1,600 schools and would cost the state about $40.1 million annually."
   },
   {
     "objectID": "slides/week_08/week_08_slides.html#homework",
@@ -2711,5 +2711,26 @@
     "title": "Modeling state funding policy changes in R",
     "section": "Overview of Homework",
     "text": "Overview of Homework"
+  },
+  {
+    "objectID": "slides/week_08/week_08_slides.html#minnesota-example-not-subtracting-any-funding-from-the-base",
+    "href": "slides/week_08/week_08_slides.html#minnesota-example-not-subtracting-any-funding-from-the-base",
+    "title": "Modeling state funding policy changes in R",
+    "section": "Minnesota Example: Not subtracting any funding from the base",
+    "text": "Minnesota Example: Not subtracting any funding from the base\nMultiplying the weighted enrollment by the full per-pupil base would benefit every charter and district school and cost the state about $67.3 million annually.\n\n# Model the policy change -----\n\n# hard code in the variables \n\nreduced_weight &lt;- 0.5\n\nfunding_cap &lt;- 0.8\n\nweight_factor &lt;- 0.6\n\nmn_pp_base &lt;- 6567\n\nbase_subtractor &lt;- 839\n\n# Do not subtract any funding from the base \n\ncomprev_schools_policy_3 &lt;-comprev_schools_model |&gt;\n  mutate(comprev_reduced_count_policy3 = reduced_lunch * reduced_weight, \n         \n         comprev_frpl_reduced_total_policy3 = comprev_reduced_count_policy3 + free_lunch, \n         \n         comprev_frpl_reduced_pct_policy3 = comprev_frpl_reduced_total_policy3/enroll, \n         \n         comprev_weight_factor_step_policy3 = comprev_frpl_reduced_pct_policy3/funding_cap, \n         \n         \n         comprev_weight_factor_policy3 = ifelse(comprev_weight_factor_step_policy3 &gt; 1, \n                                                1, comprev_weight_factor_step_policy3), \n         \n         # determine the compensatory revenue pupil unit count \n         comprev_comp_pupil_unit_policy3 = comprev_frpl_reduced_total_policy3 * comprev_weight_factor_policy3 * weight_factor, \n         \n         # determine the amount of money that the school generates\n         # I removed the base subtractor\n         comprev_total_policy3 = comprev_comp_pupil_unit_policy3 * (mn_pp_base), \n         \n         # per-pupil amount for the school that generates the funds \n         comprev_pp_policy3 = comprev_total_policy3/frpl_total,\n         \n         policy3_pp_increase = comprev_pp_policy3 - comprev_pp)"
+  },
+  {
+    "objectID": "slides/week_08/week_08_slides.html#minnesota-example-lifting-the-80-cap-and-increasing-the-reduced-weight",
+    "href": "slides/week_08/week_08_slides.html#minnesota-example-lifting-the-80-cap-and-increasing-the-reduced-weight",
+    "title": "Modeling state funding policy changes in R",
+    "section": "Minnesota Example: Lifting the 80% cap and increasing the reduced weight",
+    "text": "Minnesota Example: Lifting the 80% cap and increasing the reduced weight\n\n# Model the policy change -----\n\n# hard code in the variables \n\nreduced_weight &lt;- 0.75\n\nfunding_cap &lt;- 0.8\n\nweight_factor &lt;- 0.6\n\nmn_pp_base &lt;- 6567\n\nbase_subtractor &lt;- 839\n\n\n# Increase the reduced weight and lift the 80% cap \n\ncomprev_schools_policy_4 &lt;- comprev_schools_model |&gt;\n  # I changed the number from 0.5 to 0.75\n  mutate(comprev_reduced_count_policy4 = reduced_lunch * reduced_weight, \n         \n         comprev_frpl_reduced_total_policy4 = comprev_reduced_count_policy4 + free_lunch, \n         \n         comprev_frpl_reduced_pct_policy4 = comprev_frpl_reduced_total_policy4/enroll, \n         \n         comprev_weight_factor_step_policy4 = comprev_frpl_reduced_pct_policy4/funding_cap, \n         \n         \n         # comprev_weight_factor_policy4 = ifelse(comprev_weight_factor_step_policy4 &gt; 1, \n         #                                        1, comprev_weight_factor_step_policy4), \n         # \n         # determine the compensatory revenue pupil unit count \n         comprev_comp_pupil_unit_policy4 = comprev_frpl_reduced_total_policy4 *comprev_weight_factor_step_policy4 * weight_factor, \n         \n         # determine the amount of money that the school generates\n         # I removed the base subtractor\n         comprev_total_policy4 = comprev_comp_pupil_unit_policy4 * (mn_pp_base - base_subtractor), \n         \n         # per-pupil amount for the school that generates the funds \n         comprev_pp_policy4 = comprev_total_policy4/frpl_total,\n         \n         policy4_pp_increase = comprev_pp_policy4 - comprev_pp)"
+  },
+  {
+    "objectID": "slides/week_08/week_08_slides.html#impact-on-increasing-the-reduced-price-weight-from-0.5-to-.75-and-lifting-the-80-cap",
+    "href": "slides/week_08/week_08_slides.html#impact-on-increasing-the-reduced-price-weight-from-0.5-to-.75-and-lifting-the-80-cap",
+    "title": "Modeling state funding policy changes in R",
+    "section": "Impact on increasing the reduced price weight from 0.5 to .75 and lifting the 80% cap",
+    "text": "Impact on increasing the reduced price weight from 0.5 to .75 and lifting the 80% cap\nThe scatterplot shows the increase in per-pupil funding when the weight for reduced price lunch students is increased and the 80% cap is lifted. Not every school would benefit from the change, because they either have 0 or very few students who qualify for reduced price lunch, or they do not have more than 80% FRPL. Schools with more students who qualify for reduced price lunch would benefit more than schools that do not, as would schools schools with more than 80% FRPL. These two policy changes would cost the state about $52 million annually."
   }
 ]

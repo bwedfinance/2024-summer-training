@@ -9,11 +9,16 @@ execute:
   echo: false
 ---
 
-# Homework Review
+## Agenda
 
-## Overview of Homework
+-   Homework/Capstone Notes
+-   Modeling changes to a funding stream 
+-   Break
+-   Modeling wholesale funding reform 
+-   Partner activity
+-   Homework and next class
 
-# Modeling Potential Policy Changes in R
+# Modeling Potential Policy Changes to a Funding Stream in R
 
 ## Over the past 8 weeks, you've learned how to use R to solve specific analysis problems
 
@@ -346,6 +351,13 @@ comprev_schools_policy_4 <- comprev_schools_model |>
 ## Impact on increasing the reduced price weight from 0.5 to .75 and lifting the 80% cap{.smaller}
 
 The scatterplot shows the increase in per-pupil funding when the weight for reduced price lunch students is increased and the 80% cap is lifted. Not every school would benefit from the change, because they either have 0 or very few students who qualify for reduced price lunch, or they do not have more than 80% FRPL. Schools with more students who qualify for reduced price lunch would benefit more than schools that do not, as would schools schools with more than 80% FRPL. These two policy changes would cost the state about $52 million annually. 
+
+![](mn_example/figures/plot3_policy4_comp_rev.png){fig-align="center" width="8in"}
+
+# Modeling Wholesale Reform in R
+
+
+# Small Group Activity 
 
 
 ## Homework
