@@ -96,7 +96,7 @@ ggplot(comprev_schools_policy_4, aes(x = frpl_pct,
                      limits = c(0, 1000)) +
   labs(x = "Student FRPL Rate, 2019-20", 
        y = "Increase in Comp. Rev. Per-Pupil Funding, 2020-21",
-       title = "Impact of Increased Reduced Price Weight on Per-Pupil Funding",
+       title = "Impact of Increased Reduced Price Weight and Lifting 80% Cap on Per-Pupil Funding",
        size = "Enrollment", 
        color = "BIPOC %") +
   theme_bw() +
