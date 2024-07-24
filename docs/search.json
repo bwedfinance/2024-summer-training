@@ -914,7 +914,7 @@
     "href": "weeks/week_07.html#lecture-recording",
     "title": "Week 07",
     "section": "Lecture recording",
-    "text": "Lecture recording\nClass recording will be uploaded after class."
+    "text": "Lecture recording\nYou can view the recording here. The password is in the follow-up email."
   },
   {
     "objectID": "weeks/week_07.html#reading",
@@ -2704,5 +2704,12 @@
     "title": "Week 07",
     "section": "R Small Group Activity",
     "text": "R Small Group Activity\n\nYou can access the R script for the in-class small group activity here.\nYou can access the directions for the small group activity here.\nYou can access the key to the small group activity here."
+  },
+  {
+    "objectID": "slides/week_08/week_08_slides.html#overview-of-homework",
+    "href": "slides/week_08/week_08_slides.html#overview-of-homework",
+    "title": "Modeling state funding policy changes in R",
+    "section": "Overview of Homework",
+    "text": "Overview of Homework"
   }
 ]
