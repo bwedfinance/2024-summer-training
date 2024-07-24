@@ -17,13 +17,16 @@ source("slides/week_08/mn_example/scripts/3_mn_comprev_calculation.R")
 
 
 # Chart 1: Graph the compensatory Revenue model -----
+# 
 
 ggplot(comprev_schools_model, aes(x = frpl_pct,
                                   y = comprev_pp, 
                                   size = enroll,
                                   color = bipoc_pct, group = 1)) + 
   geom_point(alpha = .8) +
-  scale_color_viridis(end = .8, direction = -1) +
+  scale_color_viridis(end = .8, direction = -1,
+                      labels = scales::percent_format(accuracy = 1)) +
+  scale_size_continuous(labels = scales::comma_format()) +
   scale_x_continuous(labels = scales::percent_format(accuracy = 1)) +
   scale_y_continuous(labels = scales::dollar_format(accuracy = 1),
                      limits = c(0, 3500)) +

@@ -414,6 +414,7 @@ The scatterplot shows the increase in per-pupil funding when the weight for redu
 
 ## Delaware Example: Moving from Resource to Student-Based Funding Formula 
 
+![](de_example/figures/Screenshot 2024-07-24 at 2.05.06 PM.png){fig-align="center" width="8in"}
 
 # Small Group Activity 
 
