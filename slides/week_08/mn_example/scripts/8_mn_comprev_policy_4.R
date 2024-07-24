@@ -32,7 +32,7 @@ base_subtractor <- 839
 
 # Increase the reduced weight and lift the 80% cap 
 
-comprev_schools_policy_4 <-comprev_schools_model |>
+comprev_schools_policy_4 <- comprev_schools_model |>
   # I changed the number from 0.5 to 0.75
   mutate(comprev_reduced_count_policy4 = reduced_lunch * reduced_weight, 
          

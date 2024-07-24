@@ -443,32 +443,33 @@
 </section>
 <section id="minnesota-example-overview-of-compensatory-revenue" class="slide level2 smaller">
 <h2>Minnesota Example: Overview of compensatory revenue</h2>
-<p>In class 7, we went over the fundamentals and thought processes for building Minnesota’s compensatory revenue formula, which is the state’s funding stream for low-income students. Minnesota invests $551 million annually in compensatory revenue, which are state funds that are supposed to support the academic achievement of students who are not meeting state standards. There are three main policy issues with the current funding formula:</p>
+<p>In class 7, we went over the fundamentals and thought processes for building Minnesota’s compensatory revenue formula, which is the state’s funding stream for low-income students. Minnesota invests ~$551 million annually in compensatory revenue, which are state funds that are supposed to support the academic achievement of students who are not meeting state standards. There are three main policy issues with the current funding formula:</p>
 <ul>
 <li>Students who qualify for Reduced Price Lunch are weighted as 0.5.</li>
 <li>Schools where more than 80% of their students are in poverty do not see increases in per pupil compensatory revenue.</li>
-<li>Districts are allowed to keep 50% of the compensatory revenue funds and reallocate it as they see fit, which means that the schools that generate the funds only 50% of the dollars that are meant for their students. This takes away funding—and subsequently support—from the students who generate the dollars and need it the most.</li>
+<li>The full base amount is not applied to the weight</li>
 </ul>
 </section>
-<section id="turning-back-to-our-questions-are-we-ready-to-start-modeling" class="slide level2">
+<section id="turning-back-to-our-questions-are-we-ready-to-start-modeling" class="slide level2 smaller">
 <h2>Turning back to our questions: Are we ready to start modeling?</h2>
 <ul>
-<li>In what <em>specific</em> ways does current policy fall short?
+<li><strong>In what <em>specific</em> ways does current policy fall short?</strong>
 <ul>
 <li>Reduced price weight</li>
 <li>80% cap</li>
-<li>District reallocation of 50% of funding</li>
+<li>The full per-pupil base isn’t applied to the weight</li>
 </ul></li>
-<li>Which policy options should be considered as alternatives?
+<li><strong>Which policy options should be considered as alternatives?</strong>
 <ul>
 <li>Remove the cap</li>
 <li>Increase the reduced price weight from .5 to .75</li>
+<li>Do not subtract any fundign from the base</li>
 </ul></li>
-<li>How will you know if these alternative policies would be an improvement over current policy?
+<li><strong>How will you know if these alternative policies would be an improvement over current policy?</strong>
 <ul>
 <li>More revenue going to the highest-poverty schools</li>
 </ul></li>
-<li>Do you have the right data to answer these questions?
+<li><strong>Do you have the right data to answer these questions?</strong>
 <ul>
 <li>Yes!</li>
 </ul></li>
@@ -485,32 +486,37 @@
 <span id="cb1-6"><a></a></span>
 <span id="cb1-7"><a></a><span class="co"># Build Compensatory Revenue Formula ------</span></span>
 <span id="cb1-8"><a></a></span>
-<span id="cb1-9"><a></a><span class="do">## Calculate the compensatory revenue per school and rebuild the model</span></span>
-<span id="cb1-10"><a></a>comprev_schools_model <span class="ot">&lt;-</span> mn_comprev_final <span class="sc">|&gt;</span></span>
-<span id="cb1-11"><a></a>        <span class="co"># Step 1: Split the reduced price student count in half because they are only worth .5 in the compensatory revenue formula </span></span>
-<span id="cb1-12"><a></a>  <span class="fu">mutate</span>(<span class="at">comprev_reduced_count =</span> reduced_lunch <span class="sc">*</span> .<span class="dv">5</span>, </span>
-<span id="cb1-13"><a></a>         </span>
-<span id="cb1-14"><a></a>         <span class="co"># Step 2:Add together the .5 reduced price count to the free count to get the corrected frpl number for the compensatory revenue formula </span></span>
-<span id="cb1-15"><a></a>         <span class="at">comprev_frpl_reduced_total =</span> comprev_reduced_count <span class="sc">+</span> free_lunch, </span>
-<span id="cb1-16"><a></a>         </span>
-<span id="cb1-17"><a></a>         <span class="at">comprev_frpl_reduced_pct =</span> comprev_frpl_reduced_total <span class="sc">/</span> enroll, <span class="co">#This is the new frpl % with .5 reduced price count</span></span>
-<span id="cb1-18"><a></a>         </span>
-<span id="cb1-19"><a></a>         <span class="co"># Step 3: Divide by the weight factor by .8</span></span>
-<span id="cb1-20"><a></a>         <span class="at">comprev_weight_factor_step =</span> comprev_frpl_reduced_pct<span class="sc">/</span>.<span class="dv">8</span>, </span>
-<span id="cb1-21"><a></a>        </span>
-<span id="cb1-22"><a></a>         <span class="do">### I'm keeping this interim step so that I can track it</span></span>
-<span id="cb1-23"><a></a>         <span class="co">#Replace anything above 1 with 1 because of the formula </span></span>
-<span id="cb1-24"><a></a>         <span class="at">comprev_weight_factor =</span> <span class="fu">ifelse</span>(comprev_weight_factor_step <span class="sc">&gt;</span> <span class="dv">1</span>, </span>
-<span id="cb1-25"><a></a>                                        <span class="dv">1</span>, comprev_weight_factor_step), </span>
-<span id="cb1-26"><a></a>        </span>
-<span id="cb1-27"><a></a>          <span class="co"># determine the compensatory revenue pupil unit count </span></span>
-<span id="cb1-28"><a></a>         <span class="at">comprev_comp_pupil_unit =</span> comprev_frpl_reduced_total <span class="sc">*</span> comprev_weight_factor <span class="sc">*</span> .<span class="dv">6</span>, </span>
-<span id="cb1-29"><a></a>        </span>
-<span id="cb1-30"><a></a>          <span class="co"># determine the amount of money that the school generates</span></span>
-<span id="cb1-31"><a></a>         <span class="at">comprev_total =</span> comprev_comp_pupil_unit <span class="sc">*</span> <span class="dv">5599</span>, </span>
-<span id="cb1-32"><a></a>        </span>
-<span id="cb1-33"><a></a>          <span class="co"># per-pupil amount for the school that generates the funds </span></span>
-<span id="cb1-34"><a></a>         <span class="at">comprev_pp =</span> comprev_total<span class="sc">/</span>frpl_total)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-9"><a></a><span class="co"># hard code in the variables </span></span>
+<span id="cb1-10"><a></a></span>
+<span id="cb1-11"><a></a>reduced_weight <span class="ot">&lt;-</span> <span class="fl">0.5</span></span>
+<span id="cb1-12"><a></a></span>
+<span id="cb1-13"><a></a>funding_cap <span class="ot">&lt;-</span> <span class="fl">0.8</span></span>
+<span id="cb1-14"><a></a></span>
+<span id="cb1-15"><a></a>weight_factor <span class="ot">&lt;-</span> <span class="fl">0.6</span></span>
+<span id="cb1-16"><a></a></span>
+<span id="cb1-17"><a></a>mn_pp_base <span class="ot">&lt;-</span> <span class="dv">6567</span></span>
+<span id="cb1-18"><a></a></span>
+<span id="cb1-19"><a></a>base_subtractor <span class="ot">&lt;-</span> <span class="dv">839</span></span>
+<span id="cb1-20"><a></a></span>
+<span id="cb1-21"><a></a><span class="do">##Calculate the compensatory revenue per school and rebuild the model</span></span>
+<span id="cb1-22"><a></a>comprev_schools_model <span class="ot">&lt;-</span> mn_comprev_final <span class="sc">|&gt;</span></span>
+<span id="cb1-23"><a></a>        <span class="co">#Step 1: Split the reduced price student count in half because they are only worth .5 in the compensatory revenue formula </span></span>
+<span id="cb1-24"><a></a>  <span class="fu">mutate</span>(<span class="at">comprev_reduced_count =</span> reduced_lunch <span class="sc">*</span> reduced_weight, </span>
+<span id="cb1-25"><a></a>         <span class="co">#Step 2:Add together the .5 reduced price count to the free count to get the corrected frpl number for the compensatory revenue formula </span></span>
+<span id="cb1-26"><a></a>         <span class="at">comprev_frpl_reduced_total =</span> comprev_reduced_count <span class="sc">+</span> free_lunch, </span>
+<span id="cb1-27"><a></a>         <span class="at">comprev_frpl_reduced_pct =</span> comprev_frpl_reduced_total<span class="sc">/</span>enroll, <span class="co">#This is the new frpl % with .5 reduced price count</span></span>
+<span id="cb1-28"><a></a>         <span class="co">#Step 3: Divide by the weight factor by .8</span></span>
+<span id="cb1-29"><a></a>         <span class="at">comprev_weight_factor_step =</span> comprev_frpl_reduced_pct<span class="sc">/</span>funding_cap, </span>
+<span id="cb1-30"><a></a>         <span class="do">### I'm keeping this interim step so that I can track it</span></span>
+<span id="cb1-31"><a></a>         <span class="co">#Replace anything above 1 with 1 because of the formula </span></span>
+<span id="cb1-32"><a></a>         <span class="at">comprev_weight_factor =</span> <span class="fu">ifelse</span>(comprev_weight_factor_step <span class="sc">&gt;</span> <span class="dv">1</span>, </span>
+<span id="cb1-33"><a></a>                                        <span class="dv">1</span>, comprev_weight_factor_step), </span>
+<span id="cb1-34"><a></a>         <span class="co"># determine the compensatory revenue pupil unit count </span></span>
+<span id="cb1-35"><a></a>         <span class="at">comprev_comp_pupil_unit =</span> comprev_frpl_reduced_total<span class="sc">*</span> comprev_weight_factor<span class="sc">*</span> weight_factor , </span>
+<span id="cb1-36"><a></a>         <span class="co"># determine the amount of money that the school generates</span></span>
+<span id="cb1-37"><a></a>         <span class="at">comprev_total =</span> comprev_comp_pupil_unit<span class="sc">*</span> (mn_pp_base <span class="sc">-</span> base_subtractor), </span>
+<span id="cb1-38"><a></a>         <span class="co"># per-pupil amount for the school that generates the funds </span></span>
+<span id="cb1-39"><a></a>         <span class="at">comprev_pp =</span> comprev_total<span class="sc">/</span>frpl_total)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="scatterplot-of-the-current-compensatory-revenue-formula-illustrates-some-of-the-issues" class="slide level2">
@@ -519,7 +525,7 @@
 <img data-src="mn_example/figures/plot1_current_comp_rev.png" class="quarto-figure quarto-figure-center r-stretch" style="width:8in"></section>
 <section id="minnesota-example-lifting-the-80-cap-on-per-pupil-funding" class="slide level2 smaller">
 <h2>Minnesota Example: Lifting the 80% cap on per-pupil funding</h2>
-<p>The 80% cap on per-pupil funding has a large impact on schools that serve 80% or more low-income students. Lifting the cap, would provide 150 charter and district schools that serve the largest concentrations of students in poverty and only cost the state about $10 million annually.</p>
+<p>The 80% cap on per-pupil funding has a large impact on schools that serve 80% or more low-income students. Lifting the cap, would provide 150 charter and district schools that serve the largest concentrations of students in poverty and only cost the state about $9.4 million annually.</p>
 <p>Modeling the potential change in R is simple - we just have to comment out the line that changes the compensatory revenue weight factor.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a><span class="co"># Modeling Policy Changes  ------</span></span>
@@ -527,28 +533,42 @@
 <span id="cb2-3"><a></a><span class="do">## Policy Change #1: Lift the 80% cap </span></span>
 <span id="cb2-4"><a></a><span class="co">#To lift the cap, I will take the original data and not change the compensatory weight factor to 1 if it's above 1</span></span>
 <span id="cb2-5"><a></a></span>
-<span id="cb2-6"><a></a>comprev_schools_policy_1 <span class="ot">&lt;-</span> comprev_schools_model <span class="sc">|&gt;</span></span>
-<span id="cb2-7"><a></a>  </span>
-<span id="cb2-8"><a></a>  <span class="fu">mutate</span>(<span class="at">comprev_reduced_count =</span> reduced_lunch <span class="sc">*</span> .<span class="dv">5</span>, </span>
-<span id="cb2-9"><a></a>         </span>
-<span id="cb2-10"><a></a>         <span class="at">comprev_frpl_reduced_total =</span> comprev_reduced_count <span class="sc">+</span> free_lunch, </span>
-<span id="cb2-11"><a></a>         </span>
-<span id="cb2-12"><a></a>         <span class="at">comprev_frpl_reduced_pct =</span> comprev_frpl_reduced_total <span class="sc">/</span> enroll, </span>
-<span id="cb2-13"><a></a>         </span>
-<span id="cb2-14"><a></a>         <span class="at">comprev_weight_factor_step =</span> comprev_frpl_reduced_pct <span class="sc">/</span> .<span class="dv">8</span>, </span>
-<span id="cb2-15"><a></a>        </span>
-<span id="cb2-16"><a></a>         <span class="co"># I commented out this code because we are no longer capping it at 1 </span></span>
-<span id="cb2-17"><a></a>         <span class="co"># comprev_weight_factor = ifelse(comprev_weight_factor_step &gt; 1, </span></span>
-<span id="cb2-18"><a></a>         <span class="co">#                                1, comprev_weight_factor_step), </span></span>
-<span id="cb2-19"><a></a>        </span>
-<span id="cb2-20"><a></a>          <span class="co"># determine the compensatory revenue pupil unit count </span></span>
-<span id="cb2-21"><a></a>         <span class="at">comprev_comp_pupil_unit_policy_1 =</span> comprev_frpl_reduced_total <span class="sc">*</span> comprev_weight_factor <span class="sc">*</span> .<span class="dv">6</span>, </span>
-<span id="cb2-22"><a></a>        </span>
-<span id="cb2-23"><a></a>          <span class="co"># determine the amount of money that the school generates</span></span>
-<span id="cb2-24"><a></a>         <span class="at">comprev_total_policy_1 =</span> comprev_comp_pupil_unit <span class="sc">*</span> <span class="dv">5599</span>, </span>
-<span id="cb2-25"><a></a>        </span>
-<span id="cb2-26"><a></a>          <span class="co"># per-pupil amount for the school that generates the funds </span></span>
-<span id="cb2-27"><a></a>         <span class="at">comprev_pp_policy1 =</span> comprev_total_policy1 <span class="sc">/</span> frpl_total)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-6"><a></a><span class="co"># hard code in the variables </span></span>
+<span id="cb2-7"><a></a></span>
+<span id="cb2-8"><a></a>reduced_weight <span class="ot">&lt;-</span> <span class="fl">0.5</span></span>
+<span id="cb2-9"><a></a></span>
+<span id="cb2-10"><a></a>funding_cap <span class="ot">&lt;-</span> <span class="fl">0.8</span></span>
+<span id="cb2-11"><a></a></span>
+<span id="cb2-12"><a></a>weight_factor <span class="ot">&lt;-</span> <span class="fl">0.6</span></span>
+<span id="cb2-13"><a></a></span>
+<span id="cb2-14"><a></a>mn_pp_base <span class="ot">&lt;-</span> <span class="dv">6567</span></span>
+<span id="cb2-15"><a></a></span>
+<span id="cb2-16"><a></a>base_subtractor <span class="ot">&lt;-</span> <span class="dv">839</span></span>
+<span id="cb2-17"><a></a></span>
+<span id="cb2-18"><a></a><span class="co"># Lift the 80% Cap </span></span>
+<span id="cb2-19"><a></a></span>
+<span id="cb2-20"><a></a>comprev_schools_policy_1 <span class="ot">&lt;-</span> mn_comprev_final <span class="sc">|&gt;</span></span>
+<span id="cb2-21"><a></a>  <span class="fu">mutate</span>(<span class="at">comprev_reduced_count =</span> reduced_lunch <span class="sc">*</span> reduced_weight, </span>
+<span id="cb2-22"><a></a>         </span>
+<span id="cb2-23"><a></a>         <span class="at">comprev_frpl_reduced_total =</span> comprev_reduced_count <span class="sc">+</span> free_lunch, </span>
+<span id="cb2-24"><a></a>         </span>
+<span id="cb2-25"><a></a>         <span class="at">comprev_frpl_reduced_pct =</span> comprev_frpl_reduced_total<span class="sc">/</span>enroll, </span>
+<span id="cb2-26"><a></a>         </span>
+<span id="cb2-27"><a></a>         <span class="at">comprev_weight_factor =</span> comprev_frpl_reduced_pct<span class="sc">/</span>funding_cap, </span>
+<span id="cb2-28"><a></a>         </span>
+<span id="cb2-29"><a></a>         <span class="co"># I commented out this code because we are no longer capping the per-pupil funding </span></span>
+<span id="cb2-30"><a></a>         </span>
+<span id="cb2-31"><a></a>         <span class="co"># comprev_weight_factor = ifelse(comprev_weight_factor_step &gt; 1, </span></span>
+<span id="cb2-32"><a></a>         <span class="co">#                                1, comprev_weight_factor_step), </span></span>
+<span id="cb2-33"><a></a>         </span>
+<span id="cb2-34"><a></a>         <span class="co"># determine the compensatory revenue pupil unit count </span></span>
+<span id="cb2-35"><a></a>         <span class="at">comprev_comp_pupil_unit_policy_1 =</span> comprev_frpl_reduced_total <span class="sc">*</span> comprev_weight_factor <span class="sc">*</span> weight_factor, </span>
+<span id="cb2-36"><a></a>         </span>
+<span id="cb2-37"><a></a>         <span class="co"># determine the amount of money that the school generates</span></span>
+<span id="cb2-38"><a></a>         <span class="at">comprev_total_policy_1 =</span> comprev_comp_pupil_unit_policy_1 <span class="sc">*</span> (mn_pp_base <span class="sc">-</span> base_subtractor), </span>
+<span id="cb2-39"><a></a>         </span>
+<span id="cb2-40"><a></a>         <span class="co"># per-pupil amount for the school that generates the funds </span></span>
+<span id="cb2-41"><a></a>         <span class="at">comprev_pp_policy1 =</span> comprev_total_policy_1<span class="sc">/</span>frpl_total)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="the-impact-of-lifting-the-80-on-per-pupil-funding" class="slide level2">
@@ -559,43 +579,55 @@
 <section id="minnesota-example-increase-the-weight-of-reduced-price-lunch-students" class="slide level2 smaller">
 <h2>Minnesota Example: Increase the weight of reduced price lunch students</h2>
 <p>Increasing the statutory amount a reduced priced student counts from 0.5 to 0.75 would be more in line with the percentage difference between free and reduced price lunch income cutoffs for a family of four.</p>
-<p>Increasing the reduced price lunch weight would benefit more than 1,600 schools and would cost the state about $30 million annually.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="co"># Modeling Policy Changes  ------</span></span>
 <span id="cb3-2"><a></a></span>
 <span id="cb3-3"><a></a><span class="do">## Policy Change #2: Increase reduced price lunch weight from 0.5 to 0.75</span></span>
 <span id="cb3-4"><a></a></span>
-<span id="cb3-5"><a></a>comprev_schools_policy_2 <span class="ot">&lt;-</span> comprev_schools_model <span class="sc">|&gt;</span></span>
-<span id="cb3-6"><a></a> </span>
-<span id="cb3-7"><a></a>   <span class="co"># I changed the number from 0.5 to 0.75</span></span>
-<span id="cb3-8"><a></a>  <span class="fu">mutate</span>(<span class="at">comprev_reduced_count_policy2 =</span> reduced_lunch <span class="sc">*</span> .<span class="dv">75</span>, </span>
-<span id="cb3-9"><a></a>         </span>
-<span id="cb3-10"><a></a>         <span class="at">comprev_frpl_reduced_total_policy2 =</span> comprev_reduced_count_policy2 <span class="sc">+</span> free_lunch, </span>
-<span id="cb3-11"><a></a>         </span>
-<span id="cb3-12"><a></a>         <span class="at">comprev_frpl_reduced_pct_policy2 =</span> comprev_frpl_reduced_total_policy2 <span class="sc">/</span> enroll, </span>
-<span id="cb3-13"><a></a>         </span>
-<span id="cb3-14"><a></a>         <span class="at">comprev_weight_factor_step_policy2 =</span> comprev_frpl_reduced_pct_policy2 <span class="sc">/</span> .<span class="dv">8</span>, </span>
-<span id="cb3-15"><a></a>      </span>
-<span id="cb3-16"><a></a>         </span>
-<span id="cb3-17"><a></a>        <span class="at">comprev_weight_factor_policy2 =</span> <span class="fu">ifelse</span>(comprev_weight_factor_step_policy2 <span class="sc">&gt;</span> <span class="dv">1</span>, </span>
-<span id="cb3-18"><a></a>                                        <span class="dv">1</span>, comprev_weight_factor_step_policy2), </span>
-<span id="cb3-19"><a></a>        </span>
-<span id="cb3-20"><a></a>          <span class="co"># determine the compensatory revenue pupil unit count </span></span>
-<span id="cb3-21"><a></a>         <span class="at">comprev_comp_pupil_unit_policy_2 =</span> comprev_frpl_reduced_total <span class="sc">*</span> comprev_weight_factor_policy2 <span class="sc">*</span> .<span class="dv">6</span>, </span>
-<span id="cb3-22"><a></a>        </span>
-<span id="cb3-23"><a></a>          <span class="co"># determine the amount of money that the school generates</span></span>
-<span id="cb3-24"><a></a>         <span class="at">comprev_total_policy_2 =</span> comprev_comp_pupil_unit_policy_2 <span class="sc">*</span> <span class="dv">5599</span>, </span>
-<span id="cb3-25"><a></a>        </span>
-<span id="cb3-26"><a></a>          <span class="co"># per-pupil amount for the school that generates the funds </span></span>
-<span id="cb3-27"><a></a>         <span class="at">comprev_pp_policy2 =</span> comprev_total_policy2 <span class="sc">/</span> frpl_total,</span>
-<span id="cb3-28"><a></a>        </span>
-<span id="cb3-29"><a></a>          <span class="co"># Calculate the per-pupil increase in funding</span></span>
-<span id="cb3-30"><a></a>        <span class="at">policy2_pp_increase =</span> comprev_pp_policy2 <span class="sc">-</span> comprev_pp)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-5"><a></a><span class="co"># hard code in the variables </span></span>
+<span id="cb3-6"><a></a></span>
+<span id="cb3-7"><a></a>reduced_weight <span class="ot">&lt;-</span> <span class="fl">0.75</span></span>
+<span id="cb3-8"><a></a></span>
+<span id="cb3-9"><a></a>funding_cap <span class="ot">&lt;-</span> <span class="fl">0.8</span></span>
+<span id="cb3-10"><a></a></span>
+<span id="cb3-11"><a></a>weight_factor <span class="ot">&lt;-</span> <span class="fl">0.6</span></span>
+<span id="cb3-12"><a></a></span>
+<span id="cb3-13"><a></a>mn_pp_base <span class="ot">&lt;-</span> <span class="dv">6567</span></span>
+<span id="cb3-14"><a></a></span>
+<span id="cb3-15"><a></a>base_subtractor <span class="ot">&lt;-</span> <span class="dv">839</span></span>
+<span id="cb3-16"><a></a></span>
+<span id="cb3-17"><a></a><span class="co"># Increase weight from 0.5 to .75</span></span>
+<span id="cb3-18"><a></a></span>
+<span id="cb3-19"><a></a>comprev_schools_policy_2 <span class="ot">&lt;-</span>comprev_schools_model <span class="sc">|&gt;</span></span>
+<span id="cb3-20"><a></a>  <span class="co"># I changed the number from 0.5 to 0.75</span></span>
+<span id="cb3-21"><a></a>  <span class="fu">mutate</span>(<span class="at">comprev_reduced_count_policy2 =</span> reduced_lunch <span class="sc">*</span> reduced_weight, </span>
+<span id="cb3-22"><a></a>         </span>
+<span id="cb3-23"><a></a>         <span class="at">comprev_frpl_reduced_total_policy2 =</span> comprev_reduced_count_policy2 <span class="sc">+</span> free_lunch, </span>
+<span id="cb3-24"><a></a>         </span>
+<span id="cb3-25"><a></a>         <span class="at">comprev_frpl_reduced_pct_policy2 =</span> comprev_frpl_reduced_total_policy2<span class="sc">/</span>enroll, </span>
+<span id="cb3-26"><a></a>         </span>
+<span id="cb3-27"><a></a>         <span class="at">comprev_weight_factor_step_policy2 =</span> comprev_frpl_reduced_pct_policy2<span class="sc">/</span>funding_cap, </span>
+<span id="cb3-28"><a></a>         </span>
+<span id="cb3-29"><a></a>         </span>
+<span id="cb3-30"><a></a>         <span class="at">comprev_weight_factor_policy2 =</span> <span class="fu">ifelse</span>(comprev_weight_factor_step_policy2 <span class="sc">&gt;</span> <span class="dv">1</span>, </span>
+<span id="cb3-31"><a></a>                                                <span class="dv">1</span>, comprev_weight_factor_step_policy2), </span>
+<span id="cb3-32"><a></a>         </span>
+<span id="cb3-33"><a></a>         <span class="co"># determine the compensatory revenue pupil unit count </span></span>
+<span id="cb3-34"><a></a>         <span class="at">comprev_comp_pupil_unit_policy2 =</span> comprev_frpl_reduced_total_policy2 <span class="sc">*</span> comprev_weight_factor_policy2 <span class="sc">*</span> weight_factor, </span>
+<span id="cb3-35"><a></a>         </span>
+<span id="cb3-36"><a></a>         <span class="co"># determine the amount of money that the school generates</span></span>
+<span id="cb3-37"><a></a>         <span class="at">comprev_total_policy2 =</span> comprev_comp_pupil_unit_policy2 <span class="sc">*</span> (mn_pp_base <span class="sc">-</span> base_subtractor), </span>
+<span id="cb3-38"><a></a>         </span>
+<span id="cb3-39"><a></a>         <span class="co"># per-pupil amount for the school that generates the funds </span></span>
+<span id="cb3-40"><a></a>         <span class="at">comprev_pp_policy2 =</span> comprev_total_policy2<span class="sc">/</span>frpl_total,</span>
+<span id="cb3-41"><a></a>         </span>
+<span id="cb3-42"><a></a>         <span class="at">policy2_pp_increase =</span> comprev_pp_policy2 <span class="sc">-</span> comprev_pp)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="impact-on-increasing-the-reduced-price-weight-from-0.5-to-.75" class="slide level2 smaller">
 <h2>Impact on increasing the reduced price weight from 0.5 to .75</h2>
 <p>The scatterplot shows the increase in per-pupil funding when the weight for reduce price lunch students. Not every school would benefit from the change, because they either have 0 or very few students who qualify for reduced price lunch. Schools with more students who qualify for reduced price lunch would benefit more than schools that do not.</p>
+<p>Increasing the reduced price lunch weight would benefit more than 1,600 schools and would cost the state about $40.1 million annually.</p>
 
 <img data-src="mn_example/figures/plot3_policy2_comp_rev.png" class="quarto-figure quarto-figure-center r-stretch" style="width:8in"></section>
 <section id="homework" class="slide level2">

@@ -29,7 +29,7 @@ mn_pp_base <- 6567
 
 base_subtractor <- 839
 
-# Increase weight from 0.5 to .75
+# Do not subtract any funding from the base 
 
 comprev_schools_policy_3 <-comprev_schools_model |>
   mutate(comprev_reduced_count_policy3 = reduced_lunch * reduced_weight, 
