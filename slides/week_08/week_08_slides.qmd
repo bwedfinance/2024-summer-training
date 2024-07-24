@@ -357,18 +357,68 @@ The scatterplot shows the increase in per-pupil funding when the weight for redu
 # Modeling Wholesale Reform in R
 
 
+```{r}
+#| echo: true
+#| eval: false
+
+#Hard code the variables --------
+  
+  base <- 8000 # per-pupil base funding 
+  
+  ed_weight <- .5 # economically disadvantaged student weight 
+  
+  sped_no_complex_intense_weight <- 0.5 # special education weight for students who are not intense or complex 
+  sped_complex_weight <- 1.4 # special education weight for complex students 
+  sped_intense_weight <- 2.1 # special education weight for intense, which is the state's high level of support
+
+  
+  el_weight <- .3 # English learner weight 
+  
+  cte_weight <- .2 # weight for students enrolled in CTE courses 
+  
+  
+  # Model the student-based funding formula  ------
+  
+ delaware_wsf_model <- delaware_modeling_data |>
+    # Do the WSF modeling 
+    # Base funding 
+    mutate(wsf_base_funding = total_enroll * base,
+           
+           # FRPL Funding 
+           wsf_frpl_funding = base * frpl_enroll * ed_weight,
+           
+           # EL Funding 
+           wsf_el_funding = base * el_enroll * el_weight,
+           
+           # SPED Funding
+           wsf_sped_no_complex_intense_funding = base * sped_enroll *  sped_no_complex_intense_weight,
+           wsf_sped_complex_funding = base * complex_sped_enroll *  sped_complex_weight,
+           wsf_sped_intense_funding = base * intense_sped_enroll *  sped_intense_weight,
+           wsf_sped_total_funding = wsf_sped_no_complex_intense_funding + wsf_sped_complex_funding + wsf_sped_intense_funding, 
+           
+           # CTE Funding 
+           wsf_cte_funding = base * voc_enroll * cte_weight,
+           
+           # Total WSF funding
+           wsf_total_funding = wsf_base_funding + wsf_el_funding + wsf_sped_total_funding 
+           + wsf_frpl_funding + wsf_cte_funding,
+           # Calculate the per-pupil funding 
+           wsf_pp_funding = wsf_total_funding / total_enroll) |>
+    # Calculate the per-pupil differences 
+    mutate(wsf_pp_diff = wsf_pp_funding - state_pp_revenue,
+           wsf_total_diff = wsf_total_funding - state_revenue)
+  
+```
+
+
+
+
+
 # Small Group Activity 
 
 
 ## Homework
 
-Write an overview of the policy problem you want to model in your capstone project and submit it to Alex and Krista by Monday, August 7. The overview should include descriptions of: 
-
-- An overview of the policy problem 
-- 2-3 policy changes you want to model 
-- How you will know if the policy options would be an improvement over current policy
-- Data you will use to do your analysis 
-
-Schedule at least one office hours session with Alex and Krista the week of August 14. As a reminder, capstone projects will be presented on **Tuesday, August 29 from 2:00 - 4:00 PM CST.**
+TKTK 
 
 
