@@ -91,7 +91,9 @@ delaware_modeling_data <- read_csv("slides/week_08/de_example/data/processed/upd
                                   size = total_enroll,
                                   color = frpl_pct, group = 1)) + 
     geom_point(alpha = .8) +
-    scale_color_viridis(end = .8, direction = -1) +
+    scale_color_viridis(end = .8, direction = -1,
+                        labels = scales::percent_format(accuracy = 1)) +
+    scale_size_continuous(labels = scales::comma_format()) +
     scale_x_continuous(labels = scales::percent_format(accuracy = 1)) +
     scale_y_continuous(labels = scales::dollar_format(accuracy = 1),
                        limits = c(5000, 15000)) +
@@ -115,7 +117,9 @@ delaware_modeling_data <- read_csv("slides/week_08/de_example/data/processed/upd
                                  size = total_enroll,
                                  color = frpl_pct, group = 1)) + 
     geom_point(alpha = .8) +
-    scale_color_viridis(end = .8, direction = -1) +
+    scale_color_viridis(end = .8, direction = -1,
+                        labels = scales::percent_format(accuracy = 1)) +
+    scale_size_continuous(labels = scales::comma_format()) +
     scale_x_continuous(labels = scales::percent_format(accuracy = 1)) +
     scale_y_continuous(labels = scales::dollar_format(accuracy = 1),
                        limits = c(5000, 15000)) +
@@ -139,7 +143,9 @@ delaware_modeling_data <- read_csv("slides/week_08/de_example/data/processed/upd
                                     size = total_enroll,
                                     color = frpl_pct, group = 1)) + 
     geom_point(alpha = .8) +
-    scale_color_viridis(end = .8, direction = -1) +
+    scale_color_viridis(end = .8, direction = -1,
+                        labels = scales::percent_format(accuracy = 1)) +
+    scale_size_continuous(labels = scales::comma_format()) +
     scale_x_continuous(labels = scales::percent_format(accuracy = 1)) +
     scale_y_continuous(labels = scales::dollar_format(accuracy = 1),
                        limits = c(-5000, 3000)) +
