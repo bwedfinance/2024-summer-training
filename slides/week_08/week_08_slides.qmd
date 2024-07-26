@@ -62,7 +62,7 @@ In class 7, we went over the fundamentals and thought processes for building Min
 - **Which policy options should be considered as alternatives?**
     - Remove the cap
     - Increase the reduced price weight from .5 to .75
-    - Do not subtract any fundign from the base 
+    - Do not subtract any funding from the base 
     
 - **How will you know if these alternative policies would be an improvement over current policy?**
     - More revenue going to the highest-poverty schools
@@ -110,9 +110,9 @@ comprev_schools_model <- mn_comprev_final |>
          comprev_weight_factor = ifelse(comprev_weight_factor_step > 1, 
                                         1, comprev_weight_factor_step), 
          # determine the compensatory revenue pupil unit count 
-         comprev_comp_pupil_unit = comprev_frpl_reduced_total* comprev_weight_factor* weight_factor , 
+         comprev_comp_pupil_unit = comprev_frpl_reduced_total * comprev_weight_factor* weight_factor , 
          # determine the amount of money that the school generates
-         comprev_total = comprev_comp_pupil_unit* (mn_pp_base - base_subtractor), 
+         comprev_total = comprev_comp_pupil_unit * (mn_pp_base - base_subtractor), 
          # per-pupil amount for the school that generates the funds 
          comprev_pp = comprev_total/frpl_total)
 
@@ -210,7 +210,7 @@ base_subtractor <- 839
 
 # Increase weight from 0.5 to .75
 
-comprev_schools_policy_2 <-comprev_schools_model |>
+comprev_schools_policy_2 <- comprev_schools_model |>
   # I changed the number from 0.5 to 0.75
   mutate(comprev_reduced_count_policy2 = reduced_lunch * reduced_weight, 
          
@@ -334,7 +334,7 @@ comprev_schools_policy_4 <- comprev_schools_model |>
          #                                        1, comprev_weight_factor_step_policy4), 
          # 
          # determine the compensatory revenue pupil unit count 
-         comprev_comp_pupil_unit_policy4 = comprev_frpl_reduced_total_policy4 *comprev_weight_factor_step_policy4 * weight_factor, 
+         comprev_comp_pupil_unit_policy4 = comprev_frpl_reduced_total_policy4 * comprev_weight_factor_step_policy4 * weight_factor, 
          
          # determine the amount of money that the school generates
          # I removed the base subtractor
