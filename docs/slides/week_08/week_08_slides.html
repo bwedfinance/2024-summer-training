@@ -466,7 +466,7 @@
 <ul>
 <li>Remove the cap</li>
 <li>Increase the reduced price weight from .5 to .75</li>
-<li>Do not subtract any fundign from the base</li>
+<li>Do not subtract any funding from the base</li>
 </ul></li>
 <li><strong>How will you know if these alternative policies would be an improvement over current policy?</strong>
 <ul>
@@ -515,9 +515,9 @@
 <span id="cb1-32"><a></a>         <span class="at">comprev_weight_factor =</span> <span class="fu">ifelse</span>(comprev_weight_factor_step <span class="sc">&gt;</span> <span class="dv">1</span>, </span>
 <span id="cb1-33"><a></a>                                        <span class="dv">1</span>, comprev_weight_factor_step), </span>
 <span id="cb1-34"><a></a>         <span class="co"># determine the compensatory revenue pupil unit count </span></span>
-<span id="cb1-35"><a></a>         <span class="at">comprev_comp_pupil_unit =</span> comprev_frpl_reduced_total<span class="sc">*</span> comprev_weight_factor<span class="sc">*</span> weight_factor , </span>
+<span id="cb1-35"><a></a>         <span class="at">comprev_comp_pupil_unit =</span> comprev_frpl_reduced_total <span class="sc">*</span> comprev_weight_factor<span class="sc">*</span> weight_factor , </span>
 <span id="cb1-36"><a></a>         <span class="co"># determine the amount of money that the school generates</span></span>
-<span id="cb1-37"><a></a>         <span class="at">comprev_total =</span> comprev_comp_pupil_unit<span class="sc">*</span> (mn_pp_base <span class="sc">-</span> base_subtractor), </span>
+<span id="cb1-37"><a></a>         <span class="at">comprev_total =</span> comprev_comp_pupil_unit <span class="sc">*</span> (mn_pp_base <span class="sc">-</span> base_subtractor), </span>
 <span id="cb1-38"><a></a>         <span class="co"># per-pupil amount for the school that generates the funds </span></span>
 <span id="cb1-39"><a></a>         <span class="at">comprev_pp =</span> comprev_total<span class="sc">/</span>frpl_total)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -601,7 +601,7 @@
 <span id="cb3-16"><a></a></span>
 <span id="cb3-17"><a></a><span class="co"># Increase weight from 0.5 to .75</span></span>
 <span id="cb3-18"><a></a></span>
-<span id="cb3-19"><a></a>comprev_schools_policy_2 <span class="ot">&lt;-</span>comprev_schools_model <span class="sc">|&gt;</span></span>
+<span id="cb3-19"><a></a>comprev_schools_policy_2 <span class="ot">&lt;-</span> comprev_schools_model <span class="sc">|&gt;</span></span>
 <span id="cb3-20"><a></a>  <span class="co"># I changed the number from 0.5 to 0.75</span></span>
 <span id="cb3-21"><a></a>  <span class="fu">mutate</span>(<span class="at">comprev_reduced_count_policy2 =</span> reduced_lunch <span class="sc">*</span> reduced_weight, </span>
 <span id="cb3-22"><a></a>         </span>
@@ -714,7 +714,7 @@
 <span id="cb5-30"><a></a>         <span class="co">#                                        1, comprev_weight_factor_step_policy4), </span></span>
 <span id="cb5-31"><a></a>         <span class="co"># </span></span>
 <span id="cb5-32"><a></a>         <span class="co"># determine the compensatory revenue pupil unit count </span></span>
-<span id="cb5-33"><a></a>         <span class="at">comprev_comp_pupil_unit_policy4 =</span> comprev_frpl_reduced_total_policy4 <span class="sc">*</span>comprev_weight_factor_step_policy4 <span class="sc">*</span> weight_factor, </span>
+<span id="cb5-33"><a></a>         <span class="at">comprev_comp_pupil_unit_policy4 =</span> comprev_frpl_reduced_total_policy4 <span class="sc">*</span> comprev_weight_factor_step_policy4 <span class="sc">*</span> weight_factor, </span>
 <span id="cb5-34"><a></a>         </span>
 <span id="cb5-35"><a></a>         <span class="co"># determine the amount of money that the school generates</span></span>
 <span id="cb5-36"><a></a>         <span class="co"># I removed the base subtractor</span></span>
