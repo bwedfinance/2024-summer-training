@@ -2760,5 +2760,12 @@
     "title": "Modeling state funding policy changes in R",
     "section": "Small Group Activity",
     "text": "Small Group Activity\nBuild Minnesota’s English Learner funding formula in R and then model the impact of 2 potential policy changes."
+  },
+  {
+    "objectID": "slides/week_08/week_08_slides.html#homework-and-next-steps",
+    "href": "slides/week_08/week_08_slides.html#homework-and-next-steps",
+    "title": "Modeling state funding policy changes in R",
+    "section": "Homework and Next Steps",
+    "text": "Homework and Next Steps\nCoding task\n\nIn the wk-8-hw repository there is a coding task to model a change to Minnesota’s Literacy Incentive Aid\nContinue to clean and work on your capstone projects"
   }
 ]

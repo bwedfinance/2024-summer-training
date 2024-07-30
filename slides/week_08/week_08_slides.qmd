@@ -422,8 +422,17 @@ In this WSF Model, 13 districts would receive more total and per-pupil state fun
 
 Build Minnesota's English Learner funding formula in R and then model the impact of 2 potential policy changes. 
 
-## Homework
+# Homework {.smaller}
 
-TKTK 
+## Homework and Next Steps 
+
+**Coding task**
+
+- In the `wk-8-hw` repository there is a coding task to model a change to Minnesota's Literacy Incentive Aid 
+- Continue to clean and work on your capstone projects
+
+
+
+
 
 
