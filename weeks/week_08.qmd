@@ -1,0 +1,42 @@
+---
+title: "Week 08"
+subtitle: "Modeling state funding policies in R Part II"
+description: "July 23"
+author: ""
+date: ""
+listing:
+  - id: slides
+    contents:
+      - ../slides/week_08/*.qmd
+    type: table
+    fields: [title, date]
+    field-display-names:
+      title: "Topic"
+      date: "Date"
+    sort: [filename]
+    sort-ui: false
+    filter-ui: false
+tbl-colwidths: [10,50,40]
+format: html
+
+---
+
+## Slides
+
+::: {#slides}
+:::
+
+
+## R Small Group Activity 
+
+- The small group activity is in the `wk-8-class-examples-activity` repository. In groups, you will model Minnesota's English Learning funding formula and model 2 changes. 
+- You can view Minnesota's English Learner Funding formula [here](https://docs.google.com/document/d/1ujwnDq8_yAzKrcX2sI05yc_B37Mm4sKXqMj7fo2fLEo/edit). 
+
+## Lecture recording
+
+The class recording will be uploaded after class. . 
+
+## Coding Assignment
+
+- In the `wk-8-hw` repository there is a coding task to model a change to Minnesota's Literacy Incentive Aid
+- Continue to work on cleaning, analyzing, and modeling for your capstone projects

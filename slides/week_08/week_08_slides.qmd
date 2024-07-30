@@ -1,5 +1,5 @@
 ---
-title: "Modeling state funding policy changes in R"
+title: "Modeling state funding policy changes in R Part II"
 date: "July 30, 2024"
 format:
   revealjs:
@@ -429,7 +429,7 @@ Build Minnesota's English Learner funding formula in R and then model the impact
 **Coding task**
 
 - In the `wk-8-hw` repository there is a coding task to model a change to Minnesota's Literacy Incentive Aid 
-- Continue to clean and work on your capstone projects
+- Continue to work on cleaning, analyzing, and modeling for your capstone projects
 
 
 
