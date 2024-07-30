@@ -1,6 +1,6 @@
 ---
 title: "Week 07"
-subtitle: "Modeling state funding policies in R"
+subtitle: "Modeling state funding policies in R Part I"
 description: "July 23"
 author: ""
 date: ""
