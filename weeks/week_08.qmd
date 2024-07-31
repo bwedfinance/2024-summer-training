@@ -34,7 +34,7 @@ format: html
 
 ## Lecture recording
 
-The class recording will be uploaded after class. . 
+You can view the class recording [here](https://vimeo.com/992896307?share=copy). The password is in the follow-up email. 
 
 ## Coding Assignment
 
