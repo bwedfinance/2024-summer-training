@@ -73,15 +73,14 @@ In most states, the education funding formula includes an expectation that the l
 
 Source: EdBuild, 2023
 
-# Modeling Local Share Policies 
+## Modeling Local Share Policies 
 
 To model the expected local share funding, you need to have property value assessment data by district. Ideally, you'd also have the ACTUAL local property tax revenue so you can calculate if the state's local share expectation policy is accurately capturing how much local funding districts are really raising. 
 
 
-# Class example: Modeling the current local share policy 
+## Class example: Modeling the current local share policy 
 
 ```{r}
-
 #| echo: true
 #| eval: false
 
@@ -180,9 +179,9 @@ ggplot(state_example_local_mill_data, aes(x = value_25_mill_pp,
 
 ```
 
-# Class Example: Increasing Local Share Policy to 30 Mills
+## Class Example: Increasing Local Share Policy to 30 Mills
 
-**Base on our calculations, the current local share policy does not account for $998,367,719 of local funding that is currently in the education system.** From our modeling, we know that we can raise the mill requirement to 30 mills and it would only require one district to have to raise more in local funding, but it would recognize 
+**Base on our calculations, the current local share policy does not account for $998,367,719 of local funding that is currently in the education system.** From our modeling, we know that we can raise the mill requirement to 30 mills and it would only require one district to have to raise more in local funding, but it would recognize $161 million more dollars in local funding. It's important to accurately capture how much local funding is in the system so the state funding can be more equitably distributed. 
 
 
 

@@ -29,6 +29,71 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto.css">
   <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -430,6 +495,109 @@
 </tbody>
 </table>
 <p>Source: EdBuild, 2023</p>
+</section>
+<section id="modeling-local-share-policies" class="slide level2">
+<h2>Modeling Local Share Policies</h2>
+<p>To model the expected local share funding, you need to have property value assessment data by district. Ideally, you’d also have the ACTUAL local property tax revenue so you can calculate if the state’s local share expectation policy is accurately capturing how much local funding districts are really raising.</p>
+</section></section>
+<section id="class-example-modeling-the-current-local-share-policy" class="title-slide slide level1 center">
+<h1>Class example: Modeling the current local share policy</h1>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="co"># load in the data </span></span>
+<span id="cb1-2"><a></a>state_example_data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/class_example_local_share_data.csv"</span>)</span>
+<span id="cb1-3"><a></a></span>
+<span id="cb1-4"><a></a></span>
+<span id="cb1-5"><a></a><span class="co"># Calculate the value of 1 mill -----</span></span>
+<span id="cb1-6"><a></a></span>
+<span id="cb1-7"><a></a>state_example_local_mill_data <span class="ot">&lt;-</span> state_example_data <span class="sc">|&gt;</span></span>
+<span id="cb1-8"><a></a>  <span class="co"># Calculate the value of mill using the assessed property value</span></span>
+<span id="cb1-9"><a></a>  <span class="fu">mutate</span>(<span class="at">value_1_mill =</span> assessed_value <span class="sc">/</span> <span class="dv">1000</span>) <span class="sc">|&gt;</span></span>
+<span id="cb1-10"><a></a>  <span class="co"># In the state example, the local mill expectation is 25 mills. Multiply the </span></span>
+<span id="cb1-11"><a></a>  <span class="co"># value of 1 mill by the current expectation to get the total EXPECTED funding</span></span>
+<span id="cb1-12"><a></a>  <span class="co"># and then calculate the per-pupil value of 1 mill so we can see the distribution </span></span>
+<span id="cb1-13"><a></a>  <span class="fu">mutate</span>(<span class="at">value_25_mill =</span> value_1_mill <span class="sc">*</span> <span class="dv">25</span>,</span>
+<span id="cb1-14"><a></a>         <span class="at">value_25_mill_pp =</span> value_25_mill <span class="sc">/</span> total_enroll) <span class="sc">|&gt;</span></span>
+<span id="cb1-15"><a></a>  <span class="co"># I removed an outlier district</span></span>
+<span id="cb1-16"><a></a>  <span class="fu">filter</span>(value_25_mill_pp <span class="sc">&lt;</span> <span class="dv">30000</span>) <span class="sc">|&gt;</span></span>
+<span id="cb1-17"><a></a>  <span class="co"># Calculate the actual pp </span></span>
+<span id="cb1-18"><a></a>  <span class="fu">mutate</span>(<span class="at">actual_local_pp =</span> local_revenue <span class="sc">/</span> total_enroll) <span class="sc">|&gt;</span></span>
+<span id="cb1-19"><a></a>  <span class="co"># Calculate the difference in the expected local funding and the ACTUAL local funding </span></span>
+<span id="cb1-20"><a></a>  <span class="fu">mutate</span>(<span class="at">actual_local_diff =</span> local_revenue <span class="sc">-</span> value_25_mill,</span>
+<span id="cb1-21"><a></a>         <span class="at">actual_local_diff_pp =</span> actual_local_diff <span class="sc">/</span> total_enroll)</span>
+<span id="cb1-22"><a></a></span>
+<span id="cb1-23"><a></a></span>
+<span id="cb1-24"><a></a></span>
+<span id="cb1-25"><a></a><span class="co"># Model the distribution of current funding on value of 25 mill pp -----</span></span>
+<span id="cb1-26"><a></a><span class="fu">ggplot</span>(state_example_local_mill_data, <span class="fu">aes</span>(<span class="at">x =</span> value_25_mill_pp,</span>
+<span id="cb1-27"><a></a>                             <span class="at">y =</span> state_expected_local_pp, </span>
+<span id="cb1-28"><a></a>                             <span class="at">size =</span> total_enroll,</span>
+<span id="cb1-29"><a></a>                             <span class="at">color =</span> direct_cert_pct, <span class="at">group =</span> <span class="dv">1</span>)) <span class="sc">+</span> </span>
+<span id="cb1-30"><a></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> .<span class="dv">8</span>) <span class="sc">+</span></span>
+<span id="cb1-31"><a></a>  <span class="fu">scale_color_viridis</span>(<span class="at">end =</span> .<span class="dv">8</span>, <span class="at">direction =</span> <span class="sc">-</span><span class="dv">1</span>,</span>
+<span id="cb1-32"><a></a>                      <span class="at">labels =</span> scales<span class="sc">::</span><span class="fu">percent_format</span>(<span class="at">accuracy =</span> <span class="dv">1</span>)) <span class="sc">+</span></span>
+<span id="cb1-33"><a></a>  <span class="fu">scale_size_continuous</span>(<span class="at">labels =</span> scales<span class="sc">::</span><span class="fu">comma_format</span>()) <span class="sc">+</span></span>
+<span id="cb1-34"><a></a>  <span class="fu">scale_x_continuous</span>(<span class="at">labels =</span> scales<span class="sc">::</span><span class="fu">dollar_format</span>(<span class="at">accuracy =</span> <span class="dv">1</span>)) <span class="sc">+</span></span>
+<span id="cb1-35"><a></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> scales<span class="sc">::</span><span class="fu">dollar_format</span>(<span class="at">accuracy =</span> <span class="dv">1</span>),</span>
+<span id="cb1-36"><a></a>                     <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">12000</span>)) <span class="sc">+</span></span>
+<span id="cb1-37"><a></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Value of 25 Mill Per-Pupil, 2019-20"</span>, </span>
+<span id="cb1-38"><a></a>       <span class="at">y =</span> <span class="st">"Current State + Expected Local Share Per-Pupil Funding"</span>,</span>
+<span id="cb1-39"><a></a>       <span class="at">title =</span> <span class="st">"Current State + Expected Local Share Funding Compared to Per-Pupil Value of 25 Mills"</span>,</span>
+<span id="cb1-40"><a></a>       <span class="at">size =</span> <span class="st">"Enrollment"</span>, </span>
+<span id="cb1-41"><a></a>       <span class="at">color =</span> <span class="st">"Economically Disadvanataged %"</span>) <span class="sc">+</span></span>
+<span id="cb1-42"><a></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb1-43"><a></a>  <span class="fu">theme</span>(<span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"Avenir"</span>, <span class="at">size =</span> <span class="dv">12</span>),</span>
+<span id="cb1-44"><a></a>        <span class="at">plot.caption =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="dv">0</span>, <span class="at">size =</span> <span class="dv">10</span>)) </span>
+<span id="cb1-45"><a></a></span>
+<span id="cb1-46"><a></a></span>
+<span id="cb1-47"><a></a><span class="co"># Plot difference between the actual current local per-pupil funding and the expected local share -----</span></span>
+<span id="cb1-48"><a></a><span class="fu">ggplot</span>(state_example_local_mill_data, <span class="fu">aes</span>(<span class="at">x =</span> value_25_mill_pp,</span>
+<span id="cb1-49"><a></a>                                          <span class="at">y =</span> actual_local_diff_pp, </span>
+<span id="cb1-50"><a></a>                                          <span class="at">size =</span> total_enroll,</span>
+<span id="cb1-51"><a></a>                                          <span class="at">color =</span> direct_cert_pct, <span class="at">group =</span> <span class="dv">1</span>)) <span class="sc">+</span> </span>
+<span id="cb1-52"><a></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> .<span class="dv">8</span>) <span class="sc">+</span></span>
+<span id="cb1-53"><a></a>  <span class="fu">scale_color_viridis</span>(<span class="at">end =</span> .<span class="dv">8</span>, <span class="at">direction =</span> <span class="sc">-</span><span class="dv">1</span>,</span>
+<span id="cb1-54"><a></a>                      <span class="at">labels =</span> scales<span class="sc">::</span><span class="fu">percent_format</span>(<span class="at">accuracy =</span> <span class="dv">1</span>)) <span class="sc">+</span></span>
+<span id="cb1-55"><a></a>  <span class="fu">scale_size_continuous</span>(<span class="at">labels =</span> scales<span class="sc">::</span><span class="fu">comma_format</span>()) <span class="sc">+</span></span>
+<span id="cb1-56"><a></a>  <span class="fu">scale_x_continuous</span>(<span class="at">labels =</span> scales<span class="sc">::</span><span class="fu">dollar_format</span>(<span class="at">accuracy =</span> <span class="dv">1</span>)) <span class="sc">+</span></span>
+<span id="cb1-57"><a></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> scales<span class="sc">::</span><span class="fu">dollar_format</span>(<span class="at">accuracy =</span> <span class="dv">1</span>),</span>
+<span id="cb1-58"><a></a>                     <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">12000</span>)) <span class="sc">+</span></span>
+<span id="cb1-59"><a></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Value of 25 Mill Per-Pupil, 2019-20"</span>, </span>
+<span id="cb1-60"><a></a>       <span class="at">y =</span> <span class="st">"Difference Between Actual and Expected Local Per-Pupil Funding"</span>,</span>
+<span id="cb1-61"><a></a>       <span class="at">title =</span> <span class="st">"Per-Pupil Difference Between Actual and Expected Local Per-Pupil Funding"</span>,</span>
+<span id="cb1-62"><a></a>       <span class="at">size =</span> <span class="st">"Enrollment"</span>, </span>
+<span id="cb1-63"><a></a>       <span class="at">color =</span> <span class="st">"Economically Disadvanataged %"</span>) <span class="sc">+</span></span>
+<span id="cb1-64"><a></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb1-65"><a></a>  <span class="fu">theme</span>(<span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"Avenir"</span>, <span class="at">size =</span> <span class="dv">12</span>),</span>
+<span id="cb1-66"><a></a>        <span class="at">plot.caption =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="dv">0</span>, <span class="at">size =</span> <span class="dv">10</span>))</span>
+<span id="cb1-67"><a></a></span>
+<span id="cb1-68"><a></a></span>
+<span id="cb1-69"><a></a><span class="co"># Model actual pp funding on value of 25 mill pp -----</span></span>
+<span id="cb1-70"><a></a><span class="fu">ggplot</span>(state_example_local_mill_data, <span class="fu">aes</span>(<span class="at">x =</span> value_25_mill_pp,</span>
+<span id="cb1-71"><a></a>                                          <span class="at">y =</span> actual_local_pp, </span>
+<span id="cb1-72"><a></a>                                          <span class="at">size =</span> total_enroll,</span>
+<span id="cb1-73"><a></a>                                          <span class="at">color =</span> direct_cert_pct, <span class="at">group =</span> <span class="dv">1</span>)) <span class="sc">+</span> </span>
+<span id="cb1-74"><a></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> .<span class="dv">8</span>) <span class="sc">+</span></span>
+<span id="cb1-75"><a></a>  <span class="fu">geom_abline</span>() <span class="sc">+</span></span>
+<span id="cb1-76"><a></a>  <span class="fu">scale_color_viridis</span>(<span class="at">end =</span> .<span class="dv">8</span>, <span class="at">direction =</span> <span class="sc">-</span><span class="dv">1</span>,</span>
+<span id="cb1-77"><a></a>                      <span class="at">labels =</span> scales<span class="sc">::</span><span class="fu">percent_format</span>(<span class="at">accuracy =</span> <span class="dv">1</span>)) <span class="sc">+</span></span>
+<span id="cb1-78"><a></a>  <span class="fu">scale_size_continuous</span>(<span class="at">labels =</span> scales<span class="sc">::</span><span class="fu">comma_format</span>()) <span class="sc">+</span></span>
+<span id="cb1-79"><a></a>  <span class="fu">scale_x_continuous</span>(<span class="at">labels =</span> scales<span class="sc">::</span><span class="fu">dollar_format</span>(<span class="at">accuracy =</span> <span class="dv">1</span>)) <span class="sc">+</span></span>
+<span id="cb1-80"><a></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> scales<span class="sc">::</span><span class="fu">dollar_format</span>(<span class="at">accuracy =</span> <span class="dv">1</span>),</span>
+<span id="cb1-81"><a></a>                     <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">12000</span>)) <span class="sc">+</span></span>
+<span id="cb1-82"><a></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Value of 25 Mill Per-Pupil, 2019-20"</span>, </span>
+<span id="cb1-83"><a></a>       <span class="at">y =</span> <span class="st">"Actual Local Per-Pupil Funding"</span>,</span>
+<span id="cb1-84"><a></a>       <span class="at">title =</span> <span class="st">"Actual Local Per-Pupil Compared to Per-Pupil Value of 25 Mills"</span>,</span>
+<span id="cb1-85"><a></a>       <span class="at">size =</span> <span class="st">"Enrollment"</span>, </span>
+<span id="cb1-86"><a></a>       <span class="at">color =</span> <span class="st">"Economically Disadvanataged %"</span>) <span class="sc">+</span></span>
+<span id="cb1-87"><a></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb1-88"><a></a>  <span class="fu">theme</span>(<span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"Avenir"</span>, <span class="at">size =</span> <span class="dv">12</span>),</span>
+<span id="cb1-89"><a></a>        <span class="at">plot.caption =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="dv">0</span>, <span class="at">size =</span> <span class="dv">10</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+
+<section id="class-example-increasing-local-share-policy-to-30-mills" class="title-slide slide level1 center">
+<h1>Class Example: Increasing Local Share Policy to 30 Mills</h1>
+<p><strong>Base on our calculations, the current local share policy does not account for $998,367,719 of local funding that is currently in the education system.</strong> From our modeling, we know that we can raise the mill requirement to 30 mills and it would only require one district to have to raise more in local funding, but it would recognize $161 million more dollars in local funding. It’s important to accurately capiture how much local funding is in the system so the state funding can be more equitable distributed.</p>
 
 <div class="quarto-auto-generated-content">
 <p><img src="../../images/primary_full-color.png" class="slide-logo"></p>
@@ -437,7 +605,7 @@
 
 </div>
 </div>
-</section></section>
+</section>
     </div>
   </div>
 
@@ -650,6 +818,44 @@
         ]
       });
     </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {

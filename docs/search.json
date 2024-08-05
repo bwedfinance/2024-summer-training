@@ -2865,5 +2865,12 @@
     "title": "Modeling Local Share Policies and Builiding Quarto Presentations",
     "section": "What is a state expected local share policy?",
     "text": "What is a state expected local share policy?\nIn most states, the education funding formula includes an expectation that the local school district will contribute some portion of the amount needed to fund education in that district. This expected local contribution is subtracted from the total amount calculated by the state to be necessary to educate the district’s students, and the difference is the amount of state education funding the district will receive.The amount of the expected local contribution varies from district to district, and states base their expectations on several different factors.\n\nProperty valuation: Applies particular property tax rate to the total valuation of local, taxable property.\nIncome/wealth: Uses a formula or metric to assess local income or wealth.\nOther local receipts: Considers what the district receives from local, non-property taxes.\nShare of costs: Applies a set percentage to the total amount needed to fund education in that district.\nHistorical levels: Based on the amount of local revenue contributed to education in the past."
+  },
+  {
+    "objectID": "slides/week_09/week_09.html#modeling-local-share-policies",
+    "href": "slides/week_09/week_09.html#modeling-local-share-policies",
+    "title": "Modeling Local Share Policies and Builiding Quarto Presentations",
+    "section": "Modeling Local Share Policies",
+    "text": "Modeling Local Share Policies\nTo model the expected local share funding, you need to have property value assessment data by district. Ideally, you’d also have the ACTUAL local property tax revenue so you can calculate if the state’s local share expectation policy is accurately capturing how much local funding districts are really raising."
   }
 ]
