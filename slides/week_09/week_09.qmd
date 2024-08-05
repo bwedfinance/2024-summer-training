@@ -180,11 +180,9 @@ ggplot(state_example_local_mill_data, aes(x = value_25_mill_pp,
 
 ```
 
+# Class Example: Increasing Local Share Policy to 30 Mills
 
-
-
-
-
+**Base on our calculations, the current local share policy does not account for $998,367,719 of local funding that is currently in the education system.** From our modeling, we know that we can raise the mill requirement to 30 mills and it would only require one district to have to raise more in local funding, but it would recognize 
 
 
 
