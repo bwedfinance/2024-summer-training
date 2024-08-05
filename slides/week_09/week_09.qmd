@@ -63,22 +63,21 @@ In most states, the education funding formula includes an expectation that the l
 ## Does your state have a local share expectation? {.smaller .scrollable}
 
 | **State**      | **Description**                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-|:------------|:-------------------------------------------------------|
+|:----------------|:------------------------------------------------------|
 | Arkansas       | Arkansas expects localities to contribute revenue to the funding of public schools. The amount each locality is expected to raise for its education costs is based on its property values and its revenue from other local sources: Each locality is expected to contribute \$25.00 for every \$1,000 of assessed local property wealth for the purpose of funding its school district, along with revenue from a variety of other sources, including local sales and use taxes. |
-| Maryland       | Maryland expects school districts to contribute revenue to their public schools. The amount each district is expected to raise is based on a combination of its property values, its residents\' income, and a defined share of the base amount calculated by the state to be necessary to educate its students.                                                                                                                                                                 |
-| Michigan       | Virginia expects school districts to contribute revenue to their public schools. The amount each district is expected to raise is based on a combination of its property values, its residents\' income and economic activity, and an estimate of its revenue from local sales tax receipts, adjusted to satisfy a statewide expected local contribution.                                                                                                                        |
-| North Carolina | North Carolina does not expect districts to contribute revenue to their public schools\' instructional and operational expenses. However, facilities expenses generally are the responsibility of county governments.                                                                                                                                                                                                                                                            |
-| Virginia       | Virginia expects school districts to contribute revenue to their public schools. The amount each district is expected to raise is based on a combination of its property values, its residents\' income and economic activity, and an estimate of its revenue from local sales tax receipts, adjusted to satisfy a statewide expected local contribution.                                                                                                                        |
+| Maryland       | Maryland expects school districts to contribute revenue to their public schools. The amount each district is expected to raise is based on a combination of its property values, its residents' income, and a defined share of the base amount calculated by the state to be necessary to educate its students.                                                                                                                                                                  |
+| Michigan       | Virginia expects school districts to contribute revenue to their public schools. The amount each district is expected to raise is based on a combination of its property values, its residents' income and economic activity, and an estimate of its revenue from local sales tax receipts, adjusted to satisfy a statewide expected local contribution.                                                                                                                         |
+| North Carolina | North Carolina does not expect districts to contribute revenue to their public schools' instructional and operational expenses. However, facilities expenses generally are the responsibility of county governments.                                                                                                                                                                                                                                                             |
+| Virginia       | Virginia expects school districts to contribute revenue to their public schools. The amount each district is expected to raise is based on a combination of its property values, its residents' income and economic activity, and an estimate of its revenue from local sales tax receipts, adjusted to satisfy a statewide expected local contribution.                                                                                                                         |
 | Washington     | Washington does not expect districts to contribute revenue to their public schools. However, school districts are permitted to impose taxes to generate supplemental revenue, such as for transportation.                                                                                                                                                                                                                                                                        |
 
 Source: EdBuild, 2023
 
-## Modeling Local Share Policies 
+## Modeling Local Share Policies
 
-To model the expected local share funding, you need to have property value assessment data by district. Ideally, you'd also have the ACTUAL local property tax revenue so you can calculate if the state's local share expectation policy is accurately capturing how much local funding districts are really raising. 
+To model the expected local share funding, you need to have property value assessment data by district. Ideally, you'd also have the ACTUAL local property tax revenue so you can calculate if the state's local share expectation policy is accurately capturing how much local funding districts are really raising.
 
-
-## Class example: Modeling the current local share policy 
+## Class example: Modeling the current local share policy
 
 ```{r}
 #| echo: true
@@ -179,22 +178,74 @@ ggplot(state_example_local_mill_data, aes(x = value_25_mill_pp,
 
 ```
 
-## Class Example: Increasing Local Share Policy to 30 Mills
+## Class Example: Increasing Local Share Policy to 30 Mills {.smaller}
 
-**Base on our calculations, the current local share policy does not account for $998,367,719 of local funding that is currently in the education system.** From our modeling, we know that we can raise the mill requirement to 30 mills and it would only require one district to have to raise more in local funding, but it would recognize $161 million more dollars in local funding. It's important to accurately capture how much local funding is in the system so the state funding can be more equitably distributed. 
+**Base on our calculations, the current local share policy does not account for \$998,367,719 of local funding that is currently in the education system.** From our modeling, we know that we can raise the mill requirement to 30 mills and it would only require one district to have to raise more in local funding, but it would recognize \$161 million more dollars in local funding. It's important to accurately capture how much local funding is in the system so the state funding can be more equitably distributed.
 
+![](Screenshot 2024-08-04 at 9.48.47 PM.png){fig-align="center"}
 
-
-
-
-
-
-
-
+## Class Example: Modeling the Increase from 25 to 30 Mills 
+```{r}
+#| echo: true
+#| eval: false
 
 
+# load in the data 
+state_example_data <- read_csv("data/state_example_local_mill_data.csv")
+
+
+# Calculate the value of 1 mill -----
+
+state_example_local_30_mill_data <- state_example_data |>
+  # Calculate the value of mill using the assessed property value
+  mutate(value_1_mill = assessed_value / 1000) |>
+  # In the state example, the local mill expectation is 25 mills. Multiply the 
+  # value of 1 mill by the current expectation to get the total EXPECTED funding
+  # and then calculate the per-pupil value of 1 mill so we can see the distribution 
+  mutate(value_30_mill = value_1_mill * 30,
+         value_30_mill_pp = value_30_mill / total_enroll) |>
+  # I removed an outlier district
+  filter(value_30_mill_pp < 30000) |>
+  # Calculate the actual pp 
+  mutate(actual_local_pp = local_revenue / total_enroll) |>
+  # Calculate the difference in the expected local funding and the ACTUAL local funding 
+  mutate(actual_local_30_mill_diff = local_revenue - value_30_mill,
+         actual_local_30_mill_diff_pp = actual_local_30_mill_diff / total_enroll)
+
+
+# Model actual pp funding on value of 30 mill pp -----
+ggplot(state_example_local_30_mill_data, aes(x = value_30_mill_pp,
+                                          y = actual_local_pp, 
+                                          size = total_enroll,
+                                          color = direct_cert_pct, group = 1)) + 
+  geom_point(alpha = .8) +
+  geom_abline() +
+  scale_color_viridis(end = .8, direction = -1,
+                      labels = scales::percent_format(accuracy = 1)) +
+  scale_size_continuous(labels = scales::comma_format()) +
+  scale_x_continuous(labels = scales::dollar_format(accuracy = 1)) +
+  scale_y_continuous(labels = scales::dollar_format(accuracy = 1),
+                     limits = c(0, 12000)) +
+  labs(x = "Value of 30 Mill Per-Pupil, 2019-20", 
+       y = "Actual Local Per-Pupil Funding",
+       title = "Actual Local Per-Pupil Compared to Per-Pupil Value of 30 Mills",
+       size = "Enrollment", 
+       color = "Economically Disadvanataged %") +
+  theme_bw() +
+  theme(text = element_text(family = "Avenir", size = 12),
+        plot.caption = element_text(hjust = 0, size = 10))
+
+# State summary ---
+
+state_summary_local_share <- state_example_local_30_mill_data |>
+  summarise(actual_local_diff = sum(actual_local_diff),
+            actual_local_30_mill_diff = sum(actual_local_30_mill_diff)) |>
+  mutate(local_diff_25_30_mill = actual_local_30_mill_diff - actual_local_diff)
 
 
 
 
+
+
+```
 
