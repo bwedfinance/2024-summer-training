@@ -15,7 +15,7 @@ execute:
 -   Modeling local share policies
 -   Break
 -   Building Quarto capstone presentations
--   Overview of last class
+-   Office hour reminders and capstone presentations
 
 # Review: Local Share Funding and Policies
 
@@ -267,9 +267,9 @@ The participants can do their capstone in a Quarto document, PowerPoint deck, or
 
 ![](Screenshot 2024-08-05 at 8.20.07 PM.png){fig-align="center"}
 
-## Final Class (WHAT!?)
+## Office Hours! 
 
-In the first half of class will go over some final advanced data visualizations, including `ggrepel` and `plotly`. In the second half of class we will meet with each person individually to get an update on your capstone project and answer any lingering questions. 
+We will have an optional 45-minute class next week where we will go over final advanced data visualizations, including `ggrepel` and `plotly`. 
 
 A couple of reminders: 
 
