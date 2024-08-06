@@ -51,7 +51,8 @@
       "/weeks/week_05.html",
       "/weeks/week_06.html",
       "/weeks/week_07.html",
-      "/weeks/week_08.html"
+      "/weeks/week_08.html",
+      "/weeks/week_09.html"
     ]
   },
   {
@@ -64,6 +65,12 @@
     "listing": "/weeks/week_08.html",
     "items": [
       "/slides/week_08/week_08_slides.html"
+    ]
+  },
+  {
+    "listing": "/weeks/week_09.html",
+    "items": [
+      "/slides/week_09/week_09.html"
     ]
   }
 ]
