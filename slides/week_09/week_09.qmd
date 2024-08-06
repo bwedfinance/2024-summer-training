@@ -1,5 +1,5 @@
 ---
-title: "Modeling Local Share Policies and Builiding Quarto Presentations"
+title: "Modeling Local Share Policies and Building Quarto Presentations"
 date: "August 6, 2024"
 format:
   revealjs:
