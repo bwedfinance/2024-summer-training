@@ -11,13 +11,13 @@ execute:
 
 ## Agenda
 
--   Review: Local Share Policies
+-   Review: Local Share Funding and Policies
 -   Modeling local share policies
 -   Break
 -   Building Quarto capstone presentations
 -   Overview of last class
 
-# Review: Local Share Policies
+# Review: Local Share Funding and Policies
 
 ## How Property Taxes Fund Schools
 
@@ -75,7 +75,9 @@ Source: EdBuild, 2023
 
 ## Modeling Local Share Policies
 
-To model the expected local share funding, you need to have property value assessment data by district. Ideally, you'd also have the ACTUAL local property tax revenue so you can calculate if the state's local share expectation policy is accurately capturing how much local funding districts are really raising.
+To model the expected local share funding, you need to have property value assessment data by district so that you can calculate the value of 1 mill. Ideally, you'd also have the ACTUAL local property tax revenue so you can calculate if the state's local share expectation policy is accurately capturing how much local funding districts are really raising.
+
+**Why is it important to know the actual local revenues?** This will help to ensure that the state funding is being used in an equitable manner and going to districts that have lower property wealth.  
 
 ## Class example: Modeling the current local share policy
 
@@ -180,7 +182,7 @@ ggplot(state_example_local_mill_data, aes(x = value_25_mill_pp,
 
 ## Class Example: Increasing Local Share Policy to 30 Mills {.smaller}
 
-**Base on our calculations, the current local share policy does not account for \$998,367,719 of local funding that is currently in the education system.** From our modeling, we know that we can raise the mill requirement to 30 mills and it would only require one district to have to raise more in local funding, but it would recognize \$161 million more dollars in local funding. It's important to accurately capture how much local funding is in the system so the state funding can be more equitably distributed.
+**Based on our calculations, the current local share policy does not account for \$998,367,719 of local funding that is currently in the education system.** From our modeling, we know that we can raise the mill requirement to 30 mills and it would only require one district to have to raise more in local funding, but it would recognize \$161 million more dollars in local funding. It's important to accurately capture how much local funding is in the system so the state funding can be more equitably distributed to students with additional needs. 
 
 ![](Screenshot%202024-08-04%20at%209.48.47%20PM.png){fig-align="center"}
 

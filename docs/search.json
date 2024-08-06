@@ -2808,7 +2808,7 @@
     "href": "slides/week_09/week_09.html#agenda",
     "title": "Modeling Local Share Policies and Builiding Quarto Presentations",
     "section": "Agenda",
-    "text": "Agenda\n\nReview: Local Share Policies\nModeling local share policies\nBreak\nBuilding Quarto capstone presentations\nOverview of last class"
+    "text": "Agenda\n\nReview: Local Share Funding and Policies\nModeling local share policies\nBreak\nBuilding Quarto capstone presentations\nOverview of last class"
   },
   {
     "objectID": "slides/week_09/week_09.html#how-property-taxes-fund-schools",
@@ -2871,7 +2871,7 @@
     "href": "slides/week_09/week_09.html#modeling-local-share-policies",
     "title": "Modeling Local Share Policies and Builiding Quarto Presentations",
     "section": "Modeling Local Share Policies",
-    "text": "Modeling Local Share Policies\nTo model the expected local share funding, you need to have property value assessment data by district. Ideally, you’d also have the ACTUAL local property tax revenue so you can calculate if the state’s local share expectation policy is accurately capturing how much local funding districts are really raising."
+    "text": "Modeling Local Share Policies\nTo model the expected local share funding, you need to have property value assessment data by district so that you can calculate the value of 1 mill. Ideally, you’d also have the ACTUAL local property tax revenue so you can calculate if the state’s local share expectation policy is accurately capturing how much local funding districts are really raising.\nWhy is it important to know the actual local revenues? This will help to ensure that the state funding is being used in an equitable manner and going to districts that have lower property wealth."
   },
   {
     "objectID": "slides/week_09/week_09.html#class-example-modeling-the-current-local-share-policy",
@@ -2885,7 +2885,7 @@
     "href": "slides/week_09/week_09.html#class-example-increasing-local-share-policy-to-30-mills",
     "title": "Modeling Local Share Policies and Builiding Quarto Presentations",
     "section": "Class Example: Increasing Local Share Policy to 30 Mills",
-    "text": "Class Example: Increasing Local Share Policy to 30 Mills\nBase on our calculations, the current local share policy does not account for $998,367,719 of local funding that is currently in the education system. From our modeling, we know that we can raise the mill requirement to 30 mills and it would only require one district to have to raise more in local funding, but it would recognize $161 million more dollars in local funding. It’s important to accurately capture how much local funding is in the system so the state funding can be more equitably distributed."
+    "text": "Class Example: Increasing Local Share Policy to 30 Mills\nBased on our calculations, the current local share policy does not account for $998,367,719 of local funding that is currently in the education system. From our modeling, we know that we can raise the mill requirement to 30 mills and it would only require one district to have to raise more in local funding, but it would recognize $161 million more dollars in local funding. It’s important to accurately capture how much local funding is in the system so the state funding can be more equitably distributed to students with additional needs."
   },
   {
     "objectID": "slides/week_09/week_09.html#class-example-modeling-the-increase-from-25-to-30-mills",
