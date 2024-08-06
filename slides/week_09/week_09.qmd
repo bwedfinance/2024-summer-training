@@ -1,6 +1,6 @@
 ---
 title: "Modeling Local Share Policies and Builiding Quarto Presentations"
-date: "August 5, 2024"
+date: "August 6, 2024"
 format:
   revealjs:
     chalkboard: true
