@@ -33,7 +33,7 @@ format: html
 
 ## Lecture recording
 
-You can view the class recording after class. 
+You can view the class recording [here.](https://vimeo.com/995542273?share=copy) See follow-up email for the password. 
 
 ## Coding Assignment
 
