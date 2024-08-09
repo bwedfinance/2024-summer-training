@@ -1,0 +1,40 @@
+---
+title: "ggrepel and plotly"
+date: "August 13, 2024"
+format:
+  revealjs:
+    chalkboard: true
+execute:
+  freeze: auto
+  echo: false
+---
+
+
+
+# Overview of `ggrepel` and class example 
+
+## Overview of `ggrepel`
+
+INCLUDE DESCRIPTION OF THE PACKAGE AND WHAT IT DOES
+
+## Class Example: `ggrepel`
+
+INCLUDE SCRIPT OF THE CLASS EXAMPLE
+
+
+# Overview of `plotly` and class example 
+
+## Overview of `plotly`
+
+INCLUDE DESCRIPTION OF THE PACKAGE AND WHAT IT DOES
+
+## Class Example: `ploly`
+
+INCLUDE SCRIPT OF THE CLASS EXAMPLE
+
+
+## Reminders of office hours and capstone 
+
+
+
+
