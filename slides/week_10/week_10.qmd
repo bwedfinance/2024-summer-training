@@ -60,7 +60,7 @@ nj_labels <- nj_dist |>
 
 ```{r}
 #| echo: true
-#| eval: false
+#| eval: true
 #| output-location: slide
 ggplot() +
   # create points using main data
@@ -286,27 +286,6 @@ ggplotly(static_plot, label = "text")
 
 ## Example `plotly` visualization
 
-```{r}
-#| eval: true
-#| echo: false
-library(plotly)
-
-static_plot <-  ggplot() +
-  # create points using main data
-  geom_point(data = nj_dist,
-             aes(x = mpv,
-                 y = slrpp, 
-                 size = enroll,
-                 text = name),
-             alpha = .5) +
-  scale_size_area(max_size = 10, 
-                  label = label_comma()) +
-  scale_x_continuous(labels = label_dollar()) +
-  scale_y_continuous(labels = label_dollar()) +
-  theme_bw()
-
-ggplotly(static_plot, label = "text")
-
-```
+![](plotly_img.png){fig-align="center"}
 
 ## Reminders of office hours and capstone
