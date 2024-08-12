@@ -288,4 +288,15 @@ ggplotly(static_plot, label = "text")
 
 ![](plotly_img.png){fig-align="center"}
 
+## In-class exercise
+
+-   Open `03_publication_data_viz.R` in the [`week_10_activity` folder](https://github.com/bwedfinance/2024-summer-training/tree/main/slides/week_10/week_10_activity)
+- Update the data cleaning section to apply to your state
+- Identify a few districts of interest and insert their NCESID values where appropriate
+
+Once you've done that, you'll then:
+1. Create an initial labeled data visualization that highlights disricts of interest
+2. Use `ggplotly` to explore data and identify outliers
+3. Create a final publication-quality visualization that labels both districts of interest and outliers
+
 ## Reminders of office hours and capstone

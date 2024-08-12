@@ -3152,5 +3152,12 @@
     "title": "Week 10",
     "section": "Coding Assignment",
     "text": "Coding Assignment\nNone. Work on your capstone projects."
+  },
+  {
+    "objectID": "slides/week_10/week_10.html#in-class-exercise",
+    "href": "slides/week_10/week_10.html#in-class-exercise",
+    "title": "Advanced Data Visualization Techniques",
+    "section": "In-class exercise",
+    "text": "In-class exercise\n\nOpen 03_publication_data_viz.R in the week_10_activity folder\nUpdate the data cleaning section to apply to your state\nIdentify a few districts of interest and insert their NCESID values where appropriate\n\nOnce you’ve done that, you’ll then: 1. Create an initial labeled data visualization that highlights disricts of interest 2. Use ggplotly to explore data and identify outliers 3. Create a final publication-quality visualization that labels both districts of interest and outliers"
   }
 ]
