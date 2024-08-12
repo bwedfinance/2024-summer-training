@@ -1,5 +1,5 @@
 ---
-title: "ggrepel and plotly"
+title: "Advanced Data Visualization Techniques"
 date: "August 13, 2024"
 format:
   revealjs:
@@ -9,32 +9,304 @@ execute:
   echo: false
 ---
 
+## Taking your data visualization skills to the next level
+
+-   Creating charts using the `ggplot` skills you've learned so far can cover 80% of your data visualization needs, but a few extra techniques can help fill in the gaps
+-   We've emphasized the importance of understanding your data well - especially outliers
+-   Two techniques can help you understand your data more deeply:
+    -   Labeled data presentation
+    -   Interactive data exploration
+
+## Labeled data presentation and iteractive exploration should be used iteratively
+
+-   If you have datapoints of interest, labeling those observations in plots can help provide an initial orientation to your data, but there may be
+-   When you start to interact with a new dataset, interactive data exploration can help reveal outliers more quickly than other forms of data analysis
+-   Once you've identified all points of interest (pre-known and revealed outliers), labled plots can help direct external audiences to critical insights
+
+# Labeled data presentation
+
+## Labels can help identify districts of interest in your exploratory data visualizations
+
+```{r}
+#| echo: true
+
+# load --------
+library(tidyverse)
+library(edbuildr)
+library(scales)
+library(ggrepel)
+
+dist_raw <- masterpull(data_type = "geo", data_year = "2019")
+
+# clean ---------
+
+# filter to state of interest
+nj_dist <- dist_raw |> 
+  rename_with(tolower) |> 
+  filter(state == "New Jersey")
 
 
-# Overview of `ggrepel` and class example 
+# create df of known districts of interest
+nj_labels <- nj_dist |> 
+  filter(ncesid %in% c("3411340", # newark
+                       "3410560", # montclair
+                       "3410200", # millburn
+                       "3401830", # bloomfield
+                       "3411880"  # nutley
+                       ))
+```
 
-## Overview of `ggrepel`
+## `ggplot2` comes with a function for labeling, but it's of limited use
 
-INCLUDE DESCRIPTION OF THE PACKAGE AND WHAT IT DOES
+```{r}
+#| echo: true
+#| eval: false
+#| output-location: slide
+ggplot() +
+  # create points using main data
+  geom_point(data = nj_dist,
+             aes(x = mpv,
+                 y = slrpp, 
+                 size = enroll),
+             alpha = .5) +
+  # add text labels using geom_text()
+  geom_label(data = nj_labels,
+             aes(x = mpv, 
+                 y = slrpp, 
+                 label = name)) +
+  scale_size_area(max_size = 10, 
+                  label = label_comma()) +
+  scale_x_continuous(labels = label_dollar()) +
+  scale_y_continuous(labels = label_dollar()) +
+  theme_bw()
+```
 
-## Class Example: `ggrepel`
+## We'll use `nj_dist` for plotting points and `nj_labels` for annotation
 
-INCLUDE SCRIPT OF THE CLASS EXAMPLE
+```{r}
+#| echo: true
+#| output-location: slide
+#| code-line-numbers: "3,9"
+ggplot() +
+  # create points using main data
+  geom_point(data = nj_dist,
+             aes(x = mpv,
+                 y = slrpp, 
+                 size = enroll),
+             alpha = .5) +
+  # add text labels using geom_text()
+  geom_label(data = nj_labels,
+             aes(x = mpv, 
+                 y = slrpp, 
+                 label = name)) +
+  scale_size_area(max_size = 10, 
+                  label = label_comma()) +
+  scale_x_continuous(labels = label_dollar()) +
+  scale_y_continuous(labels = label_dollar()) +
+  theme_bw()
+```
 
+## The `ggrepel` package allows you to add more helpful, custom labels without much change in your code
 
-# Overview of `plotly` and class example 
+::: columns
+::: {.column width="50%"}
+```{r}
+#| echo: true
+#| eval: false
 
-## Overview of `plotly`
+ggplot() +
+  # create points using main data
+  geom_point(data = nj_dist,
+             aes(x = mpv,
+                 y = slrpp, 
+                 size = enroll),
+             alpha = .5) +
+  # add text labels using geom_label_repel()
+  geom_label_repel(data = nj_labels,
+                   aes(x = mpv, 
+                   y = slrpp, 
+                   label = name)) +
+  scale_size_area(max_size = 10, 
+                  label = label_comma()) +
+  scale_x_continuous(labels = label_dollar()) +
+  scale_y_continuous(labels = label_dollar()) +
+  theme_bw()
 
-INCLUDE DESCRIPTION OF THE PACKAGE AND WHAT IT DOES
+```
+:::
 
-## Class Example: `ploly`
+::: {.column width="50%"}
+```{r}
+#| echo: true
+#| eval: false
 
-INCLUDE SCRIPT OF THE CLASS EXAMPLE
+ggplot() +
+  # create points using main data
+  geom_point(data = nj_dist,
+             aes(x = mpv,
+                 y = slrpp, 
+                 size = enroll),
+             alpha = .5) +
+  # add text labels using geom_label_repel()
+  geom_label_repel(data = nj_labels,
+                   aes(x = mpv, 
+                   y = slrpp, 
+                   label = name)) +
+  scale_size_area(max_size = 10, 
+                  label = label_comma()) +
+  scale_x_continuous(labels = label_dollar()) +
+  scale_y_continuous(labels = label_dollar()) +
+  theme_bw()
 
+```
+:::
+:::
 
-## Reminders of office hours and capstone 
+## The `ggrepel` package allows you to add more helpful, custom labels without much change to your code
 
+::: columns
+::: {.column width="50%"}
+```{r}
+#| echo: true
+#| eval: false
+#| code-line-numbers: "9"
+ggplot() +
+  # create points using main data
+  geom_point(data = nj_dist,
+             aes(x = mpv,
+                 y = slrpp, 
+                 size = enroll),
+             alpha = .5) +
+  # add text labels using geom_label_repel()
+  geom_label_repel(data = nj_labels,
+                   aes(x = mpv, 
+                   y = slrpp, 
+                   label = name)) +
+  scale_size_area(max_size = 10, 
+                  label = label_comma()) +
+  scale_x_continuous(labels = label_dollar()) +
+  scale_y_continuous(labels = label_dollar()) +
+  theme_bw()
 
+```
+:::
 
+::: {.column width="50%"}
+```{r}
+#| echo: true
+#| output-location: slide
+#| code-line-numbers: "9"
+ggplot() +
+  # create points using main data
+  geom_point(data = nj_dist,
+             aes(x = mpv,
+                 y = slrpp, 
+                 size = enroll),
+             alpha = .5) +
+  # add text labels using geom_label_repel()
+  geom_label_repel(data = nj_labels,
+                   aes(x = mpv, 
+                   y = slrpp, 
+                   label = name)) +
+  scale_size_area(max_size = 10, 
+                  label = label_comma()) +
+  scale_x_continuous(labels = label_dollar()) +
+  scale_y_continuous(labels = label_dollar()) +
+  theme_bw()
 
+```
+:::
+:::
+
+## Adjusting a few options can make `ggrepel` plots easier to interpret
+
+```{r}
+#| echo: true
+#| eval: true
+#| code-line-numbers: "13-22"
+#| output-location: slide
+
+ggplot() +
+  # create points using main data
+  geom_point(data = nj_dist,
+             aes(x = mpv,
+                 y = slrpp, 
+                 size = enroll),
+             alpha = .5) +
+  # add text labels using geom_label()
+  geom_label_repel(data = nj_labels,
+                   aes(x = mpv, 
+                       y = slrpp, 
+                       label = name),
+                   min.segment.length = 0,
+                   box.padding = 1,
+                   segment.color = "red") +
+  # add another layer of points of interest
+  geom_point(data = nj_labels,
+             aes(x = mpv,
+                 y = slrpp, 
+                 size = enroll),
+             color = "red",
+             alpha = .5) +
+  scale_size_area(max_size = 10, 
+                  label = label_comma()) +
+  scale_x_continuous(labels = label_dollar()) +
+  scale_y_continuous(labels = label_dollar()) +
+  theme_bw()
+
+```
+
+# Interactive data exploration
+
+## The `plotly` package allows you to convert a static plot to an interactive plot
+
+```{r}
+#| eval: false
+#| echo: true
+#| code-line-numbers: "1:3,9, 17"
+library(plotly)
+
+static_plot <-  ggplot() +
+  # create points using main data
+  geom_point(data = nj_dist,
+             aes(x = mpv,
+                 y = slrpp, 
+                 size = enroll,
+                 text = name),
+             alpha = .5) +
+  scale_size_area(max_size = 10, 
+                  label = label_comma()) +
+  scale_x_continuous(labels = label_dollar()) +
+  scale_y_continuous(labels = label_dollar()) +
+  theme_bw()
+
+ggplotly(static_plot, label = "text")
+
+```
+
+## Example `plotly` visualization
+
+```{r}
+#| eval: true
+#| echo: false
+library(plotly)
+
+static_plot <-  ggplot() +
+  # create points using main data
+  geom_point(data = nj_dist,
+             aes(x = mpv,
+                 y = slrpp, 
+                 size = enroll,
+                 text = name),
+             alpha = .5) +
+  scale_size_area(max_size = 10, 
+                  label = label_comma()) +
+  scale_x_continuous(labels = label_dollar()) +
+  scale_y_continuous(labels = label_dollar()) +
+  theme_bw()
+
+ggplotly(static_plot, label = "text")
+
+```
+
+## Reminders of office hours and capstone
