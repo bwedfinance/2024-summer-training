@@ -1,0 +1,1116 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-html/tabby.min.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.4.549">
+
+  <meta name="dcterms.date" content="2024-08-13">
+  <title>School Finance Equity Training, Summer 2024 - Advanced Data Visualization Techniques</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto.css">
+  <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+
+  .callout {
+    margin-top: 1em;
+    margin-bottom: 1em;  
+    border-radius: .25rem;
+  }
+
+  .callout.callout-style-simple { 
+    padding: 0em 0.5em;
+    border-left: solid #acacac .3rem;
+    border-right: solid 1px silver;
+    border-top: solid 1px silver;
+    border-bottom: solid 1px silver;
+    display: flex;
+  }
+
+  .callout.callout-style-default {
+    border-left: solid #acacac .3rem;
+    border-right: solid 1px silver;
+    border-top: solid 1px silver;
+    border-bottom: solid 1px silver;
+  }
+
+  .callout .callout-body-container {
+    flex-grow: 1;
+  }
+
+  .callout.callout-style-simple .callout-body {
+    font-size: 1rem;
+    font-weight: 400;
+  }
+
+  .callout.callout-style-default .callout-body {
+    font-size: 0.9rem;
+    font-weight: 400;
+  }
+
+  .callout.callout-titled.callout-style-simple .callout-body {
+    margin-top: 0.2em;
+  }
+
+  .callout:not(.callout-titled) .callout-body {
+      display: flex;
+  }
+
+  .callout:not(.no-icon).callout-titled.callout-style-simple .callout-content {
+    padding-left: 1.6em;
+  }
+
+  .callout.callout-titled .callout-header {
+    padding-top: 0.2em;
+    margin-bottom: -0.2em;
+  }
+
+  .callout.callout-titled .callout-title  p {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+  }
+    
+  .callout.callout-titled.callout-style-simple .callout-content  p {
+    margin-top: 0;
+  }
+
+  .callout.callout-titled.callout-style-default .callout-content  p {
+    margin-top: 0.7em;
+  }
+
+  .callout.callout-style-simple div.callout-title {
+    border-bottom: none;
+    font-size: .9rem;
+    font-weight: 600;
+    opacity: 75%;
+  }
+
+  .callout.callout-style-default  div.callout-title {
+    border-bottom: none;
+    font-weight: 600;
+    opacity: 85%;
+    font-size: 0.9rem;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
+
+  .callout.callout-style-default div.callout-content {
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
+
+  .callout.callout-style-simple .callout-icon::before {
+    height: 1rem;
+    width: 1rem;
+    display: inline-block;
+    content: "";
+    background-repeat: no-repeat;
+    background-size: 1rem 1rem;
+  }
+
+  .callout.callout-style-default .callout-icon::before {
+    height: 0.9rem;
+    width: 0.9rem;
+    display: inline-block;
+    content: "";
+    background-repeat: no-repeat;
+    background-size: 0.9rem 0.9rem;
+  }
+
+  .callout-title {
+    display: flex
+  }
+    
+  .callout-icon::before {
+    margin-top: 1rem;
+    padding-right: .5rem;
+  }
+
+  .callout.no-icon::before {
+    display: none !important;
+  }
+
+  .callout.callout-titled .callout-body > .callout-content > :last-child {
+    padding-bottom: 0.5rem;
+    margin-bottom: 0;
+  }
+
+  .callout.callout-titled .callout-icon::before {
+    margin-top: .5rem;
+    padding-right: .5rem;
+  }
+
+  .callout:not(.callout-titled) .callout-icon::before {
+    margin-top: 1rem;
+    padding-right: .5rem;
+  }
+
+  /* Callout Types */
+
+  div.callout-note {
+    border-left-color: #4582ec !important;
+  }
+
+  div.callout-note .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAEU0lEQVRYCcVXTWhcVRQ+586kSUMMxkyaElstCto2SIhitS5Ek8xUKV2poatCcVHtUlFQk8mbaaziwpWgglJwVaquitBOfhQXFlqlzSJpFSpIYyXNjBNiTCck7x2/8/LeNDOZxDuEkgOXe++553zfefee+/OYLOXFk3+1LLrRdiO81yNqZ6K9cG0P3MeFaMIQjXssE8Z1JzLO9ls20MBZX7oG8w9GxB0goaPrW5aNMp1yOZIa7Wv6o2ykpLtmAPs/vrG14Z+6d4jpbSKuhdcSyq9wGMPXjonwmESXrriLzFGOdDBLB8Y6MNYBu0dRokSygMA/mrun8MGFN3behm6VVAwg4WR3i6FvYK1T7MHo9BK7ydH+1uurECoouk5MPRyVSBrBHMYwVobG2aOXM07sWrn5qgB60rc6mcwIDJtQrnrEr44kmy+UO9r0u9O5/YbkS9juQckLed3DyW2XV/qWBBB3ptvI8EUY3I9p/67OW+g967TNr3Sotn3IuVlfMLVnsBwH4fsnebJvyGm5GeIUA3jljERmrv49SizPYuq+z7c2H/jlGC+Ghhupn/hcapqmcudB9jwJ/3jvnvu6vu5lVzF1fXyZuZZ7U8nRmVzytvT+H3kilYvH09mLWrQdwFSsFEsxFVs5fK7A0g8gMZjbif4ACpKbjv7gNGaD8bUrlk8x+KRflttr22JEMRUbTUwwDQScyzPgedQHZT0xnx7ujw2jfVfExwYHwOsDTjLdJ2ebmeQIlJ7neo41s/DrsL3kl+W2lWvAga0tR3zueGr6GL78M3ifH0rGXrBC2aAR8uYcIA5gwV8zIE8onoh8u0Fca/ciF7j1uOzEnqcIm59sEXoGc0+z6+H45V1CvAvHcD7THztu669cnp+L0okAeIc6zjbM/24LgGM1gZk7jnRu1aQWoU9sfUOuhrmtaPIO3YY1KLLWZaEO5TKUbMY5zx8W9UJ6elpLwKXbsaZ4EFl7B4bMtDv0iRipKoDQT2sNQI9b1utXFdYisi+wzZ/ri/1m7QfDgEuvgUUEIJPq3DhX/5DWNqIXDOweC2wvIR90Oq3lDpdMIgD2r0dXvGdsEW5H6x6HLRJYU7C69VefO1x8Gde1ZFSJLfWS1jbCnhtOPxmpfv2LXOA2Xk2tvnwKKPFuZ/oRmwBwqRQDcKNeVQkYcOjtWVBuM/JuYw5b6isojIkYxyYAFn5K7ZBF10fea52y8QltAg6jnMqNHFBmGkQ1j+U43HMi2xMar1Nv0zGsf1s8nUsmUtPOOrbFIR8bHFDMB5zL13Gmr/kGlCkUzedTzzmzsaJXhYawnA3UmARpiYj5ooJZiUoxFRtK3X6pgNPv+IZVPcnwbOl6f+aBaO1CNvPW9n9LmCp01nuSaTRF2YxHqZ8DYQT6WsXT+RD6eUztwYLZ8rM+rcPxamv1VQzFUkzFXvkiVrySGQgJNvXHJAxiU3/NwiC03rSf05VBaPtu/Z7/B8Yn/w7eguloAAAAAElFTkSuQmCC');
+  }
+
+  div.callout-note.callout-style-default .callout-title {
+    background-color: #dae6fb
+  }
+
+  div.callout-important {
+    border-left-color: #d9534f !important;
+  }
+
+  div.callout-important .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAEKklEQVRYCcVXTWhcVRS+575MJym48A+hSRFr00ySRQhURRfd2HYjk2SSTokuBCkU2o0LoSKKraKIBTcuFCoidGFD08nkBzdREbpQ1EDNIv8qSGMFUboImMSZd4/f9zJv8ibJMC8xJQfO3HPPPef7zrvvvnvviIkpC9nsw0UttFunbUhpFzFtarSd6WJkStVMw5xyVqYTvkwfzuf/5FgtkVoB0729j1rjXwThS7Vio+Mo6DNnvLfahoZ+i/o32lULuJ3NNiz7q6+pyAUkJaFF6JwaM2lUJlV0MlnQn5aTRbEu0SEqHUa0A4AdiGuB1kFXRfVyg5d87+Dg4DL6m2TLAub60ilj7A1Ec4odSAc8X95sHh7+ZRPCFo6Fnp7HfU/fBng/hi10CjCnWnJjsxvDNxWw0NfV6Rv5GgP3I3jGWXumdTD/3cbEOP2ZbOZp69yniG3FQ9z1jD7bnBu9Fc2tKGC2q+uAJOQHBDRiZX1x36o7fWBs7J9ownbtO+n0/qWkvW7UPIfc37WgT6ZGR++EOJyeQDSb9UB+DZ1G6DdLDzyS+b/kBCYGsYgJbSQHuThGKRcw5xdeQf8YdNHsc6ePXrlSYMBuSIAFTGAtQo+VuALo4BX83N190NWZWbynBjhOHsmNfFWLeL6v+ynsA58zDvvAC8j5PkbOcXCMg2PZFk3q8MjI7WAG/Dp9AwP7jdGBOOQkAvlFUB+irtm16I1Zw9YBcpGTGXYmk3kQIC/Cds55l+iMI3jqhjAuaoe+am2Jw5GT3Nbz3CkE12NavmzN5+erJW7046n/CH1RO/RVa8lBLozXk9uqykkGAyRXLWlLv5jyp4RFsG5vGVzpDLnIjTWgnRy2Rr+tDKvRc7Y8AyZq10jj8DqXdnIRNtFZb+t/ZRtXcDiVnzpqx8mPcDWxgARUqx0W1QB9MeUZiNrV4qP+Ehc+BpNgATsTX8ozYKL2NtFYAHc84fG7ndxUPr+AR/iQSns7uSUufAymwDOb2+NjK27lEFocm/EE2WpyIy/Hi66MWuMKJn8RvxIcj87IM5Vh9663ziW36kR0HNenXuxmfaD8JC7tfKbrhFr7LiZCrMjrzTeGx+PmkosrkNzW94ObzwocJ7A1HokLolY+AvkTiD/q1H0cN48c5EL8Crkttsa/AXQVDmutfyku0E7jShx49XqV3MFK8IryDhYVbj7Sj2P2eBxwcXoe8T8idsKKPRcnZw1b+slFTubwUwhktrfnAt7J++jwQtLZcm3sr9LQrjRzz6cfMv9aLvgmnAGvpoaGLxM4mAEaLV7iAzQ3oU0IvD5x9ix3yF2RAAuYAOO2f7PEFWCXZ4C9Pb2UsgDeVnFSpbFK7/IWu7TPTvBqzbGdCHOJQSxiEjt6IyZmxQyEJHv6xyQsYk//moVFsN2zP6fRImjfq7/n/wFDguUQFNEwugAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-important.callout-style-default .callout-title {
+    background-color: #f7dddc
+  }
+
+  div.callout-warning {
+    border-left-color: #f0ad4e !important;
+  }
+
+  div.callout-warning .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAETklEQVRYCeVWW2gcVRg+58yaTUnizqbipZeX4uWhBEniBaoUX1Ioze52t7sRq6APio9V9MEaoWlVsFasRq0gltaAPuxms8lu0gcviE/FFOstVbSIxgcv6SU7EZqmdc7v9+9mJtNks51NTUH84ed889/PP+cmxP+d5FIbMJmNbpREu4WUkiTtCicKny0l1pIKmBzovF2S+hIJHX8iEu3hZJ5lNZGqyRrGSIQpq15AzF28jgpeY6yk6GVdrfFqdrD6Iw+QlB8g0YS2g7dyQmXM/IDhBhT0UCiRf59lfqmmDvzRt6kByV/m4JjtzuaujMUM2c5Z2d6JdKrRb3K2q6mA+oYVz8JnDdKPmmNthzkAk/lN63sYPgevrguc72aZX/L9C6x09GYyxBgCX4NlvyGUHOKELlm5rXeR1kchuChJt4SSwyddZRXgvwMGvYo4QSlk3/zkHD8UHxwVJA6zjZZqP8v8kK8OWLnIZtLyCAJagYC4rTGW/9Pqj92N/c+LUaAj27movwbi19tk/whRCIE7Q9vyI6yvRpftAKVTdUjOW40X3h5OXsKCdmFcx0xlLJoSuQngnrJe7Kcjm4OMq9FlC7CMmScQANuNvjfP3PjGXDBaUQmbp296S5L4DrpbrHN1T87ZVEZVCzg1FF0Ft+dKrlLukI+/c9ENo+TvlTDbYFvuKPtQ9+l052rXrgKoWkDAFnvh0wTOmYn8R5f4k/jN/fZiCM1tQx9jQQ4ANhqG4hiL0qIFTGViG9DKB7GYzgubnpofgYRwO+DFjh0Zin2m4b/97EDkXkc+f6xYAPX0KK2I/7fUQuwzuwo/L3AkcjugPNixC8cHf0FyPjWlItmLxWw4Ou9YsQCr5fijMGoD/zpdRy95HRysyXA74MWOnscpO4j2y3HAVisw85hX5+AFBRSHt4ShfLFkIMXTqyKFc46xdzQM6XbAi702a7sy04J0+feReMFKp5q9esYLCqAZYw/k14E/xcLLsFElaornTuJB0svMuJINy8xkIYuL+xPAlWRceH6+HX7THJ0djLUom46zREu7tTkxwmf/FdOZ/sh6Q8qvEAiHpm4PJ4a/doJe0gH1t+aHRgCzOvBvJedEK5OFE5jpm4AGP2a8Dxe3gGJ/pAutug9Gp6he92CsSsWBaEcxGx0FHytmIpuqGkOpldqNYQK8cSoXvd+xLxXADw0kf6UkJNFtdo5MOgaLjiQOQHcn+A6h5NuL2s0qsC2LOM75PcF3yr5STuBSAcGG+meA14K/CI21HcS4LBT6tv0QAh8Dr5l93AhZzG5ZJ4VxAqdZUEl9z7WJ4aN+svMvwHHL21UKTd1mqvChH7/Za5xzXBBKrUcB0TQ+Ulgkfbi/H/YT5EptrGzsEK7tR1B7ln9BBwckYfMiuSqklSznIuoIIOM42MQO+QnduCoFCI0bpkzjCjddHPN/F+2Yu+sd9bKNpVwHhbS3LluK/0zgfwD0xYI5dXuzlQAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-warning.callout-style-default .callout-title {
+    background-color: #fcefdc
+  }
+
+  div.callout-tip {
+    border-left-color: #02b875 !important;
+  }
+
+  div.callout-tip .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAADr0lEQVRYCe1XTWgTQRj9ZjZV8a9SPIkKgj8I1bMHsUWrqYLVg4Ue6v9BwZOxSYsIerFao7UiUryIqJcqgtpimhbBXoSCVxUFe9CTiogUrUp2Pt+3aUI2u5vdNh4dmMzOzHvvezuz8xNFM0mjnbXaNu1MvFWRXkXEyE6aYOYJpdW4IXuA4r0fo8qqSMDBU0v1HJUgVieAXxzCsdE/YJTdFcVIZQNMyhruOMJKXYFoLfIfIvVIMWdsrd+Rpd86ZmyzzjJmLStqRn0v8lzkb4rVIXvnpScOJuAn2ACC65FkPzEdEy4TPWRLJ2h7z4cArXzzaOdKlbOvKKX25Wl00jSnrwVxAg3o4dRxhO13RBSdNvH0xSARv3adTXbBdTf64IWO2vH0LT+cv4GR1DJt+DUItaQogeBX/chhbTBxEiZ6gftlDNXTrvT7co4ub5A6gp9HIcHvzTa46OS5fBeP87Qm0fQkr4FsYgVQ7Qg+ZayaDg9jhg1GkWj8RG6lkeSacrrHgDaxdoBiZPg+NXV/KifMuB6//JmYH4CntVEHy/keA6x4h4CU5oFy8GzrBS18cLJMXcljAKB6INjWsRcuZBWVaS3GDrqB7rdapVIeA+isQ57Eev9eCqzqOa81CY05VLd6SamW2wA2H3SiTbnbSxmzfp7WtKZkqy4mdyAlGx7ennghYf8voqp9cLSgKdqNfa6RdRsAAkPwRuJZNbpByn+RrJi1RXTwdi8RQF6ymDwGMAtZ6TVE+4uoKh+MYkcLsT0Hk8eAienbiGdjJHZTpmNjlbFJNKDVAp2fJlYju6IreQxQ08UJDNYdoLSl6AadO+fFuCQqVMB1NJwPm69T04Wv5WhfcWyfXQB+wXRs1pt+nCknRa0LVzSA/2B+a9+zQJadb7IyyV24YAxKp2Jqs3emZTuNnKxsah+uabKbMk7CbTgJx/zIgQYErIeTKRQ9yD9wxVof5YolPHqaWo7TD6tJlh7jQnK5z2n3+fGdggIOx2kaa2YI9QWarc5Ce1ipNWMKeSG4DysFF52KBmTNMmn5HqCFkwy34rDg05gDwgH3bBi+sgFhN/e8QvRn8kbamCOhgrZ9GJhFDgfcMHzFb6BAtjKpFhzTjwv1KCVuxHvCbsSiEz4CANnj84cwHdFXAbAOJ4LTSAawGWFn5tDhLMYz6nWeU2wJfIhmIJBefcd/A5FWQWGgrWzyORZ3Q6HuV+Jf0Bj+BTX69fm1zWgK7By1YTXchFDORywnfQ7GpzOo6S+qECrsx2ifVQAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-tip.callout-style-default .callout-title {
+    background-color: #ccf1e3
+  }
+
+  div.callout-caution {
+    border-left-color: #fd7e14 !important;
+  }
+
+  div.callout-caution .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAACV0lEQVRYCdVWzWoUQRCuqp2ICBLJXgITZL1EfQDBW/bkzUMUD7klD+ATSHBEfAIfQO+iXsWDxJsHL96EHAwhgzlkg8nBg25XWb0zIb0zs9muYYWkoKeru+vn664fBqElyZNuyh167NXJ8Ut8McjbmEraKHkd7uAnAFku+VWdb3reSmRV8PKSLfZ0Gjn3a6Xlcq9YGb6tADjn+lUfTXtVmaZ1KwBIvFI11rRXlWlatwIAAv2asaa9mlB9wwygiDX26qaw1yYPzFXg2N1GgG0FMF8Oj+VIx7E/03lHx8UhvYyNZLN7BwSPgekXXLribw7w5/c8EF+DBK5idvDVYtEEwMeYefjjLAdEyQ3M9nfOkgnPTEkYU+sxMq0BxNR6jExrAI31H1rzvLEfRIdgcv1XEdj6QTQAS2wtstEALLG1yEZ3QhH6oDX7ExBSFEkFINXH98NTrme5IOaaA7kIfiu2L8A3qhH9zRbukdCqdsA98TdElyeMe5BI8Rs2xHRIsoTSSVFfCFCWGPn9XHb4cdobRIWABNf0add9jakDjQJpJ1bTXOJXnnRXHRf+dNL1ZV1MBRCXhMbaHqGI1JkKIL7+i8uffuP6wVQAzO7+qVEbF6NbS0LJureYcWXUUhH66nLR5rYmva+2tjRFtojkM2aD76HEGAD3tPtKM309FJg5j/K682ywcWJ3PASCcycH/22u+Bh7Aa0ehM2Fu4z0SAE81HF9RkB21c5bEn4Dzw+/qNOyXr3DCTQDMBOdhi4nAgiFDGCinIa2owCEChUwD8qzd03PG+qdW/4fDzjUMcE1ZpIAAAAASUVORK5CYII=');
+  }
+
+  div.callout-caution.callout-style-default .callout-title {
+    background-color: #ffe5d0
+  }
+
+  </style>
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+  <link href="../../site_libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet">
+  <script src="../../site_libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+  <script src="../../site_libs/plotly-binding-4.10.4/plotly.js"></script>
+  <script src="../../site_libs/typedarray-0.1/typedarray.min.js"></script>
+  <script src="../../site_libs/jquery-3.5.1/jquery.min.js"></script>
+  <link href="../../site_libs/crosstalk-1.2.1/css/crosstalk.min.css" rel="stylesheet">
+  <script src="../../site_libs/crosstalk-1.2.1/js/crosstalk.min.js"></script>
+  <link href="../../site_libs/plotly-htmlwidgets-css-2.11.1/plotly-htmlwidgets.css" rel="stylesheet">
+  <script src="../../site_libs/plotly-main-2.11.1/plotly-latest.min.js"></script>
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">Advanced Data Visualization Techniques</h1>
+
+<div class="quarto-title-authors">
+</div>
+
+  <p class="date">2024-08-13</p>
+</section>
+<section id="taking-your-data-visualization-skills-to-the-next-level" class="slide level2">
+<h2>Taking your data visualization skills to the next level</h2>
+<ul>
+<li>Creating charts using the <code>ggplot</code> skills you’ve learned so far can cover 80% of your data visualization needs, but a few extra techniques can help fill in the gaps</li>
+<li>We’ve emphasized the importance of understanding your data well - especially outliers</li>
+<li>Two techniques can help you understand your data more deeply:
+<ul>
+<li>Labeled data presentation</li>
+<li>Interactive data exploration</li>
+</ul></li>
+</ul>
+</section>
+<section id="labeled-data-presentation-and-iteractive-exploration-should-be-used-iteratively" class="slide level2">
+<h2>Labeled data presentation and iteractive exploration should be used iteratively</h2>
+<ul>
+<li>If you have datapoints of interest, labeling those observations in plots can help provide an initial orientation to your data, but there may be</li>
+<li>When you start to interact with a new dataset, interactive data exploration can help reveal outliers more quickly than other forms of data analysis</li>
+<li>Once you’ve identified all points of interest (pre-known and revealed outliers), labled plots can help direct external audiences to critical insights</li>
+</ul>
+</section>
+<section>
+<section id="labeled-data-presentation" class="title-slide slide level1 center">
+<h1>Labeled data presentation</h1>
+
+</section>
+<section id="labels-can-help-identify-districts-of-interest-in-your-exploratory-data-visualizations" class="slide level2">
+<h2>Labels can help identify districts of interest in your exploratory data visualizations</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="co"># load --------</span></span>
+<span id="cb1-2"><a></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-3"><a></a><span class="fu">library</span>(edbuildr)</span>
+<span id="cb1-4"><a></a><span class="fu">library</span>(scales)</span>
+<span id="cb1-5"><a></a><span class="fu">library</span>(ggrepel)</span>
+<span id="cb1-6"><a></a></span>
+<span id="cb1-7"><a></a>dist_raw <span class="ot">&lt;-</span> <span class="fu">masterpull</span>(<span class="at">data_type =</span> <span class="st">"geo"</span>, <span class="at">data_year =</span> <span class="st">"2019"</span>)</span>
+<span id="cb1-8"><a></a></span>
+<span id="cb1-9"><a></a><span class="co"># clean ---------</span></span>
+<span id="cb1-10"><a></a></span>
+<span id="cb1-11"><a></a><span class="co"># filter to state of interest</span></span>
+<span id="cb1-12"><a></a>nj_dist <span class="ot">&lt;-</span> dist_raw <span class="sc">|&gt;</span> </span>
+<span id="cb1-13"><a></a>  <span class="fu">rename_with</span>(tolower) <span class="sc">|&gt;</span> </span>
+<span id="cb1-14"><a></a>  <span class="fu">filter</span>(state <span class="sc">==</span> <span class="st">"New Jersey"</span>)</span>
+<span id="cb1-15"><a></a></span>
+<span id="cb1-16"><a></a></span>
+<span id="cb1-17"><a></a><span class="co"># create df of known districts of interest</span></span>
+<span id="cb1-18"><a></a>nj_labels <span class="ot">&lt;-</span> nj_dist <span class="sc">|&gt;</span> </span>
+<span id="cb1-19"><a></a>  <span class="fu">filter</span>(ncesid <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"3411340"</span>, <span class="co"># newark</span></span>
+<span id="cb1-20"><a></a>                       <span class="st">"3410560"</span>, <span class="co"># montclair</span></span>
+<span id="cb1-21"><a></a>                       <span class="st">"3410200"</span>, <span class="co"># millburn</span></span>
+<span id="cb1-22"><a></a>                       <span class="st">"3401830"</span>, <span class="co"># bloomfield</span></span>
+<span id="cb1-23"><a></a>                       <span class="st">"3411880"</span>  <span class="co"># nutley</span></span>
+<span id="cb1-24"><a></a>                       ))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="ggplot2-comes-with-a-function-for-labeling-but-its-of-limited-use" class="slide level2">
+<h2><code>ggplot2</code> comes with a function for labeling, but it’s of limited use</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb2-2"><a></a>  <span class="co"># create points using main data</span></span>
+<span id="cb2-3"><a></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> nj_dist,</span>
+<span id="cb2-4"><a></a>             <span class="fu">aes</span>(<span class="at">x =</span> mpv,</span>
+<span id="cb2-5"><a></a>                 <span class="at">y =</span> slrpp, </span>
+<span id="cb2-6"><a></a>                 <span class="at">size =</span> enroll),</span>
+<span id="cb2-7"><a></a>             <span class="at">alpha =</span> .<span class="dv">5</span>) <span class="sc">+</span></span>
+<span id="cb2-8"><a></a>  <span class="co"># add text labels using geom_text()</span></span>
+<span id="cb2-9"><a></a>  <span class="fu">geom_label</span>(<span class="at">data =</span> nj_labels,</span>
+<span id="cb2-10"><a></a>             <span class="fu">aes</span>(<span class="at">x =</span> mpv, </span>
+<span id="cb2-11"><a></a>                 <span class="at">y =</span> slrpp, </span>
+<span id="cb2-12"><a></a>                 <span class="at">label =</span> name)) <span class="sc">+</span></span>
+<span id="cb2-13"><a></a>  <span class="fu">scale_size_area</span>(<span class="at">max_size =</span> <span class="dv">10</span>, </span>
+<span id="cb2-14"><a></a>                  <span class="at">label =</span> <span class="fu">label_comma</span>()) <span class="sc">+</span></span>
+<span id="cb2-15"><a></a>  <span class="fu">scale_x_continuous</span>(<span class="at">labels =</span> <span class="fu">label_dollar</span>()) <span class="sc">+</span></span>
+<span id="cb2-16"><a></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> <span class="fu">label_dollar</span>()) <span class="sc">+</span></span>
+<span id="cb2-17"><a></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+
+</section>
+<section id="ggplot2-comes-with-a-function-for-labeling-but-its-of-limited-use-output" class="slide level2 output-location-slide"><h2><code>ggplot2</code> comes with a function for labeling, but it’s of limited use</h2><div class="cell output-location-slide">
+
+</div></section><section id="well-use-nj_dist-for-plotting-points-and-nj_labels-for-annotation" class="slide level2">
+<h2>We’ll use <code>nj_dist</code> for plotting points and <code>nj_labels</code> for annotation</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3" data-code-line-numbers="3,9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb3-2"><a></a>  <span class="co"># create points using main data</span></span>
+<span id="cb3-3"><a></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> nj_dist,</span>
+<span id="cb3-4"><a></a>             <span class="fu">aes</span>(<span class="at">x =</span> mpv,</span>
+<span id="cb3-5"><a></a>                 <span class="at">y =</span> slrpp, </span>
+<span id="cb3-6"><a></a>                 <span class="at">size =</span> enroll),</span>
+<span id="cb3-7"><a></a>             <span class="at">alpha =</span> .<span class="dv">5</span>) <span class="sc">+</span></span>
+<span id="cb3-8"><a></a>  <span class="co"># add text labels using geom_text()</span></span>
+<span id="cb3-9"><a></a>  <span class="fu">geom_label</span>(<span class="at">data =</span> nj_labels,</span>
+<span id="cb3-10"><a></a>             <span class="fu">aes</span>(<span class="at">x =</span> mpv, </span>
+<span id="cb3-11"><a></a>                 <span class="at">y =</span> slrpp, </span>
+<span id="cb3-12"><a></a>                 <span class="at">label =</span> name)) <span class="sc">+</span></span>
+<span id="cb3-13"><a></a>  <span class="fu">scale_size_area</span>(<span class="at">max_size =</span> <span class="dv">10</span>, </span>
+<span id="cb3-14"><a></a>                  <span class="at">label =</span> <span class="fu">label_comma</span>()) <span class="sc">+</span></span>
+<span id="cb3-15"><a></a>  <span class="fu">scale_x_continuous</span>(<span class="at">labels =</span> <span class="fu">label_dollar</span>()) <span class="sc">+</span></span>
+<span id="cb3-16"><a></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> <span class="fu">label_dollar</span>()) <span class="sc">+</span></span>
+<span id="cb3-17"><a></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+
+</section>
+<section id="well-use-nj_dist-for-plotting-points-and-nj_labels-for-annotation-output" class="slide level2 output-location-slide"><h2>We’ll use <code>nj_dist</code> for plotting points and <code>nj_labels</code> for annotation</h2><div class="cell output-location-slide">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="week_10_files/figure-revealjs/unnamed-chunk-3-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div></section><section id="the-ggrepel-package-allows-you-to-add-more-helpful-custom-labels-without-much-change-in-your-code" class="slide level2">
+<h2>The <code>ggrepel</code> package allows you to add more helpful, custom labels without much change in your code</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb4-2"><a></a>  <span class="co"># create points using main data</span></span>
+<span id="cb4-3"><a></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> nj_dist,</span>
+<span id="cb4-4"><a></a>             <span class="fu">aes</span>(<span class="at">x =</span> mpv,</span>
+<span id="cb4-5"><a></a>                 <span class="at">y =</span> slrpp, </span>
+<span id="cb4-6"><a></a>                 <span class="at">size =</span> enroll),</span>
+<span id="cb4-7"><a></a>             <span class="at">alpha =</span> .<span class="dv">5</span>) <span class="sc">+</span></span>
+<span id="cb4-8"><a></a>  <span class="co"># add text labels using geom_label_repel()</span></span>
+<span id="cb4-9"><a></a>  <span class="fu">geom_label_repel</span>(<span class="at">data =</span> nj_labels,</span>
+<span id="cb4-10"><a></a>                   <span class="fu">aes</span>(<span class="at">x =</span> mpv, </span>
+<span id="cb4-11"><a></a>                   <span class="at">y =</span> slrpp, </span>
+<span id="cb4-12"><a></a>                   <span class="at">label =</span> name)) <span class="sc">+</span></span>
+<span id="cb4-13"><a></a>  <span class="fu">scale_size_area</span>(<span class="at">max_size =</span> <span class="dv">10</span>, </span>
+<span id="cb4-14"><a></a>                  <span class="at">label =</span> <span class="fu">label_comma</span>()) <span class="sc">+</span></span>
+<span id="cb4-15"><a></a>  <span class="fu">scale_x_continuous</span>(<span class="at">labels =</span> <span class="fu">label_dollar</span>()) <span class="sc">+</span></span>
+<span id="cb4-16"><a></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> <span class="fu">label_dollar</span>()) <span class="sc">+</span></span>
+<span id="cb4-17"><a></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb5-2"><a></a>  <span class="co"># create points using main data</span></span>
+<span id="cb5-3"><a></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> nj_dist,</span>
+<span id="cb5-4"><a></a>             <span class="fu">aes</span>(<span class="at">x =</span> mpv,</span>
+<span id="cb5-5"><a></a>                 <span class="at">y =</span> slrpp, </span>
+<span id="cb5-6"><a></a>                 <span class="at">size =</span> enroll),</span>
+<span id="cb5-7"><a></a>             <span class="at">alpha =</span> .<span class="dv">5</span>) <span class="sc">+</span></span>
+<span id="cb5-8"><a></a>  <span class="co"># add text labels using geom_label_repel()</span></span>
+<span id="cb5-9"><a></a>  <span class="fu">geom_label_repel</span>(<span class="at">data =</span> nj_labels,</span>
+<span id="cb5-10"><a></a>                   <span class="fu">aes</span>(<span class="at">x =</span> mpv, </span>
+<span id="cb5-11"><a></a>                   <span class="at">y =</span> slrpp, </span>
+<span id="cb5-12"><a></a>                   <span class="at">label =</span> name)) <span class="sc">+</span></span>
+<span id="cb5-13"><a></a>  <span class="fu">scale_size_area</span>(<span class="at">max_size =</span> <span class="dv">10</span>, </span>
+<span id="cb5-14"><a></a>                  <span class="at">label =</span> <span class="fu">label_comma</span>()) <span class="sc">+</span></span>
+<span id="cb5-15"><a></a>  <span class="fu">scale_x_continuous</span>(<span class="at">labels =</span> <span class="fu">label_dollar</span>()) <span class="sc">+</span></span>
+<span id="cb5-16"><a></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> <span class="fu">label_dollar</span>()) <span class="sc">+</span></span>
+<span id="cb5-17"><a></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="the-ggrepel-package-allows-you-to-add-more-helpful-custom-labels-without-much-change-to-your-code" class="slide level2">
+<h2>The <code>ggrepel</code> package allows you to add more helpful, custom labels without much change to your code</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6" data-code-line-numbers="9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb6-2"><a></a>  <span class="co"># create points using main data</span></span>
+<span id="cb6-3"><a></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> nj_dist,</span>
+<span id="cb6-4"><a></a>             <span class="fu">aes</span>(<span class="at">x =</span> mpv,</span>
+<span id="cb6-5"><a></a>                 <span class="at">y =</span> slrpp, </span>
+<span id="cb6-6"><a></a>                 <span class="at">size =</span> enroll),</span>
+<span id="cb6-7"><a></a>             <span class="at">alpha =</span> .<span class="dv">5</span>) <span class="sc">+</span></span>
+<span id="cb6-8"><a></a>  <span class="co"># add text labels using geom_label_repel()</span></span>
+<span id="cb6-9"><a></a>  <span class="fu">geom_label_repel</span>(<span class="at">data =</span> nj_labels,</span>
+<span id="cb6-10"><a></a>                   <span class="fu">aes</span>(<span class="at">x =</span> mpv, </span>
+<span id="cb6-11"><a></a>                   <span class="at">y =</span> slrpp, </span>
+<span id="cb6-12"><a></a>                   <span class="at">label =</span> name)) <span class="sc">+</span></span>
+<span id="cb6-13"><a></a>  <span class="fu">scale_size_area</span>(<span class="at">max_size =</span> <span class="dv">10</span>, </span>
+<span id="cb6-14"><a></a>                  <span class="at">label =</span> <span class="fu">label_comma</span>()) <span class="sc">+</span></span>
+<span id="cb6-15"><a></a>  <span class="fu">scale_x_continuous</span>(<span class="at">labels =</span> <span class="fu">label_dollar</span>()) <span class="sc">+</span></span>
+<span id="cb6-16"><a></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> <span class="fu">label_dollar</span>()) <span class="sc">+</span></span>
+<span id="cb6-17"><a></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7" data-code-line-numbers="9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb7-2"><a></a>  <span class="co"># create points using main data</span></span>
+<span id="cb7-3"><a></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> nj_dist,</span>
+<span id="cb7-4"><a></a>             <span class="fu">aes</span>(<span class="at">x =</span> mpv,</span>
+<span id="cb7-5"><a></a>                 <span class="at">y =</span> slrpp, </span>
+<span id="cb7-6"><a></a>                 <span class="at">size =</span> enroll),</span>
+<span id="cb7-7"><a></a>             <span class="at">alpha =</span> .<span class="dv">5</span>) <span class="sc">+</span></span>
+<span id="cb7-8"><a></a>  <span class="co"># add text labels using geom_label_repel()</span></span>
+<span id="cb7-9"><a></a>  <span class="fu">geom_label_repel</span>(<span class="at">data =</span> nj_labels,</span>
+<span id="cb7-10"><a></a>                   <span class="fu">aes</span>(<span class="at">x =</span> mpv, </span>
+<span id="cb7-11"><a></a>                   <span class="at">y =</span> slrpp, </span>
+<span id="cb7-12"><a></a>                   <span class="at">label =</span> name)) <span class="sc">+</span></span>
+<span id="cb7-13"><a></a>  <span class="fu">scale_size_area</span>(<span class="at">max_size =</span> <span class="dv">10</span>, </span>
+<span id="cb7-14"><a></a>                  <span class="at">label =</span> <span class="fu">label_comma</span>()) <span class="sc">+</span></span>
+<span id="cb7-15"><a></a>  <span class="fu">scale_x_continuous</span>(<span class="at">labels =</span> <span class="fu">label_dollar</span>()) <span class="sc">+</span></span>
+<span id="cb7-16"><a></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> <span class="fu">label_dollar</span>()) <span class="sc">+</span></span>
+<span id="cb7-17"><a></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+
+</div>
+</div>
+</section>
+<section id="the-ggrepel-package-allows-you-to-add-more-helpful-custom-labels-without-much-change-to-your-code-output" class="slide level2 output-location-slide"><h2>The <code>ggrepel</code> package allows you to add more helpful, custom labels without much change to your code</h2><div class="cell output-location-slide">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="week_10_files/figure-revealjs/unnamed-chunk-7-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div></section><section id="adjusting-a-few-options-can-make-ggrepel-plots-easier-to-interpret" class="slide level2">
+<h2>Adjusting a few options can make <code>ggrepel</code> plots easier to interpret</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8" data-code-line-numbers="13-22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb8-2"><a></a>  <span class="co"># create points using main data</span></span>
+<span id="cb8-3"><a></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> nj_dist,</span>
+<span id="cb8-4"><a></a>             <span class="fu">aes</span>(<span class="at">x =</span> mpv,</span>
+<span id="cb8-5"><a></a>                 <span class="at">y =</span> slrpp, </span>
+<span id="cb8-6"><a></a>                 <span class="at">size =</span> enroll),</span>
+<span id="cb8-7"><a></a>             <span class="at">alpha =</span> .<span class="dv">5</span>) <span class="sc">+</span></span>
+<span id="cb8-8"><a></a>  <span class="co"># add text labels using geom_label()</span></span>
+<span id="cb8-9"><a></a>  <span class="fu">geom_label_repel</span>(<span class="at">data =</span> nj_labels,</span>
+<span id="cb8-10"><a></a>                   <span class="fu">aes</span>(<span class="at">x =</span> mpv, </span>
+<span id="cb8-11"><a></a>                       <span class="at">y =</span> slrpp, </span>
+<span id="cb8-12"><a></a>                       <span class="at">label =</span> name),</span>
+<span id="cb8-13"><a></a>                   <span class="at">min.segment.length =</span> <span class="dv">0</span>,</span>
+<span id="cb8-14"><a></a>                   <span class="at">box.padding =</span> <span class="dv">1</span>,</span>
+<span id="cb8-15"><a></a>                   <span class="at">segment.color =</span> <span class="st">"red"</span>) <span class="sc">+</span></span>
+<span id="cb8-16"><a></a>  <span class="co"># add another layer of points of interest</span></span>
+<span id="cb8-17"><a></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> nj_labels,</span>
+<span id="cb8-18"><a></a>             <span class="fu">aes</span>(<span class="at">x =</span> mpv,</span>
+<span id="cb8-19"><a></a>                 <span class="at">y =</span> slrpp, </span>
+<span id="cb8-20"><a></a>                 <span class="at">size =</span> enroll),</span>
+<span id="cb8-21"><a></a>             <span class="at">color =</span> <span class="st">"red"</span>,</span>
+<span id="cb8-22"><a></a>             <span class="at">alpha =</span> .<span class="dv">5</span>) <span class="sc">+</span></span>
+<span id="cb8-23"><a></a>  <span class="fu">scale_size_area</span>(<span class="at">max_size =</span> <span class="dv">10</span>, </span>
+<span id="cb8-24"><a></a>                  <span class="at">label =</span> <span class="fu">label_comma</span>()) <span class="sc">+</span></span>
+<span id="cb8-25"><a></a>  <span class="fu">scale_x_continuous</span>(<span class="at">labels =</span> <span class="fu">label_dollar</span>()) <span class="sc">+</span></span>
+<span id="cb8-26"><a></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> <span class="fu">label_dollar</span>()) <span class="sc">+</span></span>
+<span id="cb8-27"><a></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+
+</section><section id="adjusting-a-few-options-can-make-ggrepel-plots-easier-to-interpret-output" class="slide level2 output-location-slide"><h2>Adjusting a few options can make <code>ggrepel</code> plots easier to interpret</h2><div class="cell output-location-slide">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="week_10_files/figure-revealjs/unnamed-chunk-8-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div></section></section>
+<section>
+<section id="interactive-data-exploration" class="title-slide slide level1 center">
+<h1>Interactive data exploration</h1>
+
+</section>
+<section id="the-plotly-package-allows-you-to-convert-a-static-plot-to-an-interactive-plot" class="slide level2">
+<h2>The <code>plotly</code> package allows you to convert a static plot to an interactive plot</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9" data-code-line-numbers="1:3,9, 17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a><span class="fu">library</span>(plotly)</span>
+<span id="cb9-2"><a></a></span>
+<span id="cb9-3"><a></a>static_plot <span class="ot">&lt;-</span>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb9-4"><a></a>  <span class="co"># create points using main data</span></span>
+<span id="cb9-5"><a></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> nj_dist,</span>
+<span id="cb9-6"><a></a>             <span class="fu">aes</span>(<span class="at">x =</span> mpv,</span>
+<span id="cb9-7"><a></a>                 <span class="at">y =</span> slrpp, </span>
+<span id="cb9-8"><a></a>                 <span class="at">size =</span> enroll,</span>
+<span id="cb9-9"><a></a>                 <span class="at">text =</span> name),</span>
+<span id="cb9-10"><a></a>             <span class="at">alpha =</span> .<span class="dv">5</span>) <span class="sc">+</span></span>
+<span id="cb9-11"><a></a>  <span class="fu">scale_size_area</span>(<span class="at">max_size =</span> <span class="dv">10</span>, </span>
+<span id="cb9-12"><a></a>                  <span class="at">label =</span> <span class="fu">label_comma</span>()) <span class="sc">+</span></span>
+<span id="cb9-13"><a></a>  <span class="fu">scale_x_continuous</span>(<span class="at">labels =</span> <span class="fu">label_dollar</span>()) <span class="sc">+</span></span>
+<span id="cb9-14"><a></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> <span class="fu">label_dollar</span>()) <span class="sc">+</span></span>
+<span id="cb9-15"><a></a>  <span class="fu">theme_bw</span>()</span>
+<span id="cb9-16"><a></a></span>
+<span id="cb9-17"><a></a><span class="fu">ggplotly</span>(static_plot, <span class="at">label =</span> <span class="st">"text"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="example-plotly-visualization" class="slide level2">
+<h2>Example <code>plotly</code> visualization</h2>
+<div class="cell">
+<div class="cell-output-display">
+<div class="plotly html-widget html-fill-item" id="htmlwidget-ef9f98233ed32541935b" style="width:960px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-ef9f98233ed32541935b">{"x":{"data":[{"x":[244200,373700,245200,354200,138300,290000,483700,267100,273500,388300,149800,219300,333700,333700,340800,326900,95800,251100,890100,624700,182400,236400,390700,184500,212100,179400,210500,211900,235500,237300,162000,156700,210700,236300,131800,191300,255500,223100,221500,757000,2000001,358200,336000,408600,447900,674000,677500,681500,376100,362700,381100,600600,492000,997100,424000,364900,324600,945900,646600,601200,429100,691500,566200,756800,506100,329300,373000,375600,498400,389300,513400,619400,360100,426800,363400,643600,463100,626700,468700,790300,615500,558400,600200,588900,627600,680700,598900,442500,349100,763300,520800,622500,380800,473500,379000,1779500,414400,408500,829600,885900,448900,375800,485400,812300,411800,742900,296300,568900,338400,836800,393000,225900,455800,272400,229000,248100,276800,178100,290300,226600,294600,323600,312000,187500,363700,297700,516100,191700,272800,218600,237900,175200,171200,256600,164600,300500,308600,201600,365200,295300,254700,246300,166000,272700,161400,294400,346100,278000,256100,210500,195300,167700,239200,182800,188400,131100,134800,260900,215400,197700,262700,511800,287400,178600,165900,124200,159600,227900,168400,186300,158200,136900,163500,170500,179100,324300,205100,192400,87200,84000,170400,277300,288700,125800,1192600,260600,241800,246500,1375000,306600,519400,447800,162900,260600,652900,574100,237300,354000,121100,186500,145900,160100,203100,172300,171000,156800,188500,206000,159000,167300,109200,179900,295700,491900,519900,473100,849000,653400,627000,1130100,738300,387600,485100,554200,457400,385200,594900,329900,197600,194500,320100,224900,196700,202800,174200,359400,218300,215200,210200,149700,111100,185600,370500,326400,245500,274400,214500,147800,201900,274200,200600,166400,184700,330000,299700,323100,720700,460800,350600,650400,333100,432600,413300,256700,353800,325900,438800,498100,408900,426600,453100,302100,260500,264900,307700,447700,463000,293500,354500,259000,394700,479500,661100,401000,373300,417000,298200,215500,248000,463500,326400,866200,412800,576500,272200,738200,282700,398400,373700,267000,351000,437400,307000,343000,375900,341000,334300,302800,430100,340200,299600,294100,310000,261800,294500,801500,410300,884300,599900,567400,640000,1187500,336200,731900,298000,291800,432100,432500,291000,661800,341200,193600,264200,642500,462900,679300,550100,336600,425300,584400,753200,289300,309700,431600,521200,335800,404400,316700,1171900,906900,1585400,589400,342300,1818500,492300,268500,461700,501100,448800,339700,343700,512600,377400,362400,495800,386100,645600,355200,626200,419500,262000,608700,645800,577300,506300,1129000,342500,570800,330900,724700,662300,847400,300800,598400,367400,517500,559100,305100,367900,867200,273000,438200,585000,425100,539900,347400,344800,359000,354900,462300,299600,810200,573100,1163200,760100,194900,291700,204900,278000,389600,361600,276300,190300,335600,733200,229400,807200,139600,322500,240800,318000,386200,656400,296600,277500,284300,224300,252800,333300,230500,303300,271700,381000,369100,435700,368600,302700,266300,366400,371200,318000,468500,286000,365900,345400,339600,356000,332700,228700,213300,241100,155000,229800,224100,143100,279300,211500,178700,262700,82500,383700,673000,688300,273700,479100,470400,337100,486300,436700,262000,606000,272900,322000,248800,790300,674500,689400,274800,284200,302600,187600,362000,360400,182500,274200,256600,366300,210800,212200,223400,252400,381600,247400,242800,236400,277500,294000,237000,281200,275900,218400,617500,446800,486600,380800,259300,345500,626100,607100,225100,284000,487500,436900,329000,743400,179800,282700,257200,272700,281800,255200,193700,201100,345600,328500,370900,341000,274300,281300,319500,305500,269600,314600,198500,200500,214300,306900,272100,276800,342200,136800,277100,1265600,776500,153700,257100,157200,655500,null,441500,1017900,890900,190100,null,1737500,671700,709700,290800],"y":[20093.715735896501,22334.237405730801,22626.235089808,39030.130627834304,19557.968109513298,20003.703703703701,44336.761970800799,30307.933280045101,33072.537879340802,25276.885276788398,25299.363057324801,23798.093649529001,16866.346274454099,21517.026251234402,19567.5521084967,18239.261728711801,20533.932536028198,20639.226160526199,21917.147317500701,22682.644046129601,20654.096059626099,20366.769682489299,17751.702688161698,24944.258088926501,19959.111310136101,21989.075731250101,21156.8729027136,17244.6714669391,16191.250701065601,18519.943019942999,30387.997767666398,23401.806047983198,25427.7605859295,26550.007812179902,23652.227206779298,20241.307523204199,28145.194334311,19487.486398259,22541.831263558899,22129.559880679401,55376.811594202904,20763.4367208435,22811.0050182546,26342.250275945898,18030.711231332902,20312.5519534497,21205.740842220301,26168.345323740999,21243.6283947097,19255.283620843398,24738.683029192202,25364.9706457926,22688.8208898384,32136,22941.155423018001,21391.129418321001,20207.8656924774,31763.603925066898,23664.8400289212,24355.555555555598,21258.771929824601,27534.653465346499,23445.5100261552,29517.5292153589,20154.7131147541,29167.8933128588,19740.847899660999,21323.711177527501,26582.094611554799,23305.3786623333,29194.061505832498,21366.326530612201,32564.6687697161,22184.795569505099,18544.4055468773,41955.6650246305,22485.018726591799,20904.5307443366,26166.7685652951,26752.671755725201,18921.086675291099,16965.144278994499,28835.2927467919,30363.052208835299,31228.070175438599,27415.355926951601,26419.2265992049,31276.351351351401,21300.3446112696,21847.123447543199,19132.029339853299,24199.520465252299,27937.164067718899,20329.785299786599,23323.190417226298,62042.424242424197,33127.457002456998,30071.750210544302,22264.675477400298,25074.1394527802,23368.214774738,18894.9899506691,23397.790737719199,26097.410598530299,19303.376572156802,25154.9661986479,21546.7366025101,24695.497251312099,21434.834362597001,25552.4278676988,31300.551535164799,26188.679245283001,20097.435897435898,21402.093834819701,24478.773584905699,18677.241631516801,19681.063122923599,22685.150409240701,21277.2522522523,20370.336572267501,20780.276816608999,22664.239482200599,26418.9944134078,20389.388489208599,22244.6016381236,18542.8015564202,22433.8992979264,21127.522935779802,20006.169909824399,27832.2648734744,18895.2551477171,21002.098635886701,24913.934426229502,20162.271907523998,19592.519930901501,23316.151202749101,21949.061662198401,22878.2056581078,24367.965066313602,23598.853868194801,null,16663,23988.773240240502,25053.435114503802,24749.294521143998,26102.409330065599,20195.890410958898,20007.277633497,20599.499750910702,19437.170193919199,27842.735042734999,17109.075783996599,18009.8039215686,27980.922098569201,22468.420245020501,21290.795352594901,25466.8931961124,19684.534723604102,19765.567765567801,19559.968504660599,20363.106796116499,17349.945434703499,18663.740715732602,29818.610516885699,31221.795210466898,17436.343480772299,21006.815241447701,23056.3312835904,29416.4648910412,38550.840919753799,21964.5326502588,21745.188832481301,19757.632721367601,19562.941822552501,19644.710960496799,20649.022741336899,38365.3760491543,25002.508433697101,27579.867213602902,39726.403082398101,21843.942505133498,21294.2133909041,21814.0120967742,21655.269975611998,90131.147540983598,31967.865397930898,20530.293941211799,19936.719190610602,36939.3939393939,27495.364243482101,21353.535353535401,36418.772563176899,26518.092287330401,27403.696316609501,20405.228758169898,22757.748475808599,25069.2640692641,45678.414096916298,27708.4840720865,22106.5274237587,22908.602150537601,18562.4605991428,27463.559589938101,17889.546351084799,21211.934507525599,23221.674876847301,21465.517241379301,20077.4845337076,19639.2914567281,18730.175936487401,17685.6947349355,24073.6940298507,18290.473122581301,21381.943651805199,21092.675635276501,22630.875343635598,23892.857142857101,20907.846234860499,23278.367971025898,23181.126451750999,24086.9121096339,19127.712873573699,22703.5328776444,20537.446094137998,19811.5449955882,26713.552012676199,27542.217648531499,18792.010821500498,17301.3069538862,18929.049824724501,16682.926829268301,20339.031339031299,18210.9375,23037.203859835801,32117.647058823499,16705.432937543399,25781.796966161,20320.200589929598,18260.333035545998,18757.1943348161,20820.031238886801,22538.615790240401,18229.916897506901,19125.766871165601,22452.527726827499,22301.990219110401,19397.464137134401,17696.273052673499,20233.0870856375,19299.616794224599,23151.181283346799,21257.095820431001,28302.7940533652,16416.9662113587,23817.8137651822,22460.886922327201,23982.569732752101,19749.4445306507,18852.287835273401,21124.883052169898,18963.929459871601,25302.277432712199,29659.217877095001,36244.6808510638,40155.844155844199,24208.816705336401,27329.631234721299,29985.8623959297,27307.0422535211,23260.4741799285,28194.678250721299,26192.307692307699,39384.615384615397,26718.918918918898,24141.509433962299,26577.0256657192,25870.180126323099,83275,24426.282051282102,30522.727272727301,24554.443317783,25802.0066889632,30730.129390018501,26622.258556765799,36205.370433698103,27334.6682064788,20741.2973957426,23521.0286341922,19267.623915938198,27232.683064744098,22868.592154556201,27039.538085895099,18588.495575221201,21206.701815070901,18256.093787568199,41501.0395010395,18217.074572152302,22278.9672307859,23442.8540748128,25052.7001323031,20702.987865263502,20730.619992703902,19756.399625147598,25696.796367309798,20698.491685645899,20395.055186379399,20764.981908903901,17152.0350871396,19560.179657230801,21254.759316825101,17152.267019923402,19142.719461188401,19131.7816473612,21325.218387395798,18501.317102351401,30404.494382022502,21790.996784565901,33120.567375886501,30349.800915934102,34207.364797963099,30386.3636363636,28822.485207100599,25685.031185031199,18966.873706004098,21896.774193548401,17298.586572438198,23686.379448755699,20379.6571871831,27593.75,24473.473473473499,23562.166013537601,25261.2667478685,20893.596986817302,21179.211469533999,20234.612946912701,21177.002583979302,21484.2286699619,21627.8071211571,20489.341790579201,37727.212318103397,25347.457627118602,36190.282888812297,22893.058947461301,25704.1186843408,21371.559388123598,22219.7840473703,19855.789142701498,35469.879518072303,22053.0530530531,24879.8798798799,44680,21252.609603340301,23241.188666205901,45657.458563535904,32315.476190476202,26380.368098159499,21457.6871953921,25043.744531933498,22884.816753926701,29874.478532414902,29629.080118694401,30097.159940209302,34592.587924582796,20022.900373915902,25903.7828947368,23556.565729535301,37968.369829683703,23758.836438769002,24985.321100917401,22603.0946950078,16730.691001619602,27313.4145977927,23189.097218512601,28238.1578947368,24087.491435193799,45787.985865724397,23716.328828391099,25979.436098177201,26531.122870884501,20951.774148125402,26342.359767891699,30038.793103448301,33274.667520904899,24808.499082283499,30227.321237993601,34608.903462969203,24108.3302993424,36550.890963923601,22255.059324600301,31725.071225071199,21512.645984094001,23796.8473581832,22965.477299775801,21541.955843764801,23317.630849953701,27779.250807354401,21433.6620959475,25046.020272157701,24554.482247250598,25806.6548642583,23127.909195196298,20044.976090509299,24259.667487689199,34619.834710743802,45836.363636363603,18073.9619377163,19946.4801757022,19128.130954391101,26910.447761193998,21217.0542635659,21131.2620423892,20688.276204669601,26558.823529411799,32916.916478287698,34090.909090909103,20184.0642371834,37582.959641255598,22117.417463607799,39617.647058823502,23957.7464788732,22561.9834710744,18005.778199977201,25010.484927916099,21114.155251141601,21583.712465878099,17360.126944165298,21797.9452054795,21000,23049.067138003898,24699.418270506099,38401.671226957798,16947.180353667201,20084.5989889915,21487.551384307899,21312.5,27562.7745582118,23288.105200239101,16158.7954699329,24875.868055555598,19694.968068140901,23619.3118756937,24187.4632402389,24947.678490374099,19945.210841899199,18233.905920759302,29896.157840083099,26427.0195029727,22057.546256022699,25021.917808219201,25211.864406779699,28916.167664670698,22407.017543859602,42525.641025641002,20437.931034482801,19568.421052631598,18833.333333333299,20625.8081330163,22988.178152337299,27940.993788819898,20955.997371457699,37938.104448742699,22330.7747164145,24444.869733436699,17880.8405363048,35007.401875279502,21164.8042330198,24740.968302642301,35860.820491086,19988.467212015599,18959.535689695102,22090.009443580799,21017.413819188499,21053.377814845699,26630.9065478251,29637.7560352939,21835.9375,25504.279937136002,40477.445591777599,22655.599564917698,25031.704652525801,24028.154447840701,28511.099417098401,33237.7047064012,28251.003919447499,27294.104949071301,21170.395977902001,28437.7564599293,36618.4830022182,21145.6886250151,23865.6691324815,22528.1948836798,24659.8595293572,23289.336176416,28186.948546310901,24776.629128498,25373.643347758101,29498.357064622101,26571.667366617701,26628.941930848701,25955.903271692699,28987.276444385301,23466.320893032102,19099.780219780201,19974.046197767999,25629.533678756499,20852.561232143598,22335.607094133698,79364.341085271299,19795.4545454545,19460.310950382602,20598.9845860075,19923.436362967401,21703.436333914498,20854.934868937999,20240.680010944001,28127.8629613585,20012.265876773399,19644.584042668801,20274.934625579001,23001.620533253801,26761.870142317599,28246.445497630299,20645.066273932302,21443.528805857099,27925.373134328402,19598.1320716624,27717.521215658799,19063.985544740201,31061.728395061698,40665.266492782903,28157.545246215199,27070.117906961801,19493.8060604249,29213.876525800901,30875,19718.034985009999,25071.090047393402,36178.719973907297,34315.781689777199,24402.1959099671,20970.027940055901,24404.264127390899,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null],"text":["mpv:  244200<br />slrpp: 20093.72<br />enroll: 27601<br />Paterson City School District","mpv:  373700<br />slrpp: 22334.24<br />enroll: 29255<br />Jersey City School District","mpv:  245200<br />slrpp: 22626.24<br />enroll: 40448<br />Newark City School District","mpv:  354200<br />slrpp: 39030.13<br />enroll:   563<br />Brigantine City School District","mpv:  138300<br />slrpp: 19557.97<br />enroll:   548<br />Egg Harbor City School District","mpv:  290000<br />slrpp: 20003.70<br />enroll:   810<br />Linwood City School District","mpv:  483700<br />slrpp: 44336.76<br />enroll:   351<br />Margate City School District","mpv:  267100<br />slrpp: 30307.93<br />enroll:   104<br />Port Republic City School District","mpv:  273500<br />slrpp: 33072.54<br />enroll:   684<br />Ventnor City School District","mpv:  388300<br />slrpp: 25276.89<br />enroll:  3078<br />Englewood City School District","mpv:  149800<br />slrpp: 25299.36<br />enroll:   314<br />Beverly City School District","mpv:  219300<br />slrpp: 23798.09<br />enroll: 10072<br />East Orange City School District","mpv:  333700<br />slrpp: 16866.35<br />enroll:  9853<br />Bayonne City School District","mpv:  333700<br />slrpp: 21517.03<br />enroll:  2409<br />Harrison Town School District","mpv:  340800<br />slrpp: 19567.55<br />enroll: 13768<br />Union City School District","mpv:  326900<br />slrpp: 18239.26<br />enroll:  8498<br />West New York Town School District","mpv:   95800<br />slrpp: 20533.93<br />enroll: 14500<br />Trenton City School District","mpv:  251100<br />slrpp: 20639.23<br />enroll: 10422<br />New Brunswick City School District","mpv:  890100<br />slrpp: 21917.15<br />enroll:  3961<br />Summit City School District","mpv:  624700<br />slrpp: 22682.64<br />enroll:  6767<br />Montclair Town School District","mpv:  182400<br />slrpp: 20654.10<br />enroll:  7924<br />Irvington Township School District","mpv:  236400<br />slrpp: 20366.77<br />enroll:  5579<br />Orange City Township School District","mpv:  390700<br />slrpp: 17751.70<br />enroll: 16494<br />Edison Township School District","mpv:  184500<br />slrpp: 24944.26<br />enroll:  1707<br />Buena Regional School District","mpv:  212100<br />slrpp: 19959.11<br />enroll:  7432<br />Egg Harbor Township School District","mpv:  179400<br />slrpp: 21989.08<br />enroll:   410<br />Folsom Borough School District","mpv:  210500<br />slrpp: 21156.87<br />enroll:  3370<br />Galloway Township School District","mpv:  211900<br />slrpp: 17244.67<br />enroll:  3250<br />Hamilton Township School District","mpv:  235500<br />slrpp: 16191.25<br />enroll:  3566<br />Hammonton Town School District","mpv:  237300<br />slrpp: 18519.94<br />enroll:   702<br />Mullica Township School District","mpv:  162000<br />slrpp: 30388.00<br />enroll:   167<br />Weymouth Township School District","mpv:  156700<br />slrpp: 23401.81<br />enroll:  6984<br />Atlantic City School District","mpv:  210700<br />slrpp: 25427.76<br />enroll:  3166<br />Greater Egg Harbor Regional School District","mpv:  236300<br />slrpp: 26550.01<br />enroll:  1237<br />Mainland Regional School District","mpv:  131800<br />slrpp: 23652.23<br />enroll:  3757<br />Pleasantville City School District","mpv:  191300<br />slrpp: 20241.31<br />enroll:   869<br />Absecon City School District","mpv:  255500<br />slrpp: 28145.19<br />enroll:   182<br />Estell Manor City School District","mpv:  223100<br />slrpp: 19487.49<br />enroll:   919<br />Northfield City School District","mpv:  221500<br />slrpp: 22541.83<br />enroll:   894<br />Somers Point City School District","mpv:  757000<br />slrpp: 22129.56<br />enroll:   883<br />Allendale Borough School District","mpv: 2000001<br />slrpp: 55376.81<br />enroll:   138<br />Alpine Borough School District","mpv:  358200<br />slrpp: 20763.44<br />enroll:  3572<br />Bergenfield Borough School District","mpv:  336000<br />slrpp: 22811.01<br />enroll:  1135<br />Bogota Borough School District","mpv:  408600<br />slrpp: 26342.25<br />enroll:   562<br />Carlstadt Borough School District","mpv:  447900<br />slrpp: 18030.71<br />enroll:  3227<br />Cliffside Park Borough School District","mpv:  674000<br />slrpp: 20312.55<br />enroll:  1203<br />Closter Borough School District","mpv:  677500<br />slrpp: 21205.74<br />enroll:  1790<br />Cresskill Borough School District","mpv:  681500<br />slrpp: 26168.35<br />enroll:   695<br />Demarest Borough School District","mpv:  376100<br />slrpp: 21243.63<br />enroll:  2538<br />Dumont Borough School District","mpv:  362700<br />slrpp: 19255.28<br />enroll:  2619<br />Elmwood Park Borough School District","mpv:  381100<br />slrpp: 24738.68<br />enroll:   819<br />East Rutherford Borough School District","mpv:  600600<br />slrpp: 25364.97<br />enroll:  1022<br />Edgewater Borough School District","mpv:  492000<br />slrpp: 22688.82<br />enroll:  1139<br />Emerson Borough School District","mpv:  997100<br />slrpp: 32136.00<br />enroll:   500<br />Englewood Cliffs Borough School District","mpv:  424000<br />slrpp: 22941.16<br />enroll:  5138<br />Fair Lawn Borough School District","mpv:  364900<br />slrpp: 21391.13<br />enroll:  1507<br />Fairview Borough School District","mpv:  324600<br />slrpp: 20207.87<br />enroll:  4103<br />Fort Lee Borough School District","mpv:  945900<br />slrpp: 31763.60<br />enroll:  1121<br />Franklin Lakes Borough School District","mpv:  646600<br />slrpp: 23664.84<br />enroll:  2546<br />Glen Rock Borough School District","mpv:  601200<br />slrpp: 24355.56<br />enroll:   630<br />Harrington Park Borough School District","mpv:  429100<br />slrpp: 21258.77<br />enroll:  1824<br />Hasbrouck Heights Borough School District","mpv:  691500<br />slrpp: 27534.65<br />enroll:   404<br />Haworth Borough School District","mpv:  566200<br />slrpp: 23445.51<br />enroll:  1147<br />Hillsdale Borough School District","mpv:  756800<br />slrpp: 29517.53<br />enroll:   599<br />Ho-Ho-Kus Borough School District","mpv:  506100<br />slrpp: 20154.71<br />enroll:  1952<br />Leonia Borough School District","mpv:  329300<br />slrpp: 29167.89<br />enroll:   900<br />Little Ferry Borough School District","mpv:  373000<br />slrpp: 19740.85<br />enroll:  3237<br />Lodi Borough School District","mpv:  375600<br />slrpp: 21323.71<br />enroll:  2525<br />Lyndhurst Township School District","mpv:  498400<br />slrpp: 26582.09<br />enroll:  2905<br />Mahwah Township School District","mpv:  389300<br />slrpp: 23305.38<br />enroll:  1001<br />Maywood Borough School District","mpv:  513400<br />slrpp: 29194.06<br />enroll:   943<br />Midland Park Borough School District","mpv:  619400<br />slrpp: 21366.33<br />enroll:   980<br />Montvale Borough School District","mpv:  360100<br />slrpp: 32564.67<br />enroll:   317<br />Moonachie Borough School District","mpv:  426800<br />slrpp: 22184.80<br />enroll:  2026<br />New Milford Borough School District","mpv:  363400<br />slrpp: 18544.41<br />enroll:  1869<br />North Arlington Borough School District","mpv:  643600<br />slrpp: 41955.67<br />enroll:  2233<br />Northern Valley Regional School District","mpv:  463100<br />slrpp: 22485.02<br />enroll:   534<br />Northvale Borough School District","mpv:  626700<br />slrpp: 20904.53<br />enroll:   618<br />Norwood Borough School District","mpv:  468700<br />slrpp: 26166.77<br />enroll:  1362<br />Oakland Borough School District","mpv:  790300<br />slrpp: 26752.67<br />enroll:   655<br />Old Tappan Borough School District","mpv:  615500<br />slrpp: 18921.09<br />enroll:   773<br />Oradell Borough School District","mpv:  558400<br />slrpp: 16965.14<br />enroll:  1817<br />Palisades Park Borough School District","mpv:  600200<br />slrpp: 28835.29<br />enroll:  3811<br />Paramus Borough School District","mpv:  588900<br />slrpp: 30363.05<br />enroll:  1245<br />Park Ridge Borough School District","mpv:  627600<br />slrpp: 31228.07<br />enroll:  2052<br />Pascack Valley Regional School District","mpv:  680700<br />slrpp: 27415.36<br />enroll:  2323<br />Ramapo-Indian Hill Regional School District","mpv:  598900<br />slrpp: 26419.23<br />enroll:  2767<br />Ramsey Borough School District","mpv:  442500<br />slrpp: 31276.35<br />enroll:  1480<br />Ridgefield Borough School District","mpv:  349100<br />slrpp: 21300.34<br />enroll:  2249<br />Ridgefield Park Township School District","mpv:  763300<br />slrpp: 21847.12<br />enroll:  5751<br />Ridgewood Village School District","mpv:  520800<br />slrpp: 19132.03<br />enroll:  1227<br />River Edge Borough School District","mpv:  622500<br />slrpp: 24199.52<br />enroll:  1127<br />River Vale Township School District","mpv:  380800<br />slrpp: 27937.16<br />enroll:   511<br />Rochelle Park Township School District","mpv:  473500<br />slrpp: 20329.79<br />enroll:  2652<br />Rutherford Borough School District","mpv:  379000<br />slrpp: 23323.19<br />enroll:  1798<br />Saddle Brook Township School District","mpv: 1779500<br />slrpp: 62042.42<br />enroll:   165<br />Saddle River Borough School District","mpv:  414400<br />slrpp: 33127.46<br />enroll:   288<br />South Hackensack Township School District","mpv:  408500<br />slrpp: 30071.75<br />enroll:  3616<br />Teaneck Township School District","mpv:  829600<br />slrpp: 22264.68<br />enroll:  3746<br />Tenafly Borough School District","mpv:  885900<br />slrpp: 25074.14<br />enroll:  1133<br />Upper Saddle River Borough School District","mpv:  448900<br />slrpp: 23368.21<br />enroll:  1633<br />Waldwick Borough School District","mpv:  375800<br />slrpp: 18894.99<br />enroll:  1283<br />Wallington Borough School District","mpv:  485400<br />slrpp: 23397.79<br />enroll:  2814<br />Westwood Regional School District","mpv:  812300<br />slrpp: 26097.41<br />enroll:   737<br />Woodcliff Lake Borough School District","mpv:  411800<br />slrpp: 19303.38<br />enroll:  1282<br />Wood-Ridge Borough School District","mpv:  742900<br />slrpp: 25154.97<br />enroll:  1923<br />Wyckoff Township School District","mpv:  296300<br />slrpp: 21546.74<br />enroll:  5903<br />Hackensack City School District","mpv:  568900<br />slrpp: 24695.50<br />enroll:  1599<br />River Dell Regional School District","mpv:  338400<br />slrpp: 21434.83<br />enroll:  4982<br />Garfield City School District","mpv:  836800<br />slrpp: 25552.43<br />enroll:  1421<br />Northern Highlands Regional School District","mpv:  393000<br />slrpp: 31300.55<br />enroll:   516<br />Carlstadt-East Rutherford School District","mpv:  225900<br />slrpp: 26188.68<br />enroll:   106<br />Bass River Township School District","mpv:  455800<br />slrpp: 20097.44<br />enroll:   780<br />Chesterfield Township School District","mpv:  272400<br />slrpp: 21402.09<br />enroll:  2579<br />Cinnaminson Township School District","mpv:  229000<br />slrpp: 24478.77<br />enroll:   424<br />Delanco Township School District","mpv:  248100<br />slrpp: 18677.24<br />enroll:  3019<br />Delran Township School District","mpv:  276800<br />slrpp: 19681.06<br />enroll:   602<br />Eastampton Township School District","mpv:  178100<br />slrpp: 22685.15<br />enroll:   910<br />Edgewater Park Township School District","mpv:  290300<br />slrpp: 21277.25<br />enroll:  4440<br />Evesham Township School District","mpv:  226600<br />slrpp: 20370.34<br />enroll:  1581<br />Florence Township School District","mpv:  294600<br />slrpp: 20780.28<br />enroll:   578<br />Hainesport Township School District","mpv:  323600<br />slrpp: 22664.24<br />enroll:  1236<br />Lumberton Township School District","mpv:  312000<br />slrpp: 26418.99<br />enroll:   537<br />Mansfield Township School District","mpv:  187500<br />slrpp: 20389.39<br />enroll:  2224<br />Maple Shade Township School District","mpv:  363700<br />slrpp: 22244.60<br />enroll:  2686<br />Medford Township School District","mpv:  297700<br />slrpp: 18542.80<br />enroll:   514<br />Medford Lakes Borough School District","mpv:  516100<br />slrpp: 22433.90<br />enroll:  3997<br />Moorestown Township School District","mpv:  191700<br />slrpp: 21127.52<br />enroll:  1090<br />Mount Holly Township School District","mpv:  272800<br />slrpp: 20006.17<br />enroll:  4214<br />Mount Laurel Township School District","mpv:  218600<br />slrpp: 27832.26<br />enroll:   177<br />New Hanover Township School District","mpv:  237900<br />slrpp: 18895.26<br />enroll:  1117<br />North Hanover Township School District","mpv:  175200<br />slrpp: 21002.10<br />enroll:   953<br />Palmyra Borough School District","mpv:  171200<br />slrpp: 24913.93<br />enroll:  4880<br />Pemberton Township School District","mpv:  256600<br />slrpp: 20162.27<br />enroll:  2106<br />Rancocas Valley Regional School District","mpv:  164600<br />slrpp: 19592.52<br />enroll:  1404<br />Riverside Township School District","mpv:  300500<br />slrpp: 23316.15<br />enroll:   291<br />Riverton Borough School District","mpv:  308600<br />slrpp: 21949.06<br />enroll:   746<br />Shamong Township School District","mpv:  201600<br />slrpp: 22878.21<br />enroll:   734<br />Southampton Township School District","mpv:  365200<br />slrpp: 24367.97<br />enroll:   226<br />Springfield Township School District","mpv:  295300<br />slrpp: 23598.85<br />enroll:   698<br />Tabernacle Township School District","mpv:  254700<br />slrpp:       NA<br />enroll:     0<br />Washington Township School District","mpv:  246300<br />slrpp: 16663.00<br />enroll:  1000<br />Westampton Township School District","mpv:  166000<br />slrpp: 23988.77<br />enroll:  3415<br />Willingboro Township School District","mpv:  272700<br />slrpp: 25053.44<br />enroll:   131<br />Woodland Township School District","mpv:  161400<br />slrpp: 24749.29<br />enroll:  1659<br />Burlington City School District","mpv:  294400<br />slrpp: 26102.41<br />enroll:  6877<br />Lenape Regional School District","mpv:  346100<br />slrpp: 20195.89<br />enroll:  2190<br />Northern Burlington Regional School District","mpv:  278000<br />slrpp: 20007.28<br />enroll:  2495<br />Bordentown Regional School District","mpv:  256100<br />slrpp: 20599.50<br />enroll:  3761<br />Burlington Township School District","mpv:  210500<br />slrpp: 19437.17<br />enroll:  1521<br />Audubon Borough School District","mpv:  195300<br />slrpp: 27842.74<br />enroll:   585<br />Barrington Borough School District","mpv:  167700<br />slrpp: 17109.08<br />enroll:  1226<br />Bellmawr Borough School District","mpv:  239200<br />slrpp: 18009.80<br />enroll:   816<br />Berlin Borough School District","mpv:  182800<br />slrpp: 27980.92<br />enroll:   629<br />Berlin Township School District","mpv:  188400<br />slrpp: 22468.42<br />enroll:  3640<br />Black Horse Pike Regional School District","mpv:  131100<br />slrpp: 21290.80<br />enroll:   314<br />Brooklawn Borough School District","mpv:  134800<br />slrpp: 25466.89<br />enroll:   487<br />Clementon Borough School District","mpv:  260900<br />slrpp: 19684.53<br />enroll:  2135<br />Collingswood Borough School District","mpv:  215400<br />slrpp: 19765.57<br />enroll:   273<br />Gibbsboro Borough School District","mpv:  197700<br />slrpp: 19559.97<br />enroll:  6343<br />Gloucester Township School District","mpv:  262700<br />slrpp: 20363.11<br />enroll:  2060<br />Haddon Township School District","mpv:  511800<br />slrpp: 17349.95<br />enroll:  2749<br />Haddonfield Borough School District","mpv:  287400<br />slrpp: 18663.74<br />enroll:  1481<br />Haddon Heights Borough School District","mpv:  178600<br />slrpp: 29818.61<br />enroll:   191<br />Laurel Springs Borough School District","mpv:  165900<br />slrpp: 31221.80<br />enroll:   321<br />Lawnside Borough School District","mpv:  124200<br />slrpp: 17436.34<br />enroll:  2845<br />Lindenwold Borough School District","mpv:  159600<br />slrpp: 21006.82<br />enroll:   408<br />Magnolia Borough School District","mpv:  227900<br />slrpp: 23056.33<br />enroll:   433<br />Merchantville Borough School District","mpv:  168400<br />slrpp: 29416.46<br />enroll:   413<br />Mount Ephraim Borough School District","mpv:  186300<br />slrpp: 38550.84<br />enroll:   233<br />Oaklyn Borough School District","mpv:  158200<br />slrpp: 21964.53<br />enroll:  4785<br />Pennsauken Township School District","mpv:  136900<br />slrpp: 21745.19<br />enroll:  1899<br />Pine Hill Borough School District","mpv:  163500<br />slrpp: 19757.63<br />enroll:   814<br />Runnemede Borough School District","mpv:  170500<br />slrpp: 19562.94<br />enroll:   499<br />Somerdale Borough School District","mpv:  179100<br />slrpp: 19644.71<br />enroll:   862<br />Stratford Borough School District","mpv:  324300<br />slrpp: 20649.02<br />enroll:  3039<br />Voorhees Township School District","mpv:  205100<br />slrpp: 38365.38<br />enroll:   819<br />Waterford Township School District","mpv:  192400<br />slrpp: 25002.51<br />enroll:  4650<br />Winslow Township School District","mpv:   87200<br />slrpp: 27579.87<br />enroll:   388<br />Woodlynne Borough School District","mpv:   84000<br />slrpp: 39726.40<br />enroll:  7638<br />Camden City School District","mpv:  170400<br />slrpp: 21843.94<br />enroll:   974<br />Sterling High School School District","mpv:  277300<br />slrpp: 21294.21<br />enroll: 10928<br />Cherry Hill Township School District","mpv:  288700<br />slrpp: 21814.01<br />enroll:  1984<br />Eastern Camden County Regional School District","mpv:  125800<br />slrpp: 21655.27<br />enroll:  2189<br />Gloucester City School District","mpv: 1192600<br />slrpp: 90131.15<br />enroll:    61<br />Avalon Borough School District","mpv:  260600<br />slrpp: 31967.87<br />enroll:   576<br />Dennis Township School District","mpv:  241800<br />slrpp: 20530.29<br />enroll:  1667<br />Lower Township School District","mpv:  246500<br />slrpp: 19936.72<br />enroll:  2608<br />Middle Township School District","mpv: 1375000<br />slrpp: 36939.39<br />enroll:    99<br />Stone Harbor Borough School District","mpv:  306600<br />slrpp: 27495.36<br />enroll:  1448<br />Upper Township School District","mpv:  519400<br />slrpp: 21353.54<br />enroll:    99<br />West Cape May Borough School District","mpv:  447800<br />slrpp: 36418.77<br />enroll:   277<br />Wildwood Crest Borough School District","mpv:  162900<br />slrpp: 26518.09<br />enroll:   239<br />Woodbine Borough School District","mpv:  260600<br />slrpp: 27403.70<br />enroll:  1330<br />Lower Cape May Regional School District","mpv:  652900<br />slrpp: 20405.23<br />enroll:   153<br />Cape May City School District","mpv:  574100<br />slrpp: 22757.75<br />enroll:  2123<br />Ocean City School District","mpv:  237300<br />slrpp: 25069.26<br />enroll:   924<br />Wildwood City School District","mpv:  354000<br />slrpp: 45678.41<br />enroll:   227<br />North Wildwood City School District","mpv:  121100<br />slrpp: 27708.48<br />enroll:   529<br />Commercial Township School District","mpv:  186500<br />slrpp: 22106.53<br />enroll:   306<br />Deerfield Township School District","mpv:  145900<br />slrpp: 22908.60<br />enroll:   186<br />Downe Township School District","mpv:  160100<br />slrpp: 18562.46<br />enroll:   554<br />Fairfield Township School District","mpv:  203100<br />slrpp: 27463.56<br />enroll:    61<br />Greenwich Township School District","mpv:  172300<br />slrpp: 17889.55<br />enroll:   507<br />Hopewell Township School District","mpv:  171000<br />slrpp: 21211.93<br />enroll:   507<br />Lawrence Township School District","mpv:  156800<br />slrpp: 23221.67<br />enroll:   406<br />Maurice River Township School District","mpv:  188500<br />slrpp: 21465.52<br />enroll:   116<br />Stow Creek Township School District","mpv:  206000<br />slrpp: 20077.48<br />enroll:   865<br />Upper Deerfield Township School District","mpv:  159000<br />slrpp: 19639.29<br />enroll:  5540<br />Millville City School District","mpv:  167300<br />slrpp: 18730.18<br />enroll: 10704<br />Vineland City School District","mpv:  109200<br />slrpp: 17685.69<br />enroll:  6439<br />Bridgeton City School District","mpv:  179900<br />slrpp: 24073.69<br />enroll:  1072<br />Cumberland Regional School District","mpv:  295700<br />slrpp: 18290.47<br />enroll:  4544<br />Belleville Town School District","mpv:  491900<br />slrpp: 21381.94<br />enroll:  2663<br />Caldwell-West Caldwell School District","mpv:  519900<br />slrpp: 21092.68<br />enroll:   669<br />Fairfield Township School District","mpv:  473100<br />slrpp: 22630.88<br />enroll:  1586<br />Cedar Grove Township School District","mpv:  849000<br />slrpp: 23892.86<br />enroll:   252<br />Essex Fells Borough School District","mpv:  653400<br />slrpp: 20907.85<br />enroll:  1899<br />Glen Ridge Borough School District","mpv:  627000<br />slrpp: 23278.37<br />enroll:  6080<br />Livingston Township School District","mpv: 1130100<br />slrpp: 23181.13<br />enroll:  4805<br />Millburn Township School District","mpv:  738300<br />slrpp: 24086.91<br />enroll:   672<br />North Caldwell Borough School District","mpv:  387600<br />slrpp: 19127.71<br />enroll:  4152<br />Nutley Town School District","mpv:  485100<br />slrpp: 22703.53<br />enroll:   472<br />Roseland Borough School District","mpv:  554200<br />slrpp: 20537.45<br />enroll:  7286<br />South Orange-Maplewood School District","mpv:  457400<br />slrpp: 19811.54<br />enroll:  2249<br />Verona Borough School District","mpv:  385200<br />slrpp: 26713.55<br />enroll:  6696<br />West Orange Town School District","mpv:  594900<br />slrpp: 27542.22<br />enroll:  1716<br />West Essex Regional School District","mpv:  329900<br />slrpp: 18792.01<br />enroll:  6424<br />Bloomfield Township School District","mpv:  197600<br />slrpp: 17301.31<br />enroll:  1481<br />Clayton Borough School District","mpv:  194500<br />slrpp: 18929.05<br />enroll:  4240<br />Deptford Township School District","mpv:  320100<br />slrpp: 16682.93<br />enroll:  1312<br />East Greenwich Township School District","mpv:  224900<br />slrpp: 20339.03<br />enroll:   351<br />Elk Township School District","mpv:  196700<br />slrpp: 18210.94<br />enroll:  1408<br />Franklin Township School District","mpv:  202800<br />slrpp: 23037.20<br />enroll:  2009<br />Glassboro Borough School District","mpv:  174200<br />slrpp: 32117.65<br />enroll:   408<br />Greenwich Township School District","mpv:  359400<br />slrpp: 16705.43<br />enroll:  1385<br />Harrison Township School District","mpv:  218300<br />slrpp: 25781.80<br />enroll:   857<br />Logan Township School District","mpv:  215200<br />slrpp: 20320.20<br />enroll:  1232<br />Mantua Township School District","mpv:  210200<br />slrpp: 18260.33<br />enroll:  5846<br />Monroe Township School District","mpv:  149700<br />slrpp: 18757.19<br />enroll:   274<br />National Park Borough School District","mpv:  111100<br />slrpp: 20820.03<br />enroll:  1220<br />Paulsboro Borough School District","mpv:  185600<br />slrpp: 22538.62<br />enroll:  1283<br />Pitman Borough School District","mpv:  370500<br />slrpp: 18229.92<br />enroll:   361<br />South Harrison Township School District","mpv:  326400<br />slrpp: 19125.77<br />enroll:  1630<br />Swedesboro-Woolwich School District","mpv:  245500<br />slrpp: 22452.53<br />enroll:  7202<br />Washington Township School District","mpv:  274400<br />slrpp: 22301.99<br />enroll:   177<br />Wenonah Borough School District","mpv:  214500<br />slrpp: 19397.46<br />enroll:  2947<br />West Deptford Township School District","mpv:  147800<br />slrpp: 17696.27<br />enroll:   377<br />Westville Borough School District","mpv:  201900<br />slrpp: 20233.09<br />enroll:   233<br />Woodbury Heights Borough School District","mpv:  274200<br />slrpp: 19299.62<br />enroll:  2297<br />Clearview Regional School District","mpv:  200600<br />slrpp: 23151.18<br />enroll:  1661<br />Delsea Regional High School School District","mpv:  166400<br />slrpp: 21257.10<br />enroll:  1550<br />Woodbury City School District","mpv:  184700<br />slrpp: 28302.79<br />enroll:   895<br />Gateway Regional School District","mpv:  330000<br />slrpp: 16416.97<br />enroll:  2782<br />Kingsway Regional School District","mpv:  299700<br />slrpp: 23817.81<br />enroll:   247<br />East Newark Borough School District","mpv:  323100<br />slrpp: 22460.89<br />enroll:   949<br />Guttenberg Town School District","mpv:  720700<br />slrpp: 23982.57<br />enroll:  2858<br />Hoboken City School District","mpv:  460800<br />slrpp: 19749.44<br />enroll:  2286<br />Secaucus Town School District","mpv:  350600<br />slrpp: 18852.29<br />enroll:  7576<br />North Bergen Township School District","mpv:  650400<br />slrpp: 21124.88<br />enroll:  1458<br />Weehawken Township School District","mpv:  333100<br />slrpp: 18963.93<br />enroll:  5414<br />Kearny Town School District","mpv:  432600<br />slrpp: 25302.28<br />enroll:   483<br />Alexandria Township School District","mpv:  413300<br />slrpp: 29659.22<br />enroll:   358<br />Bethlehem Township School District","mpv:  256700<br />slrpp: 36244.68<br />enroll:    94<br />Bloomsbury Borough School District","mpv:  353800<br />slrpp: 40155.84<br />enroll:    77<br />Califon Borough School District","mpv:  325900<br />slrpp: 24208.82<br />enroll:   431<br />Clinton Town-Glen Gardner School District","mpv:  438800<br />slrpp: 27329.63<br />enroll:  1218<br />Clinton Township School District","mpv:  498100<br />slrpp: 29985.86<br />enroll:   376<br />Delaware Township School District","mpv:  408900<br />slrpp: 27307.04<br />enroll:   355<br />East Amwell Township School District","mpv:  426600<br />slrpp: 23260.47<br />enroll:  3079<br />Flemington-Raritan Regional School District","mpv:  453100<br />slrpp: 28194.68<br />enroll:   283<br />Franklin Township School District","mpv:  302100<br />slrpp: 26192.31<br />enroll:   130<br />Frenchtown Borough School District","mpv:  260500<br />slrpp: 39384.62<br />enroll:    91<br />Hampton Borough School District","mpv:  264900<br />slrpp: 26718.92<br />enroll:   370<br />High Bridge Borough School District","mpv:  307700<br />slrpp: 24141.51<br />enroll:   530<br />Holland Township School District","mpv:  447700<br />slrpp: 26577.03<br />enroll:  2870<br />Hunterdon Central Regional School District","mpv:  463000<br />slrpp: 25870.18<br />enroll:   328<br />Kingwood Township School District","mpv:  293500<br />slrpp: 83275.00<br />enroll:    40<br />Lebanon Borough School District","mpv:  354500<br />slrpp: 24426.28<br />enroll:   624<br />Lebanon Township School District","mpv:  259000<br />slrpp: 30522.73<br />enroll:    88<br />Milford Borough School District","mpv:  394700<br />slrpp: 24554.44<br />enroll:  2601<br />North Hunterdon-Voorhees Regional School District","mpv:  479500<br />slrpp: 25802.01<br />enroll:  1495<br />Readington Township School District","mpv:  661100<br />slrpp: 30730.13<br />enroll:   541<br />Tewksbury Township School District","mpv:  401000<br />slrpp: 26622.26<br />enroll:   436<br />Union Township School District","mpv:  373300<br />slrpp: 36205.37<br />enroll:   728<br />Delaware Valley Regional School District","mpv:  417000<br />slrpp: 27334.67<br />enroll:   925<br />South Hunterdon Regional School District","mpv:  298200<br />slrpp: 20741.30<br />enroll:  5220<br />East Windsor Regional School District","mpv:  215500<br />slrpp: 23521.03<br />enroll:  3513<br />Ewing Township School District","mpv:  248000<br />slrpp: 19267.62<br />enroll: 11725<br />Hamilton Township School District","mpv:  463500<br />slrpp: 27232.68<br />enroll:  3537<br />Hopewell Valley Regional School District","mpv:  326400<br />slrpp: 22868.59<br />enroll:  3828<br />Lawrence Township School District","mpv:  866200<br />slrpp: 27039.54<br />enroll:  3809<br />Princeton Public Schools","mpv:  412800<br />slrpp: 18588.50<br />enroll:  3164<br />Robbinsville Township School District","mpv:  576500<br />slrpp: 21206.70<br />enroll:  9641<br />West Windsor-Plainsboro Regional School District","mpv:  272200<br />slrpp: 18256.09<br />enroll:  3932<br />Carteret Borough School District","mpv:  738200<br />slrpp: 41501.04<br />enroll:   481<br />Cranbury Township School District","mpv:  282700<br />slrpp: 18217.07<br />enroll:  1274<br />Dunellen Borough School District","mpv:  398400<br />slrpp: 22278.97<br />enroll:  8260<br />East Brunswick Township School District","mpv:  373700<br />slrpp: 23442.85<br />enroll:  1641<br />Highland Park Borough School District","mpv:  267000<br />slrpp: 25052.70<br />enroll:   701<br />Jamesburg Borough School District","mpv:  351000<br />slrpp: 20702.99<br />enroll:  8507<br />Old Bridge Township School District","mpv:  437400<br />slrpp: 20730.62<br />enroll:  2293<br />Metuchen Borough School District","mpv:  307000<br />slrpp: 19756.40<br />enroll:  2099<br />Middlesex Borough School District","mpv:  343000<br />slrpp: 25696.80<br />enroll:   754<br />Milltown Borough School District","mpv:  375900<br />slrpp: 20698.49<br />enroll:  6829<br />Monroe Township School District","mpv:  341000<br />slrpp: 20395.06<br />enroll:  5983<br />North Brunswick Township School District","mpv:  334300<br />slrpp: 20764.98<br />enroll:  7161<br />Piscataway Township School District","mpv:  302800<br />slrpp: 17152.04<br />enroll:  6237<br />Sayreville Borough School District","mpv:  430100<br />slrpp: 19560.18<br />enroll:  8623<br />South Brunswick Township School District","mpv:  340200<br />slrpp: 21254.76<br />enroll:  3400<br />South Plainfield Borough School District","mpv:  299600<br />slrpp: 17152.27<br />enroll:  2235<br />South River Borough School District","mpv:  294100<br />slrpp: 19142.72<br />enroll:  1700<br />Spotswood Borough School District","mpv:  310000<br />slrpp: 19131.78<br />enroll: 13888<br />Woodbridge Township School District","mpv:  261800<br />slrpp: 21325.22<br />enroll: 11182<br />Perth Amboy City School District","mpv:  294500<br />slrpp: 18501.32<br />enroll:  1108<br />South Amboy City School District","mpv:  801500<br />slrpp: 30404.49<br />enroll:   979<br />Colts Neck Township School District","mpv:  410300<br />slrpp: 21791.00<br />enroll:   311<br />Atlantic Highlands Borough School District","mpv:  884300<br />slrpp: 33120.57<br />enroll:   141<br />Avon-by-the-Sea Borough School District","mpv:  599900<br />slrpp: 30349.80<br />enroll:   471<br />Belmar Borough School District","mpv:  567400<br />slrpp: 34207.36<br />enroll:   254<br />Bradley Beach Borough School District","mpv:  640000<br />slrpp: 30386.36<br />enroll:   528<br />Brielle Borough School District","mpv: 1187500<br />slrpp: 28822.49<br />enroll:   169<br />Deal Borough School District","mpv:  336200<br />slrpp: 25685.03<br />enroll:   962<br />Eatontown Borough School District","mpv:  731900<br />slrpp: 18966.87<br />enroll:   966<br />Fair Haven Borough School District","mpv:  298000<br />slrpp: 21896.77<br />enroll:   155<br />Farmingdale Borough School District","mpv:  291800<br />slrpp: 17298.59<br />enroll:  1698<br />Freehold Borough School District","mpv:  432100<br />slrpp: 23686.38<br />enroll:  3737<br />Freehold Township School District","mpv:  432500<br />slrpp: 20379.66<br />enroll: 10826<br />Freehold Regional School District","mpv:  291000<br />slrpp: 27593.75<br />enroll:   192<br />Highlands Borough School District","mpv:  661800<br />slrpp: 24473.47<br />enroll:  2997<br />Holmdel Township School District","mpv:  341200<br />slrpp: 23562.17<br />enroll:  5614<br />Howell Township School District","mpv:  193600<br />slrpp: 25261.27<br />enroll:  1642<br />Keansburg Borough School District","mpv:  264200<br />slrpp: 20893.60<br />enroll:  1062<br />Keyport Borough School District","mpv:  642500<br />slrpp: 21179.21<br />enroll:   837<br />Little Silver Borough School District","mpv:  462900<br />slrpp: 20234.61<br />enroll:  4994<br />Manalapan-Englishtown Regional School District","mpv:  679300<br />slrpp: 21177.00<br />enroll:  1548<br />Manasquan Borough School District","mpv:  550100<br />slrpp: 21484.23<br />enroll:  4784<br />Marlboro Township School District","mpv:  336600<br />slrpp: 21627.81<br />enroll:  3827<br />Matawan-Aberdeen Regional School District","mpv:  425300<br />slrpp: 20489.34<br />enroll:  9617<br />Middletown Township School District","mpv:  584400<br />slrpp: 37727.21<br />enroll:  1109<br />Millstone Township School District","mpv:  753200<br />slrpp: 25347.46<br />enroll:   236<br />Monmouth Beach Borough School District","mpv:  289300<br />slrpp: 36190.28<br />enroll:   272<br />Neptune City School District","mpv:  309700<br />slrpp: 22893.06<br />enroll:  4063<br />Neptune Township School District","mpv:  431600<br />slrpp: 25704.12<br />enroll:  3458<br />Ocean Township School District","mpv:  521200<br />slrpp: 21371.56<br />enroll:   599<br />Oceanport Borough School District","mpv:  335800<br />slrpp: 22219.78<br />enroll:  2871<br />Hazlet Township School District","mpv:  404400<br />slrpp: 19855.79<br />enroll:  1434<br />Red Bank Borough School District","mpv:  316700<br />slrpp: 35469.88<br />enroll:    83<br />Roosevelt Borough School District","mpv: 1171900<br />slrpp: 22053.05<br />enroll:   999<br />Rumson Borough School District","mpv:  906900<br />slrpp: 24879.88<br />enroll:   999<br />Rumson-Fair Haven Regional School District","mpv: 1585400<br />slrpp: 44680.00<br />enroll:   125<br />Sea Girt Borough School District","mpv:  589400<br />slrpp: 21252.61<br />enroll:   479<br />Shrewsbury Borough School District","mpv:  342300<br />slrpp: 23241.19<br />enroll:  1447<br />Tinton Falls Borough School District","mpv: 1818500<br />slrpp: 45657.46<br />enroll:   181<br />Spring Lake Borough School District","mpv:  492300<br />slrpp: 32315.48<br />enroll:   336<br />Spring Lake Heights Borough School District","mpv:  268500<br />slrpp: 26380.37<br />enroll:   652<br />Union Beach Borough School District","mpv:  461700<br />slrpp: 21457.69<br />enroll:  2257<br />Upper Freehold Regional School District","mpv:  501100<br />slrpp: 25043.74<br />enroll:  3429<br />Wall Township School District","mpv:  448800<br />slrpp: 22884.82<br />enroll:   573<br />West Long Branch Borough School District","mpv:  339700<br />slrpp: 29874.48<br />enroll:   998<br />Monmouth Regional School District","mpv:  343700<br />slrpp: 29629.08<br />enroll:   337<br />Henry Hudson Regional School District","mpv:  512600<br />slrpp: 30097.16<br />enroll:   669<br />Shore Regional School District","mpv:  377400<br />slrpp: 34592.59<br />enroll:  2078<br />Asbury Park City School District","mpv:  362400<br />slrpp: 20022.90<br />enroll:  5786<br />Long Branch City School District","mpv:  495800<br />slrpp: 25903.78<br />enroll:  1216<br />Red Bank Regional School District","mpv:  386100<br />slrpp: 23556.57<br />enroll:  1413<br />Boonton Town School District","mpv:  645600<br />slrpp: 37968.37<br />enroll:   411<br />Boonton Township School District","mpv:  355200<br />slrpp: 23758.84<br />enroll:  1221<br />Butler Borough School District","mpv:  626200<br />slrpp: 24985.32<br />enroll:  1090<br />Chester Township School District","mpv:  419500<br />slrpp: 22603.09<br />enroll:  1629<br />Denville Township School District","mpv:  262000<br />slrpp: 16730.69<br />enroll:  3262<br />Dover Town School District","mpv:  608700<br />slrpp: 27313.41<br />enroll:   908<br />East Hanover Township School District","mpv:  645800<br />slrpp: 23189.10<br />enroll:   994<br />Florham Park Borough School District","mpv:  577300<br />slrpp: 28238.16<br />enroll:  1520<br />Hanover Park Regional School District","mpv:  506300<br />slrpp: 24087.49<br />enroll:  1382<br />Hanover Township School District","mpv: 1129000<br />slrpp: 45787.99<br />enroll:   283<br />Harding Township School District","mpv:  342500<br />slrpp: 23716.33<br />enroll:  2926<br />Jefferson Township School District","mpv:  570800<br />slrpp: 25979.44<br />enroll:  1832<br />Kinnelon Borough School District","mpv:  330900<br />slrpp: 26531.12<br />enroll:   914<br />Lincoln Park Borough School District","mpv:  724700<br />slrpp: 20951.77<br />enroll:  2646<br />Madison Borough School District","mpv:  662300<br />slrpp: 26342.36<br />enroll:   517<br />Mendham Borough School District","mpv:  847400<br />slrpp: 30038.79<br />enroll:   696<br />Mendham Township School District","mpv:  300800<br />slrpp: 33274.67<br />enroll:   347<br />Mine Hill Township School District","mpv:  598400<br />slrpp: 24808.50<br />enroll:  3645<br />Montville Township School District","mpv:  367400<br />slrpp: 30227.32<br />enroll:  2811<br />Morris Hills Regional School District","mpv:  517500<br />slrpp: 34608.90<br />enroll:   578<br />Morris Plains Borough School District","mpv:  559100<br />slrpp: 24108.33<br />enroll:  5216<br />Morris Township School District","mpv:  305100<br />slrpp: 36550.89<br />enroll:   362<br />Mount Arlington Borough School District","mpv:  367900<br />slrpp: 22255.06<br />enroll:  4643<br />Mount Olive Township School District","mpv:  867200<br />slrpp: 31725.07<br />enroll:  1404<br />Mountain Lakes Borough School District","mpv:  273000<br />slrpp: 21512.65<br />enroll:   289<br />Netcong Borough School District","mpv:  438200<br />slrpp: 23796.85<br />enroll:  7248<br />Parsippany-Troy Hills Township School District","mpv:  585000<br />slrpp: 22965.48<br />enroll:   856<br />Long Hill Township School District","mpv:  425100<br />slrpp: 21541.96<br />enroll:  2123<br />Pequannock Township School District","mpv:  539900<br />slrpp: 23317.63<br />enroll:  4641<br />Randolph Township School District","mpv:  347400<br />slrpp: 27779.25<br />enroll:   336<br />Riverdale Borough School District","mpv:  344800<br />slrpp: 21433.66<br />enroll:   556<br />Rockaway Borough School District","mpv:  359000<br />slrpp: 25046.02<br />enroll:  2276<br />Rockaway Township School District","mpv:  354900<br />slrpp: 24554.48<br />enroll:  3551<br />Roxbury Township School District","mpv:  462300<br />slrpp: 25806.65<br />enroll:  2019<br />Washington Township School District","mpv:  299600<br />slrpp: 23127.91<br />enroll:   738<br />Wharton Borough School District","mpv:  810200<br />slrpp: 20044.98<br />enroll:  4145<br />The Chathams School District","mpv:  573100<br />slrpp: 24259.67<br />enroll:  2489<br />West Morris Regional School District","mpv: 1163200<br />slrpp: 34619.83<br />enroll:   121<br />Bay Head Borough School District","mpv:  760100<br />slrpp: 45836.36<br />enroll:    55<br />Beach Haven Borough School District","mpv:  194900<br />slrpp: 18073.96<br />enroll:  2312<br />Berkeley Township School District","mpv:  291700<br />slrpp: 19946.48<br />enroll:  8651<br />Brick Township School District","mpv:  204900<br />slrpp: 19128.13<br />enroll:  2272<br />Central Regional School District","mpv:  278000<br />slrpp: 26910.45<br />enroll:   134<br />Eagleswood Township School District","mpv:  389600<br />slrpp: 21217.05<br />enroll:   129<br />Island Heights Borough School District","mpv:  361600<br />slrpp: 21131.26<br />enroll:  8304<br />Jackson Township School District","mpv:  276300<br />slrpp: 20688.28<br />enroll:  4026<br />Lacey Township School District","mpv:  190300<br />slrpp: 26558.82<br />enroll:   374<br />Lakehurst Borough School District","mpv:  335600<br />slrpp: 32916.92<br />enroll:  6767<br />Lakewood Township School District","mpv:  733200<br />slrpp: 34090.91<br />enroll:   143<br />Lavallette Borough School District","mpv:  229400<br />slrpp: 20184.06<br />enroll:  1619<br />Little Egg Harbor Township School District","mpv:  807200<br />slrpp: 37582.96<br />enroll:   223<br />Long Beach Island School District","mpv:  139600<br />slrpp: 22117.42<br />enroll:  2952<br />Manchester Township School District","mpv:  322500<br />slrpp: 39617.65<br />enroll:   510<br />Ocean Township School District","mpv:  240800<br />slrpp: 23957.75<br />enroll:   142<br />Ocean Gate Borough School District","mpv:  318000<br />slrpp: 22561.98<br />enroll:  1331<br />Plumsted Township School District","mpv:  386200<br />slrpp: 18005.78<br />enroll:  2826<br />Point Pleasant Borough School District","mpv:  656400<br />slrpp: 25010.48<br />enroll:   763<br />Point Pleasant Beach Borough School District","mpv:  296600<br />slrpp: 21114.16<br />enroll:   219<br />Seaside Heights Borough School District","mpv:  277500<br />slrpp: 21583.71<br />enroll:  2198<br />Stafford Township School District","mpv:  284300<br />slrpp: 17360.13<br />enroll: 15472<br />Toms River Regional School District","mpv:  224300<br />slrpp: 21797.95<br />enroll:   292<br />Tuckerton Borough School District","mpv:  252800<br />slrpp: 21000.00<br />enroll:  3159<br />Barnegat Township School District","mpv:  333300<br />slrpp: 23049.07<br />enroll:  2895<br />Southern Regional School District","mpv:  230500<br />slrpp: 24699.42<br />enroll:  1572<br />Pinelands Regional School District","mpv:  303300<br />slrpp: 38401.67<br />enroll:   554<br />Bloomingdale Borough School District","mpv:  271700<br />slrpp: 16947.18<br />enroll:  1055<br />Haledon Borough School District","mpv:  381000<br />slrpp: 20084.60<br />enroll:  2323<br />Hawthorne Borough School District","mpv:  369100<br />slrpp: 21487.55<br />enroll:   865<br />Little Falls Township School District","mpv:  435700<br />slrpp: 21312.50<br />enroll:   624<br />North Haledon Borough School District","mpv:  368600<br />slrpp: 27562.77<br />enroll:  1207<br />Passaic Valley Regional School District","mpv:  302700<br />slrpp: 23288.11<br />enroll:  1673<br />Pompton Lakes Borough School District","mpv:  266300<br />slrpp: 16158.80<br />enroll:   900<br />Prospect Park Borough School District","mpv:  366400<br />slrpp: 24875.87<br />enroll:  1152<br />Ringwood Borough School District","mpv:  371200<br />slrpp: 19694.97<br />enroll:  1014<br />Totowa Borough School District","mpv:  318000<br />slrpp: 23619.31<br />enroll:   901<br />Wanaque Borough School District","mpv:  468500<br />slrpp: 24187.46<br />enroll:  7895<br />Wayne Township School District","mpv:  286000<br />slrpp: 24947.68<br />enroll:  3309<br />West Milford Township School District","mpv:  365900<br />slrpp: 19945.21<br />enroll:  1080<br />Woodland Park Borough School District","mpv:  345400<br />slrpp: 18233.91<br />enroll: 10726<br />Clifton City School District","mpv:  339600<br />slrpp: 29896.16<br />enroll:   963<br />Lakeland Regional School District","mpv:  356000<br />slrpp: 26427.02<br />enroll:   866<br />Passaic County Manchester Regional School District","mpv:  332700<br />slrpp: 22057.55<br />enroll: 14504<br />Passaic City School District","mpv:  228700<br />slrpp: 25021.92<br />enroll:   365<br />Alloway Township School District","mpv:  213300<br />slrpp: 25211.86<br />enroll:   118<br />Elsinboro Township School District","mpv:  241100<br />slrpp: 28916.17<br />enroll:   167<br />Lower Alloways Creek Township School District","mpv:  155000<br />slrpp: 22407.02<br />enroll:  1710<br />Pennsville Township School District","mpv:  229800<br />slrpp: 42525.64<br />enroll:   156<br />Mannington Township School District","mpv:  224100<br />slrpp: 20437.93<br />enroll:   290<br />Oldmans Township School District","mpv:  143100<br />slrpp: 19568.42<br />enroll:  2185<br />Penns Grove-Carneys Point Regional School District","mpv:  279300<br />slrpp: 18833.33<br />enroll:  1482<br />Woodstown-Pilesgrove Regional School District","mpv:  211500<br />slrpp: 20625.81<br />enroll:  1762<br />Pittsgrove Township School District","mpv:  178700<br />slrpp: 22988.18<br />enroll:   311<br />Quinton Township School District","mpv:  262700<br />slrpp: 27940.99<br />enroll:   322<br />Upper Pittsgrove Township School District","mpv:   82500<br />slrpp: 20956.00<br />enroll:  1272<br />Salem City School District","mpv:  383700<br />slrpp: 37938.10<br />enroll:   517<br />Bedminster Township School District","mpv:  673000<br />slrpp: 22330.77<br />enroll:  5327<br />Bernards Township School District","mpv:  688300<br />slrpp: 24444.87<br />enroll:  1971<br />Somerset Hills Regional School District","mpv:  273700<br />slrpp: 17880.84<br />enroll:  1955<br />Bound Brook Borough School District","mpv:  479100<br />slrpp: 35007.40<br />enroll:  1454<br />Branchburg Township School District","mpv:  470400<br />slrpp: 21164.80<br />enroll:  8569<br />Bridgewater-Raritan Regional School District","mpv:  337100<br />slrpp: 24740.97<br />enroll:  7150<br />Franklin Township School District","mpv:  486300<br />slrpp: 35860.82<br />enroll:   788<br />Green Brook Township School District","mpv:  436700<br />slrpp: 19988.47<br />enroll:  7457<br />Hillsborough Township School District","mpv:  262000<br />slrpp: 18959.54<br />enroll:  1521<br />Manville Borough School District","mpv:  606000<br />slrpp: 22090.01<br />enroll:  4713<br />Montgomery Township School District","mpv:  272900<br />slrpp: 21017.41<br />enroll:  3342<br />North Plainfield Borough School District","mpv:  322000<br />slrpp: 21053.38<br />enroll:  2398<br />Somerville Borough School District","mpv:  248800<br />slrpp: 26630.91<br />enroll:   423<br />South Bound Brook Borough School District","mpv:  790300<br />slrpp: 29637.76<br />enroll:  1684<br />Warren Township School District","mpv:  674500<br />slrpp: 21835.94<br />enroll:   640<br />Watchung Borough School District","mpv:  689400<br />slrpp: 25504.28<br />enroll:  2015<br />Watchung Hills Regional School District","mpv:  274800<br />slrpp: 40477.45<br />enroll:   450<br />Andover Regional School District","mpv:  284200<br />slrpp: 22655.60<br />enroll:   815<br />Byram Township School District","mpv:  302600<br />slrpp: 25031.70<br />enroll:   502<br />Frankford Township School District","mpv:  187600<br />slrpp: 24028.15<br />enroll:   439<br />Franklin Borough School District","mpv:  362000<br />slrpp: 28511.10<br />enroll:   192<br />Fredon Township School District","mpv:  360400<br />slrpp: 33237.70<br />enroll:   414<br />Green Township School District","mpv:  182500<br />slrpp: 28251.00<br />enroll:   243<br />Hamburg Borough School District","mpv:  274200<br />slrpp: 27294.10<br />enroll:   286<br />Hampton Township School District","mpv:  256600<br />slrpp: 21170.40<br />enroll:   672<br />Hardyston Township School District","mpv:  366300<br />slrpp: 28437.76<br />enroll:   204<br />Lafayette Township School District","mpv:  210800<br />slrpp: 36618.48<br />enroll:   253<br />Montague Township School District","mpv:  212200<br />slrpp: 21145.69<br />enroll:  1546<br />Newton Town School District","mpv:  223400<br />slrpp: 23865.67<br />enroll:   236<br />Ogdensburg Borough School District","mpv:  252400<br />slrpp: 22528.19<br />enroll:   138<br />Sandyston-Walpack Township School District","mpv:  381600<br />slrpp: 24659.86<br />enroll:  3203<br />Sparta Township School District","mpv:  247400<br />slrpp: 23289.34<br />enroll:   303<br />Stanhope Borough School District","mpv:  242800<br />slrpp: 28186.95<br />enroll:   254<br />Stillwater Township School District","mpv:  236400<br />slrpp: 24776.63<br />enroll:  3012<br />Vernon Township School District","mpv:  277500<br />slrpp: 25373.64<br />enroll:  1043<br />Sussex-Wantage Regional School District","mpv:  294000<br />slrpp: 29498.36<br />enroll:   913<br />High Point Regional School District","mpv:  237000<br />slrpp: 26571.67<br />enroll:  1573<br />Hopatcong Borough School District","mpv:  281200<br />slrpp: 26628.94<br />enroll:   944<br />Kittatinny Regional School District","mpv:  275900<br />slrpp: 25955.90<br />enroll:   703<br />Lenape Valley Regional School District","mpv:  218400<br />slrpp: 28987.28<br />enroll:   624<br />Wallkill Valley Regional School District","mpv:  617500<br />slrpp: 23466.32<br />enroll:  2582<br />Berkeley Heights Township School District","mpv:  446800<br />slrpp: 19099.78<br />enroll:  2275<br />Clark Township School District","mpv:  486600<br />slrpp: 19974.05<br />enroll:  3853<br />Cranford Township School District","mpv:  380800<br />slrpp: 25629.53<br />enroll:   386<br />Garwood Borough School District","mpv:  259300<br />slrpp: 20852.56<br />enroll:  3123<br />Hillside Township School District","mpv:  345500<br />slrpp: 22335.61<br />enroll:  1466<br />Kenilworth Borough School District","mpv:  626100<br />slrpp: 79364.34<br />enroll:   258<br />Mountainside Borough School District","mpv:  607100<br />slrpp: 19795.45<br />enroll:  2420<br />New Providence Borough School District","mpv:  225100<br />slrpp: 19460.31<br />enroll:  2969<br />Roselle Borough School District","mpv:  284000<br />slrpp: 20598.98<br />enroll:  2034<br />Roselle Park Borough School District","mpv:  487500<br />slrpp: 19923.44<br />enroll:  5649<br />Scotch Plains-Fanwood Regional School District","mpv:  436900<br />slrpp: 21703.44<br />enroll:  2273<br />Springfield Township School District","mpv:  329000<br />slrpp: 20854.93<br />enroll:  7219<br />Union Township School District","mpv:  743400<br />slrpp: 20240.68<br />enroll:  6304<br />Westfield Town School District","mpv:  179800<br />slrpp: 28127.86<br />enroll:   139<br />Winfield Township School District","mpv:  282700<br />slrpp: 20012.27<br />enroll: 28712<br />Elizabeth City School District","mpv:  257200<br />slrpp: 19644.58<br />enroll:  9363<br />Plainfield City School District","mpv:  272700<br />slrpp: 20274.93<br />enroll:  4136<br />Rahway City School District","mpv:  281800<br />slrpp: 23001.62<br />enroll:  6342<br />Linden City School District","mpv:  255200<br />slrpp: 26761.87<br />enroll:   434<br />Allamuchy Township School District","mpv:  193700<br />slrpp: 28246.45<br />enroll:   211<br />Alpha Borough School District","mpv:  201100<br />slrpp: 20645.07<br />enroll:   679<br />Belvidere Town School District","mpv:  345600<br />slrpp: 21443.53<br />enroll:   466<br />Blairstown Township School District","mpv:  328500<br />slrpp: 27925.37<br />enroll:   201<br />Franklin Township School District","mpv:  370900<br />slrpp: 19598.13<br />enroll:   148<br />Frelinghuysen Township School District","mpv:  341000<br />slrpp: 27717.52<br />enroll:   686<br />Greenwich Township School District","mpv:  274300<br />slrpp: 19063.99<br />enroll:  1926<br />Hackettstown Town School District","mpv:  281300<br />slrpp: 31061.73<br />enroll:   243<br />Harmony Township School District","mpv:  319500<br />slrpp: 40665.27<br />enroll:   131<br />Hope Township School District","mpv:  305500<br />slrpp: 28157.55<br />enroll:   174<br />Knowlton Township School District","mpv:  269600<br />slrpp: 27070.12<br />enroll:   737<br />Lopatcong Township School District","mpv:  314600<br />slrpp: 19493.81<br />enroll:   607<br />Mansfield Township School District","mpv:  198500<br />slrpp: 29213.88<br />enroll:   275<br />Oxford Township School District","mpv:  200500<br />slrpp: 30875.00<br />enroll:   304<br />Pohatcong Township School District","mpv:  214300<br />slrpp: 19718.03<br />enroll:   481<br />Washington Borough School District","mpv:  306900<br />slrpp: 25071.09<br />enroll:   422<br />Washington Township School District","mpv:  272100<br />slrpp: 36178.72<br />enroll:   269<br />White Township School District","mpv:  276800<br />slrpp: 34315.78<br />enroll:   662<br />Great Meadows Regional School District","mpv:  342200<br />slrpp: 24402.20<br />enroll:   817<br />North Warren Regional School District","mpv:  136800<br />slrpp: 20970.03<br />enroll:  3937<br />Phillipsburg Town School District","mpv:  277100<br />slrpp: 24404.26<br />enroll:  1770<br />Warren Hills Regional School District","mpv: 1265600<br />slrpp:       NA<br />enroll:    NA<br />Allenhurst Borough School District","mpv:  776500<br />slrpp:       NA<br />enroll:    NA<br />Cape May Point Borough School District","mpv:  153700<br />slrpp:       NA<br />enroll:    NA<br />Chesilhurst Borough School District","mpv:  257100<br />slrpp:       NA<br />enroll:    NA<br />Corbin City School District","mpv:  157200<br />slrpp:       NA<br />enroll:    NA<br />Hi-Nella Borough School District","mpv:  655500<br />slrpp:       NA<br />enroll:    NA<br />Interlaken Borough School District","mpv:      NA<br />slrpp:       NA<br />enroll:    NA<br />Joint Base McGuire-Dix-Lakehurst","mpv:  441500<br />slrpp:       NA<br />enroll:    NA<br />Lake Como Borough School District","mpv: 1017900<br />slrpp:       NA<br />enroll:    NA<br />Loch Arbour School District","mpv:  890900<br />slrpp:       NA<br />enroll:    NA<br />Longport Borough School District","mpv:  190100<br />slrpp:       NA<br />enroll:    NA<br />Newfield Elementary School District","mpv:      NA<br />slrpp:       NA<br />enroll:    NA<br />Pine Valley Borough School District","mpv: 1737500<br />slrpp:       NA<br />enroll:    NA<br />Rockleigh Borough School District","mpv:  671700<br />slrpp:       NA<br />enroll:    NA<br />Sea Isle City School District","mpv:  709700<br />slrpp:       NA<br />enroll:    NA<br />Seaside Park Borough School District","mpv:  290800<br />slrpp:       NA<br />enroll:    NA<br />West Wildwood Borough School District"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(0,0,0,1)","opacity":0.5,"size":[31.221329939862791,32.143194890401929,37.795275590551185,4.4590586813105162,4.3992563494790629,5.3484938372121835,3.5208096713069525,1.916486039146265,4.9149266534924561,10.426133897157062,3.3300734627611637,18.860224102280927,18.654054088110481,9.2237471738537913,22.050803488788919,17.323967234614901,22.629397512399667,19.18512020821078,11.827457917497734,15.459202232653206,16.728662667201409,14.036769585303976,24.135260207313596,7.7643615606203324,16.201000699926674,3.8052300580903951,10.90947724364417,10.713482653650932,11.22224277451366,4.9791767876966517,2.4285509871084896,15.70511444987009,10.574125134422323,6.609579643917507,11.518862331802207,5.5398611336497208,2.5352727253541079,5.6970069068402509,5.618983407908777,5.5843077233200837,2.2076414186722482,11.231679840883087,6.3312129472720038,4.4550968336323979,10.675506098752718,6.5181117798097024,7.9508856191852493,4.9542896361468776,9.4674887812793127,9.6173791885481634,5.3781256087655676,6.0077857741849288,6.3423594575695308,4.202173623807993,13.470572084351621,7.2953413339053279,12.037595587530511,6.292044660926611,9.4823982216675411,4.7169281940083394,8.0260416161742825,3.7772842939099909,6.3645939147486628,4.5994129268009702,8.3028825955029699,5.6378075256547806,10.692034218416955,9.4432107347749774,10.12889475641278,5.9457415732257024,5.7709171132921018,5.8830430733311907,3.3459436406451761,8.4587991076198872,8.1244438400039396,8.8804168423124636,4.3426979010543976,4.6717890867931651,6.9354962951792842,4.809607545908726,5.2249090760045069,8.0106259643211839,11.601348276850908,6.6309181325004092,8.5129026793234086,9.0576095446237819,9.8853845829613096,7.2296928681167136,8.9121752515586738,14.251503181052398,6.5828092639841929,6.3088608459111377,4.2481460608422363,9.6777801083298431,7.9686331538100577,2.413964963359474,3.1892255459320364,11.300644194318604,11.501987116554686,6.3256323265778054,7.5942009122536218,6.7313522623938207,9.9689871647286292,5.1017918327447536,6.7287284648813968,8.2409756783500914,14.438609868044551,7.5147272472445108,13.264499017013398,7.0841219578626431,4.2688789612608691,1.9348260363404899,5.2485131739206912,9.5436534620211937,3.8696520726809798,10.325724816593819,4.6109162701367312,5.6690421553929395,12.522195370696506,7.4723107621774174,4.5180695234037183,6.6069074870895106,4.3548794057711904,8.8625027253176949,9.7396195880732161,4.2605979079510856,11.881083946258146,6.2044350023904808,12.199337766923309,2.5002050236486948,6.280808857924117,5.8014351320841469,13.128010073379947,8.624187176158193,7.0416193426139051,3.2057930628493883,5.1328480049212812,5.0913976789947686,2.825161048579651,4.9649708335316651,0,5.942770930235759,10.982073456975531,2.1509218835495703,7.6544181477258189,15.58434315479122,8.7944978629293491,9.3869448273382172,11.524992647473956,7.3291497833512151,4.5453457407126123,6.5801262358458494,5.3682665251151827,4.7131831134702926,11.338084310785879,3.3300734627611637,4.1471855905357398,8.6833624658285355,3.1050622679564204,14.967054703797462,8.5294808891435885,9.8531787195362757,7.2321349194844915,2.5972016727408254,3.366987518790487,10.023747672738526,3.7959376631256894,3.9105058369177121,3.8191262579263334,2.8685798986112374,12.999599166339173,8.1893884691871595,5.3616837310693475,4.1979693469936565,5.5175035746085364,10.359870825189208,5.3781256087655676,12.814907234585689,3.7017309756046584,16.423995497528949,5.865006107813918,19.645330226954719,8.3706623535561562,8.7924897574429757,1.4677561466689779,4.510246020523824,7.6728514511144041,9.5971610732912858,1.8698492202838881,7.1511069160488381,1.8698492202838881,3.1277272568438077,2.9052796410486872,6.8535377738733878,2.3245275925176809,8.6589251871701016,5.712483726736715,2.8314045060253981,4.3223191030019983,3.2873784474489836,2.5629814469171377,4.4232743060325088,1.4677561466689779,4.2314866003489104,4.2314866003489104,3.7866224646348901,2.0240348451036123,5.5270964596979626,13.987621522763394,19.44294467996933,15.079891015324819,6.1529924609868951,12.668002827602132,9.697830149822515,4.8607361699923324,7.4841172330608732,2.9832473305061904,8.1893884691871595,14.653480135512915,13.026738233804776,4.8716224908401404,12.10926163393407,4.0828177068549669,16.041078855081828,8.9121752515586738,15.377888681502826,7.7848030919864568,15.06231606158679,7.2321349194844915,12.236914302063328,6.8070024639324762,3.5208096713069525,7.0516430051152836,8.4232358031503356,3.7959376631256894,6.9938107613816971,5.5014782617194538,6.5962080347456,14.368730386531226,3.1107439968946209,6.5640050366899736,6.7313522623938207,3.5706114329146943,7.5872220157766543,15.948342315842606,2.5002050236486948,10.201852924460098,3.6488807086734427,2.8685798986112374,9.0067786127060536,7.6590306327167079,7.3986901415281316,5.6221251377644919,9.9121428686227055,2.9535033440519469,5.7892472296891224,10.046622927581753,8.9851866529681708,16.357200355514305,7.175757478347081,13.827641648039176,4.1301189107615608,3.5557441451647449,1.8220190654737913,1.6490520086864,3.9014641928267126,6.5586224978293144,3.6440381309475827,3.5408144327097393,10.427827413597557,3.1614200845789568,2.1426965307301864,1.7927085362551889,3.6148464340583568,4.3264025418938141,10.067692415095051,3.4035012319662381,1.1885541860471518,4.6944128950759367,1.7629107512788209,9.5842727936131276,7.2662374625549164,4.3710686043720548,3.9240292404052326,5.0705454507082157,5.7155740616810355,13.577638507439802,11.138534777728781,20.349109838283276,11.17651795625881,11.627194966473594,11.598303703047831,10.570784706244066,18.45227981416793,11.78408170060915,4.1215590696205906,6.7077011370119282,17.079651854755348,7.6127800248206157,4.9756291016119647,17.333138477580277,8.9989329852478708,8.6098425517024797,5.1602965856875329,15.529860215162392,14.536119737671875,15.90288165848556,14.841468078177598,17.450914203478497,10.957928158163279,8.8843928518433586,7.7484253083922683,22.146690896400212,19.872327428203562,6.2554545136876154,5.8800407546496505,3.3141272891061928,2.2315085060167221,4.0784903948739659,2.9950622176560566,4.3182318026996587,2.4430499277837381,5.8287647343792752,5.8408701778125929,2.3396712549062433,7.7438660698048833,11.488161684639831,19.553432282863199,2.6039917540608686,10.288033311025865,14.080730762728141,7.6150992267098561,6.1242265602824499,5.4369046835112522,13.280464317496602,7.3939152522656784,12.998240725542702,11.625676163649992,18.42929824243037,6.2582767355833671,2.886988086865657,3.0993701233569069,11.978774832000299,11.050997604133505,4.5994129268009702,10.069446215720685,7.1164526806655539,1.7120956998159249,5.9397988015526195,5.9397988015526195,2.1010868119039965,4.1129814139761489,7.1486371846969723,2.5282980966640767,3.4447572986539625,4.7985805366456429,8.9280120925729598,11.004561271718927,4.4984852546899861,5.9368251849449534,3.4498796171691271,4.8607361699923324,8.5666645616711463,14.294803997994185,6.5532355379899414,7.0641525821033611,3.809867756408861,6.5666946516509039,6.2044350023904808,7.5848942899922287,10.733243167189983,5.6628090120507961,5.9249157944463366,7.3267400677564574,6.9862321309151101,3.1614200845789568,10.165439293970561,8.0436233275306659,5.6814879270257412,9.6668261941140354,4.2730134696985145,4.9578525921170362,3.500690594190174,11.345868784281578,9.9636717886297514,4.5180695234037183,13.572435350127666,3.575553458024419,12.805257972674033,7.0416193426139051,3.1947575978710421,15.999193193234515,5.4982675942375199,8.6589251871701016,12.802499704904248,3.4447572986539625,4.4312513626588474,8.9655124742194641,11.198615315974791,8.4441735331982741,5.1052518479493578,12.099049617005576,9.3756511258427366,2.0671960927400854,1.3937033214099177,9.0361390468074365,17.479223932268464,8.9576307034878244,2.1754113468767682,2.1344394806304345,17.125082033033745,11.924107304179271,3.6343336180297818,15.459202232653206,2.247279080373306,7.5615776215723765,2.8063473362048228,10.210503695898716,4.2439873265503696,2.2394076758719561,6.8561138077075903,9.9902203882834932,5.1910027537289665,2.7810644124340036,8.8105462300417514,23.375570482155858,3.2112965743049209,10.562429013920859,10.111446173678313,7.4510119708392075,4.4232743060325088,6.104009770418477,9.0576095446237819,5.5270964596979626,4.6944128950759367,6.5289392154783474,7.6866474193138288,5.6378075256547806,6.3784510918640729,5.9842257392134499,5.640938771397801,16.698023097644516,10.810290727982547,6.1759087133470176,19.462915028525178,5.8317934509953924,5.5302903903081804,22.632518593376151,3.5903387180290034,2.0414088534274835,2.4285509871084896,7.7711813788526625,2.3472064475379684,3.2002800870367589,8.7844527450161962,7.2345761465310598,7.8884548165117652,3.3141272891061928,3.3722279694617585,6.7024339974976712,4.2730134696985145,13.716090396171294,8.3431932373020086,8.3092604348217343,7.1659074291213845,17.396186769386784,15.890662769506331,5.2753599637800148,16.228226546275963,7.3291497833512151,12.901425835533827,10.86406144093317,9.2026642956023323,3.865086109943082,7.7118759286224092,4.7542167441886072,8.4358046772936373,3.9865319324150454,5.3649761377235397,4.2105695834751513,3.9375061979053481,2.6039917540608686,3.8237471020337694,2.929490723318477,3.1781325539012655,4.8716224908401404,2.6841332625575913,2.9891606114930598,7.3891372774518507,2.886988086865657,2.2076414186722482,10.635733817306843,3.2712241558420185,2.9950622176560566,10.31374700599722,6.0691957425521519,5.6783790414703725,7.4533815088131927,5.773976173731314,4.9827219478379883,4.6944128950759367,9.5492026359344226,8.9635426812759444,11.665100768815513,3.6921781055486078,10.502071782570521,7.1954171247182135,3.018553261572146,9.2447819723775844,10.239861652950136,8.4754831457389539,14.124555116320039,8.9596017961959138,15.967153897012871,14.920971214355475,2.2156256813294237,31.843493903238308,18.184296412586775,12.085907202101112,14.965874848472321,3.9150188284217422,2.7297961563957198,4.8969297909572145,4.0567845973668497,2.6643238902543911,2.2862296246724143,4.9221069738343823,8.2474013913562807,2.929490723318477,2.1509218835495703,2.4789262960585181,5.1017918327447536,4.6300249979733259,3.1164153671398136,3.2766177689949707,4.1215590696205906,3.8605147468887742,3.0822306180053509,4.8352394387420921,5.3715548969550238,11.791571742489538,7.906342492125022,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null],"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(0,0,0,1)"}},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":30.611872146118724,"r":7.3059360730593621,"b":44.56621004566211,"l":66.484018264840202},"plot_bgcolor":"rgba(255,255,255,1)","paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-13375.050000000003,2095876.05],"tickmode":"array","ticktext":["$0","$500,000","$1,000,000","$1,500,000","$2,000,000"],"tickvals":[0,500000,1000000,1500000,2000000],"categoryorder":"array","categoryarray":["$0","$500,000","$1,000,000","$1,500,000","$2,000,000"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.6529680365296811,"tickwidth":0.66417600664176002,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.68949771689498},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"y","title":{"text":"mpv","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[12460.177866380365,93829.765144536126],"tickmode":"array","ticktext":["$25,000","$50,000","$75,000"],"tickvals":[25000,50000,75000],"categoryorder":"array","categoryarray":["$25,000","$50,000","$75,000"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.6529680365296811,"tickwidth":0.66417600664176002,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.68949771689498},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"x","title":{"text":"slrpp","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":"transparent","line":{"color":"rgba(51,51,51,1)","width":0.66417600664176002,"linetype":"solid"},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":false,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.8897637795275593,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.68949771689498},"title":{"text":"enroll","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724}}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"1b634843a76a":{"x":{},"y":{},"size":{},"text":{},"type":"scatter"}},"cur_data":"1b634843a76a","visdat":{"1b634843a76a":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+</section>
+<section id="reminders-of-office-hours-and-capstone" class="slide level2">
+<h2>Reminders of office hours and capstone</h2>
+
+<div class="quarto-auto-generated-content">
+<p><img src="../../images/primary_full-color.png" class="slide-logo"></p>
+<div class="footer footer-default">
+
+</div>
+</div>
+</section></section>
+    </div>
+  </div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="../../site_libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="../../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="../../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="../../site_libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
+  <script src="../../site_libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="../../site_libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="../../site_libs/revealjs/plugin/search/search.js"></script>
+  <script src="../../site_libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="../../site_libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'chalkboard': {"buttons":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: false,
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'none',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1050,
+
+        height: 700,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
+    <script id="quarto-html-after-body" type="application/javascript">
+    window.document.addEventListener("DOMContentLoaded", function (event) {
+      const toggleBodyColorMode = (bsSheetEl) => {
+        const mode = bsSheetEl.getAttribute("data-mode");
+        const bodyEl = window.document.querySelector("body");
+        if (mode === "dark") {
+          bodyEl.classList.add("quarto-dark");
+          bodyEl.classList.remove("quarto-light");
+        } else {
+          bodyEl.classList.add("quarto-light");
+          bodyEl.classList.remove("quarto-dark");
+        }
+      }
+      const toggleBodyColorPrimary = () => {
+        const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+        if (bsSheetEl) {
+          toggleBodyColorMode(bsSheetEl);
+        }
+      }
+      toggleBodyColorPrimary();  
+      const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+      tabsets.forEach(function(tabset) {
+        const tabby = new Tabby('#' + tabset.id);
+      });
+      const isCodeAnnotation = (el) => {
+        for (const clz of el.classList) {
+          if (clz.startsWith('code-annotation-')) {                     
+            return true;
+          }
+        }
+        return false;
+      }
+      const clipboard = new window.ClipboardJS('.code-copy-button', {
+        text: function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+        }
+      });
+      clipboard.on('success', function(e) {
+        // button target
+        const button = e.trigger;
+        // don't keep focus
+        button.blur();
+        // flash "checked"
+        button.classList.add('code-copy-button-checked');
+        var currentTitle = button.getAttribute("title");
+        button.setAttribute("title", "Copied!");
+        let tooltip;
+        if (window.bootstrap) {
+          button.setAttribute("data-bs-toggle", "tooltip");
+          button.setAttribute("data-bs-placement", "left");
+          button.setAttribute("data-bs-title", "Copied!");
+          tooltip = new bootstrap.Tooltip(button, 
+            { trigger: "manual", 
+              customClass: "code-copy-button-tooltip",
+              offset: [0, -8]});
+          tooltip.show();    
+        }
+        setTimeout(function() {
+          if (tooltip) {
+            tooltip.hide();
+            button.removeAttribute("data-bs-title");
+            button.removeAttribute("data-bs-toggle");
+            button.removeAttribute("data-bs-placement");
+          }
+          button.setAttribute("title", currentTitle);
+          button.classList.remove('code-copy-button-checked');
+        }, 1000);
+        // clear code selection
+        e.clearSelection();
+      });
+      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+        const config = {
+          allowHTML: true,
+          maxWidth: 500,
+          delay: 100,
+          arrow: false,
+          appendTo: function(el) {
+              return el.closest('section.slide') || el.parentElement;
+          },
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'light-border',
+          placement: 'bottom-start',
+        };
+        if (contentFn) {
+          config.content = contentFn;
+        }
+        if (onTriggerFn) {
+          config.onTrigger = onTriggerFn;
+        }
+        if (onUntriggerFn) {
+          config.onUntrigger = onUntriggerFn;
+        }
+          config['offset'] = [0,0];
+          config['maxWidth'] = 700;
+        window.tippy(el, config); 
+      }
+      const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+      for (var i=0; i<noterefs.length; i++) {
+        const ref = noterefs[i];
+        tippyHover(ref, function() {
+          // use id or data attribute instead here
+          let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+          try { href = new URL(href).hash; } catch {}
+          const id = href.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          return note.innerHTML;
+        });
+      }
+      const findCites = (el) => {
+        const parentEl = el.parentElement;
+        if (parentEl) {
+          const cites = parentEl.dataset.cites;
+          if (cites) {
+            return {
+              el,
+              cites: cites.split(' ')
+            };
+          } else {
+            return findCites(el.parentElement)
+          }
+        } else {
+          return undefined;
+        }
+      };
+      var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+      for (var i=0; i<bibliorefs.length; i++) {
+        const ref = bibliorefs[i];
+        const citeInfo = findCites(ref);
+        if (citeInfo) {
+          tippyHover(citeInfo.el, function() {
+            var popup = window.document.createElement('div');
+            citeInfo.cites.forEach(function(cite) {
+              var citeDiv = window.document.createElement('div');
+              citeDiv.classList.add('hanging-indent');
+              citeDiv.classList.add('csl-entry');
+              var biblioDiv = window.document.getElementById('ref-' + cite);
+              if (biblioDiv) {
+                citeDiv.innerHTML = biblioDiv.innerHTML;
+              }
+              popup.appendChild(citeDiv);
+            });
+            return popup.innerHTML;
+          });
+        }
+      }
+    });
+    </script>
+    
+
+</body></html>

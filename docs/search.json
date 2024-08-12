@@ -150,15 +150,15 @@
     "objectID": "slides/week_01/week_01_course_intro.html#agenda",
     "href": "slides/week_01/week_01_course_intro.html#agenda",
     "title": "Introduction to Education Finance Equity, R, RStudio, and GitHub",
-    "section": "Agenda",
-    "text": "Agenda\n\nIntroductions (15 min)\nCourse Overview (5 min)\nIntroduction to Education Funding Policy (30 min)\nIntroduction to R and RStudio (25 min)\nBreak (10 min)\nRStudio Setup and Workflow Tips (10 min)\nIntroduction to Git and GitHub (20 min)\nHomework assignment (5 min)"
+    "section": "",
+    "text": "Introductions (15 min)\nCourse Overview (5 min)\nIntroduction to Education Funding Policy (30 min)\nIntroduction to R and RStudio (25 min)\nBreak (10 min)\nRStudio Setup and Workflow Tips (10 min)\nIntroduction to Git and GitHub (20 min)\nHomework assignment (5 min)"
   },
   {
     "objectID": "slides/week_01/week_01_course_intro.html#meet-your-instructors",
     "href": "slides/week_01/week_01_course_intro.html#meet-your-instructors",
     "title": "Introduction to Education Finance Equity, R, RStudio, and GitHub",
-    "section": "Meet your instructors",
-    "text": "Meet your instructors\n\n\n\n\n\n\n\nKrista Kaput, Senior Analyst\n\n\n\n\n\n\nJennifer Schiess, Senior Partner & Policy and Evaluation Practice Leader\n\n\n\n\n\n\nAlex Spurrier, Associate Partner\n\n\n\n\n\n\nBonnie O’Keefe, Senior Associate Partner"
+    "section": "",
+    "text": "Krista Kaput, Senior Analyst\n\n\n\n\n\n\nJennifer Schiess, Senior Partner & Policy and Evaluation Practice Leader\n\n\n\n\n\n\nAlex Spurrier, Associate Partner\n\n\n\n\n\n\nBonnie O’Keefe, Senior Associate Partner"
   },
   {
     "objectID": "slides/week_01/week_01_course_intro.html#getting-to-know-cohort-3",
@@ -172,7 +172,7 @@
     "href": "slides/week_01/week_01_course_intro.html#goals-for-this-course",
     "title": "Introduction to Education Finance Equity, R, RStudio, and GitHub",
     "section": "Goals for this course",
-    "text": "Goals for this course\n\n\n\nOur primary goal is to prepare advocates to leverage data analysis and policy knowledge to advocate effectively for school finance reforms that can improve the educational success of historically underserved students.\n\n\n\nWe will achieve this by helping you:\n\nLearn R for data analysis and visualization\nDevelop an understanding of K-12 school funding policies nationally and deep understanding of your state’s system\nUse R to support in-depth education finance analysis that is:\n\nOrganized\nWell-documented\nReproducible\n\nProduce high-quality, effective data visualizations to make your analysis a more powerful, easy-to-understand tool for advocacy"
+    "text": "Goals for this course\n\n\n\n\n\n\nOur primary goal is to prepare advocates to leverage data analysis and policy knowledge to advocate effectively for school finance reforms that can improve the educational success of historically underserved students.\n\n\n\nWe will achieve this by helping you:\n\nLearn R for data analysis and visualization\nDevelop an understanding of K-12 school funding policies nationally and deep understanding of your state’s system\nUse R to support in-depth education finance analysis that is:\n\nOrganized\nWell-documented\nReproducible\n\nProduce high-quality, effective data visualizations to make your analysis a more powerful, easy-to-understand tool for advocacy"
   },
   {
     "objectID": "slides/week_01/week_01_course_intro.html#course-website-and-class-structure",
@@ -200,7 +200,7 @@
     "href": "slides/week_01/week_01_course_intro.html#why-does-education-finance-equity-matter",
     "title": "Introduction to Education Finance Equity, R, RStudio, and GitHub",
     "section": "Why does education finance equity matter?",
-    "text": "Why does education finance equity matter?\n\n\n\nThe longstanding and persistent reality is that vast funding inequities in our state public education systems render the education available to millions of American public school students profoundly unequal.”\n– U.S. Commission on Civil Rights, 2018\n\n\n\nSchool finance equity is a critical component of educational equity overall. In an equitable school finance system, schools would receive funds they need to provide a high-quality education for all students. School funding should be based on the needs of students, not the property wealth of individual communities or a checklist of programs.\nAcross the country, almost no states have fully achieved this goal.\nInequity in school finance holds back countless other efforts to improve educational outcomes. Achieving both adequacy (enough funding) and equity (funding distributed to where it is most needed) will not solve every educational problem, but it will enable more schools to provide their students with an excellent education."
+    "text": "Why does education finance equity matter?\n\n\n\n\n\n\nThe longstanding and persistent reality is that vast funding inequities in our state public education systems render the education available to millions of American public school students profoundly unequal.”\n– U.S. Commission on Civil Rights, 2018\n\n\n\nSchool finance equity is a critical component of educational equity overall. In an equitable school finance system, schools would receive funds they need to provide a high-quality education for all students. School funding should be based on the needs of students, not the property wealth of individual communities or a checklist of programs.\nAcross the country, almost no states have fully achieved this goal.\nInequity in school finance holds back countless other efforts to improve educational outcomes. Achieving both adequacy (enough funding) and equity (funding distributed to where it is most needed) will not solve every educational problem, but it will enable more schools to provide their students with an excellent education."
   },
   {
     "objectID": "slides/week_01/week_01_course_intro.html#follow-the-money-where-does-it-all-come-from",
@@ -242,7 +242,7 @@
     "href": "slides/week_01/week_01_course_intro.html#we-are-focused-on-inequities-at-the-district-level-where-state-laws-shape-funding-distribution",
     "title": "Introduction to Education Finance Equity, R, RStudio, and GitHub",
     "section": "We are focused on inequities at the district level, where state laws shape funding distribution",
-    "text": "We are focused on inequities at the district level, where state laws shape funding distribution\nRelying on local property taxes to fund local schools (as most states do) ties school funding closely to housing and property wealth, fueling disparities in funding by race, ethnicity, and class — unless states act to balance the scales.\nProposals to address that challenge – changing structuring funding formulas to align with student needs rather than political clout – face huge barriers\n\n\n\nExample\n\nTaxable property wealth in Bridgeport, Connecticut, is equivalent to more than $500,000 per pupil.\nNeighboring Fairfield, Connecticut, has nearly $2 million in taxable property wealth per pupil.\nFor these communities to generate the same amount of per-pupil funding for their local public schools, Bridgeport would need to tax itself at a significantly higher rate than Fairfield. So lower wealth communities often pay taxes at a higher rate to generate less funds than their neighbors.\nAnd districts like Bridgeport with lower property wealth and higher-needs students rely on states to fill the gap. Which doesn’t always happen.\n\n\n\n\n."
+    "text": "We are focused on inequities at the district level, where state laws shape funding distribution\nRelying on local property taxes to fund local schools (as most states do) ties school funding closely to housing and property wealth, fueling disparities in funding by race, ethnicity, and class — unless states act to balance the scales.\nProposals to address that challenge – changing structuring funding formulas to align with student needs rather than political clout – face huge barriers\n\n\n\n\n\n\nExample\n\nTaxable property wealth in Bridgeport, Connecticut, is equivalent to more than $500,000 per pupil.\nNeighboring Fairfield, Connecticut, has nearly $2 million in taxable property wealth per pupil.\nFor these communities to generate the same amount of per-pupil funding for their local public schools, Bridgeport would need to tax itself at a significantly higher rate than Fairfield. So lower wealth communities often pay taxes at a higher rate to generate less funds than their neighbors.\nAnd districts like Bridgeport with lower property wealth and higher-needs students rely on states to fill the gap. Which doesn’t always happen.\n\n\n\n\n."
   },
   {
     "objectID": "slides/week_01/week_01_course_intro.html#how-can-we-assess-state-funding-policies",
@@ -256,7 +256,7 @@
     "href": "slides/week_01/week_01_course_intro.html#there-are-different-ways-for-states-to-distribute-educational-dollars-some-are-better-aligned-to-student-needs-than-others",
     "title": "Introduction to Education Finance Equity, R, RStudio, and GitHub",
     "section": "There are different ways for states to distribute educational dollars – some are better-aligned to student needs than others",
-    "text": "There are different ways for states to distribute educational dollars – some are better-aligned to student needs than others\n\n\n\nOur perspective, in this course and in general, is that student-based, weighted funding formulas are the best structure to meet our 4 principles.\nBut that structure alone will not ensure equity and adequacy.\n\n\n\n\n\n\n\n\n\n\nCategory\nDefinition\n\n\n\n\nStudent-based\nSchool districts receive funding based on the number of students enrolled or in attendance. In many cases, districts may additionally receive funding weights or supplement based on anticipated student learning needs, with extra funds tied to characteristics of enrolled students, such as low income, disability, and/or status as an English learner.\n\n\nProgram-based\nThis system allocates dollars to school districts based on the cost of educational programs within those districts.\n\n\nResource-based\nSchool districts receive funding based on the anticipated cost of resources and inputs, such as staff salaries and instructional materials."
+    "text": "There are different ways for states to distribute educational dollars – some are better-aligned to student needs than others\n\n\n\n\n\n\nOur perspective, in this course and in general, is that student-based, weighted funding formulas are the best structure to meet our 4 principles.\nBut that structure alone will not ensure equity and adequacy.\n\n\n\n\n\n\n\n\n\n\nCategory\nDefinition\n\n\n\n\nStudent-based\nSchool districts receive funding based on the number of students enrolled or in attendance. In many cases, districts may additionally receive funding weights or supplement based on anticipated student learning needs, with extra funds tied to characteristics of enrolled students, such as low income, disability, and/or status as an English learner.\n\n\nProgram-based\nThis system allocates dollars to school districts based on the cost of educational programs within those districts.\n\n\nResource-based\nSchool districts receive funding based on the anticipated cost of resources and inputs, such as staff salaries and instructional materials."
   },
   {
     "objectID": "slides/week_01/week_01_course_intro.html#school-finance-reform-efforts-can-be-helped-or-hindered-by-several-conditions-in-your-state",
@@ -270,7 +270,7 @@
     "href": "slides/week_01/week_01_course_intro.html#advocates-need-to-be-at-the-table-with-good-data-to-help-more-states-adopt-better-funding-formulas",
     "title": "Introduction to Education Finance Equity, R, RStudio, and GitHub",
     "section": "Advocates need to be at the table with good data to help more states adopt better funding formulas",
-    "text": "Advocates need to be at the table with good data to help more states adopt better funding formulas\nToo many states have outdated, inequitable, and/or inadequate school funding formulas, created over the course of decades of political compromise, intentionally complex and opaque, understood by a select few with disincentives to change.\nTo change this status quo, advocates need better technical capacity:\n\n“The ability to use rigorous data and research to help define the problem and identify potential remedies can help build a compelling, evidence-based case for why policymakers should act.”\n– Dammu & O’Keefe, Making Change\n\n\n\n\nThe ultimate change we hope to achieve through this course:\nMore states across the country with adequate, equitable, transparent funding formulas that set the conditions for higher levels of student success."
+    "text": "Advocates need to be at the table with good data to help more states adopt better funding formulas\nToo many states have outdated, inequitable, and/or inadequate school funding formulas, created over the course of decades of political compromise, intentionally complex and opaque, understood by a select few with disincentives to change.\nTo change this status quo, advocates need better technical capacity:\n\n“The ability to use rigorous data and research to help define the problem and identify potential remedies can help build a compelling, evidence-based case for why policymakers should act.”\n– Dammu & O’Keefe, Making Change\n\n\n\n\n\n\n\nThe ultimate change we hope to achieve through this course:\nMore states across the country with adequate, equitable, transparent funding formulas that set the conditions for higher levels of student success."
   },
   {
     "objectID": "slides/week_01/week_01_course_intro.html#what-are-r-and-rstudio-and-how-do-they-work-together",
@@ -1877,15 +1877,15 @@
     "objectID": "slides/week_01/week_01_course_intro.html#getting-to-know-cohort-4",
     "href": "slides/week_01/week_01_course_intro.html#getting-to-know-cohort-4",
     "title": "Introduction to Education Finance Equity, R, RStudio, and GitHub",
-    "section": "Getting to know Cohort 4",
-    "text": "Getting to know Cohort 4\n\n\n\n\n\n\n\n\n\n\n−+\n10:00\n\n\n\n\nPlease share your:\n\nName\nState\nOrganization\nRole\nAny prior experience with R?\nWhy did you take this course?"
+    "section": "",
+    "text": "−+\n10:00\n\n\n\n\nPlease share your:\n\nName\nState\nOrganization\nRole\nAny prior experience with R?\nWhy did you take this course?"
   },
   {
     "objectID": "slides/week_01/week_01_course_intro.html#follow-the-money-where-does-it-come-from",
     "href": "slides/week_01/week_01_course_intro.html#follow-the-money-where-does-it-come-from",
     "title": "Introduction to Education Finance Equity, R, RStudio, and GitHub",
     "section": "Follow the money: where does it come from?",
-    "text": "Follow the money: where does it come from?\n\n\n\n\nNote: The ESSER I, II, and III funding inflated the federal FY22 percentage. Normally, federal funding accounts for ~8% of overall funding."
+    "text": "Follow the money: where does it come from?\n\n\n\n\n\n\n\n\n\n\n\n\nNote: The ESSER I, II, and III funding inflated the federal FY22 percentage. Normally, federal funding accounts for ~8% of overall funding."
   },
   {
     "objectID": "slides/week_01/week_01_course_intro.html#follow-the-money-where-does-it-come-from-1",
@@ -1998,7 +1998,7 @@
     "href": "materials.html#materials",
     "title": "Class Materials",
     "section": "Materials",
-    "text": "Materials\n\n\n\n\n\nWeek\n\n\nDates\n\n\nTopic\n\n\n\n\n\n\nWeek 01\n\n\nJune 4\n\n\nIntroduction to School Finance Equity\n\n\n\n\nWeek 02\n\n\nJune 11\n\n\nBasic Data Analysis and Visualization in R\n\n\n\n\nWeek 03\n\n\nJune 18\n\n\nStudent-Based Funding Formulas and Advocacy Considerations\n\n\n\n\nWeek 04\n\n\nJune 25\n\n\nData Cleaning and Processing in R\n\n\n\n\nWeek 05\n\n\nJuly 9\n\n\nTidycensus and Reproducible Data in R\n\n\n\n\nWeek 06\n\n\nJuly 16\n\n\nMapping in R\n\n\n\n\nWeek 07\n\n\nJuly 23\n\n\nModeling state funding policies in R Part I\n\n\n\n\nWeek 08\n\n\nJuly 30\n\n\nModeling state funding policies in R Part II\n\n\n\n\nWeek 09\n\n\nAugust 06\n\n\nModeling Local Share Policies and Builiding Quarto Presentations\n\n\n\n\n\nNo matching items",
+    "text": "Materials\n\n\n\n\n\nWeek\n\n\nDates\n\n\nTopic\n\n\n\n\n\n\nWeek 01\n\n\nJune 4\n\n\nIntroduction to School Finance Equity\n\n\n\n\nWeek 02\n\n\nJune 11\n\n\nBasic Data Analysis and Visualization in R\n\n\n\n\nWeek 03\n\n\nJune 18\n\n\nStudent-Based Funding Formulas and Advocacy Considerations\n\n\n\n\nWeek 04\n\n\nJune 25\n\n\nData Cleaning and Processing in R\n\n\n\n\nWeek 05\n\n\nJuly 9\n\n\nTidycensus and Reproducible Data in R\n\n\n\n\nWeek 06\n\n\nJuly 16\n\n\nMapping in R\n\n\n\n\nWeek 07\n\n\nJuly 23\n\n\nModeling state funding policies in R Part I\n\n\n\n\nWeek 08\n\n\nJuly 30\n\n\nModeling state funding policies in R Part II\n\n\n\n\nWeek 09\n\n\nAugust 06\n\n\nModeling Local Share Policies and Builiding Quarto Presentations\n\n\n\n\nWeek 10\n\n\nAugust 13\n\n\nAdvanced Data Visualization\n\n\n\n\n\nNo matching items",
     "crumbs": [
       "Class Materials"
     ]
@@ -2956,5 +2956,201 @@
     "title": "Modeling Local Share Policies and Building Quarto Presentations",
     "section": "Office Hours!",
     "text": "Office Hours!\nWe will have an optional 45-minute class next week where we will go over final advanced data visualizations, including ggrepel and plotly.\nA couple of reminders:\n\nAlex and Krista will have office hours the weeks of August 12 and August 19. We expect you to sign up for at least ONE office hours slot to provide us with an update on your project.\nFinal capstone projects will be on Tuesday, August 27 from 1-3 PM ET. If you want to go at a specific time or slot (e.g. first or last), please let Krista know!"
+  },
+  {
+    "objectID": "slides/week_10/week_10.html#taking-your-data-visualization-skills-to-the-next-level",
+    "href": "slides/week_10/week_10.html#taking-your-data-visualization-skills-to-the-next-level",
+    "title": "Advanced Data Visualization Techniques",
+    "section": "Taking your data visualization skills to the next level",
+    "text": "Taking your data visualization skills to the next level\n\nCreating charts using the ggplot skills you’ve learned so far can cover 80% of your data visualization needs, but a few extra techniques can help fill in the gaps\nWe’ve emphasized the importance of understanding your data well - especially outliers\nTwo techniques can help you understand your data more deeply:\n\nLabeled data presentation\nInteractive data exploration"
+  },
+  {
+    "objectID": "slides/week_10/week_10.html#overview-of-plotly",
+    "href": "slides/week_10/week_10.html#overview-of-plotly",
+    "title": "Advanced Data Visualization Techniques",
+    "section": "Overview of plotly",
+    "text": "Overview of plotly\nINCLUDE DESCRIPTION OF THE PACKAGE AND WHAT IT DOES"
+  },
+  {
+    "objectID": "slides/week_10/week_10.html#class-example-plotly",
+    "href": "slides/week_10/week_10.html#class-example-plotly",
+    "title": "Advanced Data Visualization Techniques",
+    "section": "Class Example: plotly",
+    "text": "Class Example: plotly\nINCLUDE SCRIPT OF THE CLASS EXAMPLE"
+  },
+  {
+    "objectID": "slides/week_10/week_10.html#overview-of-ggrepel",
+    "href": "slides/week_10/week_10.html#overview-of-ggrepel",
+    "title": "Advanced Data Visualization Techniques",
+    "section": "Overview of ggrepel",
+    "text": "Overview of ggrepel\nINCLUDE DESCRIPTION OF THE PACKAGE AND WHAT IT DOES"
+  },
+  {
+    "objectID": "slides/week_10/week_10.html#class-example-ggrepel",
+    "href": "slides/week_10/week_10.html#class-example-ggrepel",
+    "title": "Advanced Data Visualization Techniques",
+    "section": "Class Example: ggrepel",
+    "text": "Class Example: ggrepel\nINCLUDE SCRIPT OF THE CLASS EXAMPLE"
+  },
+  {
+    "objectID": "slides/week_10/week_10.html#reminders-of-office-hours-and-capstone",
+    "href": "slides/week_10/week_10.html#reminders-of-office-hours-and-capstone",
+    "title": "Advanced Data Visualization Techniques",
+    "section": "Reminders of office hours and capstone",
+    "text": "Reminders of office hours and capstone"
+  },
+  {
+    "objectID": "slides/week_10/week_10.html#labeled-data-presentation-and-iteractive-exploration-should-be-used-iteratively",
+    "href": "slides/week_10/week_10.html#labeled-data-presentation-and-iteractive-exploration-should-be-used-iteratively",
+    "title": "Advanced Data Visualization Techniques",
+    "section": "Labeled data presentation and iteractive exploration should be used iteratively",
+    "text": "Labeled data presentation and iteractive exploration should be used iteratively\n\nIf you have datapoints of interest, labeling those observations in plots can help provide an initial orientation to your data, but there may be\nWhen you start to interact with a new dataset, interactive data exploration can help reveal outliers more quickly than other forms of data analysis\nOnce you’ve identified all points of interest (pre-known and revealed outliers), labled plots can help direct external audiences to critical insights"
+  },
+  {
+    "objectID": "slides/week_10/week_10.html#labels-can-help-illustrate-districts-of-interest-right-away",
+    "href": "slides/week_10/week_10.html#labels-can-help-illustrate-districts-of-interest-right-away",
+    "title": "Advanced Data Visualization Techniques",
+    "section": "Labels can help illustrate districts of interest right away",
+    "text": "Labels can help illustrate districts of interest right away\n\n# load --------\nlibrary(tidyverse)\nlibrary(edbuildr)\nlibrary(scales)\nlibrary(ggrepel)\n\ndist_raw &lt;- masterpull(data_type = \"geo\", data_year = \"2019\")\n\n# clean ---------\n\n# filter to state of interest\nnj_dist &lt;- dist_raw |&gt; \n  rename_with(tolower) |&gt; \n  filter(state == \"New Jersey\")\n\n\n# create df of known districts of interest\nnj_labels &lt;- nj_dist |&gt; \n  filter(ncesid %in% c(\"3411340\", # newark\n                       \"3410560\", # montclair\n                       \"3410200\", # millburn\n                       \"3401830\", # bloomfield\n                       \"3411880\"  # nutley\n                       ))"
+  },
+  {
+    "objectID": "slides/week_10/week_10.html#ggplot2-comes-with-a-function-for-labeling-but-its-of-limited-use",
+    "href": "slides/week_10/week_10.html#ggplot2-comes-with-a-function-for-labeling-but-its-of-limited-use",
+    "title": "Advanced Data Visualization Techniques",
+    "section": "ggplot2 comes with a function for labeling, but it’s of limited use",
+    "text": "ggplot2 comes with a function for labeling, but it’s of limited use\n\nggplot() +\n  # create points using main data\n  geom_point(data = nj_dist,\n             aes(x = mpv,\n                 y = slrpp, \n                 size = enroll),\n             alpha = .5) +\n  # add text labels using geom_text()\n  geom_label(data = nj_labels,\n             aes(x = mpv, \n                 y = slrpp, \n                 label = name)) +\n  scale_size_area(max_size = 10, \n                  label = label_comma()) +\n  scale_x_continuous(labels = label_dollar()) +\n  scale_y_continuous(labels = label_dollar()) +\n  theme_bw()"
+  },
+  {
+    "objectID": "slides/week_10/week_10.html#ggplot2-comes-with-a-function-for-labeling-but-its-of-limited-use-output",
+    "href": "slides/week_10/week_10.html#ggplot2-comes-with-a-function-for-labeling-but-its-of-limited-use-output",
+    "title": "Advanced Data Visualization Techniques",
+    "section": "ggplot2 comes with a function for labeling, but it’s of limited use",
+    "text": "ggplot2 comes with a function for labeling, but it’s of limited use"
+  },
+  {
+    "objectID": "slides/week_10/week_10.html#labels-can-help-identify-districts-of-interest-in-your-exploratory-data-visualizations",
+    "href": "slides/week_10/week_10.html#labels-can-help-identify-districts-of-interest-in-your-exploratory-data-visualizations",
+    "title": "Advanced Data Visualization Techniques",
+    "section": "Labels can help identify districts of interest in your exploratory data visualizations",
+    "text": "Labels can help identify districts of interest in your exploratory data visualizations\n\n# load --------\nlibrary(tidyverse)\nlibrary(edbuildr)\nlibrary(scales)\nlibrary(ggrepel)\n\ndist_raw &lt;- masterpull(data_type = \"geo\", data_year = \"2019\")\n\n# clean ---------\n\n# filter to state of interest\nnj_dist &lt;- dist_raw |&gt; \n  rename_with(tolower) |&gt; \n  filter(state == \"New Jersey\")\n\n\n# create df of known districts of interest\nnj_labels &lt;- nj_dist |&gt; \n  filter(ncesid %in% c(\"3411340\", # newark\n                       \"3410560\", # montclair\n                       \"3410200\", # millburn\n                       \"3401830\", # bloomfield\n                       \"3411880\"  # nutley\n                       ))"
+  },
+  {
+    "objectID": "slides/week_10/week_10.html#well-use-nj_dist-for-plotting-points-and-nj_labels-for-annotation",
+    "href": "slides/week_10/week_10.html#well-use-nj_dist-for-plotting-points-and-nj_labels-for-annotation",
+    "title": "Advanced Data Visualization Techniques",
+    "section": "We’ll use nj_dist for plotting points and nj_labels for annotation",
+    "text": "We’ll use nj_dist for plotting points and nj_labels for annotation\n\nggplot() +\n  # create points using main data\n  geom_point(data = nj_dist,\n             aes(x = mpv,\n                 y = slrpp, \n                 size = enroll),\n             alpha = .5) +\n  # add text labels using geom_text()\n  geom_label(data = nj_labels,\n             aes(x = mpv, \n                 y = slrpp, \n                 label = name)) +\n  scale_size_area(max_size = 10, \n                  label = label_comma()) +\n  scale_x_continuous(labels = label_dollar()) +\n  scale_y_continuous(labels = label_dollar()) +\n  theme_bw()"
+  },
+  {
+    "objectID": "slides/week_10/week_10.html#well-use-nj_dist-for-plotting-points-and-nj_labels-for-annotation-output",
+    "href": "slides/week_10/week_10.html#well-use-nj_dist-for-plotting-points-and-nj_labels-for-annotation-output",
+    "title": "Advanced Data Visualization Techniques",
+    "section": "We’ll use nj_dist for plotting points and nj_labels for annotation",
+    "text": "We’ll use nj_dist for plotting points and nj_labels for annotation"
+  },
+  {
+    "objectID": "slides/week_10/week_10.html#the-ggrepel-package-allows-you-to-add-more-helpful-custom-labels",
+    "href": "slides/week_10/week_10.html#the-ggrepel-package-allows-you-to-add-more-helpful-custom-labels",
+    "title": "Advanced Data Visualization Techniques",
+    "section": "The ggrepel package allows you to add more helpful, custom labels",
+    "text": "The ggrepel package allows you to add more helpful, custom labels\n\n\n\nggplot() +\n  # create points using main data\n  geom_point(data = nj_dist,\n             aes(x = mpv,\n                 y = slrpp, \n                 size = enroll),\n             alpha = .5) +\n  # add text labels using geom_label_repel()\n  geom_label_repel(data = nj_labels,\n                   aes(x = mpv, \n                   y = slrpp, \n                   label = name)) +\n  scale_size_area(max_size = 10, \n                  label = label_comma()) +\n  scale_x_continuous(labels = label_dollar()) +\n  scale_y_continuous(labels = label_dollar()) +\n  theme_bw()\n\n\n\nggplot() +\n  # create points using main data\n  geom_point(data = nj_dist,\n             aes(x = mpv,\n                 y = slrpp, \n                 size = enroll),\n             alpha = .5) +\n  # add text labels using geom_label_repel()\n  geom_label_repel(data = nj_labels,\n                   aes(x = mpv, \n                   y = slrpp, \n                   label = name)) +\n  scale_size_area(max_size = 10, \n                  label = label_comma()) +\n  scale_x_continuous(labels = label_dollar()) +\n  scale_y_continuous(labels = label_dollar()) +\n  theme_bw()"
+  },
+  {
+    "objectID": "slides/week_10/week_10.html#the-ggrepel-package-allows-you-to-add-more-helpful-custom-labels-output",
+    "href": "slides/week_10/week_10.html#the-ggrepel-package-allows-you-to-add-more-helpful-custom-labels-output",
+    "title": "Advanced Data Visualization Techniques",
+    "section": "The ggrepel package allows you to add more helpful, custom labels",
+    "text": "The ggrepel package allows you to add more helpful, custom labels"
+  },
+  {
+    "objectID": "slides/week_10/week_10.html#the-ggrepel-package-allows-you-to-add-more-helpful-custom-labels-without-much-change-in-your-code",
+    "href": "slides/week_10/week_10.html#the-ggrepel-package-allows-you-to-add-more-helpful-custom-labels-without-much-change-in-your-code",
+    "title": "Advanced Data Visualization Techniques",
+    "section": "The ggrepel package allows you to add more helpful, custom labels without much change in your code",
+    "text": "The ggrepel package allows you to add more helpful, custom labels without much change in your code\n\n\n\nggplot() +\n  # create points using main data\n  geom_point(data = nj_dist,\n             aes(x = mpv,\n                 y = slrpp, \n                 size = enroll),\n             alpha = .5) +\n  # add text labels using geom_label_repel()\n  geom_label_repel(data = nj_labels,\n                   aes(x = mpv, \n                   y = slrpp, \n                   label = name)) +\n  scale_size_area(max_size = 10, \n                  label = label_comma()) +\n  scale_x_continuous(labels = label_dollar()) +\n  scale_y_continuous(labels = label_dollar()) +\n  theme_bw()\n\n\n\nggplot() +\n  # create points using main data\n  geom_point(data = nj_dist,\n             aes(x = mpv,\n                 y = slrpp, \n                 size = enroll),\n             alpha = .5) +\n  # add text labels using geom_label_repel()\n  geom_label_repel(data = nj_labels,\n                   aes(x = mpv, \n                   y = slrpp, \n                   label = name)) +\n  scale_size_area(max_size = 10, \n                  label = label_comma()) +\n  scale_x_continuous(labels = label_dollar()) +\n  scale_y_continuous(labels = label_dollar()) +\n  theme_bw()"
+  },
+  {
+    "objectID": "slides/week_10/week_10.html#the-ggrepel-package-allows-you-to-add-more-helpful-custom-labels-without-much-change-to-your-code",
+    "href": "slides/week_10/week_10.html#the-ggrepel-package-allows-you-to-add-more-helpful-custom-labels-without-much-change-to-your-code",
+    "title": "Advanced Data Visualization Techniques",
+    "section": "The ggrepel package allows you to add more helpful, custom labels without much change to your code",
+    "text": "The ggrepel package allows you to add more helpful, custom labels without much change to your code\n\n\n\nggplot() +\n  # create points using main data\n  geom_point(data = nj_dist,\n             aes(x = mpv,\n                 y = slrpp, \n                 size = enroll),\n             alpha = .5) +\n  # add text labels using geom_label_repel()\n  geom_label_repel(data = nj_labels,\n                   aes(x = mpv, \n                   y = slrpp, \n                   label = name)) +\n  scale_size_area(max_size = 10, \n                  label = label_comma()) +\n  scale_x_continuous(labels = label_dollar()) +\n  scale_y_continuous(labels = label_dollar()) +\n  theme_bw()\n\n\n\nggplot() +\n  # create points using main data\n  geom_point(data = nj_dist,\n             aes(x = mpv,\n                 y = slrpp, \n                 size = enroll),\n             alpha = .5) +\n  # add text labels using geom_label_repel()\n  geom_label_repel(data = nj_labels,\n                   aes(x = mpv, \n                   y = slrpp, \n                   label = name)) +\n  scale_size_area(max_size = 10, \n                  label = label_comma()) +\n  scale_x_continuous(labels = label_dollar()) +\n  scale_y_continuous(labels = label_dollar()) +\n  theme_bw()"
+  },
+  {
+    "objectID": "slides/week_10/week_10.html#the-ggrepel-package-allows-you-to-add-more-helpful-custom-labels-without-much-change-to-your-code-output",
+    "href": "slides/week_10/week_10.html#the-ggrepel-package-allows-you-to-add-more-helpful-custom-labels-without-much-change-to-your-code-output",
+    "title": "Advanced Data Visualization Techniques",
+    "section": "The ggrepel package allows you to add more helpful, custom labels without much change to your code",
+    "text": "The ggrepel package allows you to add more helpful, custom labels without much change to your code"
+  },
+  {
+    "objectID": "slides/week_10/week_10.html#adjusting-a-few-options-can-make-ggrepel-plots-easier-to-interpret",
+    "href": "slides/week_10/week_10.html#adjusting-a-few-options-can-make-ggrepel-plots-easier-to-interpret",
+    "title": "Advanced Data Visualization Techniques",
+    "section": "Adjusting a few options can make ggrepel plots easier to interpret",
+    "text": "Adjusting a few options can make ggrepel plots easier to interpret\n\nggplot() +\n  # create points using main data\n  geom_point(data = nj_dist,\n             aes(x = mpv,\n                 y = slrpp, \n                 size = enroll),\n             alpha = .5) +\n  # add text labels using geom_label()\n  geom_label_repel(data = nj_labels,\n                   aes(x = mpv, \n                       y = slrpp, \n                       label = name),\n                   min.segment.length = 0,\n                   box.padding = 1,\n                   segment.color = \"red\") +\n  # add another layer of points of interest\n  geom_point(data = nj_labels,\n             aes(x = mpv,\n                 y = slrpp, \n                 size = enroll),\n             color = \"red\",\n             alpha = .5) +\n  scale_size_area(max_size = 10, \n                  label = label_comma()) +\n  scale_x_continuous(labels = label_dollar()) +\n  scale_y_continuous(labels = label_dollar()) +\n  theme_bw()"
+  },
+  {
+    "objectID": "slides/week_10/week_10.html#adjusting-a-few-options-can-make-ggrepel-plots-easier-to-interpret-output",
+    "href": "slides/week_10/week_10.html#adjusting-a-few-options-can-make-ggrepel-plots-easier-to-interpret-output",
+    "title": "Advanced Data Visualization Techniques",
+    "section": "Adjusting a few options can make ggrepel plots easier to interpret",
+    "text": "Adjusting a few options can make ggrepel plots easier to interpret"
+  },
+  {
+    "objectID": "slides/week_10/week_10.html#the-plotly-package-allows-you-to-convert-a-static-plot-to-an-interactive-plot",
+    "href": "slides/week_10/week_10.html#the-plotly-package-allows-you-to-convert-a-static-plot-to-an-interactive-plot",
+    "title": "Advanced Data Visualization Techniques",
+    "section": "The plotly package allows you to convert a static plot to an interactive plot",
+    "text": "The plotly package allows you to convert a static plot to an interactive plot\n\nlibrary(plotly)\n\nstatic_plot &lt;-  ggplot() +\n  # create points using main data\n  geom_point(data = nj_dist,\n             aes(x = mpv,\n                 y = slrpp, \n                 size = enroll,\n                 text = name),\n             alpha = .5) +\n  scale_size_area(max_size = 10, \n                  label = label_comma()) +\n  scale_x_continuous(labels = label_dollar()) +\n  scale_y_continuous(labels = label_dollar()) +\n  theme_bw()\n\nggplotly(static_plot, label = \"text\")"
+  },
+  {
+    "objectID": "slides/week_10/week_10.html#the-plotly-package-allows-you-to-convert-a-static-plot-to-an-interactive-plot-output",
+    "href": "slides/week_10/week_10.html#the-plotly-package-allows-you-to-convert-a-static-plot-to-an-interactive-plot-output",
+    "title": "Advanced Data Visualization Techniques",
+    "section": "The plotly package allows you to convert a static plot to an interactive plot",
+    "text": "The plotly package allows you to convert a static plot to an interactive plot"
+  },
+  {
+    "objectID": "slides/week_10/week_10.html#example-plotly-visualization",
+    "href": "slides/week_10/week_10.html#example-plotly-visualization",
+    "title": "Advanced Data Visualization Techniques",
+    "section": "Example plotly visualization",
+    "text": "Example plotly visualization"
+  },
+  {
+    "objectID": "weeks/week_10.html",
+    "href": "weeks/week_10.html",
+    "title": "Week 10",
+    "section": "",
+    "text": "Topic\n\n\nDate\n\n\n\n\n\n\nAdvanced Data Visualization Techniques\n\n\nAug 13, 2024\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "weeks/week_10.html#slides",
+    "href": "weeks/week_10.html#slides",
+    "title": "Week 10",
+    "section": "",
+    "text": "Topic\n\n\nDate\n\n\n\n\n\n\nAdvanced Data Visualization Techniques\n\n\nAug 13, 2024\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "weeks/week_10.html#class-examples",
+    "href": "weeks/week_10.html#class-examples",
+    "title": "Week 10",
+    "section": "Class Examples",
+    "text": "Class Examples\n\nTKTK"
+  },
+  {
+    "objectID": "weeks/week_10.html#lecture-recording",
+    "href": "weeks/week_10.html#lecture-recording",
+    "title": "Week 10",
+    "section": "Lecture recording",
+    "text": "Lecture recording\nTKTK"
+  },
+  {
+    "objectID": "weeks/week_10.html#coding-assignment",
+    "href": "weeks/week_10.html#coding-assignment",
+    "title": "Week 10",
+    "section": "Coding Assignment",
+    "text": "Coding Assignment\nNone. Work on your capstone projects."
   }
 ]
