@@ -125,3 +125,8 @@ ggplot() +
        title = "")
   theme_bw()
 
+  # save plot ------
+  
+  ggsave("state_plot.png", units = "in",
+         width = 10, height = 5.5,
+         plot.background = element_rect(fill = 'transparent', color = NA))
