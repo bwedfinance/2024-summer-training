@@ -106,7 +106,7 @@ ggplot() +
   theme_bw()
 ```
 
-## The `ggrepel` package allows you to add more helpful, custom labels without much change in your code
+## The `ggrepel` package allows you to add more helpful, custom labels without much change to your code
 
 ::: columns
 ::: {.column width="50%"}
@@ -122,7 +122,7 @@ ggplot() +
                  size = enroll),
              alpha = .5) +
   # add text labels using geom_label_repel()
-  geom_label_repel(data = nj_labels,
+  geom_label(data = nj_labels,
                    aes(x = mpv, 
                    y = slrpp, 
                    label = name)) +
@@ -178,7 +178,7 @@ ggplot() +
                  size = enroll),
              alpha = .5) +
   # add text labels using geom_label_repel()
-  geom_label_repel(data = nj_labels,
+  geom_label(data = nj_labels,
                    aes(x = mpv, 
                    y = slrpp, 
                    label = name)) +
