@@ -300,3 +300,6 @@ Once you've done that, you'll then:
 3. Create a final publication-quality visualization that labels both districts of interest and outliers
 
 ## Reminders of office hours and capstone
+
+- **Sign up for office hours!** Alex and Krista need to meet with you at least one time. 
+- **Final capstone projects will be on Tuesday, August 27 from 1-3 PM ET.** If you want to go at a specific time or slot (e.g. first or last), please let Krista know! 

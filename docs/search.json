@@ -2997,7 +2997,7 @@
     "href": "slides/week_10/week_10.html#reminders-of-office-hours-and-capstone",
     "title": "Advanced Data Visualization Techniques",
     "section": "Reminders of office hours and capstone",
-    "text": "Reminders of office hours and capstone"
+    "text": "Reminders of office hours and capstone\n\nSign up for office hours! Alex and Krista need to meet with you at least one time.\nFinal capstone projects will be on Tuesday, August 27 from 1-3 PM ET. If you want to go at a specific time or slot (e.g. first or last), please let Krista know!"
   },
   {
     "objectID": "slides/week_10/week_10.html#labeled-data-presentation-and-iteractive-exploration-should-be-used-iteratively",
@@ -3074,7 +3074,7 @@
     "href": "slides/week_10/week_10.html#the-ggrepel-package-allows-you-to-add-more-helpful-custom-labels-without-much-change-to-your-code",
     "title": "Advanced Data Visualization Techniques",
     "section": "The ggrepel package allows you to add more helpful, custom labels without much change to your code",
-    "text": "The ggrepel package allows you to add more helpful, custom labels without much change to your code\n\n\n\nggplot() +\n  # create points using main data\n  geom_point(data = nj_dist,\n             aes(x = mpv,\n                 y = slrpp, \n                 size = enroll),\n             alpha = .5) +\n  # add text labels using geom_label_repel()\n  geom_label_repel(data = nj_labels,\n                   aes(x = mpv, \n                   y = slrpp, \n                   label = name)) +\n  scale_size_area(max_size = 10, \n                  label = label_comma()) +\n  scale_x_continuous(labels = label_dollar()) +\n  scale_y_continuous(labels = label_dollar()) +\n  theme_bw()\n\n\n\nggplot() +\n  # create points using main data\n  geom_point(data = nj_dist,\n             aes(x = mpv,\n                 y = slrpp, \n                 size = enroll),\n             alpha = .5) +\n  # add text labels using geom_label_repel()\n  geom_label_repel(data = nj_labels,\n                   aes(x = mpv, \n                   y = slrpp, \n                   label = name)) +\n  scale_size_area(max_size = 10, \n                  label = label_comma()) +\n  scale_x_continuous(labels = label_dollar()) +\n  scale_y_continuous(labels = label_dollar()) +\n  theme_bw()"
+    "text": "The ggrepel package allows you to add more helpful, custom labels without much change to your code\n\n\n\nggplot() +\n  # create points using main data\n  geom_point(data = nj_dist,\n             aes(x = mpv,\n                 y = slrpp, \n                 size = enroll),\n             alpha = .5) +\n  # add text labels using geom_label_repel()\n  geom_label(data = nj_labels,\n                   aes(x = mpv, \n                   y = slrpp, \n                   label = name)) +\n  scale_size_area(max_size = 10, \n                  label = label_comma()) +\n  scale_x_continuous(labels = label_dollar()) +\n  scale_y_continuous(labels = label_dollar()) +\n  theme_bw()\n\n\n\nggplot() +\n  # create points using main data\n  geom_point(data = nj_dist,\n             aes(x = mpv,\n                 y = slrpp, \n                 size = enroll),\n             alpha = .5) +\n  # add text labels using geom_label_repel()\n  geom_label_repel(data = nj_labels,\n                   aes(x = mpv, \n                   y = slrpp, \n                   label = name)) +\n  scale_size_area(max_size = 10, \n                  label = label_comma()) +\n  scale_x_continuous(labels = label_dollar()) +\n  scale_y_continuous(labels = label_dollar()) +\n  theme_bw()"
   },
   {
     "objectID": "slides/week_10/week_10.html#the-ggrepel-package-allows-you-to-add-more-helpful-custom-labels-without-much-change-to-your-code-output",
@@ -3159,5 +3159,19 @@
     "title": "Advanced Data Visualization Techniques",
     "section": "In-class exercise",
     "text": "In-class exercise\n\nOpen 03_publication_data_viz.R in the week_10_activity folder\nUpdate the data cleaning section to apply to your state\nIdentify a few districts of interest and insert their NCESID values where appropriate\n\nOnce you’ve done that, you’ll then: 1. Create an initial labeled data visualization that highlights disricts of interest 2. Use ggplotly to explore data and identify outliers 3. Create a final publication-quality visualization that labels both districts of interest and outliers"
+  },
+  {
+    "objectID": "slides/week_10/week_10.html#the-ggrepel-package-allows-you-to-add-more-helpful-custom-labels-without-much-change-to-your-code-1",
+    "href": "slides/week_10/week_10.html#the-ggrepel-package-allows-you-to-add-more-helpful-custom-labels-without-much-change-to-your-code-1",
+    "title": "Advanced Data Visualization Techniques",
+    "section": "The ggrepel package allows you to add more helpful, custom labels without much change to your code",
+    "text": "The ggrepel package allows you to add more helpful, custom labels without much change to your code\n\n\n\nggplot() +\n  # create points using main data\n  geom_point(data = nj_dist,\n             aes(x = mpv,\n                 y = slrpp, \n                 size = enroll),\n             alpha = .5) +\n  # add text labels using geom_label_repel()\n  geom_label(data = nj_labels,\n                   aes(x = mpv, \n                   y = slrpp, \n                   label = name)) +\n  scale_size_area(max_size = 10, \n                  label = label_comma()) +\n  scale_x_continuous(labels = label_dollar()) +\n  scale_y_continuous(labels = label_dollar()) +\n  theme_bw()\n\n\n\nggplot() +\n  # create points using main data\n  geom_point(data = nj_dist,\n             aes(x = mpv,\n                 y = slrpp, \n                 size = enroll),\n             alpha = .5) +\n  # add text labels using geom_label_repel()\n  geom_label_repel(data = nj_labels,\n                   aes(x = mpv, \n                   y = slrpp, \n                   label = name)) +\n  scale_size_area(max_size = 10, \n                  label = label_comma()) +\n  scale_x_continuous(labels = label_dollar()) +\n  scale_y_continuous(labels = label_dollar()) +\n  theme_bw()"
+  },
+  {
+    "objectID": "slides/week_10/week_10.html#the-ggrepel-package-allows-you-to-add-more-helpful-custom-labels-without-much-change-to-your-code-1-output",
+    "href": "slides/week_10/week_10.html#the-ggrepel-package-allows-you-to-add-more-helpful-custom-labels-without-much-change-to-your-code-1-output",
+    "title": "Advanced Data Visualization Techniques",
+    "section": "The ggrepel package allows you to add more helpful, custom labels without much change to your code",
+    "text": "The ggrepel package allows you to add more helpful, custom labels without much change to your code"
   }
 ]
